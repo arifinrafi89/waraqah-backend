@@ -9,7 +9,7 @@
   "response": {
     "flashSale": {
       "title": "Flash sale",
-      "endsAt": "2026-10-04T04:17:31.904782",
+      "endsAt": "2026-10-04T06:03:14.794629",
       "items": [
         {
           "bookId": "bk-sherlock",
@@ -111,7 +111,7 @@
           "priceBdt": 1400,
           "coverSeed": 1
         },
-        "releaseDate": "2026-11-12T00:00:00.000"
+        "releaseDate": "2026-11-13T00:00:00.000"
       }
     ]
   }

@@ -1,0 +1,69 @@
+# Render Blueprint for the API (BACKEND_PLAN.md §19). New → Blueprint → pick this repo, then fill
+# in the values marked sync: false (they are secrets or depend on your accounts). Render deploys
+# main once CI has passed, runs the migrations on start and serves https://<service>.onrender.com.
+services:
+  - type: web
+    name: waraqah-api
+    runtime: go
+    plan: free
+    region: singapore
+    branch: main
+    autoDeployTrigger: checksPass
+    buildCommand: >-
+      go build -trimpath -ldflags "-s -w
+      -X github.com/arifinrafi89/waraqah-backend/internal/platform/buildinfo.Commit=$RENDER_GIT_COMMIT
+      -X github.com/arifinrafi89/waraqah-backend/internal/platform/buildinfo.BuiltAt=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+      -o bin/api ./cmd/api && go build -trimpath -o bin/seed ./cmd/seed && go build -trimpath -o bin/admin ./cmd/admin
+    startCommand: ./bin/api
+    healthCheckPath: /readyz
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: GO_VERSION
+        value: "1.26.0"
+      - key: RUN_MIGRATIONS_ON_START
+        value: "true"
+      - key: LOG_FORMAT
+        value: json
+      - key: LOG_LEVEL
+        value: info
+      - key: APP_TIMEZONE
+        value: Asia/Dhaka
+      - key: PUBLIC_BASE_URL
+        sync: false # https://<service>.onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false # the Flutter web origin(s), comma separated
+      - key: DATABASE_URL
+        sync: false # Neon pooled connection string
+      - key: DATABASE_URL_DIRECT
+        sync: false # Neon direct connection string (migrations)
+      - key: DB_MAX_CONNS
+        value: "5"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GOOGLE_OAUTH_CLIENT_IDS
+        sync: false
+      - key: EMAIL_PROVIDER
+        value: resend
+      - key: EMAIL_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: CLOUDINARY_FOLDER
+        value: waraqah
+      - key: CLOUDINARY_FAKE
+        value: "false"
+      - key: GEMINI_API_KEY
+        sync: false # optional: without it the assistant uses its rule-based replies
+      - key: GEMINI_MODEL
+        sync: false
+      - key: DEMO_MODE
+        value: "true"
+      - key: SEED_DEMO_PASSWORD
+        sync: false # the password of the demo accounts, used once by ./bin/seed

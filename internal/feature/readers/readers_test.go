@@ -23,6 +23,13 @@ func TestReaderPages(t *testing.T) {
 	if me["isMe"] != true || me["followers"] != 2.0 || me["following"] != 3.0 {
 		t.Errorf("own page: %v", me)
 	}
+	// The Profile header asks for its own page as "me", as on the fake API.
+	if me := e.Call("reader", "GET", "/readers/detail?id=me", nil).Obj(t); me["id"] != "u_reader" || me["isMe"] != true || me["biteCount"] != 2.0 {
+		t.Errorf("me: %v", me)
+	}
+	if got := e.Call("", "GET", "/readers/detail?id=me", nil); got.Body != nil {
+		t.Error("a guest has no own page")
+	}
 	if got := e.Call("", "GET", "/readers/detail?id=nobody", nil); got.Body != nil {
 		t.Error("unknown reader is null")
 	}

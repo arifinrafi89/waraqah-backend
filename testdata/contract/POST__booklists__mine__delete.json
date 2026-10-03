@@ -4,11 +4,11 @@
     "path": "/booklists/mine/delete",
     "query": {},
     "body": {
-      "id": "bl-mine-1791044252277215"
+      "id": "bl-mine-1791050595003410"
     },
     "as": "reader"
   },
   "response": {
-    "id": "bl-mine-1791044252277215"
+    "id": "bl-mine-1791050595003410"
   }
 }

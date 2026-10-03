@@ -102,6 +102,13 @@ func TestSaveDraftSendAndEditRules(t *testing.T) {
 	if !fake.Has(e.Deps.Cfg.CloudinaryFolder + "/listing/" + id + "/front") {
 		t.Error("the photo reaches the uploader")
 	}
+	// contract v1.1: every uploaded slot has its URL; a seeded listing has none
+	if urls := sent["photoUrls"].(map[string]any); len(urls) != 2 || urls["front"] == "" {
+		t.Errorf("photoUrls: %v", sent["photoUrls"])
+	}
+	if urls := e.Call("", "GET", "/p2p/listing?id=p2p-1", nil).Obj(t)["photoUrls"].(map[string]any); len(urls) != 0 {
+		t.Errorf("seeded photoUrls: %v", urls)
+	}
 	var queue []string
 	for _, q := range e.Call("moderator", "GET", "/moderation/listings", nil).List(t) {
 		queue = append(queue, q["id"].(string))

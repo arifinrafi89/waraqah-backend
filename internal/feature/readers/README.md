@@ -7,3 +7,4 @@ A reader's public page and who follows whom.
 - **Tables:** `follows` (migration `0011`); names, areas and member-since come from `users`, privacy from `profile_prefs`.
 - **Privacy:** with `profileVisible` off, or for a reader blocked either way, the page shows only the name and the follow state; with `activityVisible` off the Bites are not counted. The reader always sees their own page.
 - **Follow:** not yourself, not someone unknown (`reader_unknown`) or blocked (`follow_refused`); the followed reader is told the first time. `Following` feeds the Bites "following" tab.
+- **"me":** `/readers/detail?id=me` and `follow` with `me` mean the signed-in reader, as on the fake API (the Profile header asks for its own page that way).

@@ -44,28 +44,31 @@ type Bans interface {
 
 // Listing is P2pListingModel, as every listing endpoint sends it.
 type Listing struct {
-	ID              string   `json:"id"`
-	Title           string   `json:"title"`
-	SellerID        string   `json:"sellerId"`
-	SellerName      string   `json:"sellerName"`
-	PriceBdt        int      `json:"priceBdt"`
-	Condition       string   `json:"condition"`
-	Flags           []string `json:"flags"`
-	Photos          []string `json:"photos"`
-	IsNegotiable    bool     `json:"isNegotiable"`
-	Handover        string   `json:"handover"`
-	Status          string   `json:"status"`
-	IsMine          bool     `json:"isMine"`
-	IsMyDeal        bool     `json:"isMyDeal"`
-	RejectionReason *string  `json:"rejectionReason"`
-	BookID          *string  `json:"bookId"`
-	CoverSeed       int      `json:"coverSeed"`
-	District        *string  `json:"district"`
-	Area            *string  `json:"area"`
-	CategoryID      *string  `json:"categoryId"`
-	Section         *string  `json:"section"`
-	NewPriceBdt     *int     `json:"newPriceBdt"`
-	Note            *string  `json:"note"`
+	ID         string   `json:"id"`
+	Title      string   `json:"title"`
+	SellerID   string   `json:"sellerId"`
+	SellerName string   `json:"sellerName"`
+	PriceBdt   int      `json:"priceBdt"`
+	Condition  string   `json:"condition"`
+	Flags      []string `json:"flags"`
+	Photos     []string `json:"photos"`
+	// PhotoURLs is contract v1.1 (F7): the Cloudinary thumbnail of each slot in photos. Slots
+	// without an uploaded image (seeded listings) are left out.
+	PhotoURLs       map[string]string `json:"photoUrls"`
+	IsNegotiable    bool              `json:"isNegotiable"`
+	Handover        string            `json:"handover"`
+	Status          string            `json:"status"`
+	IsMine          bool              `json:"isMine"`
+	IsMyDeal        bool              `json:"isMyDeal"`
+	RejectionReason *string           `json:"rejectionReason"`
+	BookID          *string           `json:"bookId"`
+	CoverSeed       int               `json:"coverSeed"`
+	District        *string           `json:"district"`
+	Area            *string           `json:"area"`
+	CategoryID      *string           `json:"categoryId"`
+	Section         *string           `json:"section"`
+	NewPriceBdt     *int              `json:"newPriceBdt"`
+	Note            *string           `json:"note"`
 
 	// BuyerID is who it is reserved for or was sold to; never sent.
 	BuyerID string `json:"-"`
@@ -119,9 +122,15 @@ func (s *Service) build(ctx context.Context, q *sqlc.Queries, viewer string, row
 	if err != nil {
 		return nil, err
 	}
-	photos := map[string][]string{}
+	photos, urls := map[string][]string{}, map[string]map[string]string{}
 	for _, p := range photoRows {
 		photos[p.ListingID] = append(photos[p.ListingID], p.Slot)
+		if p.Url != "" {
+			if urls[p.ListingID] == nil {
+				urls[p.ListingID] = map[string]string{}
+			}
+			urls[p.ListingID][p.Slot] = cloudinary.Thumb(p.Url)
+		}
 	}
 	snap, err := s.Catalog.Snapshot(ctx)
 	if err != nil {
@@ -130,7 +139,7 @@ func (s *Service) build(ctx context.Context, q *sqlc.Queries, viewer string, row
 	for _, r := range rows {
 		l := r.l
 		item := Listing{ID: l.ID, Title: l.Title, SellerID: l.SellerID, SellerName: r.sellerName, PriceBdt: int(l.PriceBdt), Condition: l.Condition,
-			Flags: orEmpty(l.Flags), Photos: orEmpty(photos[l.ID]), IsNegotiable: l.IsNegotiable, Handover: l.Handover, Status: l.Status,
+			Flags: orEmpty(l.Flags), Photos: orEmpty(photos[l.ID]), PhotoURLs: orEmptyMap(urls[l.ID]), IsNegotiable: l.IsNegotiable, Handover: l.Handover, Status: l.Status,
 			IsMine: viewer != "" && l.SellerID == viewer, IsMyDeal: viewer != "" && l.BuyerID.String == viewer,
 			RejectionReason: text(l.RejectionReason), BookID: text(l.BookID), CoverSeed: int(l.CoverSeed), District: text(l.District),
 			Area: text(l.Area), CategoryID: text(l.CategoryID), Note: text(l.Note), BuyerID: l.BuyerID.String}
@@ -219,4 +228,11 @@ func (s *Service) oneIn(ctx context.Context, q *sqlc.Queries, viewer, id string)
 		return nil, err
 	}
 	return &l[0], nil
+}
+
+func orEmptyMap(m map[string]string) map[string]string {
+	if m == nil {
+		return map[string]string{}
+	}
+	return m
 }

@@ -10,7 +10,7 @@
     {
       "id": "nt-seed-1",
       "kind": "orderStatus",
-      "createdAt": "2026-10-03T19:17:31.925920",
+      "createdAt": "2026-10-03T21:03:14.807505",
       "read": true,
       "params": {
         "number": "WQ-100215",
@@ -24,7 +24,7 @@
     {
       "id": "nt-seed-2",
       "kind": "alertTriggered",
-      "createdAt": "2026-10-03T13:17:31.925920",
+      "createdAt": "2026-10-03T15:03:14.807505",
       "read": true,
       "params": {
         "title": "Sapiens",
@@ -38,7 +38,7 @@
     {
       "id": "nt-seed-3",
       "kind": "listingDecided",
-      "createdAt": "2026-10-01T22:17:31.925920",
+      "createdAt": "2026-10-02T00:03:14.807505",
       "read": true,
       "params": {
         "title": "Atomic Habits",
@@ -52,7 +52,7 @@
     {
       "id": "nt-seed-4",
       "kind": "sellBackPaid",
-      "createdAt": "2026-09-20T22:17:31.925920",
+      "createdAt": "2026-09-21T00:03:14.807505",
       "read": true,
       "params": {
         "title": "Zero to One",
@@ -66,7 +66,7 @@
     {
       "id": "nt-seed-5",
       "kind": "newFollower",
-      "createdAt": "2026-10-03T02:17:31.925920",
+      "createdAt": "2026-10-03T04:03:14.807505",
       "read": true,
       "params": {
         "name": "Arif"
@@ -79,7 +79,7 @@
     {
       "id": "nt-seed-6",
       "kind": "biteComment",
-      "createdAt": "2026-10-03T00:17:31.925920",
+      "createdAt": "2026-10-03T02:03:14.807505",
       "read": true,
       "params": {
         "name": "Nabila",
@@ -93,7 +93,7 @@
     {
       "id": "nt-seed-7",
       "kind": "commentReply",
-      "createdAt": "2026-10-02T20:17:31.925920",
+      "createdAt": "2026-10-02T22:03:14.807505",
       "read": true,
       "params": {
         "name": "Tanvir"

@@ -32,7 +32,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 | T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ✅ done |
 | T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ✅ done |
 | T18 | AI assistant and admin dashboard | B6.1, B6.2, F4 | Arifin | ✅ done |
-| T19 | Hardening, deployment and launch | Phase 7, F6, F7 | everyone | ⬜ todo |
+| T19 | Hardening, deployment and launch | Phase 7, F6, F7 | everyone | 🟡 in progress |
 
 Status values: ⬜ todo · 🟡 in progress · 🔵 in review (PR open) · ✅ done.
 
@@ -551,7 +551,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T18 — AI assistant and admin dashboard
 
-**Status:** ✅ done · **Owner:** Arifin · **Plan:** B6.1, B6.2, §10, §13, F4 · **Branch:** `feature/assistant-dashboard` (+ frontend PR F4) · **Depends on:** T09, T12, T14, T15, T16
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/21 · **Owner:** Arifin · **Plan:** B6.1, B6.2, §10, §13, F4 · **Branch:** `feature/assistant-dashboard` (+ frontend PR F4) · **Depends on:** T09, T12, T14, T15, T16
 
 **Endpoints (3):** `GET /assistant/greeting` (public), `POST /assistant/ask` (me), `GET /admin/dashboard` (staff)
 
@@ -575,7 +575,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T19 — Hardening, deployment and launch
 
-**Status:** ⬜ todo · **Owner:** everyone · **Plan:** Phase 7, §5.4, §16, §17, §19, F6, F7 · **Branch:** `feature/launch` (+ frontend PRs F6, F7) · **Depends on:** T01–T18
+**Status:** 🟡 in progress · **Owner:** everyone · **Plan:** Phase 7, §5.4, §16, §17, §19, F6, F7 · **Branch:** `feature/launch` (+ frontend PRs F6, F7) · **Depends on:** T01–T18
 
 **Steps**
 1. **Full contract run:** `internal/contract/pending.txt` is empty, all 174 goldens pass, and the route coverage test passes. Re-run `make frontend-sync && make contract-export` first to catch any frontend drift, and record any differences in `docs/contract-changes.md`.
@@ -590,9 +590,9 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 10. **Docs:** README "Status" and "Getting started" updated; both repos' AGENTS.md describe the live setup; `BACKEND_PLAN.md` status line updated; every task here ✅.
 
 **Done when**
-- [ ] 174/174 contract tests pass and `pending.txt` is empty
-- [ ] Guest walk and staff role walk are clean
+- [x] 174/174 contract tests pass and `pending.txt` is empty
+- [x] Guest walk and staff role walk are clean
 - [ ] The production URL passes `make smoke`, and the app works end to end against it
-- [ ] Free-tier budgets checked (Render hours, Neon size and CU-hours, Cloudinary credits, email and Gemini caps)
+- [x] Free-tier budgets checked (Render hours, Neon size and CU-hours, Cloudinary credits, email and Gemini caps)
 
-**Notes:** —
+**Notes:** Backend side of launch done (PR for `feature/launch`): the contract re-exported against frontend PR #145 with no shape change and all 185 goldens passing; the guest walk and staff role walk are tests now (`internal/contract/access_test.go`, every Appendix A row by its auth level); every foreign key indexed (migration 0013); contract v1.1 `photoUrls` on listings and the moderation queue (`docs/contract-changes.md`); `make smoke` signs in and calls one endpoint per feature (passes against a local server); `render.yaml` and `docs/deploy.md` for Render, Neon, Cloudinary and Resend, with the production config checked to start; `make dev` now really migrates (it set the wrong variable). An app walk of the Flutter web build against a local backend (sign-in, Home, Catalog, Marketplace, Bites with a post, Profile, Orders, Cart) answered every request with 200, and found that the Profile asks for `/readers/detail?id=me`, now answered as the signed-in reader. Still open: deploying (needs the team's Render, Neon, Cloudinary, Resend and Google accounts), and the frontend PRs F4 (remove the app's Gemini call), F6 (SSE reconnect) and the frontend half of F7.
