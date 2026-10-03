@@ -34,7 +34,7 @@ jobs:
       - name: go vet
         run: go vet ./...
       - name: file length
-        run: ./scripts/check-file-length.sh
+        run: bash scripts/check-file-length.sh
       - uses: golangci/golangci-lint-action@v8
         with:
           version: latest
