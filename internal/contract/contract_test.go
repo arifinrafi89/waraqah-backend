@@ -63,6 +63,7 @@ func newRig(t *testing.T) *rig {
 	cfg.AuthRatePerMin = 100000
 	cfg.DemoBotDelay = 0       // the demo readers answer at once, as the fake API does
 	cfg.CourierPickupDelay = 0 // the courier collects a Sell Back at once, so the grade golden finds it waiting
+	cfg.GeminiAPIKey = ""      // rule-based assistant replies only: no network in tests
 	log := slog.New(slog.NewTextHandler(io.Discard, nil))
 	loc, err := clock.Location(cfg.AppTimezone)
 	if err != nil {

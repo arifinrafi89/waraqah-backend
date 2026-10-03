@@ -566,6 +566,12 @@ type SalesByMonth struct {
 	Copies    int32
 }
 
+type SearchLog struct {
+	Term  string
+	Day   time.Time
+	Count int32
+}
+
 type SellBack struct {
 	ID              string
 	UserID          string

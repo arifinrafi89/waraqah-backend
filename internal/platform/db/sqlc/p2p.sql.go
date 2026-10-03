@@ -12,6 +12,17 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+const countListingsInReview = `-- name: CountListingsInReview :one
+SELECT count(*)::integer FROM listings l JOIN users u ON u.id = l.seller_id WHERE l.status = 'inReview' AND u.deleted_at IS NULL
+`
+
+func (q *Queries) CountListingsInReview(ctx context.Context) (int32, error) {
+	row := q.db.QueryRow(ctx, countListingsInReview)
+	var column_1 int32
+	err := row.Scan(&column_1)
+	return column_1, err
+}
+
 const countLiveListingsOf = `-- name: CountLiveListingsOf :one
 SELECT count(*)::integer FROM listings WHERE seller_id = $1 AND status = 'live'
 `

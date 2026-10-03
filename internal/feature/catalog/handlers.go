@@ -2,6 +2,7 @@ package catalog
 
 import (
 	"errors"
+	"net"
 	"net/http"
 	"strconv"
 	"strings"
@@ -87,6 +88,9 @@ func (h *Handler) Books(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	f := filtersFrom(r)
+	if q := httpx.Query(r, "q"); q != "" && !f.IncludeHidden && h.S.Searches != nil {
+		h.S.Searches.Record(r.Context(), searcher(r), q)
+	}
 	var sold map[string]int
 	if f.Sort == "bestselling" {
 		var err error
@@ -205,4 +209,15 @@ func (h *Handler) DidYouMean(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	httpx.Null(w)
+}
+
+// searcher tells live searches of one reader apart: the user id, or a guest's address.
+func searcher(r *http.Request) string {
+	if u, ok := auth.UserFrom(r.Context()); ok {
+		return u.ID
+	}
+	if host, _, err := net.SplitHostPort(r.RemoteAddr); err == nil {
+		return host
+	}
+	return r.RemoteAddr
 }

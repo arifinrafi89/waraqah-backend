@@ -92,3 +92,12 @@ JOIN order_lines l ON l.order_number = o.number
 JOIN order_history h ON h.order_number = o.number AND h.status = 'delivered'
 WHERE o.user_id = $1 AND o.status = 'delivered'
 ORDER BY h.at, o.number, l.position;
+
+-- name: DashboardOrderNumbers :one
+-- Orders placed in [day_start, day_end) that were not cancelled, what is still to ship, and the
+-- returns waiting for a decision.
+SELECT count(*) FILTER (WHERE placed_at >= sqlc.arg(day_start) AND placed_at < sqlc.arg(day_end) AND status <> 'cancelled')::integer AS orders_today,
+       coalesce(sum(total_bdt) FILTER (WHERE placed_at >= sqlc.arg(day_start) AND placed_at < sqlc.arg(day_end) AND status <> 'cancelled'), 0)::integer AS sales_today_bdt,
+       count(*) FILTER (WHERE status IN ('placed', 'confirmed', 'packed'))::integer AS to_ship,
+       (SELECT count(*) FROM order_returns WHERE status = 'requested')::integer AS returns_waiting
+FROM orders;

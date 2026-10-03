@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/assistant"
 	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/bites"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/bookrequest"
@@ -12,6 +13,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/dashboard"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/handledsale"
@@ -73,7 +75,7 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	profile.NewHandler(d.Profile, seeddata.Geo).Routes(api, d.Auth)
 	notifications.NewHandler(d.Notifications).Routes(api, d.Auth)
 	home.NewHandler(&home.Service{DB: d.DB, Clock: d.Clock, Loc: d.Location}, d.Log).Routes(api, d.Auth)
-	catalogadmin.NewHandler(&catalogadmin.Service{DB: d.DB, Cache: d.Catalog, Sweeper: d.Sweeper, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
+	catalogadmin.NewHandler(d.CatalogAdmin).Routes(api, d.Auth)
 	(&scan.Handler{Books: d.Catalog}).Routes(api, d.Auth)
 	deals.Handler{S: d.Deals}.Routes(api, d.Auth)
 	cart.NewHandler(d.Cart).Routes(api, d.Auth)
@@ -92,8 +94,10 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	reviews.NewHandler(d.Reviews).Routes(api, d.Auth)
 	readers.NewHandler(d.Readers).Routes(api, d.Auth)
 	shelves.NewHandler(d.Shelves).Routes(api, d.Auth)
+	dashboard.NewHandler(d.Dashboard).Routes(api, d.Auth)
+	assistant.NewHandler(d.Assistant).Routes(api, d.Auth, d.Limits.AI.ByUser())
 	orders.NewHandler(d.Orders).Routes(api, d.Auth)
 	wallet.Handler{S: d.Wallet}.Routes(api, d.Auth)
 	loyalty.Handler{S: d.Points}.Routes(api, d.Auth)
-	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: d.SellBack, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
+	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: d.SellBack, Searches: d.SearchLog, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
 }
