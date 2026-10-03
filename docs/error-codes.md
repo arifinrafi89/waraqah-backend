@@ -5,3 +5,4 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 
 | Code | Meaning | Dart rule mirrored | Endpoints |
 |---|---|---|---|
+| `rate_limited` | Too many requests (sent as a 429 error body, not a refusal header). | none (new in the backend) | `/auth/*`, `/assistant/ask`, `/reports` |

@@ -57,7 +57,12 @@ func main() {
 	}
 	defer database.Close()
 
-	deps := &app.Deps{Cfg: cfg, Log: log, DB: database, Ready: database.Ping}
+	deps, err := app.NewDeps(cfg, log, database)
+	if err != nil {
+		log.Error("cannot build services", "error", err)
+		os.Exit(1)
+	}
+	go deps.Jobs.Run(ctx)
 	srv := &http.Server{
 		Addr:              ":" + cfg.Port,
 		Handler:           app.Routes(deps),
