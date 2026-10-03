@@ -25,7 +25,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T12 | Checkout, orders, wallet and points | B3.2, B3.3, B3.4 | Farhan | ⬜ todo |
+✅ done
 | T13 | Donate and donation places admin | B3.5 | Farhan (admin: Arifin) | ⬜ todo |
 | T14 | Listings, reports and blocks, moderation | B4.1, B4.2, B4.3 | Arifin | ⬜ todo |
 | T15 | Inbox and book requests | B4.4, B4.5 | Farhan (requests: Arifin) | ⬜ todo |
@@ -380,7 +380,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T12 — Checkout, orders, wallet and points
 
-**Status:** ⬜ todo · **Owner:** Farhan · **Plan:** B3.2, B3.3, B3.4, §8 · **Branch:** `feature/checkout`, `feature/orders`, `feature/wallet-points` · **Depends on:** T11
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/15 · **Owner:** Farhan · **Plan:** B3.2, B3.3, B3.4, §8 · **Branch:** `feature/checkout`, `feature/orders`, `feature/wallet-points` · **Depends on:** T11
 
 **Endpoints (14)**
 - checkout (4): `GET /coupons/check`, `POST /orders/place`, `GET /admin/coupons` (staff:orders), `POST /admin/coupons/create` (staff:orders)
@@ -401,11 +401,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 9. Seed demo orders, coupons (`EID100`, …), wallet and points history.
 
 **Done when**
-- [ ] 14 contract tests pass; totals, coupon, gift, loyalty and wallet tests pass
-- [ ] App walk: check out with a coupon, points and wallet; cancel; ask for a return with a photo; as `support@` advance an order and approve the return; the wallet shows the refund
-- [ ] Placing an order is atomic (a test forces a failure mid-way and checks nothing was written)
+- [x] 14 contract tests pass; totals, coupon, gift, loyalty and wallet tests pass
+- [x] App walk: check out with a coupon, points and wallet; cancel; ask for a return with a photo; as `support@` advance an order and approve the return; the wallet shows the refund
+- [x] Placing an order is atomic (a test forces a failure mid-way and checks nothing was written)
 
-**Notes:** —
+**Notes:** Place order in one transaction (totals ported from the app, coupons, gift, points, wallet, stock and sales, cart cleared), coupon check and staff coupon admin, orders list/details/cancel/return/reorder, staff queue (advance, decide return), wallet and points ledgers that always equal the sum of their entries. Migration 0006, seeds for coupons, two orders, wallet and points, a place-order atomicity test, and refusal codes in docs/error-codes.md. Notes: seed orders are hand-written in seed/orders.json rather than exported from the Dart fixtures.
 
 ---
 

@@ -45,6 +45,21 @@ const (
 	ErrWishlistNameMissing = "wishlist_name_missing"
 	ErrAlertInvalid        = "alert_invalid"
 
+	// orders, checkout
+	ErrOrderUnknown         = "order_unknown"
+	ErrOrderNotCancellable  = "order_not_cancellable"
+	ErrReturnNotAllowed     = "return_not_allowed"
+	ErrReturnReasonInvalid  = "return_reason_invalid"
+	ErrOrderStepUnavailable = "order_step_unavailable"
+	ErrReturnNotWaiting     = "return_not_waiting"
+	ErrCartEmpty            = "cart_empty"
+	ErrAddressUnknownOrder  = "address_unknown"
+	ErrGiftNameMissing      = "gift_name_missing"
+	ErrGiftMessageTooLong   = "gift_message_too_long"
+	ErrPaymentInvalid       = "payment_invalid"
+	ErrCouponCodeTaken      = "coupon_code_taken"
+	ErrCouponInvalid        = "coupon_invalid"
+
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"
 )

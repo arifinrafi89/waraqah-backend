@@ -36,3 +36,16 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `cart_item_unknown` | The item cannot go in the cart: unknown, not orderable (out of stock and not a pre-order), or a kind the cart does not sell (reader listings are bought with an offer). The answer is still the cart, with this code in the header. | `CartFakeStore.add` | `POST /cart/add` |
 | `wishlist_name_missing` | Sharing the wishlist needs the name friends see. | `WishlistFakeApi.share` | `POST /wishlist/share` |
 | `alert_invalid` | The alert names an unknown Edition or kind. The answer is still the list of alerts, with this code in the header. | `AlertFakeStore.set` | `POST /alerts/set` |
+| `order_unknown` | The order number is not one of the reader orders (or unknown, for Staff). | `OrderFakeStore.find` | `GET /orders/details`, `POST /orders/cancel`, `/orders/return`, `/orders/reorder`, `POST /admin/orders/advance`, `/admin/orders/return` |
+| `order_not_cancellable` | The order has shipped, was delivered or is already cancelled. | `OrderFakeStore.cancel` | `POST /orders/cancel` |
+| `return_not_allowed` | A return can only be asked for once, within 7 days of delivery, on printed books. | `OrderFakeStore.requestReturn` | `POST /orders/return` |
+| `return_reason_invalid` | The return reason is not damaged, wrongBook or other. | `ReturnReason` | `POST /orders/return` |
+| `order_step_unavailable` | The status asked for is not the order next step (someone moved it first, or it is delivered or cancelled). | `OrderFakeStore.advance` | `POST /admin/orders/advance` |
+| `return_not_waiting` | The order has no return waiting for a decision. | `OrderFakeStore.decideReturn` | `POST /admin/orders/return` |
+| `cart_empty` | The cart has nothing to order. | `CheckoutFakeApi.placeOrder` | `POST /orders/place` |
+| `address_unknown` | The address id is not one of the reader (also used by profile addresses). | `CheckoutFakeApi.placeOrder` | `POST /orders/place` |
+| `gift_name_missing` | A gift needs the name of the person it is for. | `CheckoutFakeApi.placeOrder` | `POST /orders/place` |
+| `gift_message_too_long` | The gift card message is over 150 characters. | `Gift.maxMessageLength` | `POST /orders/place` |
+| `payment_invalid` | The payment method is not bkash, nagad, cashOnDelivery or card. | `PaymentMethod` | `POST /orders/place`, `POST /donate/give` |
+| `coupon_code_taken` | A coupon with that code already exists. | `CouponFakeStore.add` | `POST /admin/coupons/create` |
+| `coupon_invalid` | The coupon breaks `CreateCoupon`: a code of 3 to 20 letters or digits, a percent from 1 to 90 or an amount of at least 1 taka, no negative minimum or cap, an end date in the future. | `CreateCoupon` | `POST /admin/coupons/create` |

@@ -170,6 +170,17 @@ type Collection struct {
 	BookIds  []string
 }
 
+type Coupon struct {
+	Code           string
+	Position       int64
+	Kind           string
+	Value          int32
+	MinOrderBdt    int32
+	MaxDiscountBdt pgtype.Int4
+	ExpiresAt      pgtype.Timestamptz
+	CreatedBy      pgtype.Text
+}
+
 type Edition struct {
 	ID           string
 	BookID       string
@@ -227,6 +238,60 @@ type Notification struct {
 	CreatedAt time.Time
 }
 
+type Order struct {
+	Number         string
+	UserID         string
+	Status         string
+	PlacedAt       time.Time
+	AddressLabel   string
+	AddressLine    string
+	Payment        string
+	SubtotalBdt    int32
+	DeliveryFeeBdt int32
+	DiscountBdt    int32
+	TotalBdt       int32
+	NeedsDelivery  bool
+	PointsUsed     int32
+	PointsEarned   int32
+	Gift           []byte
+	GiftWrapBdt    int32
+	IsDonation     bool
+	DonatePlaceID  pgtype.Text
+	WalletUsedBdt  int32
+	RefundedBdt    int32
+}
+
+type OrderHistory struct {
+	OrderNumber string
+	Position    int32
+	Status      string
+	At          time.Time
+}
+
+type OrderLine struct {
+	OrderNumber  string
+	Position     int32
+	BookID       string
+	EditionID    pgtype.Text
+	Title        string
+	Author       string
+	Quantity     int32
+	UnitPriceBdt int32
+	Format       pgtype.Text
+	Language     pgtype.Text
+	CoverSeed    int32
+}
+
+type OrderReturn struct {
+	OrderNumber string
+	Reason      string
+	Status      string
+	RequestedAt time.Time
+	DecidedAt   pgtype.Timestamptz
+	Note        string
+	Photos      []byte
+}
+
 type OtpCode struct {
 	Contact   string
 	Purpose   string
@@ -241,6 +306,15 @@ type PendingSignup struct {
 	Name         string
 	PasswordHash string
 	CreatedAt    time.Time
+}
+
+type PointsEntry struct {
+	ID          int64
+	UserID      string
+	Points      int32
+	Reason      string
+	OrderNumber pgtype.Text
+	At          time.Time
 }
 
 type Preorder struct {
@@ -313,6 +387,16 @@ type User struct {
 	DeletedAt    pgtype.Timestamptz
 	CreatedAt    time.Time
 	PhotoData    pgtype.Text
+}
+
+type WalletEntry struct {
+	ID          int64
+	UserID      string
+	AmountBdt   int32
+	Reason      string
+	OrderNumber pgtype.Text
+	Note        pgtype.Text
+	At          time.Time
 }
 
 type WishlistItem struct {

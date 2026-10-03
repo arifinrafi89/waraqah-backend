@@ -9,11 +9,15 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/home"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/orders"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/scan"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/wallet"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wishlist"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
 	seeddata "github.com/arifinrafi89/waraqah-backend/seed"
@@ -63,5 +67,9 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	cart.NewHandler(d.Cart).Routes(api, d.Auth)
 	(&wishlist.Handler{S: &wishlist.Service{DB: d.DB, Books: d.Catalog, Clock: d.Clock, Log: d.Log}}).Routes(api, d.Auth)
 	(&alerts.Handler{S: d.Alerts}).Routes(api, d.Auth)
+	checkout.NewHandler(d.Checkout).Routes(api, d.Auth)
+	orders.NewHandler(d.Orders).Routes(api, d.Auth)
+	wallet.Handler{S: d.Wallet}.Routes(api, d.Auth)
+	loyalty.Handler{S: d.Points}.Routes(api, d.Auth)
 	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: catalog.NoUsedStock{}, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
 }

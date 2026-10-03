@@ -1,0 +1,31 @@
+{
+  "coupons": [
+    {"code": "WELCOME10", "kind": "percentOff", "value": 10, "minOrderBdt": 0, "maxDiscountBdt": 150},
+    {"code": "EID100", "kind": "amountOff", "value": 100, "minOrderBdt": 1000},
+    {"code": "FREESHIP", "kind": "freeDelivery", "value": 0, "minOrderBdt": 500}
+  ],
+  "orders": [
+    {
+      "number": "WQ-100201", "ageMinutes": 8640, "stepHours": [0, 3, 24, 48, 96], "payment": "bkash",
+      "lines": [
+        {"bookId": "bk-sapiens", "editionId": "bk-sapiens-pb-en", "title": "Sapiens: A Brief History of Humankind", "author": "Yuval Noah Harari", "quantity": 1, "unitPriceBdt": 650, "format": "paperback", "language": "english", "coverSeed": 0},
+        {"bookId": "bk-atomic", "editionId": "bk-atomic-pb-en", "title": "Atomic Habits", "author": "James Clear", "quantity": 1, "unitPriceBdt": 590, "format": "paperback", "language": "english", "coverSeed": 2}
+      ]
+    },
+    {
+      "number": "WQ-100215", "ageMinutes": 1800, "stepHours": [0, 2, 20, 26], "payment": "cashOnDelivery",
+      "gift": {"recipientName": "Nabila", "message": "Happy birthday! This one is for your shelf.", "wrapped": false},
+      "lines": [
+        {"bookId": "bk-sapiens", "editionId": "bk-sapiens-pb-bn", "title": "Sapiens: A Brief History of Humankind", "author": "Yuval Noah Harari", "quantity": 1, "unitPriceBdt": 520, "format": "paperback", "language": "bangla", "coverSeed": 0}
+      ]
+    }
+  ],
+  "wallet": [
+    {"amountBdt": 180, "reason": "sellBack", "ageMinutes": 17280, "note": "Zero to One"}
+  ],
+  "points": [
+    {"points": 200, "reason": "welcome", "ageMinutes": 43200},
+    {"points": 12, "reason": "earned", "ageMinutes": 8640, "orderNumber": "WQ-100201"},
+    {"points": 5, "reason": "earned", "ageMinutes": 1800, "orderNumber": "WQ-100215"}
+  ]
+}
