@@ -1,0 +1,19 @@
+version: "2"
+linters:
+  default: none
+  enable:
+    - govet
+    - staticcheck
+    - errcheck
+    - ineffassign
+    - unused
+    - misspell
+  exclusions:
+    paths:
+      - internal/platform/db/sqlc
+formatters:
+  enable:
+    - gofmt
+  exclusions:
+    paths:
+      - internal/platform/db/sqlc

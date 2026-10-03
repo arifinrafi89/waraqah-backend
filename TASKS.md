@@ -14,7 +14,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 
 | # | Task | Plan tickets | Owner | Status |
 |---|---|---|---|---|
-| T01 | Repo skeleton, tooling and CI | B0.1 | Arifin | ⬜ todo |
+✅ done
 | T02 | Config, logging and the HTTP toolkit | B0.2 | Arifin | ⬜ todo |
 | T03 | Database layer, migrations and sqlc | B0.3 | Arifin | ⬜ todo |
 | T04 | Auth platform: tokens, OTP, roles, middleware | B0.4 | Arifin | ⬜ todo |
@@ -66,7 +66,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T01 — Repo skeleton, tooling and CI
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B0.1, §2, §6.1, §19, §22.4 · **Branch:** `feature/repo-skeleton` · **Depends on:** nothing
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/3 · **Owner:** Arifin · **Plan:** B0.1, §2, §6.1, §19, §22.4 · **Branch:** `feature/repo-skeleton` · **Depends on:** nothing
 
 **Goal:** an empty but complete project layout where `make check` runs green in CI, so every later task only adds code.
 
@@ -82,11 +82,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 9. Update `README.md` "Getting started" if a command changed.
 
 **Done when**
-- [ ] `make check` passes locally and in CI on the PR
-- [ ] `docker compose up -d db db-test` starts both databases with `citext` and `pg_trgm`
-- [ ] Every dependency has an ADR in `docs/decisions/`
+- [x] `make check` passes locally and in CI on the PR
+- [x] `docker compose up -d db db-test` starts both databases with `citext` and `pg_trgm`
+- [x] Every dependency has an ADR in `docs/decisions/`
 
-**Notes:** —
+**Notes:** Layout, stub server, Makefile, lint config, docker-compose (two databases), CI and one ADR per dependency. Migrations are embedded from a package in `db/` and run with `go run ./cmd/api -migrate up`. Gemini will use REST, so no genai dependency (ADR 0008). sqlc and golangci-lint are installed as tools, not in go.mod.
 
 ---
 

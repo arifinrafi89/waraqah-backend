@@ -9,7 +9,7 @@ Go + PostgreSQL API for the [Waraqah](https://github.com/arifinrafi89/waraqah-fr
 
 ## Status
 
-Planning. Nothing is built yet; task T01 (repo skeleton) is next ([`TASKS.md`](TASKS.md)).
+Under construction: the backend is being built task by task ([`TASKS.md`](TASKS.md)).
 
 ## Getting started (once Phase 0 lands)
 
