@@ -23,3 +23,13 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `booklist_invalid` | The booklist has no name or a blank one, repeats a book, or names a book the catalog does not have. | `BooklistFakeApi._saveMine` | `POST /booklists/mine/save` |
 | `book_unknown` | The book id is not in the catalog. | none (new in the backend) | `POST /books/questions/ask`, `/books/questions/answer` |
 | `question_invalid` | The question or answer is empty or longer than 500 characters. | none (new in the backend) | `POST /books/questions/ask`, `/books/questions/answer` |
+| `book_invalid` | The Book draft breaks `CatalogAdminRules` (blank title, no editions, bad price, ISBN, class or exam), names an unknown Author, Category or Publisher, or uses an unknown enum name. | `CatalogAdminFakeStore.saveBook` | `POST /admin/catalog/books/save` |
+| `record_invalid` | A Category, Author or Publisher breaks `CatalogAdminRules.record`, a Category has no Section, or its Section changes while Books use it. | `CatalogAdminFakeRecords.save` | `POST /admin/catalog/{categories,authors,publishers}/save` |
+| `record_unknown` | The record id is not in the catalog. | `CatalogAdminFakeRecords` | `POST /admin/catalog/{categories,authors,publishers}/save`, `/delete` |
+| `record_in_use` | A Book still uses the Category, Author or Publisher. | `CatalogAdminFakeRecords.delete` | `POST /admin/catalog/{categories,authors,publishers}/delete` |
+| `banner_invalid` | The Banner breaks `CatalogAdminRules.banner`, or has an unknown target kind or Season. | `CatalogAdminFakeBanners.save` | `POST /admin/catalog/banners/save`, `/move` |
+| `banner_unknown` | The Banner id is not one of Home's Banners. | `CatalogAdminFakeBanners` | `POST /admin/catalog/banners/save`, `/delete`, `/move` |
+| `list_invalid` | The Collection or Booklist breaks `ListRules`, names an unknown Book or Expert, or a Booklist has no Staff kind. | `CatalogAdminFakeLists` | `POST /admin/catalog/collections/save`, `/booklists/save` |
+| `list_unknown` | The Collection or Staff Booklist id does not exist (a Reader own list counts as unknown). | `CatalogAdminFakeLists` | `POST /admin/catalog/collections|booklists/save`, `/delete` |
+| `stock_invalid` | Stock is negative, the Edition is an eBook, or the Edition is unknown. | `CatalogToolsFakeApi._setStock` | `POST /admin/catalog/editions/stock` |
+| `season_unknown` | The Season name is not one of ramadan, boiMela, admission, backToSchool. | `CatalogAdminFakeApi.season` | `POST /admin/catalog/season/save` |

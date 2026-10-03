@@ -74,6 +74,12 @@ func newRig(t *testing.T) *rig {
 	if err != nil {
 		t.Fatal(err)
 	}
+	// Home's Season and the Ayah of the day depend on the day: replay on the day of the export.
+	meta, err := contract.LoadMeta(goldenDir, loc)
+	if err != nil {
+		t.Fatal(err)
+	}
+	deps.Clock = clock.NewFake(meta.ExportedAt)
 	// The google golden sends "sample-id-token"; the real verifier would refuse it.
 	deps.Google = auth.FakeGoogle{Identities: map[string]auth.GoogleIdentity{
 		"sample-id-token": {Subject: "g-sample", Email: "reader@waraqah.test", Name: "Reader"},

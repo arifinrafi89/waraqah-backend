@@ -28,6 +28,18 @@ const (
 	ErrBookUnknown      = "book_unknown"
 	ErrQuestionInvalid  = "question_invalid"
 
+	// catalog admin
+	ErrBookInvalid   = "book_invalid"
+	ErrRecordInvalid = "record_invalid"
+	ErrRecordUnknown = "record_unknown"
+	ErrRecordInUse   = "record_in_use"
+	ErrBannerInvalid = "banner_invalid"
+	ErrBannerUnknown = "banner_unknown"
+	ErrListInvalid   = "list_invalid"
+	ErrListUnknown   = "list_unknown"
+	ErrStockInvalid  = "stock_invalid"
+	ErrSeasonUnknown = "season_unknown"
+
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"
 )

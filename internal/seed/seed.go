@@ -49,6 +49,7 @@ var steps = []step{
 	{"books", loadBooks},
 	{"book extras", loadBookExtras},
 	{"collections", loadCollections},
+	{"home", loadHome},
 }
 
 // All runs every step.

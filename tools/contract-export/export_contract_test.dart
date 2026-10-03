@@ -69,6 +69,8 @@ void main() {
       }
       writeJson('${out.path}/_index.json', index);
       File('${out.path}/_problems.txt').writeAsStringSync(problems.join('\n'));
+      // When the goldens were made: Home's Season and similar answers depend on the day.
+      writeJson('${out.path}/_meta.json', {'exportedAt': DateTime.now().toIso8601String()});
 
       await writeSeeds(Directory('build/seed'));
       stdout.writeln('exported ${index.length} goldens, ${problems.length} problems');

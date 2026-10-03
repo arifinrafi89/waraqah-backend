@@ -228,6 +228,18 @@ func textPtr(s string, valid bool) *string {
 	return &s
 }
 
+// EditionFromRow converts a stored edition.
+func EditionFromRow(e sqlc.Edition) Edition { return toEdition(e) }
+
+// BookFromRow converts a stored book and its editions; loc is the app timezone.
+func BookFromRow(b sqlc.Book, editions []sqlc.Edition, loc *time.Location) Book {
+	out := make([]Edition, 0, len(editions))
+	for _, e := range editions {
+		out = append(out, toEdition(e))
+	}
+	return toBook(b, out, loc)
+}
+
 func toEdition(e sqlc.Edition) Edition {
 	out := Edition{ID: e.ID, Format: e.Format, Language: e.Language, PriceBdt: int(e.PriceBdt), Stock: int(e.Stock), IsPreorder: e.IsPreorder}
 	if e.ListPriceBdt.Valid {

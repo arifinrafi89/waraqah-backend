@@ -5,16 +5,16 @@ SELECT * FROM books ORDER BY position;
 SELECT * FROM editions ORDER BY book_id, position;
 
 -- name: ListCategories :many
-SELECT * FROM categories ORDER BY id;
+SELECT * FROM categories ORDER BY position;
 
 -- name: ListAuthors :many
-SELECT * FROM authors ORDER BY id;
+SELECT * FROM authors ORDER BY position;
 
 -- name: ListPublishers :many
-SELECT * FROM publishers ORDER BY id;
+SELECT * FROM publishers ORDER BY position;
 
 -- name: ListSubjects :many
-SELECT * FROM subjects ORDER BY id;
+SELECT * FROM subjects ORDER BY position;
 
 -- name: ListSeries :many
 SELECT * FROM series ORDER BY position;

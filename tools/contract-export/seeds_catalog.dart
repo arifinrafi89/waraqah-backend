@@ -15,6 +15,9 @@ import 'package:waraqah/features/catalog/data/sources/publisher_fixtures.dart';
 import 'package:waraqah/features/catalog/data/sources/seed/about_seed.dart';
 import 'package:waraqah/features/catalog/data/sources/series_fixtures.dart';
 import 'package:waraqah/features/catalog/data/sources/subject_fixtures.dart';
+import 'package:waraqah/features/catalog_admin/data/sources/isbn_lookup_fixtures.dart';
+import 'package:waraqah/features/home/data/sources/ayah_fixtures.dart';
+import 'package:waraqah/features/home/data/sources/banner_fixtures.dart';
 
 import 'harness.dart';
 
@@ -74,4 +77,11 @@ Future<void> writeCatalogSeeds(Directory out, Get get, DateTime now) async {
     }
   }
   writeJson('$dir/price_lows.json', lows);
+  // Home: Banners in display order, the verses Home rotates through, and the outside books the
+  // ISBN lookup knows.
+  writeJson('$dir/banners.json', plain([for (final b in BannerFixtures.all) b.toJson()]));
+  writeJson('$dir/ayahs.json', plain([for (final a in AyahFixtures.verses) a.toJson()]));
+  writeJson('$dir/isbn_lookup.json', [
+    for (final e in IsbnLookupFixtures.byIsbn.entries) {'isbn': e.key, ...e.value},
+  ]);
 }
