@@ -24,7 +24,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T11 | Cart, deals, wishlist and alerts | B3.1 | Farhan | ⬜ todo |
+✅ done
 | T12 | Checkout, orders, wallet and points | B3.2, B3.3, B3.4 | Farhan | ⬜ todo |
 | T13 | Donate and donation places admin | B3.5 | Farhan (admin: Arifin) | ⬜ todo |
 | T14 | Listings, reports and blocks, moderation | B4.1, B4.2, B4.3 | Arifin | ⬜ todo |
@@ -354,7 +354,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T11 — Cart, deals, wishlist and alerts
 
-**Status:** ⬜ todo · **Owner:** Farhan · **Plan:** B3.1 · **Branch:** `feature/cart`, `feature/wishlist-alerts` · **Depends on:** T08, T09, T10
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/14 · **Owner:** Farhan · **Plan:** B3.1 · **Branch:** `feature/cart`, `feature/wishlist-alerts` · **Depends on:** T08, T09, T10
 
 **Endpoints (13):** `GET /cart`, `POST /cart/add`, `/cart/update`, `/cart/remove`; `GET /deals` (public); `GET /wishlist`, `POST /wishlist/save`, `/wishlist/remove`, `/wishlist/share`, `GET /wishlist/shared` (public); `GET /alerts`, `POST /alerts/set`, `/alerts/remove`
 
@@ -370,11 +370,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. Seed deals, bundles and demo wishlists (`wl-nabila`).
 
 **Done when**
-- [ ] 13 contract tests pass
-- [ ] App walk: add editions and a bundle, change quantities, wishlist and share, set a price alert, then lower the price as catalog staff and receive the notification
-- [ ] Guest walk on Cart and Wishlist shows no errors
+- [x] 13 contract tests pass
+- [x] App walk: add editions and a bundle, change quantities, wishlist and share, set a price alert, then lower the price as catalog staff and receive the notification
+- [x] Guest walk on Cart and Wishlist shows no errors
 
-**Notes:** —
+**Notes:** All 13 endpoints. The cart stores only what was added and prices it from the catalog and the deals at read time (flash price, bundles, caps per order); deals run all day with a countdown to midnight; the wishlist keeps one copy newest first and makes a share link for the signed-in reader; alerts are checked on every read and the sweeper now fires them once and notifies through notifications.Sender, replacing the T10 stand-in. Migration 0005, seeds for the demo people, deals and the friend wishlist, and the exporter now refuses two samples that write the same golden file. Notes: an item the cart or alerts refuse still answers the full cart or list (the app always expects one) with the code in X-Waraqah-Error; certified used cart lines wait for Sell Back (T16).
 
 ---
 
