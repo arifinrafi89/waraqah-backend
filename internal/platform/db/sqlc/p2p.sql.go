@@ -216,6 +216,31 @@ func (q *Queries) InsertListing(ctx context.Context, arg InsertListingParams) er
 	return err
 }
 
+const insertRating = `-- name: InsertRating :exec
+INSERT INTO ratings (from_id, to_id, listing_id, stars, comment, at) VALUES ($1, $2, $3, $4, $5, $6)
+`
+
+type InsertRatingParams struct {
+	FromID    string
+	ToID      string
+	ListingID pgtype.Text
+	Stars     int32
+	Comment   pgtype.Text
+	At        time.Time
+}
+
+func (q *Queries) InsertRating(ctx context.Context, arg InsertRatingParams) error {
+	_, err := q.db.Exec(ctx, insertRating,
+		arg.FromID,
+		arg.ToID,
+		arg.ListingID,
+		arg.Stars,
+		arg.Comment,
+		arg.At,
+	)
+	return err
+}
+
 const listListingsForBook = `-- name: ListListingsForBook :many
 SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
@@ -428,6 +453,36 @@ func (q *Queries) ListPhotosOf(ctx context.Context, dollar_1 []string) ([]Listin
 	return items, nil
 }
 
+const listRatingsForListings = `-- name: ListRatingsForListings :many
+SELECT listing_id, from_id, stars FROM ratings WHERE listing_id = ANY($1::text[])
+`
+
+type ListRatingsForListingsRow struct {
+	ListingID pgtype.Text
+	FromID    string
+	Stars     int32
+}
+
+func (q *Queries) ListRatingsForListings(ctx context.Context, dollar_1 []string) ([]ListRatingsForListingsRow, error) {
+	rows, err := q.db.Query(ctx, listRatingsForListings, dollar_1)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []ListRatingsForListingsRow{}
+	for rows.Next() {
+		var i ListRatingsForListingsRow
+		if err := rows.Scan(&i.ListingID, &i.FromID, &i.Stars); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const listRatingsTo = `-- name: ListRatingsTo :many
 SELECT r.stars, r.at, r.comment, u.name AS from_name
 FROM ratings r JOIN users u ON u.id = r.from_id
@@ -455,6 +510,56 @@ func (q *Queries) ListRatingsTo(ctx context.Context, toID string) ([]ListRatings
 			&i.At,
 			&i.Comment,
 			&i.FromName,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const listingCandidates = `-- name: ListingCandidates :many
+SELECT l.id, l.title, l.book_id, l.seller_id, l.status, u.name AS seller_name
+FROM listings l JOIN users u ON u.id = l.seller_id
+WHERE l.status <> 'sold' AND u.deleted_at IS NULL AND l.seller_id <> $1::text
+  AND (NOT $2::boolean OR l.status = 'live')
+ORDER BY l.position DESC
+`
+
+type ListingCandidatesParams struct {
+	ExcludedSeller string
+	OnlyLive       bool
+}
+
+type ListingCandidatesRow struct {
+	ID         string
+	Title      string
+	BookID     pgtype.Text
+	SellerID   string
+	Status     string
+	SellerName string
+}
+
+// Copies that may match a book request: not sold, of readers other than excluded_seller.
+func (q *Queries) ListingCandidates(ctx context.Context, arg ListingCandidatesParams) ([]ListingCandidatesRow, error) {
+	rows, err := q.db.Query(ctx, listingCandidates, arg.ExcludedSeller, arg.OnlyLive)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []ListingCandidatesRow{}
+	for rows.Next() {
+		var i ListingCandidatesRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Title,
+			&i.BookID,
+			&i.SellerID,
+			&i.Status,
+			&i.SellerName,
 		); err != nil {
 			return nil, err
 		}
@@ -511,6 +616,49 @@ func (q *Queries) ListingQueue(ctx context.Context) ([]ListingQueueRow, error) {
 			&i.Listing.CreatedAt,
 			&i.SellerName,
 			&i.SellerStrikes,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const listingsOfSeller = `-- name: ListingsOfSeller :many
+SELECT l.id, l.title, l.book_id, l.seller_id, l.status, u.name AS seller_name
+FROM listings l JOIN users u ON u.id = l.seller_id
+WHERE l.seller_id = $1 AND l.status <> 'sold'
+ORDER BY l.position DESC
+`
+
+type ListingsOfSellerRow struct {
+	ID         string
+	Title      string
+	BookID     pgtype.Text
+	SellerID   string
+	Status     string
+	SellerName string
+}
+
+func (q *Queries) ListingsOfSeller(ctx context.Context, sellerID string) ([]ListingsOfSellerRow, error) {
+	rows, err := q.db.Query(ctx, listingsOfSeller, sellerID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []ListingsOfSellerRow{}
+	for rows.Next() {
+		var i ListingsOfSellerRow
+		if err := rows.Scan(
+			&i.ID,
+			&i.Title,
+			&i.BookID,
+			&i.SellerID,
+			&i.Status,
+			&i.SellerName,
 		); err != nil {
 			return nil, err
 		}

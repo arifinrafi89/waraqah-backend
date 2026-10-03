@@ -8,12 +8,14 @@ import (
 	"time"
 
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/bookrequest"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/inbox"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/moderation"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
@@ -82,6 +84,8 @@ type Deps struct {
 	P2P           *p2p.Service        // also listings.Status
 	Report        *report.Service     // also blocks.Checker
 	Moderation    *moderation.Service // also moderation.Bans
+	Inbox         *inbox.Service
+	BookRequests  *bookrequest.Service
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -141,6 +145,9 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	d.Moderation = &moderation.Service{DB: database, Shop: d.P2P, Notify: d.Notifications, Clock: clk, Loc: loc, Log: log}
 	d.P2P.Bans = d.Moderation
 	d.Report = &report.Service{DB: database, Shop: d.P2P, Clock: clk, Loc: loc, Log: log}
+	d.Inbox = &inbox.Service{DB: database, Market: d.P2P, Blocks: d.Report, SSE: d.SSE, Clock: clk, Loc: loc, Log: log, DemoMode: cfg.DemoMode, BotDelay: cfg.DemoBotDelay}
+	d.Moderation.Register("message", inbox.Messages{S: d.Inbox})
+	d.BookRequests = &bookrequest.Service{DB: database, Shop: d.P2P, Notify: d.Notifications, Clock: clk, Loc: loc, Log: log}
 	d.Profile.Hooks = append(d.Profile.Hooks, d.P2P.OnAccountDeleted)
 	d.Donate = &donate.Service{DB: database, Books: d.Catalog, Clock: clk, Log: log}
 	d.Checkout = &checkout.Service{DB: database, Cart: d.Cart, Addresses: d.Profile, Wallet: d.Wallet, Points: d.Points, Stock: d.Catalog,

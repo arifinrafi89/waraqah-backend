@@ -51,6 +51,7 @@ func New(t *testing.T) *Env {
 	cfg.BcryptCost, cfg.SeedDemoPassword = 4, "Waraqah#Demo1"
 	cfg.AppEnv, cfg.OTPDevCode = "development", "123456"
 	cfg.AuthRatePerMin = 100000
+	cfg.DemoBotDelay = 0 // the demo readers answer at once, so tests do not wait
 	loc, err := clock.Location(cfg.AppTimezone)
 	if err != nil {
 		t.Fatal(err)

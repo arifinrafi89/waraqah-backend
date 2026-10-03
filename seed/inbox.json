@@ -1,0 +1,36 @@
+{
+  "threads": [
+    {
+      "id": "th-sadia", "listingId": "p2p-7", "buyerId": "p-sadia", "sellerId": "me", "replied": false, "readByMe": 0,
+      "messages": [
+        {"id": "m-s1", "authorId": "p-sadia", "ageMinutes": 52, "text": "Hi! Is Atomic Habits still available? I live in Mohammadpur."},
+        {"id": "m-s2", "authorId": "p-sadia", "ageMinutes": 50, "offer": {"id": "o-sadia", "amountBdt": 300, "handover": "meetup", "status": "pending"}}
+      ]
+    },
+    {
+      "id": "th-rafi", "listingId": "p2p-7", "buyerId": "p-rafi", "sellerId": "me", "replied": true, "readByMe": 2,
+      "messages": [
+        {"id": "m-s3", "authorId": "p-rafi", "ageMinutes": 1560, "offer": {"id": "o-rafi", "amountBdt": 320, "handover": "courier", "status": "pending"}},
+        {"id": "m-s4", "authorId": "me", "ageMinutes": 1440, "text": "Thanks, Rafi! Let me check the courier charge first."}
+      ]
+    },
+    {
+      "id": "th-nabila", "listingId": "p2p-4", "buyerId": "me", "sellerId": "p-nabila", "replied": true, "readByMe": 3,
+      "messages": [
+        {"id": "m-s5", "authorId": "me", "ageMinutes": 3060, "offer": {"id": "o-nabila", "amountBdt": 400, "handover": "meetup", "status": "accepted"}},
+        {"id": "m-s6", "authorId": "p-nabila", "ageMinutes": 2880, "event": "offerAccepted", "amountBdt": 400},
+        {"id": "m-s7", "authorId": "me", "ageMinutes": 1440, "text": "Thank you! Can we meet in Banani this weekend?"},
+        {"id": "m-s8", "authorId": "p-nabila", "ageMinutes": 120, "text": "Saturday at 5 pm near Banani Road 11 works for me."}
+      ]
+    },
+    {
+      "id": "th-talha", "listingId": "p2p-5", "buyerId": "me", "sellerId": "p-talha", "replied": true, "readByMe": 4,
+      "messages": [
+        {"id": "m-s9", "authorId": "me", "ageMinutes": 12960, "offer": {"id": "o-talha", "amountBdt": 520, "handover": "courier", "status": "accepted"}},
+        {"id": "m-s10", "authorId": "p-talha", "ageMinutes": 12780, "event": "offerAccepted", "amountBdt": 520},
+        {"id": "m-s11", "authorId": "p-talha", "ageMinutes": 10080, "text": "Sent it with Steadfast today. Pay the rider when it arrives."},
+        {"id": "m-s12", "authorId": "p-talha", "ageMinutes": 7200, "event": "sold"}
+      ]
+    }
+  ]
+}

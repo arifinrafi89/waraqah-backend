@@ -68,3 +68,17 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `report_not_open` | The report does not exist or was already handled. | `ModerationFakeStore.act` | `POST /moderation/reports/act` |
 | `report_no_owner` | There is nobody to warn or ban for that report. | `ModerationFakeStore.act` | `POST /moderation/reports/act` |
 | `action_invalid` | The action is not remove, dismiss, warn or ban. | `ReportAction` | `POST /moderation/reports/act` |
+| `thread_unknown` | The thread does not exist or the reader is not in it. | `InboxFakeStore.threads` | `GET /inbox/thread` (null), `POST /inbox/send`, `/inbox/offer/decide`, `/inbox/read`, `/inbox/listing/release`, `/inbox/listing/sold`, `/inbox/rate` |
+| `blocked_reader` | One of the two readers blocked the other: no messages, offers or new deals either way. | `InboxFakeStore.isBlocked` | `POST /inbox/open`, `/inbox/send`, `/inbox/offer`, `/inbox/offer/decide` |
+| `message_invalid` | A message is empty or over 1,000 characters. | `OfferRules.maxMessageLength` | `POST /inbox/send` |
+| `offer_invalid` | The amount breaks `OfferRules` (at least 1 taka, at most the asking price, exactly the asking price when it is not negotiable) or the handover is not meetup or courier. | `OfferRules.check` | `POST /inbox/offer` |
+| `offer_pending` | The thread already has an offer waiting for the seller. | `FakeThread.pendingOffer` | `POST /inbox/offer` |
+| `offer_unknown` | The thread has no waiting offer with that id. | `InboxFakeSelling.decide` | `POST /inbox/offer/decide` |
+| `listing_unavailable` | The listing is not on sale (live) any more. | `InboxFakeBuying.offer` | `POST /inbox/offer`, `POST /inbox/offer/decide` |
+| `listing_own` | Sellers do not message or make offers on their own listing. | `InboxFakeBuying.openFor` | `POST /inbox/open`, `POST /inbox/offer` |
+| `listing_closed` | A sold or unlisted book cannot start a new conversation. | `InboxFakeBuying.openFor` | `POST /inbox/open` |
+| `deal_unknown` | The listing is not reserved for the buyer of this thread, or the reader is not its seller. | `InboxFakeSelling._dealThread` | `POST /inbox/listing/release`, `POST /inbox/listing/sold` |
+| `rating_invalid` | Stars outside 1 to 5, or a comment over 300 characters. | `RatingRules.check` | `POST /inbox/rate` |
+| `rating_not_allowed` | Rating is possible once each, after the sale to the buyer of the thread. | `InboxFakeRating.rate` | `POST /inbox/rate` |
+| `request_invalid` | The book request breaks `RequestRules`: a title of 2 to 120 characters, a maximum price above 0, a note of up to 300 characters. | `RequestRules.check` | `POST /requests` |
+| `request_unknown` | The request does not exist or is not the reader own. | `BookRequestFakeStore.close` | `POST /requests/close` |
