@@ -1,0 +1,21 @@
+{
+  "sales": [
+    {"id": "HS-101", "listingId": "p2p-hs-1", "buyerId": "me", "sellerId": "p-arif", "priceBdt": 380, "method": "bkash", "status": "sent", "ageMinutes": 2880},
+    {"id": "HS-102", "listingId": "p2p-hs-2", "buyerId": "p-talha", "sellerId": "me", "priceBdt": 300, "method": "nagad", "status": "completed", "ageMinutes": 14400},
+    {"id": "HS-103", "listingId": "p2p-hs-3", "buyerId": "p-mahi", "sellerId": "me", "priceBdt": 220, "method": "card", "status": "paid", "ageMinutes": 180},
+    {"id": "HS-104", "listingId": "p2p-hs-4", "buyerId": "p-sadia", "sellerId": "p-tanvir", "priceBdt": 450, "method": "bkash", "status": "disputed", "ageMinutes": 5760,
+     "disputeReason": "damaged", "disputeNote": "Water damage on the back cover that the photos hid."}
+  ],
+  "payouts": [
+    {"userId": "me", "amountBdt": 285, "ageMinutes": 4320}
+  ],
+  "sellBacks": [
+    {"id": "SB-201", "userId": "me", "bookId": "bk-zero", "condition": "likeNew", "status": "paid", "ageMinutes": 18720, "paidBdt": 180},
+    {"id": "SB-202", "userId": "p-nabila", "bookId": "bk-calculus", "condition": "good", "status": "pickedUp", "ageMinutes": 2880},
+    {"id": "SB-203", "userId": "me", "bookId": "bk-sapiens", "condition": "veryGood", "status": "pickedUp", "ageMinutes": 1440}
+  ],
+  "certifiedUsed": [
+    {"id": "cu-atomic-1", "bookId": "bk-atomic", "condition": "veryGood", "priceBdt": 380},
+    {"id": "cu-sapiens-1", "bookId": "bk-sapiens", "condition": "good", "priceBdt": 420}
+  ]
+}

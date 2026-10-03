@@ -38,6 +38,7 @@ const (
 	ErrPaymentInvalid  = Refusal(httpx.ErrPaymentInvalid)
 	ErrCouponTaken     = Refusal(httpx.ErrCouponCodeTaken)
 	ErrCouponInvalid   = Refusal(httpx.ErrCouponInvalid)
+	ErrItemGone        = Refusal(httpx.ErrCartItemUnknown)
 )
 
 var payments = []string{"bkash", "nagad", "cashOnDelivery", "card"}
@@ -77,6 +78,12 @@ type PlaceInput struct {
 	Gift       *orders.Gift `json:"gift"`
 }
 
+// UsedCopies takes a Certified Used copy off sale when an order buys it (sellback implements it).
+// It answers false when the copy was sold already.
+type UsedCopies interface {
+	SellCopy(ctx context.Context, q *sqlc.Queries, copyID string, at time.Time) (bool, error)
+}
+
 // Service holds the checkout rules.
 type Service struct {
 	DB        *db.DB
@@ -85,6 +92,7 @@ type Service struct {
 	Wallet    wallet.Ledger
 	Points    loyalty.Ledger
 	Stock     Inventory
+	Used      UsedCopies // nil: no Certified Used copies to take off sale
 	Clock     clock.Clock
 	Loc       *time.Location
 	Log       *slog.Logger
@@ -171,8 +179,16 @@ func (s *Service) Place(ctx context.Context, userID string, in PlaceInput) (*Rec
 			return err
 		}
 		for _, l := range c.Lines {
-			if l.Kind == "edition" {
+			switch {
+			case l.Kind == "edition":
 				if err := s.Stock.Take(ctx, q, l.ItemID, l.Quantity, now); err != nil {
+					return err
+				}
+			case l.Kind == "certifiedUsed" && s.Used != nil:
+				if sold, err := s.Used.SellCopy(ctx, q, l.ItemID, now); err != nil || !sold {
+					if err == nil {
+						err = ErrItemGone
+					}
 					return err
 				}
 			}

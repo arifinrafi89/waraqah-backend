@@ -61,7 +61,8 @@ func newRig(t *testing.T) *rig {
 	cfg.SeedDemoPassword = "Waraqah#Demo1"               // the password the login golden sends
 	cfg.AppEnv, cfg.OTPDevCode = "development", "123456" // the sign-up goldens use the dev code
 	cfg.AuthRatePerMin = 100000
-	cfg.DemoBotDelay = 0 // the demo readers answer at once, as the fake API does
+	cfg.DemoBotDelay = 0       // the demo readers answer at once, as the fake API does
+	cfg.CourierPickupDelay = 0 // the courier collects a Sell Back at once, so the grade golden finds it waiting
 	log := slog.New(slog.NewTextHandler(io.Discard, nil))
 	loc, err := clock.Location(cfg.AppTimezone)
 	if err != nil {

@@ -15,7 +15,7 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `google_token_missing` | The request carries no Google ID token (today's app sends no body until F3). | `AuthFakeApi.google` | `POST /auth/google` |
 | `google_token_invalid` | The Google ID token failed the signature, issuer, audience, expiry or verified-email check. | none (new in the backend) | `POST /auth/google` |
 | `profile_invalid` | The name is not 2 to 60 characters, or the phone is not a Bangladesh mobile number. | `ProfileRules.check` | `POST /profile/save` |
-| `photo_invalid` | The profile photo is not a JPEG, PNG or WebP, or is over `MAX_IMAGE_MB`. | none (new in the backend) | `POST /profile/save` |
+| `photo_invalid` | The profile photo, a return photo or a dispute photo is not a JPEG, PNG or WebP, or is over `MAX_IMAGE_MB`. | none (new in the backend) | `POST /profile/save`, `POST /orders/return`, `POST /sales/dispute` |
 | `address_invalid` | The address breaks `AddressRules` (a blank label, recipient or line, a bad mobile, or no division, district and upazila). | `AddressRules.check` | `POST /addresses/save` |
 | `address_unknown` | The address id is not one of the reader's. | `AddressFakeStore` (`save`, `delete`, `makeDefault`) | `POST /addresses/save`, `/addresses/default`, `/addresses/delete` |
 | `notification_unknown` | The notification id is not one of the reader's. | `NotificationFakeStore.markRead` | `POST /notifications/read` |
@@ -33,7 +33,7 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `list_unknown` | The Collection or Staff Booklist id does not exist (a Reader own list counts as unknown). | `CatalogAdminFakeLists` | `POST /admin/catalog/collections|booklists/save`, `/delete` |
 | `stock_invalid` | Stock is negative, the Edition is an eBook, or the Edition is unknown. | `CatalogToolsFakeApi._setStock` | `POST /admin/catalog/editions/stock` |
 | `season_unknown` | The Season name is not one of ramadan, boiMela, admission, backToSchool. | `CatalogAdminFakeApi.season` | `POST /admin/catalog/season/save` |
-| `cart_item_unknown` | The item cannot go in the cart: unknown, not orderable (out of stock and not a pre-order), or a kind the cart does not sell (reader listings are bought with an offer). The answer is still the cart, with this code in the header. | `CartFakeStore.add` | `POST /cart/add` |
+| `cart_item_unknown` | The item cannot go in the cart: unknown, not orderable (out of stock and not a pre-order), or a kind the cart does not sell (reader listings are bought with an offer). The answer is still the cart, with this code in the header. | `CartFakeStore.add` | `POST /cart/add`, `POST /orders/place` (a Certified Used copy sold meanwhile) |
 | `wishlist_name_missing` | Sharing the wishlist needs the name friends see. | `WishlistFakeApi.share` | `POST /wishlist/share` |
 | `alert_invalid` | The alert names an unknown Edition or kind. The answer is still the list of alerts, with this code in the header. | `AlertFakeStore.set` | `POST /alerts/set` |
 | `order_unknown` | The order number is not one of the reader orders (or unknown, for Staff). | `OrderFakeStore.find` | `GET /orders/details`, `POST /orders/cancel`, `/orders/return`, `/orders/reorder`, `POST /admin/orders/advance`, `/admin/orders/return` |
@@ -82,3 +82,12 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `rating_not_allowed` | Rating is possible once each, after the sale to the buyer of the thread. | `InboxFakeRating.rate` | `POST /inbox/rate` |
 | `request_invalid` | The book request breaks `RequestRules`: a title of 2 to 120 characters, a maximum price above 0, a note of up to 300 characters. | `RequestRules.check` | `POST /requests` |
 | `request_unknown` | The request does not exist or is not the reader own. | `BookRequestFakeStore.close` | `POST /requests/close` |
+| `sale_prepaid_only` | A handled sale needs money paid up front (bKash, Nagad or card); cash on delivery cannot be held by Waraqah. | `PaymentMethod.isPrepaid` in `HandledSaleFakeStore.buy` | `POST /sales/buy` |
+| `sale_unknown` | The sale does not exist or the reader is neither its buyer nor its seller. | `HandledSaleFakeApi.sale` | `POST /sales/step`, `POST /sales/dispute` |
+| `sale_step_refused` | Not the reader's move: only the seller sends a paid sale, only the buyer cancels it before that or confirms or disputes it once sent. | `HandledSaleFakeSteps.step`, `HandledSaleFakeMoney.dispute` | `POST /sales/step`, `POST /sales/dispute` |
+| `dispute_invalid` | The reason is not a `DisputeReason`, the note is over 300 characters or there are more than 3 photos. | `SaleMath.maxDisputeNote`, `SaleMath.maxDisputePhotos` | `POST /sales/dispute` |
+| `sale_not_disputed` | The sale is unknown or not waiting for a moderator. | `HandledSaleFakeMoney.settle` | `POST /sales/disputes/settle` |
+| `payout_nothing` | Nothing earned is left to pay out. | `HandledSaleFakeMoney.payout` | `POST /sales/payout` |
+| `sell_back_book_unknown` | The book is not in the catalog or has no printed Edition, so Waraqah does not buy it back. | `SellBackBooks.find` | `POST /sell-back` |
+| `sell_back_invalid` | The condition is not a `BookCondition`, the flags are negative or the pickup address is under 5 characters. | `SellBackRules.minAddress` | `POST /sell-back`, `POST /sell-back/grade` |
+| `sell_back_not_waiting` | The Sell Back is unknown or not picked up and waiting to be graded. | `SellBackFakeStore.grade` | `POST /sell-back/grade` |

@@ -431,7 +431,7 @@ The fake backend has demo-only behaviour: the other person in a thread answers a
 |---|---|
 | Other person replies or rates in a thread | Real users do it. With `DEMO_MODE=true`, a "demo bot" acts **only for seeded demo accounts** (so one person can present the app). |
 | Demo seller sends a handled-sale book | Real seller uses `POST /sales/step`. `DEMO_MODE` bot does it for demo sellers. |
-| Courier picks up a Sell Back book | Simulated courier job: `pickupBooked` → `checking` after `COURIER_PICKUP_DELAY`, always on until a real courier integration exists. |
+| Courier picks up a Sell Back book | Simulated courier job: `scheduled` → `pickedUp` after `COURIER_PICKUP_DELAY`, always on until a real courier integration exists. |
 | Seeded community notifications | Seed data only. |
 | `AlertFakeStore.sweep` after Staff price/stock changes | `alerts.Sweeper` called by the catalog admin service in the same request. |
 | Bestsellers over 30 days | `sales_by_month` updated when an order is placed; rankings computed at query time. |

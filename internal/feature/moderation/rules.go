@@ -34,6 +34,8 @@ const (
 	AuditDismissed        = "dismissed"
 	AuditWarned           = "warned"
 	AuditBanned           = "banned"
+	AuditRefunded         = "refunded"
+	AuditPaidSeller       = "paidSeller"
 )
 
 // Problem is what is wrong with the reason of a decision.

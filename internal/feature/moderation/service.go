@@ -149,6 +149,16 @@ func (s *Service) record(ctx context.Context, q *sqlc.Queries, staffName, action
 		Reason: pgtype.Text{String: why, Valid: why != ""}})
 }
 
+// Record writes a line of the audit log in the name of the staff member staffID, inside the
+// caller's transaction (handled sales record settled disputes this way).
+func (s *Service) Record(ctx context.Context, q *sqlc.Queries, staffID, action, subject, why string) error {
+	name, err := q.StaffName(ctx, staffID)
+	if err != nil {
+		return err
+	}
+	return s.record(ctx, q, name, action, subject, why)
+}
+
 // Decide approves a listing, asks for changes or rejects it (Staff). Refused when it is not
 // waiting or the reason is missing or too long. The seller is told, the audit log records it with
 // the name of the staff member of the token, and the queue left is answered.

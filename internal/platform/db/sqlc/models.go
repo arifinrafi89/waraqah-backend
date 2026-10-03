@@ -177,6 +177,15 @@ type Category struct {
 	Position pgtype.Int8
 }
 
+type CertifiedUsed struct {
+	ID        string
+	BookID    string
+	Condition string
+	PriceBdt  int32
+	CreatedAt time.Time
+	SoldAt    pgtype.Timestamptz
+}
+
 type Collection struct {
 	ID       string
 	Position int64
@@ -248,6 +257,23 @@ type FlashSaleItem struct {
 	EditionID string
 	Position  int32
 	PriceBdt  int32
+}
+
+type HandledSale struct {
+	ID            string
+	ListingID     string
+	BuyerID       string
+	SellerID      string
+	PriceBdt      int32
+	FeeBdt        int32
+	DeliveryBdt   int32
+	Method        string
+	Status        string
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	DisputeReason pgtype.Text
+	DisputeNote   pgtype.Text
+	DisputePhotos []byte
 }
 
 type IsbnLookup struct {
@@ -401,6 +427,13 @@ type OtpCode struct {
 	CreatedAt time.Time
 }
 
+type Payout struct {
+	ID        int64
+	UserID    string
+	AmountBdt int32
+	At        time.Time
+}
+
 type PendingSignup struct {
 	Contact      string
 	Name         string
@@ -477,6 +510,24 @@ type SalesByMonth struct {
 	EditionID string
 	Month     time.Time
 	Copies    int32
+}
+
+type SellBack struct {
+	ID              string
+	UserID          string
+	BookID          string
+	Title           string
+	Author          string
+	NewPriceBdt     int32
+	CoverSeed       int32
+	Condition       string
+	Flags           int32
+	QuoteBdt        int32
+	Status          string
+	PickupAddress   string
+	CreatedAt       time.Time
+	GradedCondition pgtype.Text
+	PaidBdt         pgtype.Int4
 }
 
 type Series struct {
