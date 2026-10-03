@@ -27,7 +27,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T14 | Listings, reports and blocks, moderation | B4.1, B4.2, B4.3 | Arifin | ⬜ todo |
+✅ done
 | T15 | Inbox and book requests | B4.4, B4.5 | Farhan (requests: Arifin) | ⬜ todo |
 | T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ⬜ todo |
 | T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ⬜ todo |
@@ -434,7 +434,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T14 — Listings, reports and blocks, moderation
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B4.1, B4.2, B4.3, §8, §11 · **Branch:** `feature/listings`, `feature/reports`, `feature/moderation` · **Depends on:** T08, T09, T05 (images)
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/17 · **Owner:** Arifin · **Plan:** B4.1, B4.2, B4.3, §8, §11 · **Branch:** `feature/listings`, `feature/reports`, `feature/moderation` · **Depends on:** T08, T09, T05 (images)
 
 **Endpoints (15)**
 - p2p (6): `GET /p2p/listings`, `/p2p/listing`, `/p2p/listings/for-book`, `/p2p/seller` (public), `GET /p2p/listings/mine`, `POST /p2p/listings/save` (me)
@@ -454,11 +454,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 8. Seed demo people (`p-…`), their listings, ratings and the moderation seed.
 
 **Done when**
-- [ ] 15 contract tests pass; listing, fair price, report and moderation rules tests pass
-- [ ] App walk: sell a book with photos, save a draft, submit; as `moderator@` approve one and reject one; report a listing and act on it; block a seller and see their listings disappear
-- [ ] Photos reach Cloudinary in a dev run with real keys, and removed slots are deleted
+- [x] 15 contract tests pass; listing, fair price, report and moderation rules tests pass
+- [x] App walk: sell a book with photos, save a draft, submit; as `moderator@` approve one and reject one; report a listing and act on it; block a seller and see their listings disappear
+- [x] Photos reach Cloudinary in a dev run with real keys, and removed slots are deleted
 
-**Notes:** —
+**Notes:** Used marketplace (public lists with blocks hidden, seller pages, save with photo upload to Cloudinary and deletion of removed slots, ListingRules and FairPrice ported with tests), reports with a per-reader rate limit and blocks, and the Moderation Center (queue, decide, grouped reports, act with strikes and bans, audit log with the staff name from the token). Migration 0008 with users.sold_before, seeds exported from the Dart fixtures for listings and ratings plus the demo reports. Interfaces: listings Status, blocks Checker, moderation Bans, a Subject registry for later features to register removable content, and a profile hook that hides the listings of a deleted account. Notes: reserved listings are not sold through the cart, so the cart keeps refusing them; the used-options resolver comes with Sell Back (T16).
 
 ---
 
