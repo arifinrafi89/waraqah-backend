@@ -1,0 +1,54 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: waraqah
+          POSTGRES_PASSWORD: waraqah
+          POSTGRES_DB: waraqah_test
+        ports: ["5433:5432"]
+        options: >-
+          --health-cmd "pg_isready -U waraqah" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      APP_ENV: test
+      DATABASE_URL: postgres://waraqah:waraqah@localhost:5433/waraqah_test?sslmode=disable
+      DATABASE_URL_DIRECT: postgres://waraqah:waraqah@localhost:5433/waraqah_test?sslmode=disable
+      DATABASE_URL_TEST: postgres://waraqah:waraqah@localhost:5433/waraqah_test?sslmode=disable
+      JWT_SECRET: ci-secret-ci-secret-ci-secret-ci-secret-1234
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Enable extensions
+        run: PGPASSWORD=waraqah psql -h localhost -p 5433 -U waraqah -d waraqah_test -f scripts/db-init.sql
+      - name: gofmt
+        run: test -z "$(gofmt -l .)"
+      - name: go vet
+        run: go vet ./...
+      - name: file length
+        run: ./scripts/check-file-length.sh
+      - uses: golangci/golangci-lint-action@v8
+        with:
+          version: latest
+      - name: sqlc diff
+        run: |
+          if [ -f db/sqlc.yaml ]; then
+            go install github.com/sqlc-dev/sqlc/cmd/sqlc@v1.29.0
+            sqlc diff -f db/sqlc.yaml
+          fi
+      - name: migrations up/down
+        run: |
+          if ls db/migrations/*.sql >/dev/null 2>&1; then
+            go run ./cmd/api -migrate up
+            go run ./cmd/api -migrate down-up
+          fi
+      - name: test
+        run: go test ./...
