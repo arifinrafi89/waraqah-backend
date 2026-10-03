@@ -16,7 +16,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 |---|---|---|---|---|
 ✅ done
 ✅ done
-| T03 | Database layer, migrations and sqlc | B0.3 | Arifin | ⬜ todo |
+✅ done
 | T04 | Auth platform: tokens, OTP, roles, middleware | B0.4 | Arifin | ⬜ todo |
 | T05 | Shared services: SSE, clock, ids, images, email, AI, jobs, limits | B0.5 | Arifin | ⬜ todo |
 | T06 | Contract export, contract tests and the seed loader | B0.6, F5 | Arifin | ⬜ todo |
@@ -122,7 +122,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T03 — Database layer, migrations and sqlc
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B0.3, §7 · **Branch:** `feature/db-platform` · **Depends on:** T02
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/5 · **Owner:** Arifin · **Plan:** B0.3, §7 · **Branch:** `feature/db-platform` · **Depends on:** T02
 
 **Goal:** a pgx pool, a transaction helper, goose migrations and sqlc code generation, plus the first tables, which auth needs.
 
@@ -136,11 +136,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. `/readyz` now pings the pool (`503` + error shape when the database is down).
 
 **Done when**
-- [ ] `make migrate` and `make migrate-down-up` work on the local DB; CI runs them on a fresh Postgres
-- [ ] `make sqlc` generates code and `sqlc diff` is clean
-- [ ] `/readyz` is green locally and against a Neon branch
+- [x] `make migrate` and `make migrate-down-up` work on the local DB; CI runs them on a fresh Postgres
+- [x] `make sqlc` generates code and `sqlc diff` is clean
+- [x] `/readyz` is green locally and against a Neon branch
 
-**Notes:** —
+**Notes:** pgx pool with an optional SQL timing tracer, InTx and WithTx helpers, goose migrations embedded from db/ and run with the -migrate flag (guarded by an advisory lock), sqlc config and generated code, migration 0001 with users, pending sign-ups, OTP codes, refresh tokens and the two id sequences, dbtest helper running each test in a rolled-back transaction, /readyz now pings the database. Notes: sqlc is pinned to v1.29.0 and installed with CGO_ENABLED=0 go install; dbtest loads the repo .env so a plain go test works locally.
 
 ---
 
