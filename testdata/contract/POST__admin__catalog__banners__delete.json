@@ -1,0 +1,104 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/banners/delete",
+    "query": {},
+    "body": {
+      "id": "ban-sample-banner"
+    },
+    "as": "catalog"
+  },
+  "response": [
+    {
+      "id": "ban-hadith",
+      "titleEn": "Hadith collections",
+      "titleBn": "হাদিস সংকলন",
+      "subtitleEn": "Where to start, picked by our team",
+      "subtitleBn": "কোথা থেকে শুরু করবেন, আমাদের বাছাই",
+      "seed": 3,
+      "target": {
+        "kind": "collection",
+        "value": "col-hadith"
+      },
+      "season": null
+    },
+    {
+      "id": "ban-admission",
+      "titleEn": "Admission season",
+      "titleBn": "ভর্তি মৌসুম",
+      "subtitleEn": "Question banks and guides for every test",
+      "subtitleBn": "প্রতিটি পরীক্ষার প্রশ্নব্যাংক ও গাইড",
+      "seed": 0,
+      "target": {
+        "kind": "section",
+        "value": "admissionJobPrep"
+      },
+      "season": null
+    },
+    {
+      "id": "ban-sapiens-bn",
+      "titleEn": "Sapiens, now in Bangla",
+      "titleBn": "স্যাপিয়েন্স, এখন বাংলায়",
+      "subtitleEn": "The history of humankind, in your language",
+      "subtitleBn": "মানবজাতির ইতিহাস, আপনার ভাষায়",
+      "seed": 5,
+      "target": {
+        "kind": "book",
+        "value": "bk-sapiens"
+      },
+      "season": null
+    },
+    {
+      "id": "ban-ramadan",
+      "titleEn": "Ramadan Mubarak",
+      "titleBn": "রমজান মোবারক",
+      "subtitleEn": "Books for the blessed month",
+      "subtitleBn": "বরকতময় মাসের বই",
+      "seed": 3,
+      "target": {
+        "kind": "collection",
+        "value": "col-ramadan"
+      },
+      "season": "ramadan"
+    },
+    {
+      "id": "ban-boi-mela",
+      "titleEn": "Boi Mela picks",
+      "titleBn": "বইমেলার বাছাই",
+      "subtitleEn": "Fair favourites, now in stock",
+      "subtitleBn": "মেলার প্রিয় বই, এখন স্টকে",
+      "seed": 1,
+      "target": {
+        "kind": "collection",
+        "value": "col-boi-mela"
+      },
+      "season": "boiMela"
+    },
+    {
+      "id": "ban-admission-season",
+      "titleEn": "Admission season is here",
+      "titleBn": "ভর্তি মৌসুম এসে গেছে",
+      "subtitleEn": "Everything for the tests, in one place",
+      "subtitleBn": "ভর্তি পরীক্ষার সব বই এক জায়গায়",
+      "seed": 4,
+      "target": {
+        "kind": "collection",
+        "value": "col-admission"
+      },
+      "season": "admission"
+    },
+    {
+      "id": "ban-back-to-school",
+      "titleEn": "Back to school",
+      "titleBn": "স্কুলে ফেরা",
+      "subtitleEn": "Class books for the new year",
+      "subtitleBn": "নতুন বছরের ক্লাসের বই",
+      "seed": 2,
+      "target": {
+        "kind": "collection",
+        "value": "col-back-to-school"
+      },
+      "season": "backToSchool"
+    }
+  ]
+}

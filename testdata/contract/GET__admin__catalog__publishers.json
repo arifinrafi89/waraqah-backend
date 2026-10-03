@@ -1,0 +1,121 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/catalog/publishers",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  "response": [
+    {
+      "id": "pub-harper",
+      "name": "Harper",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-harpercollins",
+      "name": "HarperCollins",
+      "bookCount": 2
+    },
+    {
+      "id": "pub-avery",
+      "name": "Avery",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-prentice-hall",
+      "name": "Prentice Hall",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-cengage",
+      "name": "Cengage",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-crown",
+      "name": "Crown Business",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-american-trust",
+      "name": "American Trust Publications",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-darussalam",
+      "name": "Darussalam",
+      "bookCount": 6
+    },
+    {
+      "id": "pub-bloomsbury",
+      "name": "Bloomsbury",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-doubleday",
+      "name": "Doubleday",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-penguin",
+      "name": "Penguin Classics",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-princeton",
+      "name": "Princeton University Press",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-ibt",
+      "name": "Islamic Book Trust",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-inner-traditions",
+      "name": "Inner Traditions",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-dar-al-taqwa",
+      "name": "Dar al-Taqwa",
+      "bookCount": 2
+    },
+    {
+      "id": "pub-waraqah-press",
+      "name": "Waraqah Press",
+      "bookCount": 4
+    },
+    {
+      "id": "pub-nctb",
+      "name": "NCTB",
+      "bookCount": 10
+    },
+    {
+      "id": "pub-s-chand",
+      "name": "S. Chand",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-addison-wesley",
+      "name": "Addison-Wesley",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-oreilly",
+      "name": "O'Reilly Media",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-philomel",
+      "name": "Philomel Books",
+      "bookCount": 1
+    },
+    {
+      "id": "pub-puffin",
+      "name": "Puffin Books",
+      "bookCount": 1
+    }
+  ]
+}

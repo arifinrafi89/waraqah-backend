@@ -1,0 +1,109 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/notifications/read",
+    "query": {},
+    "body": {
+      "id": "nt-seed-1"
+    },
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "nt-seed-1",
+      "kind": "orderStatus",
+      "createdAt": "2026-10-03T18:00:19.650981",
+      "read": true,
+      "params": {
+        "number": "WQ-100215",
+        "status": "shipped"
+      },
+      "target": {
+        "kind": "order",
+        "id": "WQ-100215"
+      }
+    },
+    {
+      "id": "nt-seed-2",
+      "kind": "alertTriggered",
+      "createdAt": "2026-10-03T12:00:19.650981",
+      "read": false,
+      "params": {
+        "title": "Sapiens",
+        "reason": "priceDrop"
+      },
+      "target": {
+        "kind": "book",
+        "id": "bk-sapiens"
+      }
+    },
+    {
+      "id": "nt-seed-3",
+      "kind": "listingDecided",
+      "createdAt": "2026-10-01T21:00:19.650981",
+      "read": false,
+      "params": {
+        "title": "Atomic Habits",
+        "decision": "approve"
+      },
+      "target": {
+        "kind": "listing",
+        "id": "p2p-7"
+      }
+    },
+    {
+      "id": "nt-seed-4",
+      "kind": "sellBackPaid",
+      "createdAt": "2026-09-20T21:00:19.650981",
+      "read": true,
+      "params": {
+        "title": "Zero to One",
+        "amount": "180"
+      },
+      "target": {
+        "kind": "sellBack",
+        "id": "SB-201"
+      }
+    },
+    {
+      "id": "nt-seed-5",
+      "kind": "newFollower",
+      "createdAt": "2026-10-03T01:00:19.650981",
+      "read": true,
+      "params": {
+        "name": "Arif"
+      },
+      "target": {
+        "kind": "reader",
+        "id": "p-arif"
+      }
+    },
+    {
+      "id": "nt-seed-6",
+      "kind": "biteComment",
+      "createdAt": "2026-10-02T23:00:19.650981",
+      "read": true,
+      "params": {
+        "name": "Nabila",
+        "excerpt": "Two-minute rule, day 12."
+      },
+      "target": {
+        "kind": "bite",
+        "id": "bt-me-1"
+      }
+    },
+    {
+      "id": "nt-seed-7",
+      "kind": "commentReply",
+      "createdAt": "2026-10-02T19:00:19.650981",
+      "read": true,
+      "params": {
+        "name": "Tanvir"
+      },
+      "target": {
+        "kind": "bite",
+        "id": "bt-1"
+      }
+    }
+  ]
+}

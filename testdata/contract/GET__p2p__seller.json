@@ -1,0 +1,48 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/p2p/seller",
+    "query": {
+      "id": "p-nabila"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "p-nabila",
+    "name": "Nabila",
+    "area": "Banani",
+    "district": "Dhaka",
+    "memberSince": "2023-11-01T00:00:00.000",
+    "booksSold": 18,
+    "ratingCount": 4,
+    "ratingAverage": 4.75,
+    "reviews": [
+      {
+        "fromName": "Rafi",
+        "stars": 4,
+        "at": "2026-09-25T21:00:19.640940",
+        "comment": null
+      },
+      {
+        "fromName": "Mahi",
+        "stars": 5,
+        "at": "2026-09-13T21:00:19.640940",
+        "comment": "Quick replies and fair price."
+      },
+      {
+        "fromName": "Arif",
+        "stars": 5,
+        "at": "2026-08-31T21:00:19.640940",
+        "comment": null
+      },
+      {
+        "fromName": "Sadia",
+        "stars": 5,
+        "at": "2026-08-04T21:00:19.640940",
+        "comment": "Lovely seller, wrapped the book too!"
+      }
+    ],
+    "listings": []
+  }
+}

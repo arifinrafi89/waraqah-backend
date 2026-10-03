@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/coupons/check",
+    "query": {
+      "code": "EID100"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "code": "EID100",
+    "kind": "amountOff",
+    "value": 100,
+    "minOrderBdt": 1000,
+    "maxDiscountBdt": null,
+    "expiresAt": null
+  }
+}

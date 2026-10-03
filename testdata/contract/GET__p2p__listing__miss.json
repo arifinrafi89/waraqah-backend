@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/p2p/listing",
+    "query": {
+      "id": "p2p-nope"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": null
+}

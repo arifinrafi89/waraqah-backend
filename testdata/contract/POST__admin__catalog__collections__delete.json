@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/collections/delete",
+    "query": {},
+    "body": {
+      "id": "col-sample-collection"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "col-sample-collection"
+  }
+}

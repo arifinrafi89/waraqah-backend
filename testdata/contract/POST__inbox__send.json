@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/inbox/send",
+    "query": {},
+    "body": {
+      "threadId": "th-13",
+      "text": "Is it still available?"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "th-13",
+    "role": "buyer",
+    "otherId": "p-tanvir",
+    "otherName": "Tanvir",
+    "listing": {
+      "id": "p2p-1",
+      "title": "Clean Code",
+      "priceBdt": 320,
+      "status": "live",
+      "coverSeed": 368,
+      "isNegotiable": true,
+      "handover": "meetInPerson"
+    },
+    "dealHere": false,
+    "unread": 0,
+    "messages": [
+      {
+        "id": "m-14",
+        "from": "me",
+        "at": "2026-10-03T21:00:20.071836",
+        "text": "Is it still available?"
+      }
+    ],
+    "myRating": null,
+    "theirRating": null
+  }
+}

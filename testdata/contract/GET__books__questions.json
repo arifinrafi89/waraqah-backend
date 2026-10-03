@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/questions",
+    "query": {
+      "id": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": []
+}

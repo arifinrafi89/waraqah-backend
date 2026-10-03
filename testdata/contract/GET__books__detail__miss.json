@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/detail",
+    "query": {
+      "id": "bk-nope"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": null
+}

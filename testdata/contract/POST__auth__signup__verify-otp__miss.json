@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/auth/signup/verify-otp",
+    "query": {},
+    "body": {
+      "contact": "newreader@waraqah.test",
+      "otp": "000000"
+    },
+    "as": "guest"
+  },
+  "response": null
+}

@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/details",
+    "query": {
+      "id": "bk-sapiens"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "bookId": "bk-sapiens",
+    "description": "How Homo sapiens came to dominate the planet, from the cognitive revolution through farming, empire and science.",
+    "pages": 443
+  }
+}

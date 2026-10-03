@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/orders/place",
+    "query": {},
+    "body": {
+      "addressId": "addr-home",
+      "payment": "cashOnDelivery",
+      "couponCode": "EID100",
+      "usePoints": false,
+      "useWallet": false
+    },
+    "as": "reader"
+  },
+  "response": {
+    "number": "WQ-100231",
+    "totalBdt": 1140,
+    "itemCount": 2,
+    "payment": "cashOnDelivery",
+    "needsDelivery": true,
+    "insideDhaka": true,
+    "hasPreorders": false,
+    "pointsEarned": 10,
+    "giftFor": null,
+    "walletUsedBdt": 0
+  }
+}

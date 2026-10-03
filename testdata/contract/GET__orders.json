@@ -1,0 +1,134 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/orders",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": [
+    {
+      "number": "WQ-100215",
+      "placedAt": "2026-10-02T15:00:19.632956",
+      "status": "shipped",
+      "lines": [
+        {
+          "bookId": "bk-sapiens",
+          "title": "Sapiens: A Brief History of Humankind",
+          "author": "Yuval Noah Harari",
+          "quantity": 1,
+          "unitPriceBdt": 520,
+          "format": "paperback",
+          "language": "bangla",
+          "coverSeed": 0,
+          "editionId": "bk-sapiens-pb-bn"
+        }
+      ],
+      "history": [
+        {
+          "status": "placed",
+          "at": "2026-10-02T15:00:19.632956"
+        },
+        {
+          "status": "confirmed",
+          "at": "2026-10-02T17:00:19.632956"
+        },
+        {
+          "status": "packed",
+          "at": "2026-10-03T11:00:19.632956"
+        },
+        {
+          "status": "shipped",
+          "at": "2026-10-03T17:00:19.632956"
+        }
+      ],
+      "addressLabel": "Home",
+      "addressLine": "House 12, Road 5, Dhanmondi, Dhaka",
+      "payment": "cashOnDelivery",
+      "subtotalBdt": 520,
+      "deliveryFeeBdt": 60,
+      "discountBdt": 0,
+      "totalBdt": 580,
+      "needsDelivery": true,
+      "pointsUsed": 0,
+      "pointsEarned": 5,
+      "returnRequest": null,
+      "gift": {
+        "recipientName": "Nabila",
+        "message": "Happy birthday! This one is for your shelf.",
+        "wrapped": false
+      },
+      "giftWrapBdt": 0,
+      "isDonation": false,
+      "walletUsedBdt": 0,
+      "refundedBdt": 0
+    },
+    {
+      "number": "WQ-100201",
+      "placedAt": "2026-09-27T21:00:19.632956",
+      "status": "delivered",
+      "lines": [
+        {
+          "bookId": "bk-sapiens",
+          "title": "Sapiens: A Brief History of Humankind",
+          "author": "Yuval Noah Harari",
+          "quantity": 1,
+          "unitPriceBdt": 650,
+          "format": "paperback",
+          "language": "english",
+          "coverSeed": 0,
+          "editionId": "bk-sapiens-pb-en"
+        },
+        {
+          "bookId": "bk-atomic",
+          "title": "Atomic Habits",
+          "author": "James Clear",
+          "quantity": 1,
+          "unitPriceBdt": 590,
+          "format": "paperback",
+          "language": "english",
+          "coverSeed": 2,
+          "editionId": "bk-atomic-pb-en"
+        }
+      ],
+      "history": [
+        {
+          "status": "placed",
+          "at": "2026-09-27T21:00:19.632956"
+        },
+        {
+          "status": "confirmed",
+          "at": "2026-09-28T00:00:19.632956"
+        },
+        {
+          "status": "packed",
+          "at": "2026-09-28T21:00:19.632956"
+        },
+        {
+          "status": "shipped",
+          "at": "2026-09-29T21:00:19.632956"
+        },
+        {
+          "status": "delivered",
+          "at": "2026-10-01T21:00:19.632956"
+        }
+      ],
+      "addressLabel": "Home",
+      "addressLine": "House 12, Road 5, Dhanmondi, Dhaka",
+      "payment": "bkash",
+      "subtotalBdt": 1240,
+      "deliveryFeeBdt": 60,
+      "discountBdt": 0,
+      "totalBdt": 1300,
+      "needsDelivery": true,
+      "pointsUsed": 0,
+      "pointsEarned": 12,
+      "returnRequest": null,
+      "gift": null,
+      "giftWrapBdt": 0,
+      "isDonation": false,
+      "walletUsedBdt": 0,
+      "refundedBdt": 0
+    }
+  ]
+}

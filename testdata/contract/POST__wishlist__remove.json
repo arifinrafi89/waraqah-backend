@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/wishlist/remove",
+    "query": {},
+    "body": {
+      "bookId": "bk-sapiens"
+    },
+    "as": "reader"
+  },
+  "response": []
+}

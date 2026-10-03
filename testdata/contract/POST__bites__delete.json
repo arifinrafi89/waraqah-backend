@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/bites/delete",
+    "query": {},
+    "body": {
+      "id": "bt-new-1"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "bt-new-1"
+  }
+}

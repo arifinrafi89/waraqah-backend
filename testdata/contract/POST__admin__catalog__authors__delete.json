@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/authors/delete",
+    "query": {},
+    "body": {
+      "id": "au-sample-author"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "au-sample-author"
+  }
+}

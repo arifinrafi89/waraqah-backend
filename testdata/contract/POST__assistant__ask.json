@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/assistant/ask",
+    "query": {},
+    "body": {
+      "prompt": "Suggest a book about habits",
+      "history": [],
+      "lang": "en"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "ai-2",
+    "text": "Here are some books for you from Waraqah's catalog, each with our price and stock.",
+    "bookIds": [
+      "bk-riyad",
+      "bk-caterpillar",
+      "bk-fiqh",
+      "bk-nectar"
+    ]
+  }
+}

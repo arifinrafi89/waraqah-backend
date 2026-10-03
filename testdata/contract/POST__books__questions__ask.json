@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/books/questions/ask",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "text": "Is this the second edition?",
+      "name": "Rafiq"
+    },
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "q-new-1",
+      "text": "Is this the second edition?",
+      "askerName": "Rafiq",
+      "askedAt": "2026-10-03T21:00:19.986002",
+      "answers": []
+    }
+  ]
+}

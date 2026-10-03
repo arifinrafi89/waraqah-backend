@@ -1,0 +1,63 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/home/banners",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  "response": [
+    {
+      "id": "ban-admission-season",
+      "titleEn": "Admission season is here",
+      "titleBn": "ভর্তি মৌসুম এসে গেছে",
+      "subtitleEn": "Everything for the tests, in one place",
+      "subtitleBn": "ভর্তি পরীক্ষার সব বই এক জায়গায়",
+      "seed": 4,
+      "target": {
+        "kind": "collection",
+        "value": "col-admission"
+      },
+      "season": "admission"
+    },
+    {
+      "id": "ban-hadith",
+      "titleEn": "Hadith collections",
+      "titleBn": "হাদিস সংকলন",
+      "subtitleEn": "Where to start, picked by our team",
+      "subtitleBn": "কোথা থেকে শুরু করবেন, আমাদের বাছাই",
+      "seed": 3,
+      "target": {
+        "kind": "collection",
+        "value": "col-hadith"
+      },
+      "season": null
+    },
+    {
+      "id": "ban-admission",
+      "titleEn": "Admission season",
+      "titleBn": "ভর্তি মৌসুম",
+      "subtitleEn": "Question banks and guides for every test",
+      "subtitleBn": "প্রতিটি পরীক্ষার প্রশ্নব্যাংক ও গাইড",
+      "seed": 0,
+      "target": {
+        "kind": "section",
+        "value": "admissionJobPrep"
+      },
+      "season": null
+    },
+    {
+      "id": "ban-sapiens-bn",
+      "titleEn": "Sapiens, now in Bangla",
+      "titleBn": "স্যাপিয়েন্স, এখন বাংলায়",
+      "subtitleEn": "The history of humankind, in your language",
+      "subtitleBn": "মানবজাতির ইতিহাস, আপনার ভাষায়",
+      "seed": 5,
+      "target": {
+        "kind": "book",
+        "value": "bk-sapiens"
+      },
+      "season": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/alerts/remove",
+    "query": {},
+    "body": {
+      "id": "al-1"
+    },
+    "as": "reader"
+  },
+  "response": []
+}

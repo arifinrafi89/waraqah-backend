@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/sell-back/queue",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  "response": [
+    {
+      "id": "SB-202",
+      "book": {
+        "bookId": "bk-calculus",
+        "title": "Calculus: Early Transcendentals",
+        "author": "James Stewart",
+        "newPriceBdt": 1400,
+        "coverSeed": 2
+      },
+      "condition": "good",
+      "quoteBdt": 350,
+      "status": "pickedUp",
+      "pickupAddress": "Road 7, Dhanmondi, Dhaka",
+      "createdAt": "2026-10-01T21:00:19.671538",
+      "flags": 0,
+      "gradedCondition": null,
+      "paidBdt": null,
+      "readerName": "Nabila"
+    },
+    {
+      "id": "SB-203",
+      "book": {
+        "bookId": "bk-sapiens",
+        "title": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "newPriceBdt": 520,
+        "coverSeed": 0
+      },
+      "condition": "veryGood",
+      "quoteBdt": 160,
+      "status": "pickedUp",
+      "pickupAddress": "Road 7, Dhanmondi, Dhaka",
+      "createdAt": "2026-10-02T21:00:19.671538",
+      "flags": 0,
+      "gradedCondition": null,
+      "paidBdt": null,
+      "readerName": "You"
+    }
+  ]
+}

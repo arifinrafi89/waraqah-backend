@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/collections/save",
+    "query": {},
+    "body": {
+      "titleEn": "Sample collection",
+      "titleBn": "নমুনা সংগ্রহ",
+      "noteEn": "Sample",
+      "noteBn": "",
+      "section": "academic",
+      "bookIds": [
+        "bk-cleancode"
+      ]
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "col-sample-collection"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/sell-back",
+    "query": {},
+    "body": {
+      "bookId": "bk-zero",
+      "condition": "good",
+      "flags": 0,
+      "pickupAddress": "House 12, Road 5, Dhanmondi, Dhaka"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "SB-304",
+    "book": {
+      "bookId": "bk-zero",
+      "title": "Zero to One",
+      "author": "Peter Thiel",
+      "newPriceBdt": 430,
+      "coverSeed": 1
+    },
+    "condition": "good",
+    "quoteBdt": 110,
+    "status": "scheduled",
+    "pickupAddress": "House 12, Road 5, Dhanmondi, Dhaka",
+    "createdAt": "2026-10-03T21:00:20.102909",
+    "flags": 0,
+    "gradedCondition": null,
+    "paidBdt": null,
+    "readerName": null
+  }
+}

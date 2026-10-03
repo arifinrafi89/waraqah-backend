@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/import",
+    "query": {},
+    "body": {
+      "books": [
+        {
+          "row": 2,
+          "author": "Sample Author",
+          "publisher": "Sample Publisher",
+          "title": "Imported Sample",
+          "titleBn": "",
+          "authorId": "",
+          "publisherId": "",
+          "section": "academic",
+          "categoryId": "cat-academic",
+          "originalLanguage": "english",
+          "coverSeed": 1,
+          "editions": [
+            {
+              "id": "",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 300,
+              "stock": 5
+            }
+          ],
+          "classes": [],
+          "exams": [],
+          "subjectId": ""
+        }
+      ]
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "imported": 1,
+    "skipped": []
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/subjects",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  "response": [
+    {
+      "id": "sub-bangla",
+      "nameEn": "Bangla",
+      "nameBn": "বাংলা"
+    },
+    {
+      "id": "sub-english",
+      "nameEn": "English",
+      "nameBn": "ইংরেজি"
+    },
+    {
+      "id": "sub-math",
+      "nameEn": "Mathematics",
+      "nameBn": "গণিত"
+    },
+    {
+      "id": "sub-higher-math",
+      "nameEn": "Higher Mathematics",
+      "nameBn": "উচ্চতর গণিত"
+    },
+    {
+      "id": "sub-science",
+      "nameEn": "Science",
+      "nameBn": "বিজ্ঞান"
+    },
+    {
+      "id": "sub-physics",
+      "nameEn": "Physics",
+      "nameBn": "পদার্থবিজ্ঞান"
+    },
+    {
+      "id": "sub-chemistry",
+      "nameEn": "Chemistry",
+      "nameBn": "রসায়ন"
+    },
+    {
+      "id": "sub-biology",
+      "nameEn": "Biology",
+      "nameBn": "জীববিজ্ঞান"
+    },
+    {
+      "id": "sub-ict",
+      "nameEn": "ICT",
+      "nameBn": "তথ্য ও যোগাযোগ প্রযুক্তি"
+    },
+    {
+      "id": "sub-gk",
+      "nameEn": "General Knowledge",
+      "nameBn": "সাধারণ জ্ঞান"
+    },
+    {
+      "id": "sub-accounting",
+      "nameEn": "Accounting",
+      "nameBn": "হিসাববিজ্ঞান"
+    }
+  ]
+}

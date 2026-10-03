@@ -1,0 +1,118 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/deals",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "flashSale": {
+      "title": "Flash sale",
+      "endsAt": "2026-10-04T03:00:19.629925",
+      "items": [
+        {
+          "bookId": "bk-sherlock",
+          "editionId": "bk-sherlock-pb-en",
+          "title": "Sherlock Holmes: A Study in Scarlet",
+          "regularPriceBdt": 380,
+          "priceBdt": 299,
+          "coverSeed": 3
+        },
+        {
+          "bookId": "bk-zero",
+          "editionId": "bk-zero-pb-en",
+          "title": "Zero to One",
+          "regularPriceBdt": 520,
+          "priceBdt": 399,
+          "coverSeed": 1
+        },
+        {
+          "bookId": "bk-hpstone",
+          "editionId": "bk-hpstone-pb-en",
+          "title": "Harry Potter and the Philosopher's Stone",
+          "regularPriceBdt": 620,
+          "priceBdt": 499,
+          "coverSeed": 1
+        }
+      ]
+    },
+    "bundles": [
+      {
+        "id": "big-ideas",
+        "title": "Big ideas bundle",
+        "items": [
+          {
+            "bookId": "bk-sapiens",
+            "editionId": "bk-sapiens-pb-en",
+            "title": "Sapiens: A Brief History of Humankind",
+            "regularPriceBdt": 650,
+            "priceBdt": 650,
+            "coverSeed": 0
+          },
+          {
+            "bookId": "bk-atomic",
+            "editionId": "bk-atomic-pb-en",
+            "title": "Atomic Habits",
+            "regularPriceBdt": 590,
+            "priceBdt": 590,
+            "coverSeed": 2
+          },
+          {
+            "bookId": "bk-zero",
+            "editionId": "bk-zero-pb-en",
+            "title": "Zero to One",
+            "regularPriceBdt": 520,
+            "priceBdt": 520,
+            "coverSeed": 1
+          }
+        ],
+        "priceBdt": 1450
+      },
+      {
+        "id": "seerah-hadith",
+        "title": "Seerah and hadith bundle",
+        "items": [
+          {
+            "bookId": "bk-nectar",
+            "editionId": "bk-nectar-pb-bn",
+            "title": "The Sealed Nectar",
+            "regularPriceBdt": 420,
+            "priceBdt": 420,
+            "coverSeed": 1
+          },
+          {
+            "bookId": "bk-riyad",
+            "editionId": "bk-riyad-hc-bn",
+            "title": "Riyad as-Salihin",
+            "regularPriceBdt": 480,
+            "priceBdt": 480,
+            "coverSeed": 3
+          },
+          {
+            "bookId": "bk-adabmufrad",
+            "editionId": "bk-adabmufrad-pb-bn",
+            "title": "Al-Adab al-Mufrad",
+            "regularPriceBdt": 480,
+            "priceBdt": 480,
+            "coverSeed": 3
+          }
+        ],
+        "priceBdt": 1150
+      }
+    ],
+    "preorders": [
+      {
+        "item": {
+          "bookId": "bk-bidayah",
+          "editionId": "bk-bidayah-hc-bn",
+          "title": "Al-Bidayah wan-Nihayah",
+          "regularPriceBdt": 1400,
+          "priceBdt": 1400,
+          "coverSeed": 1
+        },
+        "releaseDate": "2026-11-12T00:00:00.000"
+      }
+    ]
+  }
+}

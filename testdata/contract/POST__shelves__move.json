@@ -1,0 +1,421 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/shelves/move",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "shelf": "reading"
+    },
+    "as": "reader"
+  },
+  "response": [
+    {
+      "book": {
+        "id": "bk-cleancode",
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "categoryId": "cat-academic",
+        "authorId": "au-martin",
+        "publisherId": "pub-prentice-hall",
+        "section": "academic",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-cleancode-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 1150,
+            "stock": 8,
+            "listPriceBdt": 1320,
+            "isPreorder": false,
+            "isbn": "9789840002054"
+          },
+          {
+            "id": "bk-cleancode-eb-en",
+            "format": "ebook",
+            "language": "english",
+            "priceBdt": 700,
+            "stock": 999,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": null
+          }
+        ],
+        "addedAt": "2026-01-15T00:00:00.000",
+        "rating": 4.5,
+        "tags": [
+          "Academic",
+          "Software"
+        ],
+        "coverSeed": 0,
+        "shortTitle": null,
+        "titleBn": null,
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": "sub-ict"
+      },
+      "shelf": "reading",
+      "addedAt": "2026-10-03T21:00:20.124390",
+      "finishedAt": null,
+      "progress": 0,
+      "pagesRead": null,
+      "totalPages": null
+    },
+    {
+      "book": {
+        "id": "bk-sapiens",
+        "title": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "categoryId": "cat-academic",
+        "authorId": "au-harari",
+        "publisherId": "pub-harper",
+        "section": "academic",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-sapiens-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 650,
+            "stock": 24,
+            "listPriceBdt": 780,
+            "isPreorder": false,
+            "isbn": "9789840001774"
+          },
+          {
+            "id": "bk-sapiens-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 520,
+            "stock": 15,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001842"
+          },
+          {
+            "id": "bk-sapiens-eb-en",
+            "format": "ebook",
+            "language": "english",
+            "priceBdt": 399,
+            "stock": 999,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": null
+          }
+        ],
+        "addedAt": "2026-01-01T00:00:00.000",
+        "rating": 4.3,
+        "tags": [
+          "Non-Fiction"
+        ],
+        "coverSeed": 0,
+        "shortTitle": "Sapiens",
+        "titleBn": "স্যাপিয়েন্স",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "wantToRead",
+      "addedAt": "2026-10-01T21:00:19.632956",
+      "finishedAt": null,
+      "progress": 0,
+      "pagesRead": null,
+      "totalPages": null
+    },
+    {
+      "book": {
+        "id": "bk-atomic",
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "categoryId": "cat-self-help",
+        "authorId": "au-clear",
+        "publisherId": "pub-avery",
+        "section": "nonFiction",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-atomic-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 590,
+            "stock": 30,
+            "listPriceBdt": 650,
+            "isPreorder": false,
+            "isbn": "9789840001910"
+          },
+          {
+            "id": "bk-atomic-hc-en",
+            "format": "hardcover",
+            "language": "english",
+            "priceBdt": 890,
+            "stock": 2,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001989"
+          }
+        ],
+        "addedAt": "2026-01-08T00:00:00.000",
+        "rating": 4.7,
+        "tags": [
+          "Self-Help"
+        ],
+        "coverSeed": 2,
+        "shortTitle": null,
+        "titleBn": "অ্যাটমিক হ্যাবিটস",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "wantToRead",
+      "addedAt": "2026-10-01T21:00:19.632956",
+      "finishedAt": null,
+      "progress": 0,
+      "pagesRead": null,
+      "totalPages": null
+    },
+    {
+      "book": {
+        "id": "bk-hobbit",
+        "title": "The Hobbit",
+        "author": "J. R. R. Tolkien",
+        "categoryId": "cat-fiction",
+        "authorId": "au-tolkien",
+        "publisherId": "pub-harpercollins",
+        "section": "literature",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-hobbit-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 550,
+            "stock": 20,
+            "listPriceBdt": 650,
+            "isPreorder": false,
+            "isbn": "9789840001149"
+          },
+          {
+            "id": "bk-hobbit-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 380,
+            "stock": 9,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001217"
+          }
+        ],
+        "addedAt": "2026-04-16T00:00:00.000",
+        "rating": 4.8,
+        "tags": [
+          "Fiction"
+        ],
+        "coverSeed": 0,
+        "shortTitle": "Hobbit",
+        "titleBn": "দ্য হবিট",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "reading",
+      "addedAt": "2026-09-24T21:00:19.674546",
+      "finishedAt": null,
+      "progress": 42,
+      "pagesRead": 130,
+      "totalPages": 310
+    },
+    {
+      "book": {
+        "id": "bk-alchemist",
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "categoryId": "cat-fiction",
+        "authorId": "au-coelho",
+        "publisherId": "pub-harpercollins",
+        "section": "literature",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-alchemist-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 420,
+            "stock": 0,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001996"
+          }
+        ],
+        "addedAt": "2026-05-20T00:00:00.000",
+        "rating": 4.4,
+        "tags": [
+          "Fiction"
+        ],
+        "coverSeed": 5,
+        "shortTitle": null,
+        "titleBn": "দ্য অ্যালকেমিস্ট",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "finished",
+      "addedAt": "2026-08-22T21:00:19.674546",
+      "finishedAt": "2026-09-03T21:00:19.674546",
+      "progress": 100,
+      "pagesRead": null,
+      "totalPages": null
+    },
+    {
+      "book": {
+        "id": "bk-sherlock",
+        "title": "Sherlock Holmes: A Study in Scarlet",
+        "author": "Arthur Conan Doyle",
+        "categoryId": "cat-fiction",
+        "authorId": "au-doyle",
+        "publisherId": "pub-penguin",
+        "section": "literature",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-sherlock-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 380,
+            "stock": 30,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001071"
+          },
+          {
+            "id": "bk-sherlock-eb-en",
+            "format": "ebook",
+            "language": "english",
+            "priceBdt": 150,
+            "stock": 999,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": null
+          }
+        ],
+        "addedAt": "2026-05-07T00:00:00.000",
+        "rating": 4.6,
+        "tags": [
+          "Fiction"
+        ],
+        "coverSeed": 3,
+        "shortTitle": "Sherlock Holmes",
+        "titleBn": "শার্লক হোমস: আ স্টাডি ইন স্কারলেট",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "finished",
+      "addedAt": "2026-07-21T21:00:19.674546",
+      "finishedAt": "2026-08-02T21:00:19.674546",
+      "progress": 100,
+      "pagesRead": null,
+      "totalPages": null
+    },
+    {
+      "book": {
+        "id": "bk-zero",
+        "title": "Zero to One",
+        "author": "Peter Thiel",
+        "categoryId": "cat-business",
+        "authorId": "au-thiel",
+        "publisherId": "pub-crown",
+        "section": "nonFiction",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-zero-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 520,
+            "stock": 18,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001637"
+          },
+          {
+            "id": "bk-zero-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 430,
+            "stock": 12,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001705"
+          }
+        ],
+        "addedAt": "2026-01-29T00:00:00.000",
+        "rating": 4.4,
+        "tags": [
+          "Business"
+        ],
+        "coverSeed": 1,
+        "shortTitle": null,
+        "titleBn": "জিরো টু ওয়ান",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "finished",
+      "addedAt": "2026-05-24T21:00:19.674546",
+      "finishedAt": "2026-06-05T21:00:19.674546",
+      "progress": 100,
+      "pagesRead": null,
+      "totalPages": null
+    },
+    {
+      "book": {
+        "id": "bk-pragmatic",
+        "title": "The Pragmatic Programmer",
+        "author": "Andrew Hunt & David Thomas",
+        "categoryId": "cat-programming",
+        "authorId": "au-hunt-thomas",
+        "publisherId": "pub-addison-wesley",
+        "section": "skillsTech",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-pragmatic-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 1450,
+            "stock": 9,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840003389"
+          }
+        ],
+        "addedAt": "2026-06-11T00:00:00.000",
+        "rating": 4.7,
+        "tags": [
+          "Programming"
+        ],
+        "coverSeed": 1,
+        "shortTitle": "Pragmatic Programmer",
+        "titleBn": null,
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      "shelf": "finished",
+      "addedAt": "2026-04-24T21:00:19.674546",
+      "finishedAt": "2026-05-06T21:00:19.674546",
+      "progress": 100,
+      "pagesRead": null,
+      "totalPages": null
+    }
+  ]
+}

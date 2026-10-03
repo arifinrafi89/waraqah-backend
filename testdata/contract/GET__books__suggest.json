@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/suggest",
+    "query": {
+      "q": "sap"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": [
+    "Sapiens: A Brief History of Humankind",
+    "When the Moon Split"
+  ]
+}

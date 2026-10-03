@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/wishlist",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": []
+}

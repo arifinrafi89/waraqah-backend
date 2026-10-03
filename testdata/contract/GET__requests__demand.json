@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/requests/demand",
+    "query": {},
+    "body": null,
+    "as": "support"
+  },
+  "response": [
+    {
+      "title": "Calculus: Early Transcendentals",
+      "requests": 2
+    },
+    {
+      "title": "Atomic Habits",
+      "requests": 1
+    }
+  ]
+}

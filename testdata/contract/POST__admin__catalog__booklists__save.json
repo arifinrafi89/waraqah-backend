@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/booklists/save",
+    "query": {},
+    "body": {
+      "titleEn": "Sample staff list",
+      "titleBn": "নমুনা তালিকা",
+      "noteEn": "Sample",
+      "noteBn": "",
+      "kind": "classList",
+      "bookIds": [
+        "bk-cleancode"
+      ]
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "bl-sample-staff-list"
+  }
+}

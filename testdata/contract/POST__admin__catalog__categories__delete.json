@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/categories/delete",
+    "query": {},
+    "body": {
+      "id": "cat-sample-category"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "cat-sample-category"
+  }
+}

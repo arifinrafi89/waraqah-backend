@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/auth/signup/request-otp",
+    "query": {},
+    "body": {
+      "name": "New Reader",
+      "contact": "newreader@waraqah.test",
+      "password": "Secret#123"
+    },
+    "as": "guest"
+  },
+  "response": {
+    "ok": true
+  }
+}

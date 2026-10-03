@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/wallet",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "balanceBdt": 180,
+    "entries": [
+      {
+        "amountBdt": 180,
+        "reason": "sellBack",
+        "at": "2026-09-21T21:00:19.634953",
+        "orderNumber": null,
+        "note": "Zero to One"
+      }
+    ]
+  }
+}

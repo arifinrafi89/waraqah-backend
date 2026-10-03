@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/sales/buy",
+    "query": {},
+    "body": {
+      "listingId": "p2p-1",
+      "method": "bkash"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "HS-201",
+    "listingId": "p2p-1",
+    "title": "Clean Code",
+    "role": "buyer",
+    "otherName": "Tanvir",
+    "priceBdt": 320,
+    "deliveryBdt": 80,
+    "feeBdt": 16,
+    "status": "paid",
+    "method": "bkash",
+    "createdAt": "2026-10-03T21:00:20.090355",
+    "coverSeed": 368,
+    "disputeReason": null,
+    "disputeNote": null,
+    "disputePhotos": []
+  }
+}

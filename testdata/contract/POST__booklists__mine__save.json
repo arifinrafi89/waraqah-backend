@@ -1,0 +1,129 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/booklists/mine/save",
+    "query": {},
+    "body": {
+      "name": "My weekend reads",
+      "bookIds": [
+        "bk-cleancode",
+        "bk-sapiens"
+      ]
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "bl-mine-1791039619991450",
+    "titleEn": "My weekend reads",
+    "titleBn": "My weekend reads",
+    "kind": "personal",
+    "bookIds": [
+      "bk-cleancode",
+      "bk-sapiens"
+    ],
+    "noteEn": null,
+    "noteBn": null,
+    "isMine": true,
+    "books": [
+      {
+        "id": "bk-cleancode",
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "categoryId": "cat-academic",
+        "authorId": "au-martin",
+        "publisherId": "pub-prentice-hall",
+        "section": "academic",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-cleancode-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 1150,
+            "stock": 8,
+            "listPriceBdt": 1320,
+            "isPreorder": false,
+            "isbn": "9789840002054"
+          },
+          {
+            "id": "bk-cleancode-eb-en",
+            "format": "ebook",
+            "language": "english",
+            "priceBdt": 700,
+            "stock": 999,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": null
+          }
+        ],
+        "addedAt": "2026-01-15T00:00:00.000",
+        "rating": 4.6,
+        "tags": [
+          "Academic",
+          "Software"
+        ],
+        "coverSeed": 0,
+        "shortTitle": null,
+        "titleBn": null,
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": "sub-ict"
+      },
+      {
+        "id": "bk-sapiens",
+        "title": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "categoryId": "cat-academic",
+        "authorId": "au-harari",
+        "publisherId": "pub-harper",
+        "section": "academic",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-sapiens-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 650,
+            "stock": 24,
+            "listPriceBdt": 780,
+            "isPreorder": false,
+            "isbn": "9789840001774"
+          },
+          {
+            "id": "bk-sapiens-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 520,
+            "stock": 15,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840001842"
+          },
+          {
+            "id": "bk-sapiens-eb-en",
+            "format": "ebook",
+            "language": "english",
+            "priceBdt": 399,
+            "stock": 999,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": null
+          }
+        ],
+        "addedAt": "2026-01-01T00:00:00.000",
+        "rating": 4.3,
+        "tags": [
+          "Non-Fiction"
+        ],
+        "coverSeed": 0,
+        "shortTitle": "Sapiens",
+        "titleBn": "স্যাপিয়েন্স",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      }
+    ]
+  }
+}

@@ -9,6 +9,20 @@ import (
 
 // Routes builds the whole HTTP handler: the mux with every feature mounted, wrapped in middleware.
 func Routes(d *Deps) http.Handler {
+	mux := Mux(d)
+	maxBody := int64(d.Cfg.MaxRequestBodyMB) << 20
+	return httpx.Chain(mux,
+		httpx.Recover(d.Log),
+		httpx.RequestID(d.Log),
+		httpx.AccessLog(),
+		httpx.CORS(d.Cfg.CORSAllowedOrigins),
+		httpx.BodyLimit(maxBody),
+	)
+}
+
+// Mux registers every route without the middleware. The route coverage test asks it which
+// endpoints exist.
+func Mux(d *Deps) *http.ServeMux {
 	mux := http.NewServeMux()
 	api := httpx.Router{Mux: mux, Prefix: strings.TrimRight(d.Cfg.APIBasePath, "/")}
 
@@ -22,15 +36,7 @@ func Routes(d *Deps) http.Handler {
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		httpx.Error(w, r, http.StatusNotFound, httpx.CodeNotFound, "no such endpoint")
 	})
-
-	maxBody := int64(d.Cfg.MaxRequestBodyMB) << 20
-	return httpx.Chain(mux,
-		httpx.Recover(d.Log),
-		httpx.RequestID(d.Log),
-		httpx.AccessLog(),
-		httpx.CORS(d.Cfg.CORSAllowedOrigins),
-		httpx.BodyLimit(maxBody),
-	)
+	return mux
 }
 
 // mountFeatures is where each feature adds its routes, one line per feature.

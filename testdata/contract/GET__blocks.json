@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/blocks",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": []
+}

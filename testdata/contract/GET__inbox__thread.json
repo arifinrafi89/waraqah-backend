@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/inbox/thread",
+    "query": {
+      "id": "th-sadia"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "id": "th-sadia",
+    "role": "seller",
+    "otherId": "p-sadia",
+    "otherName": "Sadia",
+    "listing": {
+      "id": "p2p-7",
+      "title": "Atomic Habits",
+      "priceBdt": 350,
+      "status": "live",
+      "coverSeed": 374,
+      "isNegotiable": true,
+      "handover": "meetInPerson"
+    },
+    "dealHere": false,
+    "unread": 2,
+    "messages": [
+      {
+        "id": "m-1",
+        "from": "them",
+        "at": "2026-10-03T20:08:19.659978",
+        "text": "Hi! Is Atomic Habits still available? I live in Mohammadpur."
+      },
+      {
+        "id": "m-2",
+        "from": "them",
+        "at": "2026-10-03T20:10:19.659978",
+        "offer": {
+          "id": "o-sadia",
+          "amountBdt": 300,
+          "handover": "meetup",
+          "status": "pending"
+        }
+      }
+    ],
+    "myRating": null,
+    "theirRating": null
+  }
+}

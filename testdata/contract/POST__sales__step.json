@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/sales/step",
+    "query": {},
+    "body": {
+      "id": "HS-103",
+      "step": "send"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "HS-103",
+    "listingId": "p2p-hs-3",
+    "title": "The Alchemist",
+    "role": "seller",
+    "otherName": "Mahi",
+    "priceBdt": 220,
+    "deliveryBdt": 80,
+    "feeBdt": 11,
+    "status": "sent",
+    "method": "card",
+    "createdAt": "2026-10-03T18:00:19.669542",
+    "coverSeed": 634,
+    "disputeReason": null,
+    "disputeNote": null,
+    "disputePhotos": []
+  }
+}

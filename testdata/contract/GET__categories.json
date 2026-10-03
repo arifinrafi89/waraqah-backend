@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/categories",
+    "query": {
+      "section": "academic"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": [
+    {
+      "id": "cat-academic",
+      "section": "academic",
+      "nameEn": "Academic",
+      "nameBn": "একাডেমিক"
+    }
+  ]
+}

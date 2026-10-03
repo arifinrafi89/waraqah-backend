@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/authors/save",
+    "query": {},
+    "body": {
+      "name": "Sample Author",
+      "nameBn": ""
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "au-sample-author",
+    "name": "Sample Author",
+    "bookCount": 0
+  }
+}

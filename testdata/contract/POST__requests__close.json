@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/requests/close",
+    "query": {},
+    "body": {
+      "id": "rq-4"
+    },
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "rq-4",
+      "title": "The Pragmatic Programmer",
+      "createdAt": "2026-10-03T21:00:20.085352",
+      "author": "Andrew Hunt",
+      "bookId": null,
+      "maxPriceBdt": 700,
+      "note": "Any edition",
+      "isOpen": false,
+      "matchCount": 0,
+      "notifiedSellers": 1
+    }
+  ]
+}

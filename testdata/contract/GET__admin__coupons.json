@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/coupons",
+    "query": {},
+    "body": null,
+    "as": "support"
+  },
+  "response": [
+    {
+      "code": "FREESHIP",
+      "kind": "freeDelivery",
+      "value": 0,
+      "minOrderBdt": 500,
+      "maxDiscountBdt": null,
+      "expiresAt": null
+    },
+    {
+      "code": "EID100",
+      "kind": "amountOff",
+      "value": 100,
+      "minOrderBdt": 1000,
+      "maxDiscountBdt": null,
+      "expiresAt": null
+    },
+    {
+      "code": "WELCOME10",
+      "kind": "percentOff",
+      "value": 10,
+      "minOrderBdt": 0,
+      "maxDiscountBdt": 150,
+      "expiresAt": null
+    }
+  ]
+}

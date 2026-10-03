@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/authors/detail",
+    "query": {
+      "id": "au-harari"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "au-harari",
+    "name": "Yuval Noah Harari",
+    "nameBn": "ইউভাল নোয়া হারারি",
+    "bio": "Israeli historian whose books trace the big arcs of human history."
+  }
+}

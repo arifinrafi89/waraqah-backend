@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/scan/lookup",
+    "query": {
+      "isbn": "9789840001491"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "bookId": "bk-calculus",
+    "title": "Calculus: Early Transcendentals",
+    "author": "James Stewart",
+    "isbn": "9789840001491",
+    "coverSeed": 2,
+    "newPriceBdt": 1750
+  }
+}

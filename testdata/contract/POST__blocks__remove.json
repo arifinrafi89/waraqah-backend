@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/blocks/remove",
+    "query": {},
+    "body": {
+      "readerId": "p-rakib"
+    },
+    "as": "reader"
+  },
+  "response": []
+}

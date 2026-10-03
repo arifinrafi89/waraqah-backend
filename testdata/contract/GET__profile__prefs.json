@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/profile/prefs",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "muted": [],
+    "profileVisible": true,
+    "activityVisible": true
+  }
+}

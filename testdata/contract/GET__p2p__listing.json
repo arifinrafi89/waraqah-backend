@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/p2p/listing",
+    "query": {
+      "id": "p2p-1"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "p2p-1",
+    "title": "Clean Code",
+    "sellerId": "p-tanvir",
+    "sellerName": "Tanvir",
+    "priceBdt": 320,
+    "condition": "likeNew",
+    "flags": [],
+    "photos": [],
+    "isNegotiable": true,
+    "handover": "meetInPerson",
+    "status": "live",
+    "isMine": false,
+    "isMyDeal": false,
+    "rejectionReason": null,
+    "bookId": "bk-cleancode",
+    "coverSeed": 368,
+    "district": "Dhaka",
+    "area": "Dhanmondi",
+    "categoryId": "cat-programming",
+    "section": "skillsTech",
+    "newPriceBdt": 500,
+    "note": "Read once. No highlights or notes."
+  }
+}

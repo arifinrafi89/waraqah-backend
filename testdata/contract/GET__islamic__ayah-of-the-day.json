@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/islamic/ayah-of-the-day",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "arabic": "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا",
+    "translation": "Indeed, with hardship comes ease.",
+    "surahEn": "Surah Ash-Sharh",
+    "surahBn": "সূরা আশ-শারহ",
+    "surahNumber": 94,
+    "verseNumber": 6
+  }
+}

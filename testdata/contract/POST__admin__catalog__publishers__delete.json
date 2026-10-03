@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/publishers/delete",
+    "query": {},
+    "body": {
+      "id": "pub-sample-publisher"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "pub-sample-publisher"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/inbox/listing/release",
+    "query": {},
+    "body": {
+      "threadId": "th-sadia"
+    },
+    "as": "reader"
+  },
+  "response": null
+}

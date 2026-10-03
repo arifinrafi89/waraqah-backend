@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/requests/mine",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": []
+}
