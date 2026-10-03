@@ -1,0 +1,24 @@
+# Secrets: real values live only in .env (see .env.example)
+.env
+.env.*
+!.env.example
+
+# Frontend reference checkout (separate repository)
+/frontend/
+
+# Go
+/bin/
+/dist/
+*.test
+*.out
+coverage.*
+
+# Tools and editors
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Local data
+/tmp/
+*.log
