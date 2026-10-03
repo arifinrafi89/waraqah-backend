@@ -20,7 +20,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T07 | Auth endpoints and the app's switch to the real API | B1.1, F1, F2, F3, F8 | Rahinur | ⬜ todo |
+🟡 in progress
 | T08 | Profile and notifications | B1.2, B1.3 | Rahinur | ⬜ todo |
 | T09 | Catalog reads, search and records | B2.1, B2.2 | Rahinur | ⬜ todo |
 | T10 | Home, catalog admin and scan | B2.3, B2.4, B2.5 | Rahinur (scan: Arifin) | ⬜ todo |
@@ -233,7 +233,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T07 — Auth endpoints and the app's switch to the real API
 
-**Status:** ⬜ todo · **Owner:** Rahinur · **Plan:** B1.1, §5, F1, F2, F3, F8 · **Branch:** `feature/auth` (+ frontend PRs F1, F2, F3, F8) · **Depends on:** T04, T05, T06
+**Status:** 🟡 in progress · **Owner:** Rahinur · **Plan:** B1.1, §5, F1, F2, F3, F8 · **Branch:** `feature/auth` (+ frontend PRs F1, F2, F3, F8) · **Depends on:** T04, T05, T06
 
 **Endpoints (6 + 2 additive):** `POST /auth/login`, `/auth/google`, `/auth/signup/request-otp`, `/auth/signup/verify-otp`, `/auth/password/request-otp`, `/auth/password/reset`, and the additive `POST /auth/refresh`, `/auth/logout` (§4.6). (`POST /auth/delete` belongs to T08, Profile.)
 
@@ -263,7 +263,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 - [ ] F1 and F2 merged in the frontend; the app signs in against the local backend and keeps the session across a token refresh
 - [ ] Refusal codes `wrong_credentials`, `wrong_otp`, `phone_not_supported`, `email_taken`, `google_token_missing` documented
 
-**Notes:** —
+**Notes:** Backend half merged (PR for feature/auth): all eight endpoints, rate limits, dev OTP code, refresh rotation with theft detection, handler tests. The frontend PRs F1, F2, F3 and F8 follow in the frontend repo. Extra refusal codes: `contact_invalid`, `password_invalid`, `google_token_invalid`.
 
 ---
 

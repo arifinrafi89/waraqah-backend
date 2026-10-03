@@ -5,6 +5,16 @@ package httpx
 const (
 	// ErrRateLimited is sent as a 429 error body code, not as a refusal header.
 	ErrRateLimited = "rate_limited"
+
+	// auth
+	ErrWrongCredentials   = "wrong_credentials"
+	ErrWrongOTP           = "wrong_otp"
+	ErrPhoneNotSupported  = "phone_not_supported"
+	ErrContactInvalid     = "contact_invalid"
+	ErrEmailTaken         = "email_taken"
+	ErrPasswordInvalid    = "password_invalid"
+	ErrGoogleTokenMissing = "google_token_missing"
+	ErrGoogleTokenInvalid = "google_token_invalid"
 )
 
 // Error body codes for non-200 answers (BACKEND_PLAN.md §4.2).
