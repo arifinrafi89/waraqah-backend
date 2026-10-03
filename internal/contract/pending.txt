@@ -1,9 +1,5 @@
 # Endpoints not built yet, one "METHOD /path" per line (BACKEND_PLAN.md Appendix A).
 # Each feature task removes its lines. T19 requires this file to be empty.
-GET /addresses
-POST /addresses/default
-POST /addresses/delete
-POST /addresses/save
 GET /admin/catalog/authors
 POST /admin/catalog/authors/delete
 POST /admin/catalog/authors/save
@@ -42,7 +38,6 @@ POST /alerts/remove
 POST /alerts/set
 POST /assistant/ask
 GET /assistant/greeting
-POST /auth/delete
 GET /authors/detail
 GET /bites
 POST /bites/comments/delete
@@ -85,7 +80,6 @@ GET /donate/recipient
 GET /donate/recipients
 GET /experts
 GET /experts/detail
-GET /geo
 GET /home/banners
 GET /home/season
 GET /inbox
@@ -105,10 +99,6 @@ POST /moderation/listings/decide
 GET /moderation/log
 GET /moderation/reports
 POST /moderation/reports/act
-GET /notifications
-GET /notifications/live
-POST /notifications/read
-POST /notifications/read-all
 GET /orders
 POST /orders/cancel
 GET /orders/details
@@ -122,10 +112,6 @@ GET /p2p/listings/mine
 POST /p2p/listings/save
 GET /p2p/seller
 GET /points
-GET /profile
-GET /profile/prefs
-POST /profile/prefs/save
-POST /profile/save
 GET /publishers/detail
 GET /readers/detail
 POST /readers/follow

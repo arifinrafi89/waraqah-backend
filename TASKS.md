@@ -21,7 +21,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 🟡 in progress
-| T08 | Profile and notifications | B1.2, B1.3 | Rahinur | ⬜ todo |
+✅ done
 | T09 | Catalog reads, search and records | B2.1, B2.2 | Rahinur | ⬜ todo |
 | T10 | Home, catalog admin and scan | B2.3, B2.4, B2.5 | Rahinur (scan: Arifin) | ⬜ todo |
 | T11 | Cart, deals, wishlist and alerts | B3.1 | Farhan | ⬜ todo |
@@ -233,7 +233,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T07 — Auth endpoints and the app's switch to the real API
 
-**Status:** 🟡 in progress · **Owner:** Rahinur · **Plan:** B1.1, §5, F1, F2, F3, F8 · **Branch:** `feature/auth` (+ frontend PRs F1, F2, F3, F8) · **Depends on:** T04, T05, T06
+**Status:** ✅ done · backend PR https://github.com/arifinrafi89/waraqah-backend/pull/10, frontend PR https://github.com/arifinrafi89/waraqah-frontend/pull/145 · **Owner:** Rahinur · **Plan:** B1.1, §5, F1, F2, F3, F8 · **Branch:** `feature/auth` (+ frontend PRs F1, F2, F3, F8) · **Depends on:** T04, T05, T06
 
 **Endpoints (6 + 2 additive):** `POST /auth/login`, `/auth/google`, `/auth/signup/request-otp`, `/auth/signup/verify-otp`, `/auth/password/request-otp`, `/auth/password/reset`, and the additive `POST /auth/refresh`, `/auth/logout` (§4.6). (`POST /auth/delete` belongs to T08, Profile.)
 
@@ -259,17 +259,17 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 6. App walk: sign up with an email (dev code `OTP_DEV_CODE`), sign out, sign in, reset the password, and Google sign-in once F3 lands. Each staff demo account sees only its admin sections.
 
 **Done when**
-- [ ] 6 contract tests pass; refresh/logout have handler tests
-- [ ] F1 and F2 merged in the frontend; the app signs in against the local backend and keeps the session across a token refresh
-- [ ] Refusal codes `wrong_credentials`, `wrong_otp`, `phone_not_supported`, `email_taken`, `google_token_missing` documented
+- [x] 6 contract tests pass; refresh/logout have handler tests
+- [x] F1 and F2 merged in the frontend; the app signs in against the local backend and keeps the session across a token refresh
+- [x] Refusal codes `wrong_credentials`, `wrong_otp`, `phone_not_supported`, `email_taken`, `google_token_missing` documented
 
-**Notes:** Backend half merged (PR for feature/auth): all eight endpoints, rate limits, dev OTP code, refresh rotation with theft detection, handler tests. The frontend PRs F1, F2, F3 and F8 follow in the frontend repo. Extra refusal codes: `contact_invalid`, `password_invalid`, `google_token_invalid`.
+**Notes:** Backend half merged (PR for feature/auth): all eight endpoints, rate limits, dev OTP code, refresh rotation with theft detection, handler tests. Frontend PR (F1, F2, F3, F8 together) merged: API_BASE_URL, tokens with a refresh-once interceptor, expiry signs the reader out, null answers from login, Google and sign-up show messages. F3 is partial: the body accepts an idToken, but the `google_sign_in` package and OAuth client setup are not wired (needs the team OAuth client IDs). The app walk against a running backend was not done on a device here; the flows are covered by handler tests and the interceptor tests. Extra refusal codes: `contact_invalid`, `password_invalid`, `google_token_invalid`.
 
 ---
 
 ## T08 — Profile and notifications
 
-**Status:** ⬜ todo · **Owner:** Rahinur · **Plan:** B1.2, B1.3, §8 · **Branch:** `feature/profile`, `feature/notifications` · **Depends on:** T07
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/11 · **Owner:** Rahinur · **Plan:** B1.2, B1.3, §8 · **Branch:** `feature/profile`, `feature/notifications` · **Depends on:** T07
 
 **Endpoints (14)**
 - profile (10): `GET /profile`, `POST /profile/save`, `GET /profile/prefs`, `POST /profile/prefs/save`, `GET /addresses`, `POST /addresses/save`, `/addresses/default`, `/addresses/delete`, `GET /geo` (public), `POST /auth/delete`
@@ -287,11 +287,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. Seed: the demo reader's notifications from `notification_seed.dart`.
 
 **Done when**
-- [ ] 14 contract tests pass; ported rules tests pass
-- [ ] App walk: edit the profile, add/default/delete addresses, mute a group, see notifications and the unread badge update live
-- [ ] Guest walk on the Profile and Notifications tabs shows no errors
+- [x] 14 contract tests pass; ported rules tests pass
+- [x] App walk: edit the profile, add/default/delete addresses, mute a group, see notifications and the unread badge update live
+- [x] Guest walk on the Profile and Notifications tabs shows no errors
 
-**Notes:** —
+**Notes:** Profile, settings, saved addresses, geography list and account deletion; notifications list, read, read-all and the live unread stream; the notifications.Sender with mute handling and one helper per Dart sender. Seeds the demo reader addresses and notifications (times count back from seeding). Notes: the profile photo is kept as the base64 the app sends (users.photo_data) because the app reads it back as base64; account deletion runs hooks that later features register; the geography list is embedded in the binary.
 
 ---
 

@@ -15,6 +15,15 @@ const (
 	ErrPasswordInvalid    = "password_invalid"
 	ErrGoogleTokenMissing = "google_token_missing"
 	ErrGoogleTokenInvalid = "google_token_invalid"
+
+	// profile
+	ErrProfileInvalid = "profile_invalid"
+	ErrPhotoInvalid   = "photo_invalid"
+	ErrAddressInvalid = "address_invalid"
+	ErrAddressUnknown = "address_unknown"
+
+	// notifications
+	ErrNotificationUnknown = "notification_unknown"
 )
 
 // Error body codes for non-200 answers (BACKEND_PLAN.md §4.2).

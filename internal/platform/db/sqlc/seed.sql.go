@@ -29,6 +29,72 @@ func (q *Queries) SetUserRoleByEmail(ctx context.Context, arg SetUserRoleByEmail
 	return result.RowsAffected(), nil
 }
 
+const upsertSeedAddress = `-- name: UpsertSeedAddress :exec
+INSERT INTO addresses (id, user_id, label, recipient, phone, line, upazila, district, division, is_default)
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+ON CONFLICT (id) DO UPDATE
+SET label = EXCLUDED.label, recipient = EXCLUDED.recipient, phone = EXCLUDED.phone, line = EXCLUDED.line,
+    upazila = EXCLUDED.upazila, district = EXCLUDED.district, division = EXCLUDED.division
+`
+
+type UpsertSeedAddressParams struct {
+	ID        string
+	UserID    string
+	Label     string
+	Recipient string
+	Phone     string
+	Line      string
+	Upazila   string
+	District  string
+	Division  string
+	IsDefault bool
+}
+
+func (q *Queries) UpsertSeedAddress(ctx context.Context, arg UpsertSeedAddressParams) error {
+	_, err := q.db.Exec(ctx, upsertSeedAddress,
+		arg.ID,
+		arg.UserID,
+		arg.Label,
+		arg.Recipient,
+		arg.Phone,
+		arg.Line,
+		arg.Upazila,
+		arg.District,
+		arg.Division,
+		arg.IsDefault,
+	)
+	return err
+}
+
+const upsertSeedNotification = `-- name: UpsertSeedNotification :exec
+INSERT INTO notifications (id, user_id, kind, params, target, read_at, created_at)
+VALUES ($1, $2, $3, $4, $5, $6, $7)
+ON CONFLICT (id) DO UPDATE SET kind = EXCLUDED.kind, params = EXCLUDED.params, target = EXCLUDED.target
+`
+
+type UpsertSeedNotificationParams struct {
+	ID        string
+	UserID    string
+	Kind      string
+	Params    []byte
+	Target    []byte
+	ReadAt    pgtype.Timestamptz
+	CreatedAt time.Time
+}
+
+func (q *Queries) UpsertSeedNotification(ctx context.Context, arg UpsertSeedNotificationParams) error {
+	_, err := q.db.Exec(ctx, upsertSeedNotification,
+		arg.ID,
+		arg.UserID,
+		arg.Kind,
+		arg.Params,
+		arg.Target,
+		arg.ReadAt,
+		arg.CreatedAt,
+	)
+	return err
+}
+
 const upsertSeedUser = `-- name: UpsertSeedUser :exec
 INSERT INTO users (id, email, name, role, password_hash, member_since)
 VALUES ($1, $2, $3, $4, $5, $6)

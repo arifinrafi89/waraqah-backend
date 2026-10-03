@@ -7,6 +7,8 @@ import (
 	"log/slog"
 	"time"
 
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/clock"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/cloudinary"
@@ -51,6 +53,10 @@ type Deps struct {
 	Jobs   *jobs.Runner
 	Limits Limits
 
+	// Features other features talk to, through interfaces (BACKEND_PLAN.md section 8).
+	Profile       *profile.Service
+	Notifications *notifications.Service // also the notifications.Sender everyone uses
+
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
 }
@@ -91,6 +97,11 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 		AI:     ratelimit.New(cfg.AIRatePerMin, time.Minute),
 		Report: ratelimit.New(cfg.ReportRatePerHour, time.Hour),
 	}
+	d.Profile = &profile.Service{
+		DB: database, MaxImageBytes: cfg.MaxImageMB << 20, RevokeTokens: d.Refresh.RevokeAll,
+		Now: clk.Now, Log: log,
+	}
+	d.Notifications = &notifications.Service{DB: database, SSE: d.SSE, Prefs: d.Profile, Clock: clk, Loc: loc, Log: log}
 	if database != nil {
 		d.Ready = database.Ping
 	}

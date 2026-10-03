@@ -5,7 +5,10 @@ import (
 	"strings"
 
 	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
+	seeddata "github.com/arifinrafi89/waraqah-backend/seed"
 )
 
 // Routes builds the whole HTTP handler: the mux with every feature mounted, wrapped in middleware.
@@ -43,4 +46,6 @@ func Mux(d *Deps) *http.ServeMux {
 // mountFeatures is where each feature adds its routes, one line per feature.
 func mountFeatures(api httpx.Router, d *Deps) {
 	authfeature.NewHandler(authService(d)).Routes(api, d.Limits.Auth.ByIP())
+	profile.NewHandler(d.Profile, seeddata.Geo).Routes(api, d.Auth)
+	notifications.NewHandler(d.Notifications).Routes(api, d.Auth)
 }
