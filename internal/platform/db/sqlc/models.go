@@ -181,6 +181,26 @@ type Coupon struct {
 	CreatedBy      pgtype.Text
 }
 
+type DonateNeed struct {
+	PlaceID  string
+	Position int32
+	BookID   string
+	Wanted   int32
+	Received int32
+}
+
+type DonatePlace struct {
+	ID        string
+	Position  int64
+	Name      string
+	Kind      string
+	District  string
+	Area      string
+	Story     string
+	CreatedAt time.Time
+	RemovedAt pgtype.Timestamptz
+}
+
 type Edition struct {
 	ID           string
 	BookID       string

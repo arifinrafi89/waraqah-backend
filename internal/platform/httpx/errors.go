@@ -59,6 +59,11 @@ const (
 	ErrPaymentInvalid       = "payment_invalid"
 	ErrCouponCodeTaken      = "coupon_code_taken"
 	ErrCouponInvalid        = "coupon_invalid"
+	ErrDonateCOD            = "donate_cod_not_allowed"
+	ErrDonateTooMany        = "donate_too_many"
+	ErrDonateUnknown        = "donate_recipient_unknown"
+	ErrPlaceInvalid         = "place_invalid"
+	ErrPlaceUnknown         = "place_unknown"
 
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"

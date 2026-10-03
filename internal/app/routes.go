@@ -11,6 +11,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/home"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
@@ -68,6 +69,7 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	(&wishlist.Handler{S: &wishlist.Service{DB: d.DB, Books: d.Catalog, Clock: d.Clock, Log: d.Log}}).Routes(api, d.Auth)
 	(&alerts.Handler{S: d.Alerts}).Routes(api, d.Auth)
 	checkout.NewHandler(d.Checkout).Routes(api, d.Auth)
+	donate.NewHandler(d.Donate).Routes(api, d.Auth)
 	orders.NewHandler(d.Orders).Routes(api, d.Auth)
 	wallet.Handler{S: d.Wallet}.Routes(api, d.Auth)
 	loyalty.Handler{S: d.Points}.Routes(api, d.Auth)

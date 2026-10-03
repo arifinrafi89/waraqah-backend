@@ -13,6 +13,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/orders"
@@ -74,6 +75,7 @@ type Deps struct {
 	Points        *loyalty.Service // also the loyalty.Ledger
 	Orders        *orders.Service
 	Checkout      *checkout.Service
+	Donate        *donate.Service
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -129,6 +131,7 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	d.Points = &loyalty.Service{DB: database, Clock: clk, Loc: loc, Log: log}
 	d.Orders = &orders.Service{DB: database, Wallet: d.Wallet, Points: d.Points, Notify: d.Notifications, Cart: d.Cart, Stock: d.Catalog,
 		Clock: clk, Loc: loc, MaxImageBytes: cfg.MaxImageMB << 20, Log: log}
+	d.Donate = &donate.Service{DB: database, Books: d.Catalog, Clock: clk, Log: log}
 	d.Checkout = &checkout.Service{DB: database, Cart: d.Cart, Addresses: d.Profile, Wallet: d.Wallet, Points: d.Points, Stock: d.Catalog,
 		Clock: clk, Loc: loc, Log: log}
 	if database != nil {

@@ -1,0 +1,11 @@
+[
+  {"id": "rc-aloghar", "name": "Aloghar Children's Library", "kind": "library", "district": "Rangpur", "area": "Pirgachha",
+   "story": "A reading room for about 300 village children, open every afternoon after school.",
+   "needs": [{"bookId": "bk-hpstone", "wanted": 10, "received": 4}, {"bookId": "bk-hobbit", "wanted": 6, "received": 1}, {"bookId": "bk-sherlock", "wanted": 5, "received": 5}]},
+  {"id": "rc-darul-ihsan", "name": "Darul Ihsan Madrasa", "kind": "madrasa", "district": "Sylhet", "area": "Golapganj",
+   "story": "A madrasa of 180 students building its first library of hadith and seerah in Bangla.",
+   "needs": [{"bookId": "bk-riyad", "wanted": 8, "received": 3}, {"bookId": "bk-nectar", "wanted": 8, "received": 6}, {"bookId": "bk-adabmufrad", "wanted": 5, "received": 0}]},
+  {"id": "rc-shapla", "name": "Shapla Girls' High School", "kind": "school", "district": "Khulna", "area": "Dumuria",
+   "story": "Students share one copy of each book between five. The library wants copies they can take home.",
+   "needs": [{"bookId": "bk-calculus", "wanted": 12, "received": 2}, {"bookId": "bk-sapiens", "wanted": 6, "received": 4}, {"bookId": "bk-atomic", "wanted": 10, "received": 7}]}
+]

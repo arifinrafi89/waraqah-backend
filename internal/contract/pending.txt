@@ -1,8 +1,6 @@
 # Endpoints not built yet, one "METHOD /path" per line (BACKEND_PLAN.md Appendix A).
 # Each feature task removes its lines. T19 requires this file to be empty.
 GET /admin/dashboard
-POST /admin/donate/places/remove
-POST /admin/donate/places/save
 POST /assistant/ask
 GET /assistant/greeting
 GET /bites
@@ -16,9 +14,6 @@ POST /bites/post
 GET /blocks
 POST /blocks/add
 POST /blocks/remove
-POST /donate/give
-GET /donate/recipient
-GET /donate/recipients
 GET /inbox
 POST /inbox/listing/release
 POST /inbox/listing/sold
