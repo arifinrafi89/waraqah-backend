@@ -25,7 +25,7 @@ func postJSON(ctx context.Context, c *http.Client, url string, headers map[strin
 	if err != nil {
 		return fmt.Errorf("send email: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode/100 != 2 {
 		return fmt.Errorf("send email: provider answered %d", resp.StatusCode)
 	}

@@ -68,7 +68,7 @@ func (r *Real) post(ctx context.Context, action string, signed map[string]string
 	if err != nil {
 		return nil, fmt.Errorf("%w: %v", ErrUploadFailed, err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 	var out map[string]any
 	_ = json.NewDecoder(resp.Body).Decode(&out)
 	if resp.StatusCode != http.StatusOK {

@@ -20,7 +20,7 @@ func Migrate(ctx context.Context, url, command string) error {
 	if err != nil {
 		return fmt.Errorf("open for migrate: %w", err)
 	}
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 	// A single connection keeps the session-level advisory lock and goose on the same session.
 	conn.SetMaxOpenConns(1)
 	if _, err := conn.ExecContext(ctx, "SELECT pg_advisory_lock($1)", advisoryLockID); err != nil {
