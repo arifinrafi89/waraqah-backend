@@ -9,17 +9,23 @@ Go + PostgreSQL API for the [Waraqah](https://github.com/arifinrafi89/waraqah-fr
 
 ## Status
 
-Under construction: the backend is being built task by task ([`TASKS.md`](TASKS.md)).
+All 174 endpoints of the app's fake API are built (tasks T01–T18), and every contract golden replays against them (`make test`). The deployment setup is ready (`render.yaml`, [`docs/deploy.md`](docs/deploy.md)); deploying needs the team's Neon, Render, Cloudinary, Resend and Google accounts.
 
-## Getting started (once Phase 0 lands)
+## Getting started
 
 ```bash
 git clone https://github.com/arifinrafi89/waraqah-backend.git
 git clone https://github.com/arifinrafi89/waraqah-frontend.git    # read-only reference, next to the backend
 cd waraqah-backend
-cp .env.example .env                                               # then fill in values
-make dev                                                          # Postgres in Docker, migrations, API on :8080
+cp .env.example .env                                               # then fill in values (JWT_SECRET, SEED_DEMO_PASSWORD, ...)
+docker compose up -d db db-test                                    # Postgres for the app (5432) and the tests (5433)
+make dev                                                           # migrations, then the API on :8080
+make seed                                                          # once: demo accounts and data (run again any time)
+make check                                                         # what CI runs
+make smoke                                                         # with the API running: one call per feature
 ```
+
+Demo accounts: `reader@waraqah.test`, `admin@`, `moderator@`, `catalog@`, `support@waraqah.test`, all with `SEED_DEMO_PASSWORD`. In development the sign-up code `OTP_DEV_CODE` works and OTP emails go to the log.
 
 Point the app at it (from `../waraqah-frontend`):
 

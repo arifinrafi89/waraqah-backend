@@ -9,7 +9,7 @@ SQLC ?= sqlc
 
 dev:
 	docker compose up -d db
-	MIGRATE_ON_START=true go run ./cmd/api
+	RUN_MIGRATIONS_ON_START=true go run ./cmd/api
 
 test:
 	go test ./...

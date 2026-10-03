@@ -113,18 +113,20 @@ func (s *Service) strikesOf(ctx context.Context, q *sqlc.Queries, userID string)
 
 // QueuedListing is QueuedListingModel.
 type QueuedListing struct {
-	ID            string   `json:"id"`
-	Title         string   `json:"title"`
-	SellerID      string   `json:"sellerId"`
-	SellerName    string   `json:"sellerName"`
-	PriceBdt      int      `json:"priceBdt"`
-	Condition     string   `json:"condition"`
-	Flags         []string `json:"flags"`
-	Photos        []string `json:"photos"`
-	CoverSeed     int      `json:"coverSeed"`
-	SellerStrikes int      `json:"sellerStrikes"`
-	NewPriceBdt   *int     `json:"newPriceBdt"`
-	Note          *string  `json:"note"`
+	ID         string   `json:"id"`
+	Title      string   `json:"title"`
+	SellerID   string   `json:"sellerId"`
+	SellerName string   `json:"sellerName"`
+	PriceBdt   int      `json:"priceBdt"`
+	Condition  string   `json:"condition"`
+	Flags      []string `json:"flags"`
+	Photos     []string `json:"photos"`
+	CoverSeed  int      `json:"coverSeed"`
+	// PhotoURLs is contract v1.1 (F7), as on listings.
+	PhotoURLs     map[string]string `json:"photoUrls"`
+	SellerStrikes int               `json:"sellerStrikes"`
+	NewPriceBdt   *int              `json:"newPriceBdt"`
+	Note          *string           `json:"note"`
 }
 
 // Queue lists the listings waiting for approval, newest first.
@@ -137,7 +139,7 @@ func (s *Service) Queue(ctx context.Context) ([]QueuedListing, error) {
 	for _, e := range list {
 		l := e.Listing
 		out = append(out, QueuedListing{ID: l.ID, Title: l.Title, SellerID: l.SellerID, SellerName: l.SellerName, PriceBdt: l.PriceBdt,
-			Condition: l.Condition, Flags: l.Flags, Photos: l.Photos, CoverSeed: l.CoverSeed, SellerStrikes: e.SellerStrikes,
+			Condition: l.Condition, Flags: l.Flags, Photos: l.Photos, PhotoURLs: l.PhotoURLs, CoverSeed: l.CoverSeed, SellerStrikes: e.SellerStrikes,
 			NewPriceBdt: l.NewPriceBdt, Note: l.Note})
 	}
 	return out, nil

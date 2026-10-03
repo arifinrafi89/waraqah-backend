@@ -80,6 +80,18 @@ type Service struct {
 
 func isNoRows(err error) bool { return errors.Is(err, pgx.ErrNoRows) }
 
+// Me is the id the app uses for the signed-in reader's own page (the fake API's "me", see
+// profile_header_card.dart: readerProvider('me')).
+const Me = "me"
+
+// resolve turns "me" into the signed-in reader's id.
+func (s *Service) resolve(viewer, id string) string {
+	if id == Me && viewer != "" {
+		return viewer
+	}
+	return id
+}
+
 // Following is the bites Follows: the readers a reader follows.
 func (s *Service) Following(ctx context.Context, userID string) ([]string, error) {
 	return s.DB.Q().ListFollowing(ctx, userID)
@@ -89,6 +101,7 @@ func (s *Service) Following(ctx context.Context, userID string) ([]string, error
 // (profileVisible off), or a reader blocked either way, shows only the name and the follow state;
 // with activityVisible off the Bites are not counted. The reader always sees their own page.
 func (s *Service) Page(ctx context.Context, viewer, id string) (*Reader, error) {
+	id = s.resolve(viewer, id)
 	q := s.DB.Q()
 	p, err := q.GetReaderPage(ctx, id)
 	if isNoRows(err) {
@@ -138,7 +151,7 @@ func (s *Service) Page(ctx context.Context, viewer, id string) (*Reader, error) 
 // answered. Following yourself, someone unknown or someone blocked either way is refused. The
 // followed reader is told the first time.
 func (s *Service) Follow(ctx context.Context, viewer, id string, follow bool) (*Reader, error) {
-	if id == viewer {
+	if id = s.resolve(viewer, id); id == viewer {
 		return nil, ErrFollowRefused
 	}
 	q := s.DB.Q()

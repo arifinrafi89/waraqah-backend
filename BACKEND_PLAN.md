@@ -2,7 +2,7 @@
 
 > **Read this before writing any backend code.** It is the single source of truth for the backend repository (`waraqah-backend`). It is written for the team (Rahinur, Farhan, Arifin) and for the coding agents working with them. When a decision here changes, update this file in the same PR.
 
-**Status:** plan, nothing built yet (2026-10-03).
+**Status:** built (2026-10-04): all 174 endpoints, every contract golden passing, deployment setup ready (`render.yaml`, `docs/deploy.md`); see `TASKS.md`.
 **Frontend:** <https://github.com/arifinrafi89/waraqah-frontend> (`main`, all 13 front-end handover items merged, PR #144).
 **Backend:** <https://github.com/arifinrafi89/waraqah-backend>.
 **Frontend checkout for reference:** `../waraqah-frontend/`, a sibling folder next to this repo, read-only (§3).
