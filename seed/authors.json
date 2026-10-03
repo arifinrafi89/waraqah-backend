@@ -1,0 +1,158 @@
+[
+  {
+    "id": "au-tolkien",
+    "name": "J. R. R. Tolkien",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-rowling",
+    "name": "J. K. Rowling",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-brown",
+    "name": "Dan Brown",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-stewart",
+    "name": "James Stewart",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-thiel",
+    "name": "Peter Thiel",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-doyle",
+    "name": "Arthur Conan Doyle",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-harari",
+    "name": "Yuval Noah Harari",
+    "nameBn": "ইউভাল নোয়া হারারি",
+    "bio": "Israeli historian whose books trace the big arcs of human history."
+  },
+  {
+    "id": "au-clear",
+    "name": "James Clear",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-martin",
+    "name": "Robert C. Martin",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-bukhari",
+    "name": "Imam al-Bukhari",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-ghazali",
+    "name": "Imam al-Ghazali",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-ibn-qayyim",
+    "name": "Ibn Qayyim al-Jawziyya",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-ibn-khaldun",
+    "name": "Ibn Khaldun",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-lings",
+    "name": "Martin Lings",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-sayyid-sabiq",
+    "name": "Sayyid Sabiq",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-mubarakpuri",
+    "name": "Safi-ur-Rahman al-Mubarakpuri",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-nawawi",
+    "name": "Imam an-Nawawi",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-ibn-kathir",
+    "name": "Ibn Kathir",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-editorial",
+    "name": "Waraqah Editorial Board",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-nctb",
+    "name": "NCTB",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-wren-martin",
+    "name": "P. C. Wren & H. Martin",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-hunt-thomas",
+    "name": "Andrew Hunt & David Thomas",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-kleppmann",
+    "name": "Martin Kleppmann",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-carle",
+    "name": "Eric Carle",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-dahl",
+    "name": "Roald Dahl",
+    "nameBn": null,
+    "bio": null
+  },
+  {
+    "id": "au-coelho",
+    "name": "Paulo Coelho",
+    "nameBn": null,
+    "bio": null
+  }
+]

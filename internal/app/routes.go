@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
@@ -48,4 +49,5 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	authfeature.NewHandler(authService(d)).Routes(api, d.Limits.Auth.ByIP())
 	profile.NewHandler(d.Profile, seeddata.Geo).Routes(api, d.Auth)
 	notifications.NewHandler(d.Notifications).Routes(api, d.Auth)
+	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: catalog.NoUsedStock{}, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
 }

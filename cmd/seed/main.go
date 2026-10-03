@@ -8,6 +8,7 @@ import (
 	"log/slog"
 	"os"
 
+	"github.com/arifinrafi89/waraqah-backend/internal/platform/clock"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/config"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/db"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/logx"
@@ -44,8 +45,13 @@ func main() {
 	}
 	defer database.Close()
 
+	loc, err := clock.Location(cfg.AppTimezone)
+	if err != nil {
+		log.Error("APP_TIMEZONE", "error", err)
+		os.Exit(1)
+	}
 	err = seed.All(ctx, database, seed.Options{
-		Dir: *dir, DemoPassword: cfg.SeedDemoPassword, BcryptCost: cfg.BcryptCost, Log: log,
+		Dir: *dir, DemoPassword: cfg.SeedDemoPassword, BcryptCost: cfg.BcryptCost, Loc: loc, Log: log,
 	})
 	if err != nil {
 		log.Error("seed failed", "error", err)

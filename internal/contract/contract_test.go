@@ -10,12 +10,14 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
 	"github.com/arifinrafi89/waraqah-backend/internal/app"
 	"github.com/arifinrafi89/waraqah-backend/internal/contract"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
+	"github.com/arifinrafi89/waraqah-backend/internal/platform/clock"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/config"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/db/dbtest"
 	"github.com/arifinrafi89/waraqah-backend/internal/seed"
@@ -42,6 +44,9 @@ var accounts = map[string]struct {
 type rig struct {
 	deps *app.Deps
 	h    http.Handler
+	// subst maps ids the fake API made up (a new order number, a new list id) to the ids this
+	// backend made for the same step, so a later golden that names one still finds it.
+	subst map[string]string
 }
 
 // newRig boots the app on a seeded database that is rolled back when the test ends.
@@ -57,7 +62,11 @@ func newRig(t *testing.T) *rig {
 	cfg.AppEnv, cfg.OTPDevCode = "development", "123456" // the sign-up goldens use the dev code
 	cfg.AuthRatePerMin = 100000
 	log := slog.New(slog.NewTextHandler(io.Discard, nil))
-	err = seed.All(context.Background(), d, seed.Options{Dir: "../../seed", DemoPassword: cfg.SeedDemoPassword, BcryptCost: cfg.BcryptCost, Log: log})
+	loc, err := clock.Location(cfg.AppTimezone)
+	if err != nil {
+		t.Fatal(err)
+	}
+	err = seed.All(context.Background(), d, seed.Options{Dir: "../../seed", DemoPassword: cfg.SeedDemoPassword, BcryptCost: cfg.BcryptCost, Loc: loc, Log: log})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -69,7 +78,7 @@ func newRig(t *testing.T) *rig {
 	deps.Google = auth.FakeGoogle{Identities: map[string]auth.GoogleIdentity{
 		"sample-id-token": {Subject: "g-sample", Email: "reader@waraqah.test", Name: "Reader"},
 	}}
-	return &rig{deps: deps, h: app.Routes(deps)}
+	return &rig{deps: deps, h: app.Routes(deps), subst: map[string]string{}}
 }
 
 func (r *rig) send(t *testing.T, g contract.Golden, ctxTimeout time.Duration) *httptest.ResponseRecorder {
@@ -77,9 +86,9 @@ func (r *rig) send(t *testing.T, g contract.Golden, ctxTimeout time.Duration) *h
 	var body io.Reader
 	if g.Request.Body != nil {
 		b, _ := json.Marshal(g.Request.Body)
-		body = bytes.NewReader(b)
+		body = bytes.NewReader([]byte(r.substitute(string(b))))
 	}
-	req := httptest.NewRequest(g.Request.Method, g.Request.URL(apiPrefix), body)
+	req := httptest.NewRequest(g.Request.Method, r.substitute(g.Request.URL(apiPrefix)), body)
 	if body != nil {
 		req.Header.Set("Content-Type", "application/json")
 	}
@@ -98,6 +107,44 @@ func (r *rig) send(t *testing.T, g contract.Golden, ctxTimeout time.Duration) *h
 	rec := httptest.NewRecorder()
 	r.h.ServeHTTP(rec, req)
 	return rec
+}
+
+func (r *rig) substitute(s string) string {
+	for from, to := range r.subst {
+		s = strings.ReplaceAll(s, from, to)
+	}
+	return s
+}
+
+// idKeys are the fields whose values the backend makes up itself.
+var idKeys = map[string]bool{"id": true, "number": true, "orderNumber": true, "lineId": true}
+
+// learnIDs records where our answer used a different generated id than the golden.
+func (r *rig) learnIDs(want, got any) {
+	switch w := want.(type) {
+	case map[string]any:
+		g, ok := got.(map[string]any)
+		if !ok {
+			return
+		}
+		for k, wv := range w {
+			if ws, isStr := wv.(string); isStr && idKeys[k] {
+				if gs, ok := g[k].(string); ok && gs != ws && ws != "" {
+					r.subst[ws] = gs
+				}
+				continue
+			}
+			r.learnIDs(wv, g[k])
+		}
+	case []any:
+		if g, ok := got.([]any); ok {
+			for i := range w {
+				if i < len(g) {
+					r.learnIDs(w[i], g[i])
+				}
+			}
+		}
+	}
 }
 
 // TestContract replays every golden in the exporter's order and compares shapes. Endpoints in
@@ -138,6 +185,7 @@ func TestContract(t *testing.T) {
 			for _, p := range contract.Shape(g.Response, got) {
 				t.Error(p)
 			}
+			r.learnIDs(g.Response, got)
 		})
 	}
 	t.Logf("contract: %d replayed, %d pending", ran, skipped)

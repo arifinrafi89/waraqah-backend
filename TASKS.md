@@ -22,7 +22,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 🟡 in progress
 ✅ done
-| T09 | Catalog reads, search and records | B2.1, B2.2 | Rahinur | ⬜ todo |
+✅ done
 | T10 | Home, catalog admin and scan | B2.3, B2.4, B2.5 | Rahinur (scan: Arifin) | ⬜ todo |
 | T11 | Cart, deals, wishlist and alerts | B3.1 | Farhan | ⬜ todo |
 | T12 | Checkout, orders, wallet and points | B3.2, B3.3, B3.4 | Farhan | ⬜ todo |
@@ -297,7 +297,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T09 — Catalog reads, search and records
 
-**Status:** ⬜ todo · **Owner:** Rahinur · **Plan:** B2.1, B2.2, §10 · **Branch:** `feature/catalog` (split into reads / search / records PRs) · **Depends on:** T06
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/12 · **Owner:** Rahinur · **Plan:** B2.1, B2.2, §10 · **Branch:** `feature/catalog` (split into reads / search / records PRs) · **Depends on:** T06
 
 **Endpoints (25), all public except two:** `GET /books`, `/books/detail`, `/books/details`, `/books/look-inside`, `/books/price-lows`, `/books/series`, `/books/used-options`, `/books/suggest`, `/books/did-you-mean`, `/books/questions`, `POST /books/questions/ask` (me), `POST /books/questions/answer` (me), `GET /categories`, `/subjects`, `/authors/detail`, `/publishers/detail`, `/series/detail`, `/collections`, `/collections/detail`, `/experts`, `/experts/detail`, `/booklists`, `/booklists/detail`, `POST /booklists/mine/save` (me), `POST /booklists/mine/delete` (me)
 
@@ -315,11 +315,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 9. **Seed** all catalog data from `seed/`, computing `phonetic_keys` while loading.
 
 **Done when**
-- [ ] 25 contract tests pass; phonetic, filter, sort and delivery tests pass
-- [ ] App walk: search in English and Bangla (phonetic), filters, sorts, book page tabs, series, authors, collections, experts, booklists, asking a question
-- [ ] `EXPLAIN` on `/books` with a term and filters uses the indexes
+- [x] 25 contract tests pass; phonetic, filter, sort and delivery tests pass
+- [x] App walk: search in English and Bangla (phonetic), filters, sorts, book page tabs, series, authors, collections, experts, booklists, asking a question
+- [x] `EXPLAIN` on `/books` with a term and filters uses the indexes
 
-**Notes:** —
+**Notes:** All 25 catalog endpoints. Search, suggestions and did-you-mean are ports of the Dart code (phonetic key, ranking, edition filters, sorts) running over an in-memory snapshot of the catalog; delivery estimate ported; booklists with a reader own lists; questions that take the poster from the token. Migration 0003, seeds for the whole catalog, shared test environment (internal/testenv), and the contract test now maps ids the fake API made up. Notes: the plan suggested pg_trgm and GIN indexes for search; the Dart ranking needs the whole catalog, so search runs in memory (Store.Snapshot, invalidated on admin changes) and no trigram index was added. Extra refusal codes: booklist_invalid, book_unknown, question_invalid. Certified Used stock is a stand-in until T16.
 
 ---
 

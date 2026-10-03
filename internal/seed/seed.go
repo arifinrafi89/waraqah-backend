@@ -10,6 +10,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/db"
 )
@@ -19,6 +20,7 @@ type Options struct {
 	Dir          string // the seed/ folder
 	DemoPassword string // SEED_DEMO_PASSWORD, given to every demo account
 	BcryptCost   int
+	Loc          *time.Location // APP_TIMEZONE: how the exporter naive dates are read
 	Log          *slog.Logger
 }
 
@@ -43,10 +45,17 @@ var steps = []step{
 	{"users", loadUsers},
 	{"addresses", loadAddresses},
 	{"notifications", loadNotifications},
+	{"catalog records", loadCatalogRecords},
+	{"books", loadBooks},
+	{"book extras", loadBookExtras},
+	{"collections", loadCollections},
 }
 
 // All runs every step.
 func All(ctx context.Context, d *db.DB, opts Options) error {
+	if opts.Loc == nil {
+		opts.Loc = time.FixedZone("Asia/Dhaka", 6*3600)
+	}
 	r := &Run{Options: opts, DB: d, Me: MeID}
 	for _, s := range steps {
 		opts.Log.Info("seeding", "step", s.name)

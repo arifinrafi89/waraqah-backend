@@ -1,0 +1,42 @@
+[
+  {
+    "bookId": "bk-atomic",
+    "id": "q-atomic-1",
+    "text": "Is the Bangla translation as easy to read as the English one?",
+    "askerName": "Sadia",
+    "ageMinutes": 17280,
+    "answers": [
+      {
+        "id": "a-atomic-1",
+        "text": "We only stock the English edition for now. A Bangla edition is on our request list.",
+        "authorName": "Waraqah",
+        "ageMinutes": 15840,
+        "isStaff": true
+      }
+    ]
+  },
+  {
+    "bookId": "bk-atomic",
+    "id": "q-atomic-2",
+    "text": "Is the hardcover worth it over the paperback for gifting?",
+    "askerName": "Imran",
+    "ageMinutes": 5760,
+    "answers": [
+      {
+        "id": "a-atomic-2",
+        "text": "I gave the hardcover as an Eid gift. It feels much sturdier and the paper is thicker.",
+        "authorName": "Nusrat",
+        "ageMinutes": 4320,
+        "isStaff": false
+      }
+    ]
+  },
+  {
+    "bookId": "bk-calculus",
+    "id": "q-calculus-1",
+    "text": "Does this edition include the solutions manual?",
+    "askerName": "Tanvir",
+    "ageMinutes": 28800,
+    "answers": []
+  }
+]

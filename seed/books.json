@@ -1,0 +1,1598 @@
+[
+  {
+    "id": "bk-sapiens",
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "categoryId": "cat-academic",
+    "authorId": "au-harari",
+    "publisherId": "pub-harper",
+    "section": "academic",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-sapiens-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 650,
+        "stock": 24,
+        "listPriceBdt": 780,
+        "isPreorder": false,
+        "isbn": "9789840001774"
+      },
+      {
+        "id": "bk-sapiens-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 520,
+        "stock": 15,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001842"
+      },
+      {
+        "id": "bk-sapiens-eb-en",
+        "format": "ebook",
+        "language": "english",
+        "priceBdt": 399,
+        "stock": 999,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": null
+      }
+    ],
+    "addedAt": "2026-01-01T00:00:00.000",
+    "rating": 4.3,
+    "tags": [
+      "Non-Fiction"
+    ],
+    "coverSeed": 0,
+    "shortTitle": "Sapiens",
+    "titleBn": "স্যাপিয়েন্স",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-atomic",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "categoryId": "cat-self-help",
+    "authorId": "au-clear",
+    "publisherId": "pub-avery",
+    "section": "nonFiction",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-atomic-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 590,
+        "stock": 30,
+        "listPriceBdt": 650,
+        "isPreorder": false,
+        "isbn": "9789840001910"
+      },
+      {
+        "id": "bk-atomic-hc-en",
+        "format": "hardcover",
+        "language": "english",
+        "priceBdt": 890,
+        "stock": 2,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001989"
+      }
+    ],
+    "addedAt": "2026-01-08T00:00:00.000",
+    "rating": 4.7,
+    "tags": [
+      "Self-Help"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": "অ্যাটমিক হ্যাবিটস",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-cleancode",
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "categoryId": "cat-academic",
+    "authorId": "au-martin",
+    "publisherId": "pub-prentice-hall",
+    "section": "academic",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-cleancode-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 1150,
+        "stock": 8,
+        "listPriceBdt": 1320,
+        "isPreorder": false,
+        "isbn": "9789840002054"
+      },
+      {
+        "id": "bk-cleancode-eb-en",
+        "format": "ebook",
+        "language": "english",
+        "priceBdt": 700,
+        "stock": 999,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": null
+      }
+    ],
+    "addedAt": "2026-01-15T00:00:00.000",
+    "rating": 4.6,
+    "tags": [
+      "Academic",
+      "Software"
+    ],
+    "coverSeed": 0,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": "sub-ict"
+  },
+  {
+    "id": "bk-calculus",
+    "title": "Calculus: Early Transcendentals",
+    "author": "James Stewart",
+    "categoryId": "cat-academic",
+    "authorId": "au-stewart",
+    "publisherId": "pub-cengage",
+    "section": "academic",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-calculus-hc-en",
+        "format": "hardcover",
+        "language": "english",
+        "priceBdt": 1750,
+        "stock": 5,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001491"
+      },
+      {
+        "id": "bk-calculus-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 1400,
+        "stock": 0,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001569"
+      }
+    ],
+    "addedAt": "2026-01-22T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Academic"
+    ],
+    "coverSeed": 2,
+    "shortTitle": "Calculus",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": "sub-math"
+  },
+  {
+    "id": "bk-zero",
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "categoryId": "cat-business",
+    "authorId": "au-thiel",
+    "publisherId": "pub-crown",
+    "section": "nonFiction",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-zero-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 520,
+        "stock": 18,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001637"
+      },
+      {
+        "id": "bk-zero-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 430,
+        "stock": 12,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001705"
+      }
+    ],
+    "addedAt": "2026-01-29T00:00:00.000",
+    "rating": 4.4,
+    "tags": [
+      "Business"
+    ],
+    "coverSeed": 1,
+    "shortTitle": null,
+    "titleBn": "জিরো টু ওয়ান",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-fiqh",
+    "title": "Fiqh us-Sunnah, Vol. 1",
+    "author": "Sayyid Sabiq",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-sayyid-sabiq",
+    "publisherId": "pub-american-trust",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-fiqh-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 540,
+        "stock": 14,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002689"
+      },
+      {
+        "id": "bk-fiqh-hc-en",
+        "format": "hardcover",
+        "language": "english",
+        "priceBdt": 780,
+        "stock": 6,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002757"
+      }
+    ],
+    "addedAt": "2026-02-05T00:00:00.000",
+    "rating": 4.9,
+    "tags": [
+      "Islamic Studies"
+    ],
+    "coverSeed": 3,
+    "shortTitle": "Fiqh us-Sunnah",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-nectar",
+    "title": "The Sealed Nectar",
+    "author": "Safi-ur-Rahman al-Mubarakpuri",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-mubarakpuri",
+    "publisherId": "pub-darussalam",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-nectar-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 420,
+        "stock": 22,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002825"
+      },
+      {
+        "id": "bk-nectar-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 520,
+        "stock": 10,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002894"
+      }
+    ],
+    "addedAt": "2026-02-12T00:00:00.000",
+    "rating": 4.9,
+    "tags": [
+      "Biography"
+    ],
+    "coverSeed": 1,
+    "shortTitle": "Sealed Nectar",
+    "titleBn": "আর-রাহীকুল মাখতূম",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-riyad",
+    "title": "Riyad as-Salihin",
+    "author": "Imam an-Nawawi",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-nawawi",
+    "publisherId": "pub-darussalam",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-riyad-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 480,
+        "stock": 9,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002962"
+      },
+      {
+        "id": "bk-riyad-hc-ar",
+        "format": "hardcover",
+        "language": "arabic",
+        "priceBdt": 690,
+        "stock": 3,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003037"
+      }
+    ],
+    "addedAt": "2026-02-19T00:00:00.000",
+    "rating": 5.0,
+    "tags": [
+      "Islamic Studies",
+      "Hadith"
+    ],
+    "coverSeed": 3,
+    "shortTitle": null,
+    "titleBn": "রিয়াদুস সালিহীন",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-tafsir-ibnkathir",
+    "title": "Tafsir Ibn Kathir",
+    "author": "Ibn Kathir",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-ibn-kathir",
+    "publisherId": "pub-darussalam",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-tafsir-ibnkathir-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 950,
+        "stock": 7,
+        "listPriceBdt": 1100,
+        "isPreorder": false,
+        "isbn": "9789840002405"
+      },
+      {
+        "id": "bk-tafsir-ibnkathir-eb-en",
+        "format": "ebook",
+        "language": "english",
+        "priceBdt": 600,
+        "stock": 999,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": null
+      }
+    ],
+    "addedAt": "2026-02-26T00:00:00.000",
+    "rating": 4.8,
+    "tags": [
+      "Islamic Studies",
+      "Tafsir"
+    ],
+    "coverSeed": 0,
+    "shortTitle": null,
+    "titleBn": "তাফসীর ইবনে কাসীর",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-bidayah",
+    "title": "Al-Bidayah wan-Nihayah",
+    "author": "Ibn Kathir",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-ibn-kathir",
+    "publisherId": "pub-dar-al-taqwa",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-bidayah-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 1400,
+        "stock": 0,
+        "listPriceBdt": null,
+        "isPreorder": true,
+        "isbn": "9789840002474"
+      }
+    ],
+    "addedAt": "2026-03-05T00:00:00.000",
+    "rating": 4.7,
+    "tags": [
+      "Islamic Studies",
+      "History"
+    ],
+    "coverSeed": 1,
+    "shortTitle": "Al-Bidayah",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-bukhari",
+    "title": "Sahih al-Bukhari",
+    "author": "Imam al-Bukhari",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-bukhari",
+    "publisherId": "pub-darussalam",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-bukhari-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 1200,
+        "stock": 11,
+        "listPriceBdt": 1350,
+        "isPreorder": false,
+        "isbn": "9789840002542"
+      },
+      {
+        "id": "bk-bukhari-hc-ar",
+        "format": "hardcover",
+        "language": "arabic",
+        "priceBdt": 1800,
+        "stock": 4,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002610"
+      }
+    ],
+    "addedAt": "2026-03-12T00:00:00.000",
+    "rating": 4.9,
+    "tags": [
+      "Islamic Studies",
+      "Hadith"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": "সহীহ আল-বুখারী",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-adabmufrad",
+    "title": "Al-Adab al-Mufrad",
+    "author": "Imam al-Bukhari",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-bukhari",
+    "publisherId": "pub-darussalam",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-adabmufrad-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 480,
+        "stock": 16,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002122"
+      }
+    ],
+    "addedAt": "2026-03-19T00:00:00.000",
+    "rating": 4.6,
+    "tags": [
+      "Islamic Studies",
+      "Hadith"
+    ],
+    "coverSeed": 3,
+    "shortTitle": null,
+    "titleBn": "আল-আদাবুল মুফরাদ",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-ihya",
+    "title": "Ihya Ulum al-Din",
+    "author": "Imam al-Ghazali",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-ghazali",
+    "publisherId": "pub-ibt",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-ihya-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 890,
+        "stock": 6,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002191"
+      }
+    ],
+    "addedAt": "2026-03-26T00:00:00.000",
+    "rating": 4.7,
+    "tags": [
+      "Islamic Studies"
+    ],
+    "coverSeed": 0,
+    "shortTitle": null,
+    "titleBn": "ইহইয়াউ উলূমিদ্দীন",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-madarij",
+    "title": "Madarij as-Salikin",
+    "author": "Ibn Qayyim al-Jawziyya",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-ibn-qayyim",
+    "publisherId": "pub-dar-al-taqwa",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-madarij-hc-bn",
+        "format": "hardcover",
+        "language": "bangla",
+        "priceBdt": 1050,
+        "stock": 5,
+        "listPriceBdt": 1200,
+        "isPreorder": false,
+        "isbn": "9789840002269"
+      }
+    ],
+    "addedAt": "2026-04-02T00:00:00.000",
+    "rating": 4.8,
+    "tags": [
+      "Islamic Studies"
+    ],
+    "coverSeed": 1,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-muqaddimah",
+    "title": "Al-Muqaddimah",
+    "author": "Ibn Khaldun",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-ibn-khaldun",
+    "publisherId": "pub-princeton",
+    "section": "religious",
+    "originalLanguage": "arabic",
+    "editions": [
+      {
+        "id": "bk-muqaddimah-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 780,
+        "stock": 12,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840002337"
+      }
+    ],
+    "addedAt": "2026-04-09T00:00:00.000",
+    "rating": 4.5,
+    "tags": [
+      "Islamic Studies",
+      "History"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": "আল-মুকাদ্দিমা",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-lings-muhammad",
+    "title": "Muhammad: His Life Based on the Earliest Sources",
+    "author": "Martin Lings",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-lings",
+    "publisherId": "pub-inner-traditions",
+    "section": "religious",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-lings-muhammad-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 690,
+        "stock": 9,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003662"
+      }
+    ],
+    "addedAt": "2026-03-18T00:00:00.000",
+    "rating": 4.8,
+    "tags": [
+      "Biography"
+    ],
+    "coverSeed": 0,
+    "shortTitle": "Muhammad",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-moon-split",
+    "title": "When the Moon Split",
+    "author": "Safi-ur-Rahman al-Mubarakpuri",
+    "categoryId": "cat-islamic-studies",
+    "authorId": "au-mubarakpuri",
+    "publisherId": "pub-darussalam",
+    "section": "religious",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-moon-split-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 380,
+        "stock": 15,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003730"
+      }
+    ],
+    "addedAt": "2026-03-02T00:00:00.000",
+    "rating": 4.7,
+    "tags": [
+      "Biography"
+    ],
+    "coverSeed": 3,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-hobbit",
+    "title": "The Hobbit",
+    "author": "J. R. R. Tolkien",
+    "categoryId": "cat-fiction",
+    "authorId": "au-tolkien",
+    "publisherId": "pub-harpercollins",
+    "section": "literature",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-hobbit-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 550,
+        "stock": 20,
+        "listPriceBdt": 650,
+        "isPreorder": false,
+        "isbn": "9789840001149"
+      },
+      {
+        "id": "bk-hobbit-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 380,
+        "stock": 9,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001217"
+      }
+    ],
+    "addedAt": "2026-04-16T00:00:00.000",
+    "rating": 4.8,
+    "tags": [
+      "Fiction"
+    ],
+    "coverSeed": 0,
+    "shortTitle": "Hobbit",
+    "titleBn": "দ্য হবিট",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-hpstone",
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J. K. Rowling",
+    "categoryId": "cat-fiction",
+    "authorId": "au-rowling",
+    "publisherId": "pub-bloomsbury",
+    "section": "literature",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-hpstone-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 620,
+        "stock": 25,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001286"
+      },
+      {
+        "id": "bk-hpstone-hc-en",
+        "format": "hardcover",
+        "language": "english",
+        "priceBdt": 1100,
+        "stock": 3,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001354"
+      }
+    ],
+    "addedAt": "2026-04-23T00:00:00.000",
+    "rating": 4.9,
+    "tags": [
+      "Fiction"
+    ],
+    "coverSeed": 1,
+    "shortTitle": "Harry Potter",
+    "titleBn": "হ্যারি পটার অ্যান্ড দ্য ফিলোসফার্স স্টোন",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-davinci",
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "categoryId": "cat-fiction",
+    "authorId": "au-brown",
+    "publisherId": "pub-doubleday",
+    "section": "literature",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-davinci-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 450,
+        "stock": 14,
+        "listPriceBdt": 520,
+        "isPreorder": false,
+        "isbn": "9789840001422"
+      }
+    ],
+    "addedAt": "2026-04-30T00:00:00.000",
+    "rating": 4.3,
+    "tags": [
+      "Fiction"
+    ],
+    "coverSeed": 2,
+    "shortTitle": "Da Vinci Code",
+    "titleBn": "দ্য দা ভিঞ্চি কোড",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-sherlock",
+    "title": "Sherlock Holmes: A Study in Scarlet",
+    "author": "Arthur Conan Doyle",
+    "categoryId": "cat-fiction",
+    "authorId": "au-doyle",
+    "publisherId": "pub-penguin",
+    "section": "literature",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-sherlock-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 380,
+        "stock": 30,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001071"
+      },
+      {
+        "id": "bk-sherlock-eb-en",
+        "format": "ebook",
+        "language": "english",
+        "priceBdt": 150,
+        "stock": 999,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": null
+      }
+    ],
+    "addedAt": "2026-05-07T00:00:00.000",
+    "rating": 4.6,
+    "tags": [
+      "Fiction"
+    ],
+    "coverSeed": 3,
+    "shortTitle": "Sherlock Holmes",
+    "titleBn": "শার্লক হোমস: আ স্টাডি ইন স্কারলেট",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-alchemist",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "categoryId": "cat-fiction",
+    "authorId": "au-coelho",
+    "publisherId": "pub-harpercollins",
+    "section": "literature",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-alchemist-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 420,
+        "stock": 0,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840001996"
+      }
+    ],
+    "addedAt": "2026-05-20T00:00:00.000",
+    "rating": 4.4,
+    "tags": [
+      "Fiction"
+    ],
+    "coverSeed": 5,
+    "shortTitle": null,
+    "titleBn": "দ্য অ্যালকেমিস্ট",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-bcs-guide",
+    "title": "BCS Preliminary Guide",
+    "author": "Waraqah Editorial Board",
+    "categoryId": "cat-bcs-prep",
+    "authorId": "au-editorial",
+    "publisherId": "pub-waraqah-press",
+    "section": "admissionJobPrep",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-bcs-guide-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 550,
+        "stock": 25,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003105"
+      }
+    ],
+    "addedAt": "2026-05-14T00:00:00.000",
+    "rating": 4.1,
+    "tags": [
+      "BCS"
+    ],
+    "coverSeed": 1,
+    "shortTitle": null,
+    "titleBn": "বিসিএস প্রিলিমিনারি গাইড",
+    "hidden": false,
+    "classes": [],
+    "exams": [
+      "bcs"
+    ],
+    "subjectId": "sub-gk"
+  },
+  {
+    "id": "bk-admission-guide",
+    "title": "University Admission Test Guide",
+    "author": "Waraqah Editorial Board",
+    "categoryId": "cat-admission-test",
+    "authorId": "au-editorial",
+    "publisherId": "pub-waraqah-press",
+    "section": "admissionJobPrep",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-admission-guide-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 480,
+        "stock": 30,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003174"
+      }
+    ],
+    "addedAt": "2026-05-21T00:00:00.000",
+    "rating": 4.0,
+    "tags": [
+      "Admission"
+    ],
+    "coverSeed": 3,
+    "shortTitle": null,
+    "titleBn": "বিশ্ববিদ্যালয় ভর্তি পরীক্ষা গাইড",
+    "hidden": false,
+    "classes": [],
+    "exams": [
+      "admission"
+    ],
+    "subjectId": null
+  },
+  {
+    "id": "bk-general-math",
+    "title": "General Mathematics, Class 9–10",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-general-math-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 460,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003242"
+      }
+    ],
+    "addedAt": "2026-05-28T00:00:00.000",
+    "rating": 4.3,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 2,
+    "shortTitle": "General Math",
+    "titleBn": "সাধারণ গণিত, নবম–দশম শ্রেণি",
+    "hidden": false,
+    "classes": [
+      9,
+      10
+    ],
+    "exams": [
+      "ssc"
+    ],
+    "subjectId": "sub-math"
+  },
+  {
+    "id": "bk-english-grammar",
+    "title": "High School English Grammar and Composition",
+    "author": "P. C. Wren & H. Martin",
+    "categoryId": "cat-school-guides",
+    "authorId": "au-wren-martin",
+    "publisherId": "pub-s-chand",
+    "section": "schoolCollege",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-english-grammar-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 490,
+        "stock": 22,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003310"
+      }
+    ],
+    "addedAt": "2026-06-04T00:00:00.000",
+    "rating": 4.6,
+    "tags": [
+      "Grammar"
+    ],
+    "coverSeed": 0,
+    "shortTitle": "English Grammar",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "exams": [],
+    "subjectId": "sub-english"
+  },
+  {
+    "id": "bk-pragmatic",
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt & David Thomas",
+    "categoryId": "cat-programming",
+    "authorId": "au-hunt-thomas",
+    "publisherId": "pub-addison-wesley",
+    "section": "skillsTech",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-pragmatic-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 1450,
+        "stock": 9,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003389"
+      }
+    ],
+    "addedAt": "2026-06-11T00:00:00.000",
+    "rating": 4.7,
+    "tags": [
+      "Programming"
+    ],
+    "coverSeed": 1,
+    "shortTitle": "Pragmatic Programmer",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-ddia",
+    "title": "Designing Data-Intensive Applications",
+    "author": "Martin Kleppmann",
+    "categoryId": "cat-data-systems",
+    "authorId": "au-kleppmann",
+    "publisherId": "pub-oreilly",
+    "section": "skillsTech",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-ddia-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 1900,
+        "stock": 6,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003457"
+      }
+    ],
+    "addedAt": "2026-06-18T00:00:00.000",
+    "rating": 4.8,
+    "tags": [
+      "Data"
+    ],
+    "coverSeed": 2,
+    "shortTitle": "Data-Intensive Apps",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-caterpillar",
+    "title": "The Very Hungry Caterpillar",
+    "author": "Eric Carle",
+    "categoryId": "cat-picture-books",
+    "authorId": "au-carle",
+    "publisherId": "pub-philomel",
+    "section": "children",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-caterpillar-hc-en",
+        "format": "hardcover",
+        "language": "english",
+        "priceBdt": 650,
+        "stock": 14,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003525"
+      }
+    ],
+    "addedAt": "2026-06-25T00:00:00.000",
+    "rating": 4.9,
+    "tags": [
+      "Picture book"
+    ],
+    "coverSeed": 3,
+    "shortTitle": "Hungry Caterpillar",
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-matilda",
+    "title": "Matilda",
+    "author": "Roald Dahl",
+    "categoryId": "cat-kids-stories",
+    "authorId": "au-dahl",
+    "publisherId": "pub-puffin",
+    "section": "children",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-matilda-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 480,
+        "stock": 20,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840003594"
+      }
+    ],
+    "addedAt": "2026-07-02T00:00:00.000",
+    "rating": 4.8,
+    "tags": [
+      "Story"
+    ],
+    "coverSeed": 0,
+    "shortTitle": null,
+    "titleBn": "মাটিল্ডা",
+    "hidden": false,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  },
+  {
+    "id": "bk-class6-english",
+    "title": "Class 6 English For Today",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-class6-english-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 540,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004010"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 5,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      6
+    ],
+    "exams": [],
+    "subjectId": "sub-english"
+  },
+  {
+    "id": "bk-class7-science",
+    "title": "Class 7 General Science",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-class7-science-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 560,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004027"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 5,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      7
+    ],
+    "exams": [],
+    "subjectId": "sub-science"
+  },
+  {
+    "id": "bk-class8-math",
+    "title": "Class 8 Mathematics",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-class8-math-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 580,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004034"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      8
+    ],
+    "exams": [],
+    "subjectId": "sub-math"
+  },
+  {
+    "id": "bk-ssc-physics",
+    "title": "SSC Physics",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-ssc-physics-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 600,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004041"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      9,
+      10
+    ],
+    "exams": [
+      "ssc"
+    ],
+    "subjectId": "sub-physics"
+  },
+  {
+    "id": "bk-ssc-chemistry",
+    "title": "SSC Chemistry",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-ssc-chemistry-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 600,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004058"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 4,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      9,
+      10
+    ],
+    "exams": [
+      "ssc"
+    ],
+    "subjectId": "sub-chemistry"
+  },
+  {
+    "id": "bk-ssc-biology",
+    "title": "SSC Biology",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-ssc-biology-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 600,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004065"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      9,
+      10
+    ],
+    "exams": [
+      "ssc"
+    ],
+    "subjectId": "sub-biology"
+  },
+  {
+    "id": "bk-hsc-physics-1",
+    "title": "HSC Physics 1st Paper",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-hsc-physics-1-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 640,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004072"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 4,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      11,
+      12
+    ],
+    "exams": [
+      "hsc"
+    ],
+    "subjectId": "sub-physics"
+  },
+  {
+    "id": "bk-hsc-higher-math",
+    "title": "HSC Higher Mathematics",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-hsc-higher-math-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 640,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004089"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 0,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      11,
+      12
+    ],
+    "exams": [
+      "hsc"
+    ],
+    "subjectId": "sub-higher-math"
+  },
+  {
+    "id": "bk-hsc-ict",
+    "title": "HSC ICT",
+    "author": "NCTB",
+    "categoryId": "cat-textbooks",
+    "authorId": "au-nctb",
+    "publisherId": "pub-nctb",
+    "section": "schoolCollege",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-hsc-ict-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 640,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004096"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Textbook"
+    ],
+    "coverSeed": 4,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [
+      11,
+      12
+    ],
+    "exams": [
+      "hsc"
+    ],
+    "subjectId": "sub-ict"
+  },
+  {
+    "id": "bk-admission-physics",
+    "title": "Admission Physics Question Bank",
+    "author": "Waraqah Editorial Board",
+    "categoryId": "cat-admission-test",
+    "authorId": "au-editorial",
+    "publisherId": "pub-waraqah-press",
+    "section": "admissionJobPrep",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-admission-physics-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 520,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004102"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Guide"
+    ],
+    "coverSeed": 2,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [
+      "admission"
+    ],
+    "subjectId": "sub-physics"
+  },
+  {
+    "id": "bk-bcs-gk",
+    "title": "BCS General Knowledge Digest",
+    "author": "Waraqah Editorial Board",
+    "categoryId": "cat-bcs-prep",
+    "authorId": "au-editorial",
+    "publisherId": "pub-waraqah-press",
+    "section": "admissionJobPrep",
+    "originalLanguage": "bangla",
+    "editions": [
+      {
+        "id": "bk-bcs-gk-pb-bn",
+        "format": "paperback",
+        "language": "bangla",
+        "priceBdt": 520,
+        "stock": 40,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": "9789840004119"
+      }
+    ],
+    "addedAt": "2026-06-12T00:00:00.000",
+    "rating": 4.2,
+    "tags": [
+      "Guide"
+    ],
+    "coverSeed": 3,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": false,
+    "classes": [],
+    "exams": [
+      "bcs"
+    ],
+    "subjectId": "sub-gk"
+  }
+]
