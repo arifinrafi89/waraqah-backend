@@ -1,7 +1,9 @@
 // Seeds for buying: the demo people, the deals and the friend wishlist.
 import 'dart:io';
 
+import 'package:waraqah/features/p2p/data/sources/p2p_fixtures.dart';
 import 'package:waraqah/features/p2p/data/sources/p2p_people.dart';
+import 'package:waraqah/features/p2p/data/sources/p2p_ratings.dart';
 
 import 'harness.dart';
 import 'seeds_catalog.dart' show Get;
@@ -53,4 +55,46 @@ Future<void> writeBuyingSeeds(Directory out, Get get) async {
       'bookIds': [for (final b in nabila['books'] as List) (b as Map)['id']],
     },
   ]);
+
+  // The used marketplace: every seed listing (newest first, "me" is the demo reader), who the
+  // reserved and sold ones went to, and the ratings readers gave each other.
+  final now = DateTime.now();
+  writeJson('$dir/p2p.json', {
+    'listings': [
+      for (final l in P2pFixtures.listings)
+        {
+          'id': l.id,
+          'title': l.title,
+          'sellerId': l.sellerId,
+          'priceBdt': l.priceBdt,
+          'condition': l.condition.name,
+          'flags': l.flags,
+          'photos': l.photos,
+          'isNegotiable': l.isNegotiable,
+          'handover': l.handover.name,
+          'status': l.status.name,
+          'rejectionReason': l.rejectionReason,
+          'bookId': l.bookId,
+          'coverSeed': l.coverSeed,
+          'district': l.district,
+          'area': l.area,
+          'categoryId': l.categoryId,
+          'newPriceBdt': l.newPriceBdt,
+          'note': l.note,
+          'buyerId': P2pFixtures.buyers[l.id],
+        },
+    ],
+    'ratings': [
+      for (final r in P2pRatingSeed.all(now))
+        {
+          'fromId': r.fromId,
+          'toId': r.toId,
+          'stars': r.stars,
+          'ageMinutes': now.difference(r.at).inMinutes,
+          'listingId': r.listingId,
+          'comment': r.comment,
+        },
+    ],
+    'soldBefore': {for (final p in P2pPeople.all) p.id: p.booksSold},
+  });
 }

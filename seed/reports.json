@@ -1,0 +1,6 @@
+[
+  {"id": "rp-s1", "kind": "listing", "targetId": "p2p-6", "reason": "photocopy", "reporterId": "p-arif", "ageMinutes": 180, "note": "The pages look photocopied in the photos."},
+  {"id": "rp-s2", "kind": "listing", "targetId": "p2p-6", "reason": "fake", "reporterId": "p-nabila", "ageMinutes": 120},
+  {"id": "rp-s3", "kind": "user", "targetId": "p-rafi", "reason": "harassment", "reporterId": "p-sadia", "ageMinutes": 1440, "note": "Kept messaging after I said no."},
+  {"id": "rp-s4", "kind": "bite", "targetId": "bt-3", "reason": "spam", "reporterId": "p-mahi", "ageMinutes": 300}
+]

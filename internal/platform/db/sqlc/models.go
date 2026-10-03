@@ -71,6 +71,12 @@ type Banner struct {
 	Season      pgtype.Text
 }
 
+type Block struct {
+	UserID    string
+	BlockedID string
+	At        time.Time
+}
+
 type Book struct {
 	ID               string
 	Position         int64
@@ -242,10 +248,50 @@ type IsbnLookup struct {
 	ListPriceBdt int32
 }
 
+type Listing struct {
+	ID              string
+	Position        int64
+	SellerID        string
+	Title           string
+	PriceBdt        int32
+	Condition       string
+	Flags           []string
+	IsNegotiable    bool
+	Handover        string
+	Status          string
+	RejectionReason pgtype.Text
+	BookID          pgtype.Text
+	CoverSeed       int32
+	District        pgtype.Text
+	Area            pgtype.Text
+	CategoryID      pgtype.Text
+	NewPriceBdt     pgtype.Int4
+	Note            pgtype.Text
+	BuyerID         pgtype.Text
+	CreatedAt       time.Time
+}
+
+type ListingPhoto struct {
+	ListingID string
+	Slot      string
+	Position  int32
+	Url       string
+	PublicID  string
+}
+
 type LookInside struct {
 	BookID      string
 	Contents    []byte
 	SamplePages []byte
+}
+
+type ModerationLog struct {
+	ID      int64
+	At      time.Time
+	ByName  string
+	Action  string
+	Subject string
+	Reason  pgtype.Text
 }
 
 type Notification struct {
@@ -362,6 +408,16 @@ type Publisher struct {
 	Position pgtype.Int8
 }
 
+type Rating struct {
+	ID        int64
+	FromID    string
+	ToID      string
+	ListingID pgtype.Text
+	Stars     int32
+	Comment   pgtype.Text
+	At        time.Time
+}
+
 type RefreshToken struct {
 	ID        string
 	UserID    string
@@ -369,6 +425,18 @@ type RefreshToken struct {
 	ExpiresAt time.Time
 	RevokedAt pgtype.Timestamptz
 	CreatedAt time.Time
+}
+
+type Report struct {
+	ID         string
+	Position   int64
+	Kind       string
+	TargetID   string
+	Reason     string
+	Note       pgtype.Text
+	ReporterID string
+	Status     string
+	CreatedAt  time.Time
 }
 
 type SalesByMonth struct {
@@ -407,6 +475,7 @@ type User struct {
 	DeletedAt    pgtype.Timestamptz
 	CreatedAt    time.Time
 	PhotoData    pgtype.Text
+	SoldBefore   int32
 }
 
 type WalletEntry struct {

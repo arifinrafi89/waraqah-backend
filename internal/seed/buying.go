@@ -14,6 +14,7 @@ import (
 func loadPeople(ctx context.Context, r *Run) error {
 	var people []struct {
 		ID, Name, Area, District, MemberSince string
+		BooksSold                             int
 	}
 	if err := r.read("people.json", &people); err != nil {
 		return err
@@ -29,7 +30,7 @@ func loadPeople(ctx context.Context, r *Run) error {
 				return err
 			}
 			err = q.UpsertSeedPerson(ctx, sqlc.UpsertSeedPersonParams{ID: p.ID, Email: pgText(strings.ToLower(p.Name) + "@waraqah.test"),
-				Name: p.Name, PasswordHash: pgText(hash), Area: p.Area, District: p.District, MemberSince: since})
+				Name: p.Name, PasswordHash: pgText(hash), Area: p.Area, District: p.District, MemberSince: since, SoldBefore: int32(p.BooksSold)})
 			if err != nil {
 				return err
 			}
