@@ -6,6 +6,7 @@ import (
 
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
 	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/bookrequest"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
@@ -13,6 +14,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/home"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/inbox"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/moderation"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
@@ -76,6 +78,8 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	p2p.NewHandler(d.P2P).Routes(api, d.Auth)
 	report.NewHandler(d.Report).Routes(api, d.Auth, d.Limits.Report.ByUser())
 	moderation.NewHandler(d.Moderation).Routes(api, d.Auth)
+	inbox.NewHandler(d.Inbox).Routes(api, d.Auth)
+	bookrequest.NewHandler(d.BookRequests).Routes(api, d.Auth)
 	orders.NewHandler(d.Orders).Routes(api, d.Auth)
 	wallet.Handler{S: d.Wallet}.Routes(api, d.Auth)
 	loyalty.Handler{S: d.Points}.Routes(api, d.Auth)

@@ -1,0 +1,5 @@
+[
+  {"id": "rq-s1", "requesterId": "p-rafi", "title": "Atomic Habits", "bookId": "bk-atomic", "maxPriceBdt": 400, "note": "Any condition is fine.", "ageMinutes": 360},
+  {"id": "rq-s2", "requesterId": "p-mahi", "title": "Calculus: Early Transcendentals", "author": "James Stewart", "bookId": "bk-calculus", "maxPriceBdt": 900, "ageMinutes": 1440},
+  {"id": "rq-s3", "requesterId": "p-sadia", "title": "Calculus: Early Transcendentals", "bookId": "bk-calculus", "ageMinutes": 2880}
+]

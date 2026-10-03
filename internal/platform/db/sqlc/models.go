@@ -126,6 +126,19 @@ type BookQuestion struct {
 	AskedAt   time.Time
 }
 
+type BookRequest struct {
+	ID          string
+	Position    int64
+	RequesterID string
+	Title       string
+	Author      pgtype.Text
+	BookID      pgtype.Text
+	MaxPriceBdt pgtype.Int4
+	Note        pgtype.Text
+	IsOpen      bool
+	CreatedAt   time.Time
+}
+
 type Booklist struct {
 	ID        string
 	Position  int64
@@ -285,6 +298,18 @@ type LookInside struct {
 	SamplePages []byte
 }
 
+type Message struct {
+	ID        string
+	Position  int64
+	ThreadID  string
+	AuthorID  string
+	At        time.Time
+	Text      pgtype.Text
+	OfferID   pgtype.Text
+	Event     pgtype.Text
+	AmountBdt pgtype.Int4
+}
+
 type ModerationLog struct {
 	ID      int64
 	At      time.Time
@@ -302,6 +327,15 @@ type Notification struct {
 	Target    []byte
 	ReadAt    pgtype.Timestamptz
 	CreatedAt time.Time
+}
+
+type Offer struct {
+	ID        string
+	Position  int64
+	ThreadID  string
+	AmountBdt int32
+	Handover  string
+	Status    string
 }
 
 type Order struct {
@@ -457,6 +491,17 @@ type Subject struct {
 	NameEn   string
 	NameBn   string
 	Position pgtype.Int8
+}
+
+type Thread struct {
+	ID         string
+	ListingID  string
+	BuyerID    string
+	SellerID   string
+	BuyerRead  int64
+	SellerRead int64
+	BotReplied bool
+	CreatedAt  time.Time
 }
 
 type User struct {

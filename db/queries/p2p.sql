@@ -102,3 +102,23 @@ WHERE NOT EXISTS (SELECT 1 FROM ratings WHERE from_id = @from_id::text AND to_id
 
 -- name: SeedSoldBefore :exec
 UPDATE users SET sold_before = $2 WHERE id = $1;
+
+-- name: ListRatingsForListings :many
+SELECT listing_id, from_id, stars FROM ratings WHERE listing_id = ANY($1::text[]);
+
+-- name: InsertRating :exec
+INSERT INTO ratings (from_id, to_id, listing_id, stars, comment, at) VALUES ($1, $2, $3, $4, $5, $6);
+
+-- name: ListingCandidates :many
+-- Copies that may match a book request: not sold, of readers other than excluded_seller.
+SELECT l.id, l.title, l.book_id, l.seller_id, l.status, u.name AS seller_name
+FROM listings l JOIN users u ON u.id = l.seller_id
+WHERE l.status <> 'sold' AND u.deleted_at IS NULL AND l.seller_id <> @excluded_seller::text
+  AND (NOT @only_live::boolean OR l.status = 'live')
+ORDER BY l.position DESC;
+
+-- name: ListingsOfSeller :many
+SELECT l.id, l.title, l.book_id, l.seller_id, l.status, u.name AS seller_name
+FROM listings l JOIN users u ON u.id = l.seller_id
+WHERE l.seller_id = $1 AND l.status <> 'sold'
+ORDER BY l.position DESC;
