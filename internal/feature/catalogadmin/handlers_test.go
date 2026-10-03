@@ -106,6 +106,7 @@ func TestSaveBookRulesAndEdits(t *testing.T) {
 func rebuild(t *testing.T, e *testenv.Env, sw *countingSweeper) *testenv.Env {
 	t.Helper()
 	e.Deps.Sweeper = sw
+	e.Deps.CatalogAdmin.Sweeper = sw // the service is built once in deps.go and shared with the dashboard
 	e.H = e.Rebuild()
 	return e
 }

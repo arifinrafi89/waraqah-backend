@@ -8,12 +8,14 @@ import (
 	"time"
 
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/assistant"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/bites"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/bookrequest"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/dashboard"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/handledsale"
@@ -98,6 +100,10 @@ type Deps struct {
 	Reviews       *reviews.Service
 	Readers       *readers.Service // also the follows Bites read
 	Shelves       *shelves.Service
+	CatalogAdmin  *catalogadmin.Service
+	SearchLog     *dashboard.SearchLog // search.Log: catalog searches counted for the dashboard
+	Dashboard     *dashboard.Service
+	Assistant     *assistant.Service
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -181,6 +187,11 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	d.Donate = &donate.Service{DB: database, Books: d.Catalog, Clock: clk, Log: log}
 	d.Checkout = &checkout.Service{DB: database, Cart: d.Cart, Addresses: d.Profile, Wallet: d.Wallet, Points: d.Points, Stock: d.Catalog,
 		Used: d.SellBack, Clock: clk, Loc: loc, Log: log}
+	d.CatalogAdmin = &catalogadmin.Service{DB: database, Cache: d.Catalog, Sweeper: d.Sweeper, Clock: clk, Loc: loc, Log: log}
+	d.SearchLog = &dashboard.SearchLog{DB: database, Clock: clk, Loc: loc, Log: log}
+	d.Dashboard = &dashboard.Service{Orders: d.Orders, Listings: d.P2P, Reports: d.Moderation, Disputes: d.Sales, SellBacks: d.SellBack,
+		Stock: d.CatalogAdmin, Requests: d.BookRequests, Searches: d.SearchLog, Clock: clk, Loc: loc, Log: log}
+	d.Assistant = &assistant.Service{Catalog: d.Catalog, Gemini: d.Gemini, Log: log}
 	if database != nil {
 		d.Ready = database.Ping
 	}

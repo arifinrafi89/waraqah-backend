@@ -150,3 +150,9 @@ func (s *Service) LiveListingCount(ctx context.Context, sellerID string) (int, e
 	n, err := s.DB.Q().CountLiveListingsOf(ctx, sellerID)
 	return int(n), err
 }
+
+// ListingsInReview counts the listings waiting for a moderator (dashboard).
+func (s *Service) ListingsInReview(ctx context.Context) (int, error) {
+	n, err := s.DB.Q().CountListingsInReview(ctx)
+	return int(n), err
+}

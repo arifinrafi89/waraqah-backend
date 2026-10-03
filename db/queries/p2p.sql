@@ -125,3 +125,6 @@ ORDER BY l.position DESC;
 
 -- name: CountLiveListingsOf :one
 SELECT count(*)::integer FROM listings WHERE seller_id = $1 AND status = 'live';
+
+-- name: CountListingsInReview :one
+SELECT count(*)::integer FROM listings l JOIN users u ON u.id = l.seller_id WHERE l.status = 'inReview' AND u.deleted_at IS NULL;

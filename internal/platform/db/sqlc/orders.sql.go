@@ -90,6 +90,40 @@ func (q *Queries) AddWalletEntry(ctx context.Context, arg AddWalletEntryParams) 
 	return err
 }
 
+const dashboardOrderNumbers = `-- name: DashboardOrderNumbers :one
+SELECT count(*) FILTER (WHERE placed_at >= $1 AND placed_at < $2 AND status <> 'cancelled')::integer AS orders_today,
+       coalesce(sum(total_bdt) FILTER (WHERE placed_at >= $1 AND placed_at < $2 AND status <> 'cancelled'), 0)::integer AS sales_today_bdt,
+       count(*) FILTER (WHERE status IN ('placed', 'confirmed', 'packed'))::integer AS to_ship,
+       (SELECT count(*) FROM order_returns WHERE status = 'requested')::integer AS returns_waiting
+FROM orders
+`
+
+type DashboardOrderNumbersParams struct {
+	DayStart time.Time
+	DayEnd   time.Time
+}
+
+type DashboardOrderNumbersRow struct {
+	OrdersToday    int32
+	SalesTodayBdt  int32
+	ToShip         int32
+	ReturnsWaiting int32
+}
+
+// Orders placed in [day_start, day_end) that were not cancelled, what is still to ship, and the
+// returns waiting for a decision.
+func (q *Queries) DashboardOrderNumbers(ctx context.Context, arg DashboardOrderNumbersParams) (DashboardOrderNumbersRow, error) {
+	row := q.db.QueryRow(ctx, dashboardOrderNumbers, arg.DayStart, arg.DayEnd)
+	var i DashboardOrderNumbersRow
+	err := row.Scan(
+		&i.OrdersToday,
+		&i.SalesTodayBdt,
+		&i.ToShip,
+		&i.ReturnsWaiting,
+	)
+	return i, err
+}
+
 const decideReturn = `-- name: DecideReturn :exec
 UPDATE order_returns SET status = $2, decided_at = $3 WHERE order_number = $1
 `

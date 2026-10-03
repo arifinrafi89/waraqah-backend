@@ -70,13 +70,26 @@ type NoUsedStock struct{}
 // CertifiedFor never finds a copy.
 func (NoUsedStock) CertifiedFor(context.Context, string) (*UsedCopy, error) { return nil, nil }
 
+// SearchLog is search.Log: it counts what readers search for (the dashboard implements it).
+type SearchLog interface {
+	Record(ctx context.Context, searcher, query string)
+}
+
+// NoSearchLog counts nothing.
+type NoSearchLog struct{}
+
+// Record does nothing.
+func (NoSearchLog) Record(context.Context, string, string) {}
+
 // Service answers the catalog read endpoints.
 type Service struct {
 	Store *Store
 	Used  UsedStock
-	Clock clock.Clock
-	Loc   *time.Location
-	Log   *slog.Logger
+	// Searches counts reader searches of /books (staff includeHidden lists are not counted).
+	Searches SearchLog
+	Clock    clock.Clock
+	Loc      *time.Location
+	Log      *slog.Logger
 }
 
 func (s *Service) q() *sqlc.Queries { return s.Store.DB.Q() }

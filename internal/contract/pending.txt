@@ -1,5 +1,2 @@
 # Endpoints not built yet, one "METHOD /path" per line (BACKEND_PLAN.md Appendix A).
 # Each feature task removes its lines. T19 requires this file to be empty.
-GET /admin/dashboard
-POST /assistant/ask
-GET /assistant/greeting

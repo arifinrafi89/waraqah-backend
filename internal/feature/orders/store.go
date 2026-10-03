@@ -251,3 +251,16 @@ func Insert(ctx context.Context, q *sqlc.Queries, n NewOrder) error {
 	}
 	return nil
 }
+
+// Numbers are the order figures of the admin dashboard.
+type Numbers struct {
+	OrdersToday, SalesTodayBdt, ToShip, ReturnsWaiting int
+}
+
+// DashboardNumbers counts the orders placed in [from, to) that were not cancelled and their total,
+// the orders still to ship, and the returns waiting for a decision.
+func (s *Service) DashboardNumbers(ctx context.Context, from, to time.Time) (Numbers, error) {
+	r, err := s.DB.Q().DashboardOrderNumbers(ctx, sqlc.DashboardOrderNumbersParams{DayStart: from, DayEnd: to})
+	return Numbers{OrdersToday: int(r.OrdersToday), SalesTodayBdt: int(r.SalesTodayBdt), ToShip: int(r.ToShip),
+		ReturnsWaiting: int(r.ReturnsWaiting)}, err
+}

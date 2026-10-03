@@ -53,6 +53,7 @@ func New(t *testing.T) *Env {
 	cfg.AuthRatePerMin = 100000
 	cfg.DemoBotDelay = 0       // the demo readers answer at once, so tests do not wait
 	cfg.CourierPickupDelay = 0 // the courier collects a Sell Back at once
+	cfg.GeminiAPIKey = ""      // rule-based assistant replies only: no network in tests
 	loc, err := clock.Location(cfg.AppTimezone)
 	if err != nil {
 		t.Fatal(err)
