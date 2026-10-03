@@ -19,11 +19,10 @@ import (
 )
 
 type env struct {
-	h     http.Handler
-	mail  *email.Recorder
-	deps  *app.Deps
-	t     *testing.T
-	login string
+	h    http.Handler
+	mail *email.Recorder
+	deps *app.Deps
+	t    *testing.T
 }
 
 func newEnv(t *testing.T, tweak func(*config.Config)) *env {
