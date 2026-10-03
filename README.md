@@ -3,12 +3,13 @@
 Go + PostgreSQL API for the [Waraqah](https://github.com/arifinrafi89/waraqah-frontend) Flutter app. It serves the same endpoints the app's fake API answers today, so the app switches over by setting one address.
 
 - **Plan:** [`BACKEND_PLAN.md`](BACKEND_PLAN.md) — stack, API contract, database, phases, owners.
+- **Tasks:** [`TASKS.md`](TASKS.md) — the 19 tasks that build the backend, in order, with their status.
 - **Agents:** [`AGENTS.md`](AGENTS.md) — rules for coding agents (and a good summary for people).
 - **Settings:** [`.env.example`](.env.example) — every environment variable with placeholders.
 
 ## Status
 
-Planning. Nothing is built yet; Phase 0 (foundations) is next (plan §21).
+Planning. Nothing is built yet; task T01 (repo skeleton) is next ([`TASKS.md`](TASKS.md)).
 
 ## Getting started (once Phase 0 lands)
 
