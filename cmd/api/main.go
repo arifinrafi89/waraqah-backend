@@ -1,9 +1,10 @@
-// Command api is the Waraqah HTTP server: config, logger, services, routes, server.
+// Command api is the Waraqah HTTP server: config, logger, database, services, routes, server.
 package main
 
 import (
 	"context"
 	"errors"
+	"flag"
 	"log/slog"
 	"net/http"
 	"os"
@@ -13,10 +14,14 @@ import (
 
 	"github.com/arifinrafi89/waraqah-backend/internal/app"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/config"
+	"github.com/arifinrafi89/waraqah-backend/internal/platform/db"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/logx"
 )
 
 func main() {
+	migrate := flag.String("migrate", "", "run a migration command (up, down, down-up, status) and exit")
+	flag.Parse()
+
 	cfg, err := config.Load()
 	if err != nil {
 		slog.Error("cannot start", "error", err)
@@ -24,8 +29,35 @@ func main() {
 	}
 	log := logx.New(os.Stderr, cfg.LogLevel, cfg.LogFormat)
 	slog.SetDefault(log)
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
 
-	deps := &app.Deps{Cfg: cfg, Log: log}
+	migrateURL := cfg.DatabaseURLDirect
+	if migrateURL == "" {
+		migrateURL = cfg.DatabaseURL
+	}
+	if *migrate != "" {
+		if err := db.Migrate(ctx, migrateURL, *migrate); err != nil {
+			log.Error("migrate failed", "error", err)
+			os.Exit(1)
+		}
+		return
+	}
+	if cfg.RunMigrationsOnStart {
+		if err := db.Migrate(ctx, migrateURL, "up"); err != nil {
+			log.Error("migrate on start failed", "error", err)
+			os.Exit(1)
+		}
+	}
+
+	database, err := db.Open(ctx, cfg.DatabaseURL, cfg.DBMaxConns, cfg.DebugSQL, log)
+	if err != nil {
+		log.Error("cannot open database", "error", err)
+		os.Exit(1)
+	}
+	defer database.Close()
+
+	deps := &app.Deps{Cfg: cfg, Log: log, DB: database, Ready: database.Ping}
 	srv := &http.Server{
 		Addr:              ":" + cfg.Port,
 		Handler:           app.Routes(deps),
@@ -33,9 +65,6 @@ func main() {
 		IdleTimeout:       120 * time.Second,
 		// No WriteTimeout: server-sent events keep responses open.
 	}
-
-	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
-	defer stop()
 	go func() {
 		<-ctx.Done()
 		shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
