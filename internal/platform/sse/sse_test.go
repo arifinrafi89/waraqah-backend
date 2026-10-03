@@ -25,7 +25,7 @@ func TestServeSendsEventsPingsAndStopsOnDisconnect(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 	if ct := resp.Header.Get("Content-Type"); ct != "text/event-stream" || resp.Header.Get("Cache-Control") != "no-cache" {
 		t.Fatalf("headers: %v", resp.Header)
 	}
@@ -38,7 +38,7 @@ func TestServeSendsEventsPingsAndStopsOnDisconnect(t *testing.T) {
 
 	sc := bufio.NewScanner(resp.Body)
 	var gotEvent, gotPing bool
-	for sc.Scan() && !(gotEvent && gotPing) {
+	for sc.Scan() && (!gotEvent || !gotPing) {
 		line := sc.Text()
 		switch {
 		case line == `data: {"unread":3}`:

@@ -69,10 +69,6 @@ func TestMiddlewareMatrix(t *testing.T) {
 	expired, _ := NewJWT(testSecret, "waraqah", -time.Hour, newClock())
 	exp, _, _ := expired.Sign("u_reader", RoleReader)
 
-	type want struct {
-		code int
-		user bool
-	}
 	levels := map[string]func(http.Handler) http.Handler{
 		"public": g.m.Public, "me": g.m.Me, "authed": g.m.Authed, "staff": g.m.Staff,
 		"catalog":  func(h http.Handler) http.Handler { return g.m.StaffCan(PermCatalog, h) },
