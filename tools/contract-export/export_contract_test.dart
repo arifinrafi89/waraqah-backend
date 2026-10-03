@@ -26,7 +26,9 @@ void main() {
 
       final index = <Map<String, Object?>>[];
       final problems = <String>[];
+      final names = <String>{};
       for (final s in [...readSamples(), ...writeSamples()]) {
+        if (!names.add(s.fileName)) problems.add('${s.key}: two samples write ${s.fileName}; give one a variant');
         final query = s.query?.call(ctx) ?? const <String, dynamic>{};
         final body = s.body?.call(ctx);
         final request = {

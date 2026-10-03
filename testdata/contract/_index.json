@@ -994,7 +994,7 @@
     "path": "/booklists/mine/delete",
     "query": {},
     "body": {
-      "id": "bl-mine-1791042142643309"
+      "id": "bl-mine-1791042608191608"
     },
     "as": "reader"
   },
@@ -1073,7 +1073,7 @@
     "as": "reader"
   },
   {
-    "file": "POST__cart__add.json",
+    "file": "POST__cart__add__second.json",
     "method": "POST",
     "path": "/cart/add",
     "query": {},
@@ -1100,7 +1100,7 @@
     "path": "/cart/remove",
     "query": {},
     "body": {
-      "lineId": "edition-bk-sapiens-pb-en"
+      "lineId": "edition-bk-atomic-pb-en"
     },
     "as": "reader"
   },

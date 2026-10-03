@@ -181,6 +181,9 @@ func TestContract(t *testing.T) {
 				return
 			}
 			rec := r.send(t, g, 0)
+			if os.Getenv("CONTRACT_DEBUG") != "" {
+				t.Logf("%s %s -> %s", g.Request.Key(), g.Request.Body, rec.Body)
+			}
 			if rec.Code != 200 {
 				t.Fatalf("status %d: %s", rec.Code, rec.Body)
 			}

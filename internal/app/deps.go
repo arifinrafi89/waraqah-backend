@@ -7,8 +7,11 @@ import (
 	"log/slog"
 	"time"
 
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
@@ -60,6 +63,9 @@ type Deps struct {
 	Notifications *notifications.Service // also the notifications.Sender everyone uses
 	Catalog       *catalog.Store         // also the catalog.Books everyone uses
 	Sweeper       catalogadmin.Sweeper   // alerts.Sweeper: runs after price and stock changes
+	Deals         *deals.Service
+	Cart          *cart.Service
+	Alerts        *alerts.Service
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -107,7 +113,10 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	}
 	d.Notifications = &notifications.Service{DB: database, SSE: d.SSE, Prefs: d.Profile, Clock: clk, Loc: loc, Log: log}
 	d.Catalog = &catalog.Store{DB: database, Loc: loc}
-	d.Sweeper = catalogadmin.NoSweeper{} // replaced by the real alerts sweeper in T11
+	d.Deals = &deals.Service{DB: database, Books: d.Catalog, Clock: clk, Loc: loc, Log: log}
+	d.Cart = &cart.Service{DB: database, Books: d.Catalog, Deals: d.Deals, Used: cart.NoUsedStock{}, Clock: clk, Log: log}
+	d.Alerts = &alerts.Service{DB: database, Books: d.Catalog, Notify: d.Notifications, Clock: clk, Log: log}
+	d.Sweeper = d.Alerts
 	if database != nil {
 		d.Ready = database.Ping
 	}

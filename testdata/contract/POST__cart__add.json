@@ -5,7 +5,7 @@
     "query": {},
     "body": {
       "kind": "edition",
-      "id": "bk-sapiens-pb-en"
+      "id": "bk-atomic-pb-en"
     },
     "as": "reader"
   },
@@ -27,23 +27,6 @@
         "isPreorder": false,
         "condition": null,
         "coverSeed": 2
-      },
-      {
-        "id": "edition-bk-sapiens-pb-en",
-        "kind": "edition",
-        "itemId": "bk-sapiens-pb-en",
-        "bookId": "bk-sapiens",
-        "title": "Sapiens: A Brief History of Humankind",
-        "author": "Yuval Noah Harari",
-        "unitPriceBdt": 650,
-        "quantity": 1,
-        "maxQuantity": 10,
-        "listPriceBdt": 780,
-        "format": "paperback",
-        "language": "english",
-        "isPreorder": false,
-        "condition": null,
-        "coverSeed": 0
       }
     ]
   }

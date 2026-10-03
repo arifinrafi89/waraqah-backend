@@ -59,7 +59,7 @@
         "subjectId": "sub-ict"
       },
       "shelf": "reading",
-      "addedAt": "2026-10-03T21:42:22.761026",
+      "addedAt": "2026-10-03T21:50:08.307948",
       "finishedAt": null,
       "progress": 40,
       "pagesRead": 180,
@@ -121,7 +121,7 @@
         "subjectId": null
       },
       "shelf": "wantToRead",
-      "addedAt": "2026-10-01T21:42:22.300714",
+      "addedAt": "2026-10-01T21:50:07.849679",
       "finishedAt": null,
       "progress": 0,
       "pagesRead": null,
@@ -173,7 +173,7 @@
         "subjectId": null
       },
       "shelf": "wantToRead",
-      "addedAt": "2026-10-01T21:42:22.300714",
+      "addedAt": "2026-10-01T21:50:07.849679",
       "finishedAt": null,
       "progress": 0,
       "pagesRead": null,
@@ -225,7 +225,7 @@
         "subjectId": null
       },
       "shelf": "reading",
-      "addedAt": "2026-09-24T21:42:22.338775",
+      "addedAt": "2026-09-24T21:50:07.886718",
       "finishedAt": null,
       "progress": 42,
       "pagesRead": 130,
@@ -267,8 +267,8 @@
         "subjectId": null
       },
       "shelf": "finished",
-      "addedAt": "2026-08-22T21:42:22.338775",
-      "finishedAt": "2026-09-03T21:42:22.338775",
+      "addedAt": "2026-08-22T21:50:07.886718",
+      "finishedAt": "2026-09-03T21:50:07.886718",
       "progress": 100,
       "pagesRead": null,
       "totalPages": null
@@ -319,8 +319,8 @@
         "subjectId": null
       },
       "shelf": "finished",
-      "addedAt": "2026-07-21T21:42:22.338775",
-      "finishedAt": "2026-08-02T21:42:22.338775",
+      "addedAt": "2026-07-21T21:50:07.886718",
+      "finishedAt": "2026-08-02T21:50:07.886718",
       "progress": 100,
       "pagesRead": null,
       "totalPages": null
@@ -371,8 +371,8 @@
         "subjectId": null
       },
       "shelf": "finished",
-      "addedAt": "2026-05-24T21:42:22.338775",
-      "finishedAt": "2026-06-05T21:42:22.338775",
+      "addedAt": "2026-05-24T21:50:07.886718",
+      "finishedAt": "2026-06-05T21:50:07.886718",
       "progress": 100,
       "pagesRead": null,
       "totalPages": null
@@ -413,8 +413,8 @@
         "subjectId": null
       },
       "shelf": "finished",
-      "addedAt": "2026-04-24T21:42:22.338775",
-      "finishedAt": "2026-05-06T21:42:22.338775",
+      "addedAt": "2026-04-24T21:50:07.886718",
+      "finishedAt": "2026-05-06T21:50:07.886718",
       "progress": 100,
       "pagesRead": null,
       "totalPages": null

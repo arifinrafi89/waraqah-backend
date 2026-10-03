@@ -24,6 +24,17 @@ type Address struct {
 	IsDefault bool
 }
 
+type Alert struct {
+	ID             string
+	UserID         string
+	Position       int64
+	Kind           string
+	BookID         string
+	EditionID      string
+	TargetPriceBdt pgtype.Int4
+	FiredAt        pgtype.Timestamptz
+}
+
 type AppConfig struct {
 	Key   string
 	Value []byte
@@ -122,6 +133,23 @@ type Booklist struct {
 	UpdatedAt time.Time
 }
 
+type Bundle struct {
+	ID         string
+	Position   int32
+	Title      string
+	EditionIds []string
+	PriceBdt   int32
+}
+
+type CartLine struct {
+	UserID   string
+	Kind     string
+	ItemID   string
+	Position int64
+	Quantity int32
+	AddedAt  time.Time
+}
+
 type Category struct {
 	ID       string
 	Section  string
@@ -166,6 +194,12 @@ type Expert struct {
 	Verified     bool
 }
 
+type FlashSaleItem struct {
+	EditionID string
+	Position  int32
+	PriceBdt  int32
+}
+
 type IsbnLookup struct {
 	Isbn         string
 	Title        string
@@ -207,6 +241,11 @@ type PendingSignup struct {
 	Name         string
 	PasswordHash string
 	CreatedAt    time.Time
+}
+
+type Preorder struct {
+	EditionID string
+	Position  int32
 }
 
 type PriceLow struct {
@@ -274,4 +313,16 @@ type User struct {
 	DeletedAt    pgtype.Timestamptz
 	CreatedAt    time.Time
 	PhotoData    pgtype.Text
+}
+
+type WishlistItem struct {
+	UserID  string
+	BookID  string
+	AddedAt time.Time
+}
+
+type WishlistShare struct {
+	ID        string
+	UserID    string
+	OwnerName string
 }

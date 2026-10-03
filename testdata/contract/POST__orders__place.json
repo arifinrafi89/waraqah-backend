@@ -14,13 +14,13 @@
   },
   "response": {
     "number": "WQ-100231",
-    "totalBdt": 1140,
-    "itemCount": 2,
+    "totalBdt": 710,
+    "itemCount": 1,
     "payment": "cashOnDelivery",
     "needsDelivery": true,
     "insideDhaka": true,
     "hasPreorders": false,
-    "pointsEarned": 10,
+    "pointsEarned": 6,
     "giftFor": null,
     "walletUsedBdt": 0
   }
