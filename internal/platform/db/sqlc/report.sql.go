@@ -133,6 +133,33 @@ func (q *Queries) IsBlockedEither(ctx context.Context, arg IsBlockedEitherParams
 	return exists, err
 }
 
+const listBlockedEither = `-- name: ListBlockedEither :many
+SELECT b.blocked_id FROM blocks b WHERE b.user_id = $1::text
+UNION
+SELECT b.user_id FROM blocks b WHERE b.blocked_id = $1::text
+`
+
+// Everyone the reader blocked or who blocked the reader.
+func (q *Queries) ListBlockedEither(ctx context.Context, reader string) ([]string, error) {
+	rows, err := q.db.Query(ctx, listBlockedEither, reader)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []string{}
+	for rows.Next() {
+		var blocked_id string
+		if err := rows.Scan(&blocked_id); err != nil {
+			return nil, err
+		}
+		items = append(items, blocked_id)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const listBlocks = `-- name: ListBlocks :many
 SELECT b.blocked_id, b.at, u.name FROM blocks b JOIN users u ON u.id = b.blocked_id
 WHERE b.user_id = $1 ORDER BY b.at DESC, b.blocked_id

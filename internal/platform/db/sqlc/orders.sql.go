@@ -106,7 +106,7 @@ func (q *Queries) DecideReturn(ctx context.Context, arg DecideReturnParams) erro
 }
 
 const deliveredLinesOf = `-- name: DeliveredLinesOf :many
-SELECT l.book_id, l.edition_id, o.number, h.at AS delivered_at
+SELECT l.book_id, l.edition_id, o.number, h.at AS delivered_at, o.is_donation, (o.gift IS NOT NULL)::boolean AS is_gift
 FROM orders o
 JOIN order_lines l ON l.order_number = o.number
 JOIN order_history h ON h.order_number = o.number AND h.status = 'delivered'
@@ -119,6 +119,8 @@ type DeliveredLinesOfRow struct {
 	EditionID   pgtype.Text
 	Number      string
 	DeliveredAt time.Time
+	IsDonation  bool
+	IsGift      bool
 }
 
 func (q *Queries) DeliveredLinesOf(ctx context.Context, userID string) ([]DeliveredLinesOfRow, error) {
@@ -135,6 +137,8 @@ func (q *Queries) DeliveredLinesOf(ctx context.Context, userID string) ([]Delive
 			&i.EditionID,
 			&i.Number,
 			&i.DeliveredAt,
+			&i.IsDonation,
+			&i.IsGift,
 		); err != nil {
 			return nil, err
 		}

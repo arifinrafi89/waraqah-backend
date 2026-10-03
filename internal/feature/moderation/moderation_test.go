@@ -121,11 +121,12 @@ func TestActingOnReports(t *testing.T) {
 	if r := e.Call("moderator", "GET", "/moderation/log", nil).List(t); r[0]["action"] != "warned" {
 		t.Errorf("log: %v", r[0])
 	}
-	if r := act(reportID(t, e, "bt-3"), "warn"); r.Refusal != "report_no_owner" {
-		t.Errorf("a missing Bite has nobody to warn: %q", r.Refusal)
+	// Bites register their moderation subject, so the author of the reported Bite (Rafi) is warned.
+	if r := act(reportID(t, e, "bt-3"), "warn").List(t); len(r) != 0 {
+		t.Errorf("after warning the Bite's author: %d", len(r))
 	}
-	if r := act(reportID(t, e, "bt-3"), "dismiss").List(t); len(r) != 0 {
-		t.Errorf("dismissed: %d", len(r))
+	if r := e.Call("moderator", "GET", "/moderation/log", nil).List(t); r[0]["action"] != "warned" {
+		t.Errorf("log: %v", r[0])
 	}
 }
 

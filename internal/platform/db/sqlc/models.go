@@ -71,6 +71,32 @@ type Banner struct {
 	Season      pgtype.Text
 }
 
+type Bite struct {
+	ID        string
+	Position  int64
+	AuthorID  string
+	Text      string
+	BookID    pgtype.Text
+	Spoiler   bool
+	CreatedAt time.Time
+	EditedAt  pgtype.Timestamptz
+}
+
+type BiteComment struct {
+	ID        string
+	Position  int64
+	BiteID    string
+	ParentID  pgtype.Text
+	AuthorID  string
+	Text      string
+	CreatedAt time.Time
+}
+
+type BiteLike struct {
+	BiteID string
+	UserID string
+}
+
 type Block struct {
 	UserID    string
 	BlockedID string
@@ -257,6 +283,12 @@ type FlashSaleItem struct {
 	EditionID string
 	Position  int32
 	PriceBdt  int32
+}
+
+type Follow struct {
+	FollowerID string
+	FolloweeID string
+	At         time.Time
 }
 
 type HandledSale struct {
@@ -485,6 +517,17 @@ type Rating struct {
 	At        time.Time
 }
 
+type ReadingDay struct {
+	UserID string
+	Day    time.Time
+}
+
+type ReadingGoal struct {
+	UserID string
+	Year   int32
+	Goal   int32
+}
+
 type RefreshToken struct {
 	ID        string
 	UserID    string
@@ -504,6 +547,17 @@ type Report struct {
 	ReporterID string
 	Status     string
 	CreatedAt  time.Time
+}
+
+type Review struct {
+	ID           string
+	BookID       string
+	UserID       string
+	Stars        int32
+	Text         string
+	SeedVerified bool
+	CreatedAt    time.Time
+	EditedAt     pgtype.Timestamptz
 }
 
 type SalesByMonth struct {
@@ -535,6 +589,23 @@ type Series struct {
 	Position int64
 	Name     string
 	Entries  []byte
+}
+
+type ShelfEntry struct {
+	UserID     string
+	Position   int64
+	BookID     string
+	Shelf      string
+	AddedAt    time.Time
+	FinishedAt pgtype.Timestamptz
+	Progress   int32
+	PagesRead  pgtype.Int4
+	TotalPages pgtype.Int4
+}
+
+type ShelfOrderSync struct {
+	UserID string
+	BookID string
 }
 
 type Subject struct {

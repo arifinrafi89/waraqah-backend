@@ -29,3 +29,9 @@ UPDATE reports SET status = $3 WHERE kind = $1 AND target_id = $2 AND status = '
 -- name: SeedReport :exec
 INSERT INTO reports (id, kind, target_id, reason, note, reporter_id, status, created_at)
 VALUES ($1, $2, $3, $4, $5, $6, 'open', $7) ON CONFLICT (id) DO NOTHING;
+
+-- name: ListBlockedEither :many
+-- Everyone the reader blocked or who blocked the reader.
+SELECT b.blocked_id FROM blocks b WHERE b.user_id = sqlc.arg(reader)::text
+UNION
+SELECT b.user_id FROM blocks b WHERE b.blocked_id = sqlc.arg(reader)::text;

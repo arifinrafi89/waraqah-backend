@@ -196,7 +196,11 @@ func TestContract(t *testing.T) {
 			for _, p := range contract.Shape(g.Response, got) {
 				t.Error(p)
 			}
-			r.learnIDs(g.Response, got)
+			// Only a change makes up a new id; a read lists seeded things, and comparing two lists
+			// item by item would map one seeded id onto another.
+			if g.Request.Method == "POST" {
+				r.learnIDs(g.Response, got)
+			}
 		})
 	}
 	t.Logf("contract: %d replayed, %d pending", ran, skipped)

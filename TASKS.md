@@ -30,7 +30,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 | T14 | Listings, reports and blocks, moderation | B4.1, B4.2, B4.3 | Arifin | ✅ done |
 | T15 | Inbox and book requests | B4.4, B4.5 | Farhan (requests: Arifin) | ✅ done |
 | T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ✅ done |
-| T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ⬜ todo |
+| T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ✅ done |
 | T18 | AI assistant and admin dashboard | B6.1, B6.2, F4 | Arifin | ⬜ todo |
 | T19 | Hardening, deployment and launch | Phase 7, F6, F7 | everyone | ⬜ todo |
 
@@ -492,7 +492,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T16 — Handled sales, Sell Back and Certified Used
 
-**Status:** ✅ done · **Owner:** Arifin · **Plan:** B4.6, B4.7, §9, §12 · **Branch:** `feature/handled-sales-sell-back` · **Depends on:** T12 (wallet), T14, T15
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/19 · **Owner:** Arifin · **Plan:** B4.6, B4.7, §9, §12 · **Branch:** `feature/handled-sales-sell-back` · **Depends on:** T12 (wallet), T14, T15
 
 **Endpoints (16)**
 - handled sales (10): `POST /sales/buy`, `/sales/step`, `/sales/dispute`, `/sales/payout`, `GET /sales/detail`, `/sales/mine`, `/sales/earnings`, `/sales/live` (SSE) (me); `GET /sales/disputes`, `POST /sales/disputes/settle` (staff:moderate)
@@ -520,7 +520,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T17 — Bites, reviews, readers and shelves
 
-**Status:** ⬜ todo · **Owner:** Rahinur (shelves: Arifin) · **Plan:** B5.1, B5.2, B5.3 · **Branch:** `feature/bites`, `feature/reviews-readers`, `feature/shelves` · **Depends on:** T12 (`orders.Delivered`), T14 (blocks, bans, remover)
+**Status:** ✅ done · **Owner:** Rahinur (shelves: Arifin) · **Plan:** B5.1, B5.2, B5.3 · **Branch:** `feature/bites-reviews-readers-shelves` · **Depends on:** T12 (`orders.Delivered`), T14 (blocks, bans, remover)
 
 **Endpoints (18)**
 - bites (8): `GET /bites`, `/bites/detail` (public); `POST /bites/post`, `/bites/edit`, `/bites/delete`, `/bites/like`, `/bites/comments/post`, `/bites/comments/delete` (me)
@@ -541,11 +541,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 8. Seed Bites, reviews, follows and shelves.
 
 **Done when**
-- [ ] 18 contract tests pass; Bite, review and progress rules tests pass
+- [x] 18 contract tests pass; Bite, review and progress rules tests pass
 - [ ] App walk: post, edit, like, comment and reply to a Bite; review a delivered book (Verified) and see the rating change; follow a reader; move books between shelves, log progress, set a goal and see the stats
-- [ ] A moderator removing a Bite or review through a report works end to end
+- [x] A moderator removing a Bite or review through a report works end to end
 
-**Notes:** —
+**Notes:** Bites (feeds with blocks, bans and deleted readers left out, posts, edits, likes, comments with one level of replies and their notifications), reviews (one per reader per Book, Verified Purchase from delivered orders, the Book rating recomputed in the same transaction), reader pages with privacy and follows, and shelves (delivered Books on Want to Read once, moves, progress, reading days, stats per Dhaka year, goal). BiteRules, ReviewRules and ProgressRules ported with tests; Bite, comment and review moderation subjects; migration 0011; hand-written seed `seed/community.json` from the Dart fixtures. Notes: grapheme counting adds Unicode 15.1's conjunct rule to uniseg (which follows 15.0) so ক্ষ counts once, as in Dart; deleted readers' Bites are hidden by the queries, so no account-delete hook is needed; the contract replay now learns made-up ids only from POST answers (comparing two GET lists item by item mapped one seeded id onto another); `orders.DeliveredLine` carries the delivery time and the donation and gift flags. The app walk was covered by handler tests, not on a device.
 
 ---
 

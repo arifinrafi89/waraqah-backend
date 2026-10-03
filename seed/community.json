@@ -1,0 +1,351 @@
+{
+ "bites": [
+  {
+   "id": "bt-1",
+   "authorId": "p-tanvir",
+   "ageHours": 1,
+   "bookId": "bk-sapiens",
+   "spoiler": false,
+   "likes": [
+    "p-arif",
+    "p-nabila",
+    "p-mahi"
+   ],
+   "text": "Just finished it. The wheat chapter changed how I see history."
+  },
+  {
+   "id": "bt-me-1",
+   "authorId": "me",
+   "ageHours": 2,
+   "bookId": "bk-atomic",
+   "spoiler": false,
+   "likes": [
+    "p-tanvir"
+   ],
+   "text": "Two-minute rule, day 12. Still reading every night before bed."
+  },
+  {
+   "id": "bt-2",
+   "authorId": "p-nabila",
+   "ageHours": 3,
+   "bookId": "bk-nectar",
+   "spoiler": false,
+   "likes": [
+    "me",
+    "p-sadia"
+   ],
+   "text": "Starting a weekend reading circle for this one in Banani. Who is in?"
+  },
+  {
+   "id": "bt-spoiler",
+   "authorId": "p-mahi",
+   "ageHours": 5,
+   "bookId": "bk-davinci",
+   "spoiler": true,
+   "likes": [],
+   "text": "I did not see the ending coming: the cryptex was hiding a map, not a secret."
+  },
+  {
+   "id": "bt-3",
+   "authorId": "p-rafi",
+   "ageHours": 6,
+   "bookId": null,
+   "spoiler": false,
+   "likes": [],
+   "text": "Selling all my notes cheap!!! Message me now!!!"
+  },
+  {
+   "id": "bt-4",
+   "authorId": "p-talha",
+   "ageHours": 8,
+   "bookId": "bk-riyad",
+   "spoiler": false,
+   "likes": [
+    "me",
+    "p-arif"
+   ],
+   "text": "One chapter of Riyad as-Salihin after Fajr. Best habit I picked up this year."
+  },
+  {
+   "id": "bt-5",
+   "authorId": "p-arif",
+   "ageHours": 11,
+   "bookId": "bk-cleancode",
+   "spoiler": false,
+   "likes": [],
+   "text": "Read chapters 2 and 3 before your first group project. Seriously."
+  },
+  {
+   "id": "bt-6",
+   "authorId": "p-rakib",
+   "ageHours": 20,
+   "bookId": "bk-muqaddimah",
+   "spoiler": false,
+   "likes": [
+    "p-talha"
+   ],
+   "text": "Ibn Khaldun wrote about economics centuries before Adam Smith. Wild."
+  },
+  {
+   "id": "bt-7",
+   "authorId": "p-sadia",
+   "ageHours": 26,
+   "bookId": "bk-alchemist",
+   "spoiler": false,
+   "likes": [],
+   "text": "Read it in one sitting on a rainy Sunday. Exactly what I needed."
+  },
+  {
+   "id": "bt-me-2",
+   "authorId": "me",
+   "ageHours": 30,
+   "bookId": "bk-hobbit",
+   "spoiler": false,
+   "likes": [],
+   "text": "Anyone know a good Bangla translation of this one?"
+  },
+  {
+   "id": "bt-8",
+   "authorId": "p-tanvir",
+   "ageHours": 40,
+   "bookId": "bk-hpstone",
+   "spoiler": false,
+   "likes": [
+    "p-mahi"
+   ],
+   "text": "Re-reading this with my little brother. He reads the spells aloud."
+  },
+  {
+   "id": "bt-9",
+   "authorId": "p-nabila",
+   "ageHours": 52,
+   "bookId": "bk-fiqh",
+   "spoiler": false,
+   "likes": [],
+   "text": "The evidence for every ruling is cited, so it is easy to study with a teacher."
+  },
+  {
+   "id": "bt-10",
+   "authorId": "p-talha",
+   "ageHours": 70,
+   "bookId": "bk-sherlock",
+   "spoiler": false,
+   "likes": [],
+   "text": "Short stories are perfect for the bus ride from Motihar."
+  },
+  {
+   "id": "bt-11",
+   "authorId": "p-arif",
+   "ageHours": 96,
+   "bookId": null,
+   "spoiler": false,
+   "likes": [],
+   "text": "What are you all reading this week? Need something light."
+  }
+ ],
+ "comments": [
+  {
+   "id": "cm-1",
+   "biteId": "bt-1",
+   "authorId": "p-nabila",
+   "parentId": null,
+   "text": "The part about gossip holding groups together was my favourite."
+  },
+  {
+   "id": "cm-2",
+   "biteId": "bt-1",
+   "authorId": "p-tanvir",
+   "parentId": "cm-1",
+   "text": "Same! I keep quoting it."
+  },
+  {
+   "id": "cm-3",
+   "biteId": "bt-1",
+   "authorId": "p-arif",
+   "parentId": null,
+   "text": "Is the Bangla edition a good translation?"
+  },
+  {
+   "id": "cm-4",
+   "biteId": "bt-me-1",
+   "authorId": "p-nabila",
+   "parentId": null,
+   "text": "Day 12 is great. Keep going!"
+  },
+  {
+   "id": "cm-5",
+   "biteId": "bt-2",
+   "authorId": "p-sadia",
+   "parentId": null,
+   "text": "Count me in, Saturday works."
+  },
+  {
+   "id": "cm-6",
+   "biteId": "bt-2",
+   "authorId": "p-nabila",
+   "parentId": "cm-5",
+   "text": "Great, I will share the place soon."
+  }
+ ],
+ "reviews": [
+  {
+   "id": "rv-1",
+   "bookId": "bk-sapiens",
+   "authorId": "p-nabila",
+   "stars": 5,
+   "text": "Changed how I think about money, religion and nations as shared stories.",
+   "verified": true,
+   "ageDays": 28
+  },
+  {
+   "id": "rv-2",
+   "bookId": "bk-sapiens",
+   "authorId": "p-arif",
+   "stars": 4,
+   "text": "Brilliant first half. The last few chapters felt rushed.",
+   "verified": false,
+   "ageDays": 26
+  },
+  {
+   "id": "rv-3",
+   "bookId": "bk-atomic",
+   "authorId": "p-sadia",
+   "stars": 5,
+   "text": "The habit-stacking idea actually stuck. Short chapters, easy to reread.",
+   "verified": true,
+   "ageDays": 24
+  },
+  {
+   "id": "rv-4",
+   "bookId": "bk-atomic",
+   "authorId": "p-talha",
+   "stars": 4,
+   "text": "Repetitive in places, but the core system works.",
+   "verified": false,
+   "ageDays": 22
+  },
+  {
+   "id": "rv-5",
+   "bookId": "bk-cleancode",
+   "authorId": "p-tanvir",
+   "stars": 5,
+   "text": "Read chapters 2 and 3 before your first group project. Seriously.",
+   "verified": true,
+   "ageDays": 20
+  },
+  {
+   "id": "rv-6",
+   "bookId": "bk-cleancode",
+   "authorId": "p-rakib",
+   "stars": 4,
+   "text": "Some of the Java-specific advice is dated. The principles are not.",
+   "verified": false,
+   "ageDays": 18
+  },
+  {
+   "id": "rv-7",
+   "bookId": "bk-fiqh",
+   "authorId": "p-arif",
+   "stars": 5,
+   "text": "Cites the evidence for each ruling, so it is easy to study with a teacher.",
+   "verified": false,
+   "ageDays": 16
+  },
+  {
+   "id": "rv-8",
+   "bookId": "bk-nectar",
+   "authorId": "p-talha",
+   "stars": 5,
+   "text": "Readable and well sourced. A good first seerah.",
+   "verified": true,
+   "ageDays": 14
+  },
+  {
+   "id": "rv-9",
+   "bookId": "bk-riyad",
+   "authorId": "p-nabila",
+   "stars": 5,
+   "text": "I read one chapter a night. The topical order makes it easy to return to.",
+   "verified": false,
+   "ageDays": 12
+  }
+ ],
+ "follows": [
+  [
+   "me",
+   "p-tanvir"
+  ],
+  [
+   "me",
+   "p-nabila"
+  ],
+  [
+   "me",
+   "p-talha"
+  ],
+  [
+   "p-arif",
+   "me"
+  ],
+  [
+   "p-mahi",
+   "me"
+  ]
+ ],
+ "privateProfiles": [
+  "p-rafi"
+ ],
+ "shelves": {
+  "userId": "me",
+  "entries": [
+   {
+    "bookId": "bk-hobbit",
+    "shelf": "reading",
+    "addedDaysAgo": 9,
+    "progress": 42,
+    "pagesRead": 130,
+    "totalPages": 310
+   },
+   {
+    "bookId": "bk-alchemist",
+    "shelf": "finished",
+    "addedDaysAgo": 42,
+    "finishedDaysAgo": 30,
+    "progress": 100
+   },
+   {
+    "bookId": "bk-sherlock",
+    "shelf": "finished",
+    "addedDaysAgo": 74,
+    "finishedDaysAgo": 62,
+    "progress": 100
+   },
+   {
+    "bookId": "bk-zero",
+    "shelf": "finished",
+    "addedDaysAgo": 132,
+    "finishedDaysAgo": 120,
+    "progress": 100
+   },
+   {
+    "bookId": "bk-pragmatic",
+    "shelf": "finished",
+    "addedDaysAgo": 162,
+    "finishedDaysAgo": 150,
+    "progress": 100
+   },
+   {
+    "bookId": "bk-cleancode",
+    "shelf": "wantToRead",
+    "addedDaysAgo": 3,
+    "progress": 0
+   }
+  ],
+  "readingDaysAgo": [
+   1,
+   2,
+   3
+  ],
+  "goal": 12
+ }
+}

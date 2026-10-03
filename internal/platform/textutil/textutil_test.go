@@ -20,3 +20,12 @@ func TestLenMatchesDart(t *testing.T) {
 		t.Error("TrimLen")
 	}
 }
+
+func TestGraphemes(t *testing.T) {
+	for s, want := range map[string]int{"": 0, "  abc  ": 3, "👍🏽": 1, "বই পড়ি": 5, "ক্ষ": 1, "ক্ষক্ষক্ষ": 3,
+		"স্ত্রী": 1, "ক্ a": 3, "नमस्ते": 3} {
+		if got := Graphemes(s); got != want {
+			t.Errorf("Graphemes(%q) = %d, want %d", s, got, want)
+		}
+	}
+}

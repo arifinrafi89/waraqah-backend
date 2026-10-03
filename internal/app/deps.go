@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/bites"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/bookrequest"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
@@ -23,8 +24,11 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/orders"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/p2p"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/readers"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/report"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/reviews"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/sellback"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/shelves"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wallet"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/clock"
@@ -90,6 +94,10 @@ type Deps struct {
 	BookRequests  *bookrequest.Service
 	Sales         *handledsale.Service
 	SellBack      *sellback.Service // also the Certified Used stock of the cart and the catalog
+	Bites         *bites.Service
+	Reviews       *reviews.Service
+	Readers       *readers.Service // also the follows Bites read
+	Shelves       *shelves.Service
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -160,6 +168,16 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	d.Cart.Used = d.SellBack
 	d.Jobs.Register("demo sellers send", d.Sales.SendDemoSales)
 	d.Jobs.Register("courier pickups", d.SellBack.PickUp)
+	d.Bites = &bites.Service{DB: database, Books: d.Catalog, Blocks: d.Report, Bans: d.Moderation, Notify: d.Notifications,
+		Clock: clk, Loc: loc, Log: log}
+	d.Readers = &readers.Service{DB: database, Prefs: d.Profile, Blocks: d.Report, Bites: d.Bites, Listings: d.P2P, Notify: d.Notifications,
+		Clock: clk, Loc: loc, Log: log}
+	d.Bites.Follows = d.Readers
+	d.Reviews = &reviews.Service{DB: database, Catalog: d.Catalog, Delivered: d.Orders, Bans: d.Moderation, Clock: clk, Loc: loc, Log: log}
+	d.Shelves = &shelves.Service{DB: database, Catalog: d.Catalog, Delivered: d.Orders, Clock: clk, Loc: loc, Log: log}
+	d.Moderation.Register("bite", bites.Bites{S: d.Bites})
+	d.Moderation.Register("comment", bites.Comments{S: d.Bites})
+	d.Moderation.Register("review", reviews.Reviews{S: d.Reviews})
 	d.Donate = &donate.Service{DB: database, Books: d.Catalog, Clock: clk, Log: log}
 	d.Checkout = &checkout.Service{DB: database, Cart: d.Cart, Addresses: d.Profile, Wallet: d.Wallet, Points: d.Points, Stock: d.Catalog,
 		Used: d.SellBack, Clock: clk, Loc: loc, Log: log}

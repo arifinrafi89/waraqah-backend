@@ -6,6 +6,7 @@ import (
 
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
 	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/bites"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/bookrequest"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
@@ -22,9 +23,12 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/orders"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/p2p"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/readers"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/report"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/reviews"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/scan"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/sellback"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/shelves"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wallet"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wishlist"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
@@ -84,6 +88,10 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	bookrequest.NewHandler(d.BookRequests).Routes(api, d.Auth)
 	handledsale.NewHandler(d.Sales).Routes(api, d.Auth)
 	sellback.NewHandler(d.SellBack).Routes(api, d.Auth)
+	bites.NewHandler(d.Bites).Routes(api, d.Auth)
+	reviews.NewHandler(d.Reviews).Routes(api, d.Auth)
+	readers.NewHandler(d.Readers).Routes(api, d.Auth)
+	shelves.NewHandler(d.Shelves).Routes(api, d.Auth)
 	orders.NewHandler(d.Orders).Routes(api, d.Auth)
 	wallet.Handler{S: d.Wallet}.Routes(api, d.Auth)
 	loyalty.Handler{S: d.Points}.Routes(api, d.Auth)

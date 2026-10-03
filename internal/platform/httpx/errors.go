@@ -106,6 +106,27 @@ const (
 	ErrSellBackInvalid     = "sell_back_invalid"
 	ErrSellBackNotWaiting  = "sell_back_not_waiting"
 
+	// bites
+	ErrBiteInvalid     = "bite_invalid"
+	ErrBiteUnknown     = "bite_unknown"
+	ErrBiteNotYours    = "bite_not_yours"
+	ErrCommentInvalid  = "comment_invalid"
+	ErrCommentUnknown  = "comment_unknown"
+	ErrCommentNotYours = "comment_not_yours"
+
+	// reviews
+	ErrReviewInvalid = "review_invalid"
+	ErrReviewUnknown = "review_unknown"
+
+	// readers
+	ErrReaderUnknown = "reader_unknown"
+	ErrFollowRefused = "follow_refused"
+
+	// shelves
+	ErrProgressInvalid = "progress_invalid"
+	ErrNotOnShelf      = "not_on_shelf"
+	ErrGoalInvalid     = "goal_invalid"
+
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"
 )
