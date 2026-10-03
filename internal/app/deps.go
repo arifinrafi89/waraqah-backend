@@ -15,9 +15,12 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/moderation"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/orders"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/p2p"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/report"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wallet"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/clock"
@@ -76,6 +79,9 @@ type Deps struct {
 	Orders        *orders.Service
 	Checkout      *checkout.Service
 	Donate        *donate.Service
+	P2P           *p2p.Service        // also listings.Status
+	Report        *report.Service     // also blocks.Checker
+	Moderation    *moderation.Service // also moderation.Bans
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -131,6 +137,11 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	d.Points = &loyalty.Service{DB: database, Clock: clk, Loc: loc, Log: log}
 	d.Orders = &orders.Service{DB: database, Wallet: d.Wallet, Points: d.Points, Notify: d.Notifications, Cart: d.Cart, Stock: d.Catalog,
 		Clock: clk, Loc: loc, MaxImageBytes: cfg.MaxImageMB << 20, Log: log}
+	d.P2P = &p2p.Service{DB: database, Images: d.Images, MaxImageBytes: cfg.MaxImageMB << 20, Catalog: d.Catalog, Clock: clk, Loc: loc, Log: log}
+	d.Moderation = &moderation.Service{DB: database, Shop: d.P2P, Notify: d.Notifications, Clock: clk, Loc: loc, Log: log}
+	d.P2P.Bans = d.Moderation
+	d.Report = &report.Service{DB: database, Shop: d.P2P, Clock: clk, Loc: loc, Log: log}
+	d.Profile.Hooks = append(d.Profile.Hooks, d.P2P.OnAccountDeleted)
 	d.Donate = &donate.Service{DB: database, Books: d.Catalog, Clock: clk, Log: log}
 	d.Checkout = &checkout.Service{DB: database, Cart: d.Cart, Addresses: d.Profile, Wallet: d.Wallet, Points: d.Points, Stock: d.Catalog,
 		Clock: clk, Loc: loc, Log: log}

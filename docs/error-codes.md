@@ -54,3 +54,17 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `donate_recipient_unknown` | The place, or the book it asked for, does not exist. | `DonateFakeApi.give` | `POST /donate/give` |
 | `place_invalid` | The place breaks `PlaceRules` (name 3 to 80, a district, an area, a story of 10 to 300, at least one need of 1 to 100 copies) or names a book the catalog does not have. | `PlaceRules.check` | `POST /admin/donate/places/save` |
 | `place_unknown` | The place id is not a verified place. | `DonatePlacesStore` | `POST /admin/donate/places/save`, `POST /admin/donate/places/remove` |
+| `listing_unknown` | The listing does not exist or is not the reader own. | `P2pListingWriter.save` | `POST /p2p/listings/save` |
+| `listing_not_editable` | Only a draft, a listing sent back or a rejected one can be changed. | `ListingRules.canEdit` | `POST /p2p/listings/save` |
+| `listing_invalid` | The listing breaks `ListingRules`: a title of up to 120 characters, a note of up to 500, a price of up to 50,000 and, to send it for review, a price and front and back photos (and a damage photo when the damage flag is ticked). | `ListingRules.check` | `POST /p2p/listings/save` |
+| `listing_photo_invalid` | A photo is not a JPEG, PNG or WebP image, or is too large. | `cloudinary.DecodeImage` | `POST /p2p/listings/save` |
+| `reader_banned` | A banned reader cannot use the marketplace. | `ModerationFakeStore.isBanned` | `POST /p2p/listings/save` |
+| `report_invalid` | The reason or note breaks `ReportRules`: "something else" needs a note, and a note is at most 500 characters. | `ReportRules.check` | `POST /reports` |
+| `report_target_unknown` | The thing reported does not exist, or is the reader own. | `ReportFakeStore.report` | `POST /reports` |
+| `block_invalid` | The reader to block is unknown or the reader themselves. | `ReportFakeStore.block` | `POST /blocks/add` |
+| `listing_not_waiting` | The listing is not waiting for a decision. | `ModerationFakeStore.decide` | `POST /moderation/listings/decide` |
+| `decision_invalid` | The decision is not approve, requestChanges or reject. | `ListingDecision` | `POST /moderation/listings/decide` |
+| `decision_reason_invalid` | Asking for changes and rejecting need a reason of up to 300 characters. | `ModerationRules.checkDecision` | `POST /moderation/listings/decide` |
+| `report_not_open` | The report does not exist or was already handled. | `ModerationFakeStore.act` | `POST /moderation/reports/act` |
+| `report_no_owner` | There is nobody to warn or ban for that report. | `ModerationFakeStore.act` | `POST /moderation/reports/act` |
+| `action_invalid` | The action is not remove, dismiss, warn or ban. | `ReportAction` | `POST /moderation/reports/act` |

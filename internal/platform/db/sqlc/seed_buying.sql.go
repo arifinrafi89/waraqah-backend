@@ -55,11 +55,11 @@ func (q *Queries) UpsertSeedFlashItem(ctx context.Context, arg UpsertSeedFlashIt
 }
 
 const upsertSeedPerson = `-- name: UpsertSeedPerson :exec
-INSERT INTO users (id, email, name, role, password_hash, area, district, member_since)
-VALUES ($1, $2, $3, 'reader', $4, $5, $6, $7)
+INSERT INTO users (id, email, name, role, password_hash, area, district, member_since, sold_before)
+VALUES ($1, $2, $3, 'reader', $4, $5, $6, $7, $8)
 ON CONFLICT (id) DO UPDATE
 SET email = EXCLUDED.email, name = EXCLUDED.name, area = EXCLUDED.area, district = EXCLUDED.district,
-    member_since = EXCLUDED.member_since,
+    member_since = EXCLUDED.member_since, sold_before = EXCLUDED.sold_before,
     password_hash = COALESCE(users.password_hash, EXCLUDED.password_hash)
 `
 
@@ -71,6 +71,7 @@ type UpsertSeedPersonParams struct {
 	Area         string
 	District     string
 	MemberSince  time.Time
+	SoldBefore   int32
 }
 
 func (q *Queries) UpsertSeedPerson(ctx context.Context, arg UpsertSeedPersonParams) error {
@@ -82,6 +83,7 @@ func (q *Queries) UpsertSeedPerson(ctx context.Context, arg UpsertSeedPersonPara
 		arg.Area,
 		arg.District,
 		arg.MemberSince,
+		arg.SoldBefore,
 	)
 	return err
 }

@@ -47,6 +47,7 @@ func Question() string     { return New("q") }
 func Answer() string       { return New("a") }
 func Book() string         { return New("bk") }
 func Place() string        { return New("rc") }
+func Report() string       { return New("rp") }
 func Booklist() string     { return New("bl") }
 func Sale() string         { return New("sb") }
 func Certified() string    { return New("cu") }

@@ -12,7 +12,7 @@ import (
 )
 
 const getUserByEmail = `-- name: GetUserByEmail :one
-SELECT id, email, phone, name, password_hash, role, photo_url, area, district, member_since, strikes, banned, deleted_at, created_at, photo_data FROM users WHERE email = $1 AND deleted_at IS NULL
+SELECT id, email, phone, name, password_hash, role, photo_url, area, district, member_since, strikes, banned, deleted_at, created_at, photo_data, sold_before FROM users WHERE email = $1 AND deleted_at IS NULL
 `
 
 func (q *Queries) GetUserByEmail(ctx context.Context, email pgtype.Text) (User, error) {
@@ -34,12 +34,13 @@ func (q *Queries) GetUserByEmail(ctx context.Context, email pgtype.Text) (User, 
 		&i.DeletedAt,
 		&i.CreatedAt,
 		&i.PhotoData,
+		&i.SoldBefore,
 	)
 	return i, err
 }
 
 const getUserByID = `-- name: GetUserByID :one
-SELECT id, email, phone, name, password_hash, role, photo_url, area, district, member_since, strikes, banned, deleted_at, created_at, photo_data FROM users WHERE id = $1 AND deleted_at IS NULL
+SELECT id, email, phone, name, password_hash, role, photo_url, area, district, member_since, strikes, banned, deleted_at, created_at, photo_data, sold_before FROM users WHERE id = $1 AND deleted_at IS NULL
 `
 
 func (q *Queries) GetUserByID(ctx context.Context, id string) (User, error) {
@@ -61,6 +62,7 @@ func (q *Queries) GetUserByID(ctx context.Context, id string) (User, error) {
 		&i.DeletedAt,
 		&i.CreatedAt,
 		&i.PhotoData,
+		&i.SoldBefore,
 	)
 	return i, err
 }
