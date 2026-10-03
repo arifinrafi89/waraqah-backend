@@ -1,0 +1,12 @@
+[
+  {
+    "id": "wl-nabila",
+    "ownerId": "p-nabila",
+    "ownerName": "Nabila",
+    "bookIds": [
+      "bk-atomic",
+      "bk-sapiens",
+      "bk-cleancode"
+    ]
+  }
+]

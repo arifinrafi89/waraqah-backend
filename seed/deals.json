@@ -1,0 +1,41 @@
+{
+  "flash": [
+    {
+      "editionId": "bk-sherlock-pb-en",
+      "priceBdt": 299
+    },
+    {
+      "editionId": "bk-zero-pb-en",
+      "priceBdt": 399
+    },
+    {
+      "editionId": "bk-hpstone-pb-en",
+      "priceBdt": 499
+    }
+  ],
+  "bundles": [
+    {
+      "id": "big-ideas",
+      "title": "Big ideas bundle",
+      "editionIds": [
+        "bk-sapiens-pb-en",
+        "bk-atomic-pb-en",
+        "bk-zero-pb-en"
+      ],
+      "priceBdt": 1450
+    },
+    {
+      "id": "seerah-hadith",
+      "title": "Seerah and hadith bundle",
+      "editionIds": [
+        "bk-nectar-pb-bn",
+        "bk-riyad-hc-bn",
+        "bk-adabmufrad-pb-bn"
+      ],
+      "priceBdt": 1150
+    }
+  ],
+  "preorders": [
+    "bk-bidayah-hc-bn"
+  ]
+}

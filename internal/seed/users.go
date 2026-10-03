@@ -18,14 +18,11 @@ type seedUser struct {
 
 // loadUsers creates the demo accounts: admin@, moderator@, catalog@, support@ and reader@waraqah.test.
 func loadUsers(ctx context.Context, r *Run) error {
-	if r.DemoPassword == "" {
-		return errors.New("SEED_DEMO_PASSWORD is empty")
-	}
 	var users []seedUser
 	if err := r.read("users.json", &users); err != nil {
 		return err
 	}
-	hash, err := auth.HashPassword(r.DemoPassword, r.BcryptCost)
+	hash, err := r.hash()
 	if err != nil {
 		return err
 	}

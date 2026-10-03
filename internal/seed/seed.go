@@ -6,12 +6,14 @@ package seed
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log/slog"
 	"os"
 	"path/filepath"
 	"time"
 
+	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/db"
 )
 
@@ -27,7 +29,8 @@ type Options struct {
 // Run is what each step receives.
 type Run struct {
 	Options
-	DB *db.DB
+	DB     *db.DB
+	pwHash string
 	// Me is the id of the account the fake API calls "me" (reader@waraqah.test).
 	Me string
 }
@@ -50,6 +53,8 @@ var steps = []step{
 	{"book extras", loadBookExtras},
 	{"collections", loadCollections},
 	{"home", loadHome},
+	{"people", loadPeople},
+	{"buying", loadBuying},
 }
 
 // All runs every step.
@@ -65,6 +70,19 @@ func All(ctx context.Context, d *db.DB, opts Options) error {
 		}
 	}
 	return nil
+}
+
+// hash is the bcrypt hash of the demo password, made once per run.
+func (r *Run) hash() (string, error) {
+	if r.pwHash != "" {
+		return r.pwHash, nil
+	}
+	if r.DemoPassword == "" {
+		return "", errors.New("SEED_DEMO_PASSWORD is empty")
+	}
+	h, err := auth.HashPassword(r.DemoPassword, r.BcryptCost)
+	r.pwHash = h
+	return h, err
 }
 
 // read decodes seed/<name>.json into v. A missing file is an error, so a stale checkout is noticed.

@@ -33,3 +33,6 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `list_unknown` | The Collection or Staff Booklist id does not exist (a Reader own list counts as unknown). | `CatalogAdminFakeLists` | `POST /admin/catalog/collections|booklists/save`, `/delete` |
 | `stock_invalid` | Stock is negative, the Edition is an eBook, or the Edition is unknown. | `CatalogToolsFakeApi._setStock` | `POST /admin/catalog/editions/stock` |
 | `season_unknown` | The Season name is not one of ramadan, boiMela, admission, backToSchool. | `CatalogAdminFakeApi.season` | `POST /admin/catalog/season/save` |
+| `cart_item_unknown` | The item cannot go in the cart: unknown, not orderable (out of stock and not a pre-order), or a kind the cart does not sell (reader listings are bought with an offer). The answer is still the cart, with this code in the header. | `CartFakeStore.add` | `POST /cart/add` |
+| `wishlist_name_missing` | Sharing the wishlist needs the name friends see. | `WishlistFakeApi.share` | `POST /wishlist/share` |
+| `alert_invalid` | The alert names an unknown Edition or kind. The answer is still the list of alerts, with this code in the header. | `AlertFakeStore.set` | `POST /alerts/set` |

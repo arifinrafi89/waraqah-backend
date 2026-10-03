@@ -11,6 +11,7 @@ import 'package:waraqah/app/fake_stores.dart';
 import 'package:waraqah/features/profile/data/sources/geo/bd_geo.dart';
 
 import 'harness.dart';
+import 'seeds_buying.dart';
 import 'seeds_catalog.dart';
 
 Future<void> writeSeeds(Directory out) async {
@@ -47,4 +48,5 @@ Future<void> writeSeeds(Directory out) async {
   ]);
 
   await writeCatalogSeeds(out, get, now);
+  await writeBuyingSeeds(out, get);
 }

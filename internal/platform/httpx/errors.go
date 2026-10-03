@@ -40,6 +40,11 @@ const (
 	ErrStockInvalid  = "stock_invalid"
 	ErrSeasonUnknown = "season_unknown"
 
+	// cart, wishlist, alerts
+	ErrCartItemUnknown     = "cart_item_unknown"
+	ErrWishlistNameMissing = "wishlist_name_missing"
+	ErrAlertInvalid        = "alert_invalid"
+
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"
 )

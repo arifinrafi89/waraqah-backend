@@ -8,9 +8,6 @@ POST /admin/donate/places/save
 GET /admin/orders
 POST /admin/orders/advance
 POST /admin/orders/return
-GET /alerts
-POST /alerts/remove
-POST /alerts/set
 POST /assistant/ask
 GET /assistant/greeting
 GET /bites
@@ -24,12 +21,7 @@ POST /bites/post
 GET /blocks
 POST /blocks/add
 POST /blocks/remove
-GET /cart
-POST /cart/add
-POST /cart/remove
-POST /cart/update
 GET /coupons/check
-GET /deals
 POST /donate/give
 GET /donate/recipient
 GET /donate/recipients
@@ -95,8 +87,3 @@ GET /shelves
 POST /shelves/move
 POST /shelves/progress
 GET /wallet
-GET /wishlist
-POST /wishlist/remove
-POST /wishlist/save
-POST /wishlist/share
-GET /wishlist/shared

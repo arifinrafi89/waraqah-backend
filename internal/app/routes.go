@@ -4,13 +4,17 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/alerts"
 	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/cart"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalogadmin"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/home"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/scan"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/wishlist"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
 	seeddata "github.com/arifinrafi89/waraqah-backend/seed"
 )
@@ -55,5 +59,9 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	home.NewHandler(&home.Service{DB: d.DB, Clock: d.Clock, Loc: d.Location}, d.Log).Routes(api, d.Auth)
 	catalogadmin.NewHandler(&catalogadmin.Service{DB: d.DB, Cache: d.Catalog, Sweeper: d.Sweeper, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
 	(&scan.Handler{Books: d.Catalog}).Routes(api, d.Auth)
+	deals.Handler{S: d.Deals}.Routes(api, d.Auth)
+	cart.NewHandler(d.Cart).Routes(api, d.Auth)
+	(&wishlist.Handler{S: &wishlist.Service{DB: d.DB, Books: d.Catalog, Clock: d.Clock, Log: d.Log}}).Routes(api, d.Auth)
+	(&alerts.Handler{S: d.Alerts}).Routes(api, d.Auth)
 	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: catalog.NoUsedStock{}, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
 }

@@ -59,7 +59,7 @@ List<S> writeSamples() => [
   ),
   S.post('/alerts/remove', body: (c) => {'id': c.id('POST /alerts/set')}),
   S.post('/cart/add', body: (_) => {'kind': 'edition', 'id': 'bk-atomic-pb-en'}),
-  S.post('/cart/add', body: (_) => {'kind': 'edition', 'id': 'bk-sapiens-pb-en'}),
+  S.post('/cart/add', body: (_) => {'kind': 'edition', 'id': 'bk-sapiens-pb-en'}, variant: 'second'),
   S.post(
     '/cart/update',
     body: (c) => {'lineId': c.id('POST /cart/add', inList: 'lines'), 'quantity': 2},
