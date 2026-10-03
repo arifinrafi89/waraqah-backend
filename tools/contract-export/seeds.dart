@@ -11,6 +11,7 @@ import 'package:waraqah/app/fake_stores.dart';
 import 'package:waraqah/features/profile/data/sources/geo/bd_geo.dart';
 
 import 'harness.dart';
+import 'seeds_catalog.dart';
 
 Future<void> writeSeeds(Directory out) async {
   out.createSync(recursive: true);
@@ -44,4 +45,6 @@ Future<void> writeSeeds(Directory out) async {
         'ageMinutes': now.difference(DateTime.parse(n['createdAt'] as String)).inMinutes,
       },
   ]);
+
+  await writeCatalogSeeds(out, get, now);
 }

@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"time"
 
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/catalog"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/notifications"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
@@ -56,6 +57,7 @@ type Deps struct {
 	// Features other features talk to, through interfaces (BACKEND_PLAN.md section 8).
 	Profile       *profile.Service
 	Notifications *notifications.Service // also the notifications.Sender everyone uses
+	Catalog       *catalog.Store         // also the catalog.Books everyone uses
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -102,6 +104,7 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 		Now: clk.Now, Log: log,
 	}
 	d.Notifications = &notifications.Service{DB: database, SSE: d.SSE, Prefs: d.Profile, Clock: clk, Loc: loc, Log: log}
+	d.Catalog = &catalog.Store{DB: database, Loc: loc}
 	if database != nil {
 		d.Ready = database.Ping
 	}

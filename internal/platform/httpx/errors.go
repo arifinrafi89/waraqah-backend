@@ -22,6 +22,12 @@ const (
 	ErrAddressInvalid = "address_invalid"
 	ErrAddressUnknown = "address_unknown"
 
+	// catalog
+	ErrBooklistNotYours = "booklist_not_yours"
+	ErrBooklistInvalid  = "booklist_invalid"
+	ErrBookUnknown      = "book_unknown"
+	ErrQuestionInvalid  = "question_invalid"
+
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"
 )

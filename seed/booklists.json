@@ -1,0 +1,60 @@
+[
+  {
+    "id": "bl-class-8",
+    "titleEn": "Class 8 class list",
+    "titleBn": "অষ্টম শ্রেণির বইয়ের তালিকা",
+    "kind": "classList",
+    "bookIds": [
+      "bk-class8-math",
+      "bk-english-grammar",
+      "bk-general-math",
+      "bk-matilda"
+    ],
+    "noteEn": "What most Dhaka schools ask for at the start of the year.",
+    "noteBn": "বছরের শুরুতে ঢাকার বেশিরভাগ স্কুল যে বইগুলো চায়।",
+    "isMine": false
+  },
+  {
+    "id": "bl-hsc-physics",
+    "titleEn": "HSC Physics prep",
+    "titleBn": "এইচএসসি পদার্থবিজ্ঞান প্রস্তুতি",
+    "kind": "examPrep",
+    "bookIds": [
+      "bk-hsc-physics-1",
+      "bk-hsc-higher-math",
+      "bk-general-math",
+      "bk-calculus"
+    ],
+    "noteEn": "The maths HSC physics leans on, from basics to calculus.",
+    "noteBn": "এইচএসসি পদার্থবিজ্ঞানে যে গণিত লাগে, ভিত্তি থেকে ক্যালকুলাস।",
+    "isMine": false
+  },
+  {
+    "id": "bl-book-club-alchemist",
+    "titleEn": "Book club: The Alchemist month",
+    "titleBn": "বুক ক্লাব: দ্য অ্যালকেমিস্ট মাস",
+    "kind": "bookClub",
+    "bookIds": [
+      "bk-alchemist",
+      "bk-hobbit",
+      "bk-atomic"
+    ],
+    "noteEn": "This month's pick, and two more about following a journey.",
+    "noteBn": "এই মাসের বই, আর যাত্রার পথে চলা নিয়ে আরও দুটি।",
+    "isMine": false
+  },
+  {
+    "id": "bl-summer-reads",
+    "titleEn": "Summer reads",
+    "titleBn": "Summer reads",
+    "kind": "personal",
+    "bookIds": [
+      "bk-hpstone",
+      "bk-sherlock",
+      "bk-davinci"
+    ],
+    "noteEn": null,
+    "noteBn": null,
+    "isMine": true
+  }
+]

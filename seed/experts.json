@@ -1,0 +1,38 @@
+[
+  {
+    "id": "exp-tanvir-physics",
+    "name": "Tanvir Hasan",
+    "nameBn": "তানভীর হাসান",
+    "credentialEn": "HSC physics teacher, 12 years",
+    "credentialBn": "এইচএসসি পদার্থবিজ্ঞান শিক্ষক, ১২ বছর",
+    "kind": "teacher",
+    "verified": true
+  },
+  {
+    "id": "exp-mahmudul-scholar",
+    "name": "Dr. Mahmudul Karim",
+    "nameBn": "ড. মাহমুদুল করিম",
+    "credentialEn": "Islamic studies scholar",
+    "credentialBn": "ইসলামিক স্টাডিজ গবেষক",
+    "kind": "scholar",
+    "verified": true
+  },
+  {
+    "id": "exp-shirin-novelist",
+    "name": "Shirin Akhter",
+    "nameBn": "শিরিন আক্তার",
+    "credentialEn": "Bangla novelist, six novels",
+    "credentialBn": "বাংলা ঔপন্যাসিক, ছয়টি উপন্যাস",
+    "kind": "writer",
+    "verified": true
+  },
+  {
+    "id": "exp-arif-bcs",
+    "name": "Arif Mahmud",
+    "nameBn": "আরিফ মাহমুদ",
+    "credentialEn": "BCS mentor, 35th BCS cadre",
+    "credentialBn": "বিসিএস মেন্টর, ৩৫তম বিসিএস ক্যাডার",
+    "kind": "teacher",
+    "verified": true
+  }
+]

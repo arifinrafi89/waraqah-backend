@@ -30,13 +30,13 @@
       {
         "id": "m-1",
         "from": "them",
-        "at": "2026-10-03T20:28:42.945390",
+        "at": "2026-10-03T20:34:02.437205",
         "text": "Hi! Is Atomic Habits still available? I live in Mohammadpur."
       },
       {
         "id": "m-2",
         "from": "them",
-        "at": "2026-10-03T20:30:42.945390",
+        "at": "2026-10-03T20:36:02.437205",
         "offer": {
           "id": "o-sadia",
           "amountBdt": 300,
@@ -47,20 +47,20 @@
       {
         "id": "m-18",
         "from": "me",
-        "at": "2026-10-03T21:20:43.329841",
+        "at": "2026-10-03T21:26:02.862642",
         "event": "offerAccepted",
         "amountBdt": 300
       },
       {
         "id": "m-20",
         "from": "them",
-        "at": "2026-10-03T21:20:43.331346",
+        "at": "2026-10-03T21:26:02.864651",
         "text": "Great, thank you! When and where suits you?"
       },
       {
         "id": "m-21",
         "from": "me",
-        "at": "2026-10-03T21:20:43.333361",
+        "at": "2026-10-03T21:26:02.865649",
         "event": "sold"
       }
     ],

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "pub-harper",
+    "name": "Harper",
+    "nameBn": null
+  },
+  {
+    "id": "pub-harpercollins",
+    "name": "HarperCollins",
+    "nameBn": null
+  },
+  {
+    "id": "pub-avery",
+    "name": "Avery",
+    "nameBn": null
+  },
+  {
+    "id": "pub-prentice-hall",
+    "name": "Prentice Hall",
+    "nameBn": null
+  },
+  {
+    "id": "pub-cengage",
+    "name": "Cengage",
+    "nameBn": null
+  },
+  {
+    "id": "pub-crown",
+    "name": "Crown Business",
+    "nameBn": null
+  },
+  {
+    "id": "pub-american-trust",
+    "name": "American Trust Publications",
+    "nameBn": null
+  },
+  {
+    "id": "pub-darussalam",
+    "name": "Darussalam",
+    "nameBn": null
+  },
+  {
+    "id": "pub-bloomsbury",
+    "name": "Bloomsbury",
+    "nameBn": null
+  },
+  {
+    "id": "pub-doubleday",
+    "name": "Doubleday",
+    "nameBn": null
+  },
+  {
+    "id": "pub-penguin",
+    "name": "Penguin Classics",
+    "nameBn": null
+  },
+  {
+    "id": "pub-princeton",
+    "name": "Princeton University Press",
+    "nameBn": null
+  },
+  {
+    "id": "pub-ibt",
+    "name": "Islamic Book Trust",
+    "nameBn": null
+  },
+  {
+    "id": "pub-inner-traditions",
+    "name": "Inner Traditions",
+    "nameBn": null
+  },
+  {
+    "id": "pub-dar-al-taqwa",
+    "name": "Dar al-Taqwa",
+    "nameBn": null
+  },
+  {
+    "id": "pub-waraqah-press",
+    "name": "Waraqah Press",
+    "nameBn": null
+  },
+  {
+    "id": "pub-nctb",
+    "name": "NCTB",
+    "nameBn": null
+  },
+  {
+    "id": "pub-s-chand",
+    "name": "S. Chand",
+    "nameBn": null
+  },
+  {
+    "id": "pub-addison-wesley",
+    "name": "Addison-Wesley",
+    "nameBn": null
+  },
+  {
+    "id": "pub-oreilly",
+    "name": "O'Reilly Media",
+    "nameBn": null
+  },
+  {
+    "id": "pub-philomel",
+    "name": "Philomel Books",
+    "nameBn": null
+  },
+  {
+    "id": "pub-puffin",
+    "name": "Puffin Books",
+    "nameBn": null
+  }
+]

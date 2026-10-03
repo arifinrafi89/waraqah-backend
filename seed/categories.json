@@ -1,0 +1,80 @@
+[
+  {
+    "id": "cat-islamic-studies",
+    "section": "religious",
+    "nameEn": "Islamic Studies",
+    "nameBn": "ইসলামিক স্টাডিজ"
+  },
+  {
+    "id": "cat-academic",
+    "section": "academic",
+    "nameEn": "Academic",
+    "nameBn": "একাডেমিক"
+  },
+  {
+    "id": "cat-fiction",
+    "section": "literature",
+    "nameEn": "Fiction",
+    "nameBn": "ফিকশন"
+  },
+  {
+    "id": "cat-self-help",
+    "section": "nonFiction",
+    "nameEn": "Self-Help",
+    "nameBn": "সেলফ-হেল্প"
+  },
+  {
+    "id": "cat-business",
+    "section": "nonFiction",
+    "nameEn": "Business",
+    "nameBn": "ব্যবসা"
+  },
+  {
+    "id": "cat-bcs-prep",
+    "section": "admissionJobPrep",
+    "nameEn": "BCS Preparation",
+    "nameBn": "বিসিএস প্রস্তুতি"
+  },
+  {
+    "id": "cat-admission-test",
+    "section": "admissionJobPrep",
+    "nameEn": "University Admission",
+    "nameBn": "বিশ্ববিদ্যালয় ভর্তি"
+  },
+  {
+    "id": "cat-textbooks",
+    "section": "schoolCollege",
+    "nameEn": "Textbooks",
+    "nameBn": "পাঠ্যবই"
+  },
+  {
+    "id": "cat-school-guides",
+    "section": "schoolCollege",
+    "nameEn": "Guides & Grammar",
+    "nameBn": "গাইড ও ব্যাকরণ"
+  },
+  {
+    "id": "cat-programming",
+    "section": "skillsTech",
+    "nameEn": "Programming",
+    "nameBn": "প্রোগ্রামিং"
+  },
+  {
+    "id": "cat-data-systems",
+    "section": "skillsTech",
+    "nameEn": "Data & Systems",
+    "nameBn": "ডেটা ও সিস্টেম"
+  },
+  {
+    "id": "cat-picture-books",
+    "section": "children",
+    "nameEn": "Picture Books",
+    "nameBn": "ছবির বই"
+  },
+  {
+    "id": "cat-kids-stories",
+    "section": "children",
+    "nameEn": "Story Books",
+    "nameBn": "গল্পের বই"
+  }
+]

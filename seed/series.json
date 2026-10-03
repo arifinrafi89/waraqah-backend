@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ser-harry-potter",
+    "name": "Harry Potter",
+    "entries": [
+      {
+        "position": 1,
+        "title": "Harry Potter and the Philosopher's Stone",
+        "bookId": "bk-hpstone",
+        "coverSeed": 0
+      },
+      {
+        "position": 2,
+        "title": "The Chamber of Secrets",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 3,
+        "title": "The Prisoner of Azkaban",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 4,
+        "title": "The Goblet of Fire",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 5,
+        "title": "The Order of the Phoenix",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 6,
+        "title": "The Half-Blood Prince",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 7,
+        "title": "The Deathly Hallows",
+        "bookId": null,
+        "coverSeed": 0
+      }
+    ]
+  },
+  {
+    "id": "ser-robert-langdon",
+    "name": "Robert Langdon",
+    "entries": [
+      {
+        "position": 1,
+        "title": "Angels & Demons",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 2,
+        "title": "The Da Vinci Code",
+        "bookId": "bk-davinci",
+        "coverSeed": 0
+      },
+      {
+        "position": 3,
+        "title": "The Lost Symbol",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 4,
+        "title": "Inferno",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 5,
+        "title": "Origin",
+        "bookId": null,
+        "coverSeed": 0
+      }
+    ]
+  },
+  {
+    "id": "ser-sherlock-holmes",
+    "name": "Sherlock Holmes novels",
+    "entries": [
+      {
+        "position": 1,
+        "title": "A Study in Scarlet",
+        "bookId": "bk-sherlock",
+        "coverSeed": 0
+      },
+      {
+        "position": 2,
+        "title": "The Sign of the Four",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 3,
+        "title": "The Hound of the Baskervilles",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 4,
+        "title": "The Valley of Fear",
+        "bookId": null,
+        "coverSeed": 0
+      }
+    ]
+  },
+  {
+    "id": "ser-middle-earth",
+    "name": "Middle-earth",
+    "entries": [
+      {
+        "position": 1,
+        "title": "The Hobbit",
+        "bookId": "bk-hobbit",
+        "coverSeed": 0
+      },
+      {
+        "position": 2,
+        "title": "The Fellowship of the Ring",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 3,
+        "title": "The Two Towers",
+        "bookId": null,
+        "coverSeed": 0
+      },
+      {
+        "position": 4,
+        "title": "The Return of the King",
+        "bookId": null,
+        "coverSeed": 0
+      }
+    ]
+  }
+]

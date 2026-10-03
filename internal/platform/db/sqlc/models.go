@@ -24,6 +24,124 @@ type Address struct {
 	IsDefault bool
 }
 
+type Author struct {
+	ID     string
+	Name   string
+	NameBn pgtype.Text
+	Bio    pgtype.Text
+}
+
+type Book struct {
+	ID               string
+	Position         int64
+	Title            string
+	TitleBn          pgtype.Text
+	ShortTitle       pgtype.Text
+	Author           string
+	AuthorID         string
+	PublisherID      string
+	CategoryID       string
+	Section          string
+	OriginalLanguage string
+	AddedAt          time.Time
+	Rating           float64
+	Tags             []string
+	CoverSeed        int32
+	Hidden           bool
+	Classes          []int32
+	Exams            []string
+	SubjectID        pgtype.Text
+}
+
+type BookAnswer struct {
+	ID         string
+	Position   int64
+	QuestionID string
+	UserID     pgtype.Text
+	AuthorName string
+	Text       string
+	AnsweredAt time.Time
+	IsStaff    bool
+}
+
+type BookDetail struct {
+	BookID      string
+	Description string
+	Pages       int32
+}
+
+type BookQuestion struct {
+	ID        string
+	Position  int64
+	BookID    string
+	UserID    pgtype.Text
+	AskerName string
+	Text      string
+	AskedAt   time.Time
+}
+
+type Booklist struct {
+	ID        string
+	Position  int64
+	OwnerID   pgtype.Text
+	Kind      string
+	TitleEn   string
+	TitleBn   string
+	NoteEn    pgtype.Text
+	NoteBn    pgtype.Text
+	BookIds   []string
+	UpdatedAt time.Time
+}
+
+type Category struct {
+	ID      string
+	Section string
+	NameEn  string
+	NameBn  string
+}
+
+type Collection struct {
+	ID       string
+	Position int64
+	TitleEn  string
+	TitleBn  string
+	NoteEn   string
+	NoteBn   string
+	Section  pgtype.Text
+	ExpertID pgtype.Text
+	BookIds  []string
+}
+
+type Edition struct {
+	ID           string
+	BookID       string
+	Position     int64
+	Format       string
+	Language     string
+	PriceBdt     int32
+	ListPriceBdt pgtype.Int4
+	Stock        int32
+	IsPreorder   bool
+	Isbn         pgtype.Text
+}
+
+type Expert struct {
+	ID           string
+	Position     int64
+	Name         string
+	NameBn       string
+	CredentialEn string
+	CredentialBn string
+	Kind         string
+	Verified     bool
+}
+
+type LookInside struct {
+	BookID      string
+	Contents    []byte
+	SamplePages []byte
+}
+
 type Notification struct {
 	ID        string
 	UserID    string
@@ -50,11 +168,23 @@ type PendingSignup struct {
 	CreatedAt    time.Time
 }
 
+type PriceLow struct {
+	EditionID string
+	LowBdt    int32
+	Since     time.Time
+}
+
 type ProfilePref struct {
 	UserID          string
 	Muted           []string
 	ProfileVisible  bool
 	ActivityVisible bool
+}
+
+type Publisher struct {
+	ID     string
+	Name   string
+	NameBn pgtype.Text
 }
 
 type RefreshToken struct {
@@ -64,6 +194,25 @@ type RefreshToken struct {
 	ExpiresAt time.Time
 	RevokedAt pgtype.Timestamptz
 	CreatedAt time.Time
+}
+
+type SalesByMonth struct {
+	EditionID string
+	Month     time.Time
+	Copies    int32
+}
+
+type Series struct {
+	ID       string
+	Position int64
+	Name     string
+	Entries  []byte
+}
+
+type Subject struct {
+	ID     string
+	NameEn string
+	NameBn string
 }
 
 type User struct {

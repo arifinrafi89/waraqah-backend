@@ -1,0 +1,42 @@
+[
+  {
+    "bookId": "bk-sapiens",
+    "description": "How Homo sapiens came to dominate the planet, from the cognitive revolution through farming, empire and science.",
+    "pages": 443
+  },
+  {
+    "bookId": "bk-atomic",
+    "description": "A practical system for building good habits and breaking bad ones through small changes that compound over time.",
+    "pages": 320
+  },
+  {
+    "bookId": "bk-cleancode",
+    "description": "Naming, functions, error handling and refactoring, taught through worked examples of turning messy code into readable code.",
+    "pages": 464
+  },
+  {
+    "bookId": "bk-calculus",
+    "description": "The standard first-year calculus text: limits, derivatives, integrals and series, with a large bank of exercises.",
+    "pages": 1368
+  },
+  {
+    "bookId": "bk-zero",
+    "description": "Notes on startups arguing that real progress comes from building something new rather than copying what already works.",
+    "pages": 224
+  },
+  {
+    "bookId": "bk-fiqh",
+    "description": "An evidence-based guide to Islamic jurisprudence on purification and prayer, drawing directly on the Qur'an and Sunnah.",
+    "pages": 412
+  },
+  {
+    "bookId": "bk-nectar",
+    "description": "A prize-winning biography of the Prophet ﷺ, following his life from Makkah to Madinah in chronological order.",
+    "pages": 560
+  },
+  {
+    "bookId": "bk-riyad",
+    "description": "Imam an-Nawawi's classic collection of hadith on character, worship and daily conduct, arranged by topic.",
+    "pages": 736
+  }
+]
