@@ -15,7 +15,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 | # | Task | Plan tickets | Owner | Status |
 |---|---|---|---|---|
 ✅ done
-| T02 | Config, logging and the HTTP toolkit | B0.2 | Arifin | ⬜ todo |
+✅ done
 | T03 | Database layer, migrations and sqlc | B0.3 | Arifin | ⬜ todo |
 | T04 | Auth platform: tokens, OTP, roles, middleware | B0.4 | Arifin | ⬜ todo |
 | T05 | Shared services: SSE, clock, ids, images, email, AI, jobs, limits | B0.5 | Arifin | ⬜ todo |
@@ -92,7 +92,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T02 — Config, logging and the HTTP toolkit
 
-**Status:** ⬜ todo · **Owner:** Arifin (config review: Rahinur) · **Plan:** B0.2, §4.2, §4.6, §16, §17, §18 · **Branch:** `feature/http-platform` · **Depends on:** T01
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/4 · **Owner:** Arifin (config review: Rahinur) · **Plan:** B0.2, §4.2, §4.6, §16, §17, §18 · **Branch:** `feature/http-platform` · **Depends on:** T01
 
 **Goal:** the shared HTTP behaviour every endpoint relies on: the `200 null` refusal, the error shape, request IDs, logs, CORS, body limits, and health endpoints.
 
@@ -112,11 +112,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. Tests: `Null` and `Refuse` bodies and headers, error shape, request-ID echo, 404 shape, 413 on a big body, CORS preflight.
 
 **Done when**
-- [ ] `curl localhost:8080/healthz`, `/version` work; an unknown `/v1/x` answers the 404 error shape
-- [ ] `.env.example` ⇄ `Config` test passes
-- [ ] No token, password or body is logged (checked by reading the access log code)
+- [x] `curl localhost:8080/healthz`, `/version` work; an unknown `/v1/x` answers the 404 error shape
+- [x] `.env.example` ⇄ `Config` test passes
+- [x] No token, password or body is logged (checked by reading the access log code)
 
-**Notes:** —
+**Notes:** Config struct with one field per .env.example variable (checked by a test), production safety checks, slog setup with a request-scoped logger, httpx (JSON, Null, Refuse, Error, Decode, middleware chain, Router), /healthz /readyz /version, unknown paths answer the 404 error shape. Notes: Decode takes the ResponseWriter and writes its own 400 or 413, returning false; logx.Annotate lets later middleware add user_id and role to the request log.
 
 ---
 
