@@ -3,9 +3,6 @@
 .env.*
 !.env.example
 
-# Frontend reference checkout (separate repository)
-/frontend/
-
 # Go
 /bin/
 /dist/
@@ -15,6 +12,7 @@ coverage.*
 
 # Tools and editors
 .idea/
+*.iml
 .vscode/
 *.swp
 .DS_Store
