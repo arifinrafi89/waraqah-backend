@@ -3,8 +3,9 @@
 > **Read this before writing any backend code.** It is the single source of truth for the backend repository (`waraqah-backend`). It is written for the team (Rahinur, Farhan, Arifin) and for the coding agents working with them. When a decision here changes, update this file in the same PR.
 
 **Status:** plan, nothing built yet (2026-10-03).
-**Frontend:** <https://github.com/arifinrafi89/Waraqah> (`main`, all 13 front-end handover items merged, PR #144).
-**Frontend checkout for reference:** `./frontend/` inside this repo, git-ignored, read-only (§3).
+**Frontend:** <https://github.com/arifinrafi89/waraqah-frontend> (`main`, all 13 front-end handover items merged, PR #144).
+**Backend:** <https://github.com/arifinrafi89/waraqah-backend>.
+**Frontend checkout for reference:** `../waraqah-frontend/`, a sibling folder next to this repo, read-only (§3).
 
 ---
 
@@ -86,29 +87,29 @@ Not chosen: Firebase (no server code on the free plan, so money and moderation r
 
 ## 3. Repositories and local layout
 
-Two repositories, one folder on each machine:
+Two repositories, checked out side by side in one parent folder:
 
 ```
 StudioProjects/
-└── waraqah-backend/                 ← this repo (github.com/<org>/waraqah-backend)
-    ├── AGENTS.md                     rules for coding agents (short; points here)
-    ├── BACKEND_PLAN.md               this file
-    ├── README.md                     how to run it
-    ├── .env.example                  every key, with placeholders (committed)
-    ├── .env                          your real values (git-ignored)
-    ├── frontend/                     git clone of the Waraqah app (git-ignored, read-only)
-    └── … (code, see §6)
+├── waraqah-backend/                  ← this repo (github.com/arifinrafi89/waraqah-backend)
+│   ├── AGENTS.md                     rules for coding agents (short; points here)
+│   ├── BACKEND_PLAN.md               this file
+│   ├── README.md                     how to run it
+│   ├── .env.example                  every key, with placeholders (committed)
+│   ├── .env                          your real values (git-ignored)
+│   └── … (code, see §6)
+└── waraqah-frontend/                 ← the Flutter app (github.com/arifinrafi89/waraqah-frontend), read-only from here
 ```
 
-Set up the reference checkout once:
+Set up the reference checkout once, from the parent folder:
 
 ```bash
-git clone https://github.com/arifinrafi89/Waraqah.git frontend
+git clone https://github.com/arifinrafi89/waraqah-frontend.git
 ```
 
-Keep it current with `git -C frontend pull` (the Makefile has `make frontend-sync`). **Never commit to `frontend/` from this repo.** Frontend changes go through the frontend repo's own branches and PRs (§20).
+Its location is `FRONTEND_DIR` in `.env` (default `../waraqah-frontend`). Keep it current with `git -C ../waraqah-frontend pull` (the Makefile has `make frontend-sync`). **Never commit to the frontend from this repo.** Frontend changes go through the frontend repo's own branches and PRs (§20).
 
-Why inside the backend folder: agents working in the backend can open `frontend/lib/features/<feature>/data/sources/<x>_fake_api.dart` and the models next to the Go code they are writing, with no extra setup.
+Why side by side: agents working in the backend can open `../waraqah-frontend/lib/features/<feature>/data/sources/<x>_fake_api.dart` and the models next to the Go code they are writing, with no extra setup, and neither repo's git sees the other's files.
 
 Branch and PR rules mirror the frontend: one branch per feature (`feature/<kebab-name>`), small PRs, "Create a merge commit", nobody merges their own PR, commit messages with `Committed by:` and `Feature:` lines, no AI attribution lines.
 
@@ -140,7 +141,7 @@ Branch and PR rules mirror the frontend: one branch per feature (`feature/<kebab
 
 ### 4.3 JSON shapes
 
-- **Field names:** exactly the Dart model fields, camelCase, no renames (the frontend has no `@JsonKey(name:)` or `fieldRename`). Source of truth: `frontend/lib/features/*/data/models/*.dart` (52 model files) and `frontend/lib/core/models/{book,edition}.dart`.
+- **Field names:** exactly the Dart model fields, camelCase, no renames (the frontend has no `@JsonKey(name:)` or `fieldRename`). Source of truth: `../waraqah-frontend/lib/features/*/data/models/*.dart` (52 model files) and `../waraqah-frontend/lib/core/models/{book,edition}.dart`.
 - **Include every field** the model declares, even when it has a default. Unknown extra fields are ignored by the app, so additive fields are safe.
 - **Enums:** the Dart enum value name as a string: `"inReview"`, `"likeNew"`, `"meetInPerson"`, `"wantToRead"`, `"superAdmin"`, `"saleRefund"`.
 - **Dates:** RFC 3339 with an offset, e.g. `2026-10-03T14:05:00+06:00` (Dart `DateTime.parse` accepts it). "Today", streaks, seasons and "orders today" use `APP_TIMEZONE` (`Asia/Dhaka`).
@@ -186,7 +187,7 @@ The contract is **v1**: the fake API as of frontend `main` at PR #144. Any chang
 ### 5.1 Users and roles
 
 - `users` table (§7) with `role` ∈ `reader`, `moderator`, `catalogManager`, `support`, `superAdmin` (the frontend `UserRole` names).
-- Permissions mirror the frontend's `UserRole` getters: `isStaff` (not reader), `canModerate` (moderator, superAdmin), `canManageCatalog` (catalogManager, superAdmin), `canManageOrders` (support, superAdmin). Implement once in `internal/platform/auth/roles.go` and port `frontend/lib/features/auth/domain/entities/user_role.dart` exactly.
+- Permissions mirror the frontend's `UserRole` getters: `isStaff` (not reader), `canModerate` (moderator, superAdmin), `canManageCatalog` (catalogManager, superAdmin), `canManageOrders` (support, superAdmin). Implement once in `internal/platform/auth/roles.go` and port `../waraqah-frontend/lib/features/auth/domain/entities/user_role.dart` exactly.
 - Seeded demo accounts (same emails as the frontend, password `SEED_DEMO_PASSWORD`): `admin@waraqah.test` (superAdmin), `moderator@`, `catalog@`, `support@`, and `reader@waraqah.test`, plus the demo sellers from the fake marketplace (Tanvir, Nabila, Rakib, …) as reader accounts so the marketplace is not empty.
 - Only a super admin changes roles (an admin-only endpoint can come later; for now `make set-role EMAIL=… ROLE=…` runs a small Go command).
 
@@ -274,7 +275,6 @@ waraqah-backend/
 ├── .golangci.yml
 ├── .github/workflows/ci.yml
 ├── go.mod / go.sum
-└── frontend/                    reference checkout (git-ignored)
 ```
 
 ### 6.2 Layers and dependency direction
@@ -386,7 +386,7 @@ These are interfaces built once in `internal/app/deps.go` and passed to the feat
 | `alerts.Sweeper` — runs after price/stock changes | alerts | catalog admin | `AlertFakeStore.sweep` |
 | `search.Log` | dashboard | catalog `/books` | `SearchLog` |
 
-Notification texts are **not** made on the server: the server stores `kind` and `params`, and the app builds the words from its ARB files (`notificationText`). Keep the same kinds and params as `frontend/lib/features/notifications/domain/entities/notification_kind.dart` and the `NotificationSends` helpers.
+Notification texts are **not** made on the server: the server stores `kind` and `params`, and the app builds the words from its ARB files (`notificationText`). Keep the same kinds and params as `../waraqah-frontend/lib/features/notifications/domain/entities/notification_kind.dart` and the `NotificationSends` helpers.
 
 ---
 
@@ -402,8 +402,8 @@ Notification texts are **not** made on the server: the server stores `kind` and 
 
 ## 10. Search
 
-- `GET /books` keeps the fake API's behaviour: exact matches first, then phonetic matches (`BookSearchMatch`), then the filters and sorts in `CatalogFilters` (`frontend/lib/features/catalog/domain/entities/catalog_filters.dart`).
-- **Port `PhoneticKey`** (`frontend/lib/features/catalog/data/sources/phonetic_key.dart`) to `internal/feature/catalog/phonetic.go` with its tests (`phonetic_key_test.dart`). Store keys for title, Bangla title, Author and Publisher in `books.phonetic_keys` and index them (GIN).
+- `GET /books` keeps the fake API's behaviour: exact matches first, then phonetic matches (`BookSearchMatch`), then the filters and sorts in `CatalogFilters` (`../waraqah-frontend/lib/features/catalog/domain/entities/catalog_filters.dart`).
+- **Port `PhoneticKey`** (`../waraqah-frontend/lib/features/catalog/data/sources/phonetic_key.dart`) to `internal/feature/catalog/phonetic.go` with its tests (`phonetic_key_test.dart`). Store keys for title, Bangla title, Author and Publisher in `books.phonetic_keys` and index them (GIN).
 - Use the `pg_trgm` extension for "Did you mean…?" (`/books/did-you-mean`) and suggestions (`/books/suggest`), answering in the script the reader typed, as the fake does.
 - Count reader searches like `SearchLog`: growing live-search terms from the same user within 2 minutes count once; Staff's `includeHidden` searches don't count.
 
@@ -441,7 +441,7 @@ Jobs run on an in-process ticker (`internal/platform/jobs`). Render's free servi
 
 ## 13. AI assistant
 
-- Port `AssistantParser`, `assistantPicksFor` and `AssistantReplies` (`frontend/lib/features/ai_assistant/data/sources/`) to `internal/feature/assistant` with the tests in `ai_assistant_test.dart` and `smarter_ai_test.dart`. The endpoints, `/assistant/greeting` and `/assistant/ask`, keep their JSON, including `basket: {editionIds, totalBdt}`.
+- Port `AssistantParser`, `assistantPicksFor` and `AssistantReplies` (`../waraqah-frontend/lib/features/ai_assistant/data/sources/`) to `internal/feature/assistant` with the tests in `ai_assistant_test.dart` and `smarter_ai_test.dart`. The endpoints, `/assistant/greeting` and `/assistant/ask`, keep their JSON, including `basket: {editionIds, totalBdt}`.
 - With `GEMINI_API_KEY` set, the server asks Gemini to **word** the reply around the same picked Books (never to invent Books, prices or stock); if Gemini fails or is slow (`GEMINI_TIMEOUT`), the rule-based reply stands. Without a key, rule-based replies only.
 - Rate-limit `/assistant/ask` per user (`AI_RATE_PER_MIN`) to stay inside Gemini's free tier.
 - Frontend task F4 removes the app's direct Gemini call (`gemini_chatbot.dart`) so no key ships in the app.
@@ -459,7 +459,7 @@ Commands:
 
 ```bash
 make frontend-sync      # git -C frontend pull
-make contract-export    # runs the exporter in frontend/ and copies its output here
+make contract-export    # runs the exporter in ../waraqah-frontend and copies its output here
 make seed               # loads seed/*.json into the database (idempotent upserts)
 ```
 
@@ -471,7 +471,7 @@ Rules: seeds never contain real people's data; seeded passwords come from `SEED_
 
 | Level | What | Where |
 |---|---|---|
-| Rules | Table tests ported from the frontend rules tests (`frontend/test/*_rules_test.dart`, `fair_price_test.dart`, `phonetic_key_test.dart`, …). Same inputs, same answers. | `internal/feature/<f>/rules_test.go` |
+| Rules | Table tests ported from the frontend rules tests (`../waraqah-frontend/test/*_rules_test.dart`, `fair_price_test.dart`, `phonetic_key_test.dart`, …). Same inputs, same answers. | `internal/feature/<f>/rules_test.go` |
 | Handlers | `httptest` against a real local Postgres (`docker compose up db-test`), each test in a transaction that rolls back. | `internal/feature/<f>/handlers_test.go` |
 | Contract | For each golden in `testdata/contract`, call the same request and compare **shapes**: same keys, same JSON kinds (object/array/string/number/bool), `null` where the golden is `null`. Values may differ. | `internal/contract/contract_test.go` |
 | End to end | Run the backend locally and the app with `--dart-define=API_BASE_URL=http://localhost:8080/v1`; walk the feature's screens. | manual checklist per PR |
@@ -612,8 +612,8 @@ Ownership mirrors the frontend (frontend `AGENTS.md` §7). Each phase lists its 
 Owner: Arifin · Phase 4 · Branch: feature/listings
 Endpoints (Appendix A → p2p): GET /p2p/listings, GET /p2p/listings/mine, GET /p2p/listings/for-book,
   GET /p2p/listing, GET /p2p/seller, POST /p2p/listings/save
-Frontend reference: frontend/lib/features/p2p/data/sources/{p2p_fake_api,p2p_fake_store,p2p_listing_writer}.dart,
-  frontend/lib/features/p2p/domain/entities/listing_rules.dart, frontend/test/listing_*_test.dart
+Frontend reference: ../waraqah-frontend/lib/features/p2p/data/sources/{p2p_fake_api,p2p_fake_store,p2p_listing_writer}.dart,
+  ../waraqah-frontend/lib/features/p2p/domain/entities/listing_rules.dart, ../waraqah-frontend/test/listing_*_test.dart
 Tables: listings, listing_photos (migration NNNN_p2p_listings.sql)
 Depends on: B0.*, B1.1, B2.1 (books), blocks.Checker (B4.2, stub until then)
 Done when:
@@ -660,7 +660,7 @@ These are repeated, shorter, in `AGENTS.md`.
 | `make migrate` / `make migrate-down-up` | apply migrations / prove the latest is reversible |
 | `make sqlc` | regenerate the query code |
 | `make seed` | load `seed/*.json` |
-| `make frontend-sync` | update `frontend/` |
+| `make frontend-sync` | update `../waraqah-frontend` (`git pull`) |
 | `make contract-export` | refresh `testdata/contract` and `seed` from the frontend exporter |
 | `make set-role EMAIL=… ROLE=…` | change a user's role (local or `DATABASE_URL` target) |
 | `make smoke` | curl a handful of endpoints against `API_BASE_URL` |
@@ -682,13 +682,13 @@ Same method and path as Appendix A · same JSON shape as the golden · same `nul
 
 ## Appendix A — Endpoint checklist (generated from the frontend)
 
-Generated from `frontend/lib/features/*/data/sources/*_fake_api.dart` (paths and doc comments) and the remote sources (HTTP methods). **This list is the contract.** Every row must exist in Go with the same method and path under `/v1`. The doc comment is copied from the fake API: it describes the query or body and what `null` means.
+Generated from `../waraqah-frontend/lib/features/*/data/sources/*_fake_api.dart` (paths and doc comments) and the remote sources (HTTP methods). **This list is the contract.** Every row must exist in Go with the same method and path under `/v1`. The doc comment is copied from the fake API: it describes the query or body and what `null` means.
 
 Auth column: `public` = no token needed. `me` = needs a signed-in user (a GET without a token answers the empty value, see §5.4). `staff` = any staff role. `staff:catalog|orders|moderate` = that permission (super admin passes all).
 
 ### `auth` → `internal/feature/auth` · owner **Rahinur** · phase **P1**
 
-Frontend reference: `frontend/lib/features/auth/data/sources/` (`auth_fake_api.dart`), models in `frontend/lib/features/auth/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/auth/data/sources/` (`auth_fake_api.dart`), models in `../waraqah-frontend/lib/features/auth/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -701,7 +701,7 @@ Frontend reference: `frontend/lib/features/auth/data/sources/` (`auth_fake_api.d
 
 ### `notifications` → `internal/feature/notifications` · owner **Rahinur** · phase **P1**
 
-Frontend reference: `frontend/lib/features/notifications/data/sources/` (`notification_fake_api.dart`), models in `frontend/lib/features/notifications/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/notifications/data/sources/` (`notification_fake_api.dart`), models in `../waraqah-frontend/lib/features/notifications/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -712,7 +712,7 @@ Frontend reference: `frontend/lib/features/notifications/data/sources/` (`notifi
 
 ### `profile` → `internal/feature/profile` · owner **Rahinur** · phase **P1**
 
-Frontend reference: `frontend/lib/features/profile/data/sources/` (`profile_fake_api.dart`), models in `frontend/lib/features/profile/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/profile/data/sources/` (`profile_fake_api.dart`), models in `../waraqah-frontend/lib/features/profile/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -729,7 +729,7 @@ Frontend reference: `frontend/lib/features/profile/data/sources/` (`profile_fake
 
 ### `catalog` → `internal/feature/catalog` · owner **Rahinur** · phase **P2**
 
-Frontend reference: `frontend/lib/features/catalog/data/sources/` (`book_fake_api.dart`, `book_questions_fake_api.dart`, `book_suggest_fake_api.dart`, `booklist_fake_api.dart`, `collection_fake_api.dart`), models in `frontend/lib/features/catalog/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/catalog/data/sources/` (`book_fake_api.dart`, `book_questions_fake_api.dart`, `book_suggest_fake_api.dart`, `booklist_fake_api.dart`, `collection_fake_api.dart`), models in `../waraqah-frontend/lib/features/catalog/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -761,7 +761,7 @@ Frontend reference: `frontend/lib/features/catalog/data/sources/` (`book_fake_ap
 
 ### `catalog_admin` → `internal/feature/catalogadmin` · owner **Rahinur** · phase **P2**
 
-Frontend reference: `frontend/lib/features/catalog_admin/data/sources/` (`catalog_admin_fake_api.dart`, `catalog_tools_fake_api.dart`), models in `frontend/lib/features/catalog_admin/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/catalog_admin/data/sources/` (`catalog_admin_fake_api.dart`, `catalog_tools_fake_api.dart`), models in `../waraqah-frontend/lib/features/catalog_admin/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -783,7 +783,7 @@ Frontend reference: `frontend/lib/features/catalog_admin/data/sources/` (`catalo
 
 ### `home` → `internal/feature/home` · owner **Rahinur** · phase **P2**
 
-Frontend reference: `frontend/lib/features/home/data/sources/` (`ayah_fake_api.dart`, `home_fake_api.dart`), models in `frontend/lib/features/home/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/home/data/sources/` (`ayah_fake_api.dart`, `home_fake_api.dart`), models in `../waraqah-frontend/lib/features/home/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -793,7 +793,7 @@ Frontend reference: `frontend/lib/features/home/data/sources/` (`ayah_fake_api.d
 
 ### `scan` → `internal/feature/scan` · owner **Arifin** · phase **P2**
 
-Frontend reference: `frontend/lib/features/scan/data/sources/` (`scan_fake_api.dart`), models in `frontend/lib/features/scan/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/scan/data/sources/` (`scan_fake_api.dart`), models in `../waraqah-frontend/lib/features/scan/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -801,7 +801,7 @@ Frontend reference: `frontend/lib/features/scan/data/sources/` (`scan_fake_api.d
 
 ### `alerts` → `internal/feature/alerts` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/alerts/data/sources/` (`alert_fake_api.dart`), models in `frontend/lib/features/alerts/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/alerts/data/sources/` (`alert_fake_api.dart`), models in `../waraqah-frontend/lib/features/alerts/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -811,7 +811,7 @@ Frontend reference: `frontend/lib/features/alerts/data/sources/` (`alert_fake_ap
 
 ### `cart` → `internal/feature/cart` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/cart/data/sources/` (`cart_fake_api.dart`), models in `frontend/lib/features/cart/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/cart/data/sources/` (`cart_fake_api.dart`), models in `../waraqah-frontend/lib/features/cart/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -822,7 +822,7 @@ Frontend reference: `frontend/lib/features/cart/data/sources/` (`cart_fake_api.d
 
 ### `checkout` → `internal/feature/checkout` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/checkout/data/sources/` (`checkout_fake_api.dart`, `coupon_admin_fake_api.dart`), models in `frontend/lib/features/checkout/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/checkout/data/sources/` (`checkout_fake_api.dart`, `coupon_admin_fake_api.dart`), models in `../waraqah-frontend/lib/features/checkout/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -833,7 +833,7 @@ Frontend reference: `frontend/lib/features/checkout/data/sources/` (`checkout_fa
 
 ### `deals` → `internal/feature/deals` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/deals/data/sources/` (`deals_fake_api.dart`), models in `frontend/lib/features/deals/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/deals/data/sources/` (`deals_fake_api.dart`), models in `../waraqah-frontend/lib/features/deals/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -841,7 +841,7 @@ Frontend reference: `frontend/lib/features/deals/data/sources/` (`deals_fake_api
 
 ### `donate` → `internal/feature/donate` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/donate/data/sources/` (`donate_admin_fake_api.dart`, `donate_fake_api.dart`), models in `frontend/lib/features/donate/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/donate/data/sources/` (`donate_admin_fake_api.dart`, `donate_fake_api.dart`), models in `../waraqah-frontend/lib/features/donate/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -853,7 +853,7 @@ Frontend reference: `frontend/lib/features/donate/data/sources/` (`donate_admin_
 
 ### `loyalty` → `internal/feature/loyalty` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/loyalty/data/sources/` (`points_fake_api.dart`), models in `frontend/lib/features/loyalty/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/loyalty/data/sources/` (`points_fake_api.dart`), models in `../waraqah-frontend/lib/features/loyalty/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -861,7 +861,7 @@ Frontend reference: `frontend/lib/features/loyalty/data/sources/` (`points_fake_
 
 ### `orders` → `internal/feature/orders` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/orders/data/sources/` (`order_admin_fake_api.dart`, `order_fake_api.dart`), models in `frontend/lib/features/orders/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/orders/data/sources/` (`order_admin_fake_api.dart`, `order_fake_api.dart`), models in `../waraqah-frontend/lib/features/orders/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -876,7 +876,7 @@ Frontend reference: `frontend/lib/features/orders/data/sources/` (`order_admin_f
 
 ### `wallet` → `internal/feature/wallet` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/wallet/data/sources/` (`wallet_fake_api.dart`), models in `frontend/lib/features/wallet/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/wallet/data/sources/` (`wallet_fake_api.dart`), models in `../waraqah-frontend/lib/features/wallet/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -884,7 +884,7 @@ Frontend reference: `frontend/lib/features/wallet/data/sources/` (`wallet_fake_a
 
 ### `wishlist` → `internal/feature/wishlist` · owner **Farhan** · phase **P3**
 
-Frontend reference: `frontend/lib/features/wishlist/data/sources/` (`wishlist_fake_api.dart`), models in `frontend/lib/features/wishlist/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/wishlist/data/sources/` (`wishlist_fake_api.dart`), models in `../waraqah-frontend/lib/features/wishlist/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -896,7 +896,7 @@ Frontend reference: `frontend/lib/features/wishlist/data/sources/` (`wishlist_fa
 
 ### `book_request` → `internal/feature/bookrequest` · owner **Arifin** · phase **P4**
 
-Frontend reference: `frontend/lib/features/book_request/data/sources/` (`book_request_fake_api.dart`), models in `frontend/lib/features/book_request/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/book_request/data/sources/` (`book_request_fake_api.dart`), models in `../waraqah-frontend/lib/features/book_request/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -908,7 +908,7 @@ Frontend reference: `frontend/lib/features/book_request/data/sources/` (`book_re
 
 ### `handled_sale` → `internal/feature/handledsale` · owner **Arifin** · phase **P4**
 
-Frontend reference: `frontend/lib/features/handled_sale/data/sources/` (`handled_sale_fake_api.dart`), models in `frontend/lib/features/handled_sale/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/handled_sale/data/sources/` (`handled_sale_fake_api.dart`), models in `../waraqah-frontend/lib/features/handled_sale/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -925,7 +925,7 @@ Frontend reference: `frontend/lib/features/handled_sale/data/sources/` (`handled
 
 ### `inbox` → `internal/feature/inbox` · owner **Farhan** · phase **P4**
 
-Frontend reference: `frontend/lib/features/inbox/data/sources/` (`inbox_fake_api.dart`), models in `frontend/lib/features/inbox/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/inbox/data/sources/` (`inbox_fake_api.dart`), models in `../waraqah-frontend/lib/features/inbox/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -943,7 +943,7 @@ Frontend reference: `frontend/lib/features/inbox/data/sources/` (`inbox_fake_api
 
 ### `moderation` → `internal/feature/moderation` · owner **Arifin** · phase **P4**
 
-Frontend reference: `frontend/lib/features/moderation/data/sources/` (`moderation_fake_api.dart`), models in `frontend/lib/features/moderation/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/moderation/data/sources/` (`moderation_fake_api.dart`), models in `../waraqah-frontend/lib/features/moderation/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -955,7 +955,7 @@ Frontend reference: `frontend/lib/features/moderation/data/sources/` (`moderatio
 
 ### `p2p` → `internal/feature/p2p` · owner **Arifin** · phase **P4**
 
-Frontend reference: `frontend/lib/features/p2p/data/sources/` (`p2p_fake_api.dart`), models in `frontend/lib/features/p2p/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/p2p/data/sources/` (`p2p_fake_api.dart`), models in `../waraqah-frontend/lib/features/p2p/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -968,7 +968,7 @@ Frontend reference: `frontend/lib/features/p2p/data/sources/` (`p2p_fake_api.dar
 
 ### `report` → `internal/feature/report` · owner **Arifin** · phase **P4**
 
-Frontend reference: `frontend/lib/features/report/data/sources/` (`report_fake_api.dart`), models in `frontend/lib/features/report/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/report/data/sources/` (`report_fake_api.dart`), models in `../waraqah-frontend/lib/features/report/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -979,7 +979,7 @@ Frontend reference: `frontend/lib/features/report/data/sources/` (`report_fake_a
 
 ### `sell_back` → `internal/feature/sellback` · owner **Arifin** · phase **P4**
 
-Frontend reference: `frontend/lib/features/sell_back/data/sources/` (`sell_back_fake_api.dart`), models in `frontend/lib/features/sell_back/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/sell_back/data/sources/` (`sell_back_fake_api.dart`), models in `../waraqah-frontend/lib/features/sell_back/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -992,7 +992,7 @@ Frontend reference: `frontend/lib/features/sell_back/data/sources/` (`sell_back_
 
 ### `bites` → `internal/feature/bites` · owner **Rahinur** · phase **P5**
 
-Frontend reference: `frontend/lib/features/bites/data/sources/` (`bite_fake_api.dart`), models in `frontend/lib/features/bites/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/bites/data/sources/` (`bite_fake_api.dart`), models in `../waraqah-frontend/lib/features/bites/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -1007,7 +1007,7 @@ Frontend reference: `frontend/lib/features/bites/data/sources/` (`bite_fake_api.
 
 ### `readers` → `internal/feature/readers` · owner **Rahinur** · phase **P5**
 
-Frontend reference: `frontend/lib/features/readers/data/sources/` (`reader_fake_api.dart`), models in `frontend/lib/features/readers/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/readers/data/sources/` (`reader_fake_api.dart`), models in `../waraqah-frontend/lib/features/readers/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -1016,7 +1016,7 @@ Frontend reference: `frontend/lib/features/readers/data/sources/` (`reader_fake_
 
 ### `reviews` → `internal/feature/reviews` · owner **Rahinur** · phase **P5**
 
-Frontend reference: `frontend/lib/features/reviews/data/sources/` (`review_fake_api.dart`), models in `frontend/lib/features/reviews/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/reviews/data/sources/` (`review_fake_api.dart`), models in `../waraqah-frontend/lib/features/reviews/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -1026,7 +1026,7 @@ Frontend reference: `frontend/lib/features/reviews/data/sources/` (`review_fake_
 
 ### `shelves` → `internal/feature/shelves` · owner **Arifin** · phase **P5**
 
-Frontend reference: `frontend/lib/features/shelves/data/sources/` (`shelf_fake_api.dart`), models in `frontend/lib/features/shelves/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/shelves/data/sources/` (`shelf_fake_api.dart`), models in `../waraqah-frontend/lib/features/shelves/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -1038,7 +1038,7 @@ Frontend reference: `frontend/lib/features/shelves/data/sources/` (`shelf_fake_a
 
 ### `admin` → `internal/feature/dashboard` · owner **Arifin** · phase **P6**
 
-Frontend reference: `frontend/lib/features/admin/data/sources/` (`dashboard_fake_api.dart`), models in `frontend/lib/features/admin/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/admin/data/sources/` (`dashboard_fake_api.dart`), models in `../waraqah-frontend/lib/features/admin/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -1046,7 +1046,7 @@ Frontend reference: `frontend/lib/features/admin/data/sources/` (`dashboard_fake
 
 ### `ai_assistant` → `internal/feature/assistant` · owner **Arifin** · phase **P6**
 
-Frontend reference: `frontend/lib/features/ai_assistant/data/sources/` (`assistant_fake_api.dart`), models in `frontend/lib/features/ai_assistant/data/models/`.
+Frontend reference: `../waraqah-frontend/lib/features/ai_assistant/data/sources/` (`assistant_fake_api.dart`), models in `../waraqah-frontend/lib/features/ai_assistant/data/models/`.
 
 | Method | Path | Auth | Fake API constant | Notes from the fake API |
 |---|---|---|---|---|
@@ -1056,7 +1056,7 @@ Frontend reference: `frontend/lib/features/ai_assistant/data/sources/` (`assista
 
 ## Appendix B — Business rules to port
 
-Pure Dart rules classes. Port each to the named Go file as pure functions, and port its frontend tests as table tests. Paths are relative to `frontend/`.
+Pure Dart rules classes. Port each to the named Go file as pure functions, and port its frontend tests as table tests. Paths are relative to `../waraqah-frontend/`.
 
 | Dart (frontend) | Go (backend) | Frontend tests to port |
 |---|---|---|
@@ -1088,7 +1088,7 @@ Pure Dart rules classes. Port each to the named Go file as pure functions, and p
 
 ## Appendix C — Where the fake backend logic lives
 
-What each fake store does is what the Go service must do. Paths are `frontend/lib/features/<feature>/data/sources/`. The shared wiring is `frontend/lib/app/fake_stores.dart` (which stores talk to each other) and `frontend/lib/app/fake_api_routes.dart` (which routes exist).
+What each fake store does is what the Go service must do. Paths are `../waraqah-frontend/lib/features/<feature>/data/sources/`. The shared wiring is `../waraqah-frontend/lib/app/fake_stores.dart` (which stores talk to each other) and `../waraqah-frontend/lib/app/fake_api_routes.dart` (which routes exist).
 
 | Feature | Fake backend files | Shares state with |
 |---|---|---|

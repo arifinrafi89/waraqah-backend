@@ -6,8 +6,8 @@ Read this first, then **`BACKEND_PLAN.md`** (the full plan). If they disagree, t
 
 The Go + PostgreSQL backend for the Waraqah Flutter app. The app is finished and runs on a fake API inside it. **This backend replaces that fake API without the app noticing** (plan §1, §4).
 
-- Frontend repo: <https://github.com/arifinrafi89/Waraqah>, checked out read-only at `./frontend/` (git-ignored). Never commit to it from here.
-- The contract is the fake API: `frontend/lib/features/<feature>/data/sources/*_fake_api.dart`. Every endpoint is listed in plan **Appendix A**.
+- Frontend repo: <https://github.com/arifinrafi89/waraqah-frontend>, checked out read-only next to this repo at `../waraqah-frontend/` (`FRONTEND_DIR`). Never commit to it from here.
+- The contract is the fake API: `../waraqah-frontend/lib/features/<feature>/data/sources/*_fake_api.dart`. Every endpoint is listed in plan **Appendix A**.
 
 ## Golden rules
 
@@ -26,7 +26,7 @@ The Go + PostgreSQL backend for the Waraqah Flutter app. The app is finished and
 ## Workflow for one ticket
 
 1. Read the ticket (plan §21) and the endpoints' rows in Appendix A.
-2. Open the frontend files the ticket names: fake API, fake store, models, rules class and its test.
+2. Open the frontend files the ticket names (in `../waraqah-frontend/`): fake API, fake store, models, rules class and its test.
 3. Write the migration (if any) → SQL queries → `make sqlc` → store → rules (+ ported tests) → service → handlers → routes line.
 4. `make contract-export` if goldens are missing, then make the contract tests for these endpoints pass.
 5. `make check` must pass. Then walk the screens in the app against the local backend (`flutter run --dart-define=API_BASE_URL=http://localhost:8080/v1`).
