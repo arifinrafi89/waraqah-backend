@@ -43,12 +43,6 @@ POST /alerts/set
 POST /assistant/ask
 GET /assistant/greeting
 POST /auth/delete
-POST /auth/google
-POST /auth/login
-POST /auth/password/request-otp
-POST /auth/password/reset
-POST /auth/signup/request-otp
-POST /auth/signup/verify-otp
 GET /authors/detail
 GET /bites
 POST /bites/comments/delete

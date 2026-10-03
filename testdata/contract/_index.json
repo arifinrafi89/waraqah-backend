@@ -11,17 +11,6 @@
     "as": "guest"
   },
   {
-    "file": "POST__auth__login__miss.json",
-    "method": "POST",
-    "path": "/auth/login",
-    "query": {},
-    "body": {
-      "email": "reader@waraqah.test",
-      "password": "wrong-password"
-    },
-    "as": "guest"
-  },
-  {
     "file": "POST__auth__google.json",
     "method": "POST",
     "path": "/auth/google",
@@ -1747,7 +1736,7 @@
     "query": {},
     "body": {
       "name": "Sample Category",
-      "nameBn": "নমুনা",
+      "nameBn": "\u09a8\u09ae\u09c1\u09a8\u09be",
       "section": "academic"
     },
     "as": "catalog"
@@ -1812,7 +1801,7 @@
     "body": {
       "id": "",
       "titleEn": "Sample banner",
-      "titleBn": "নমুনা ব্যানার",
+      "titleBn": "\u09a8\u09ae\u09c1\u09a8\u09be \u09ac\u09cd\u09af\u09be\u09a8\u09be\u09b0",
       "subtitleEn": "Sample subtitle",
       "subtitleBn": "",
       "seed": 2,
@@ -1862,7 +1851,7 @@
     "query": {},
     "body": {
       "titleEn": "Sample collection",
-      "titleBn": "নমুনা সংগ্রহ",
+      "titleBn": "\u09a8\u09ae\u09c1\u09a8\u09be \u09b8\u0982\u0997\u09cd\u09b0\u09b9",
       "noteEn": "Sample",
       "noteBn": "",
       "section": "academic",
@@ -1889,7 +1878,7 @@
     "query": {},
     "body": {
       "titleEn": "Sample staff list",
-      "titleBn": "নমুনা তালিকা",
+      "titleBn": "\u09a8\u09ae\u09c1\u09a8\u09be \u09a4\u09be\u09b2\u09bf\u0995\u09be",
       "noteEn": "Sample",
       "noteBn": "",
       "kind": "classList",

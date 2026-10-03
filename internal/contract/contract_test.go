@@ -52,8 +52,10 @@ func newRig(t *testing.T) *rig {
 	if err != nil {
 		t.Fatal(err)
 	}
-	cfg.BcryptCost = 4 // seeding hashes one password per account; keep the test quick
-	cfg.SeedDemoPassword = "contract-test-password"
+	cfg.BcryptCost = 4                                   // seeding hashes one password per account; keep the test quick
+	cfg.SeedDemoPassword = "Waraqah#Demo1"               // the password the login golden sends
+	cfg.AppEnv, cfg.OTPDevCode = "development", "123456" // the sign-up goldens use the dev code
+	cfg.AuthRatePerMin = 100000
 	log := slog.New(slog.NewTextHandler(io.Discard, nil))
 	err = seed.All(context.Background(), d, seed.Options{Dir: "../../seed", DemoPassword: cfg.SeedDemoPassword, BcryptCost: cfg.BcryptCost, Log: log})
 	if err != nil {
@@ -63,6 +65,10 @@ func newRig(t *testing.T) *rig {
 	if err != nil {
 		t.Fatal(err)
 	}
+	// The google golden sends "sample-id-token"; the real verifier would refuse it.
+	deps.Google = auth.FakeGoogle{Identities: map[string]auth.GoogleIdentity{
+		"sample-id-token": {Subject: "g-sample", Email: "reader@waraqah.test", Name: "Reader"},
+	}}
 	return &rig{deps: deps, h: app.Routes(deps)}
 }
 

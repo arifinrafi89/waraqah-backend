@@ -61,3 +61,6 @@ func Today(c Clock, loc *time.Location) time.Time { return DayOf(c.Now(), loc) }
 
 // DayString formats the calendar day of t in loc as 2006-01-02.
 func DayString(t time.Time, loc *time.Location) string { return t.In(loc).Format("2006-01-02") }
+
+// FormatRFC3339 formats t as RFC 3339 with the offset of loc, for example 2026-10-03T14:05:00+06:00.
+func FormatRFC3339(t time.Time, loc *time.Location) string { return t.In(loc).Format(time.RFC3339) }

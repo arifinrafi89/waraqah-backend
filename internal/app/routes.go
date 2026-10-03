@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strings"
 
+	authfeature "github.com/arifinrafi89/waraqah-backend/internal/feature/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
 )
 
@@ -41,6 +42,5 @@ func Mux(d *Deps) *http.ServeMux {
 
 // mountFeatures is where each feature adds its routes, one line per feature.
 func mountFeatures(api httpx.Router, d *Deps) {
-	_ = api
-	_ = d
+	authfeature.NewHandler(authService(d)).Routes(api, d.Limits.Auth.ByIP())
 }

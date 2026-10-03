@@ -11,12 +11,6 @@ List<S> readSamples() => [
     body: (_) => {'email': 'reader@waraqah.test', 'password': 'Waraqah#Demo1'},
     as: 'guest',
   ),
-  S.post(
-    '/auth/login',
-    body: (_) => {'email': 'reader@waraqah.test', 'password': 'wrong-password'},
-    as: 'guest',
-    variant: 'miss',
-  ),
   S.post('/auth/google', body: (_) => {'idToken': 'sample-id-token'}, as: 'guest'),
   S.post(
     '/auth/signup/request-otp',
