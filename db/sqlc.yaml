@@ -1,0 +1,28 @@
+version: "2"
+sql:
+  - engine: postgresql
+    schema: migrations
+    queries: queries
+    gen:
+      go:
+        package: sqlc
+        out: ../internal/platform/db/sqlc
+        sql_package: pgx/v5
+        emit_json_tags: false
+        emit_interface: false
+        emit_empty_slices: true
+        overrides:
+          - db_type: citext
+            go_type: string
+          - db_type: citext
+            nullable: true
+            go_type:
+              import: github.com/jackc/pgx/v5/pgtype
+              type: Text
+          - db_type: timestamptz
+            go_type: time.Time
+          - db_type: timestamptz
+            nullable: true
+            go_type:
+              import: github.com/jackc/pgx/v5/pgtype
+              type: Timestamptz
