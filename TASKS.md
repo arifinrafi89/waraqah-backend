@@ -21,7 +21,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 🟡 in progress
-| T08 | Profile and notifications | B1.2, B1.3 | Rahinur | ⬜ todo |
+✅ done
 | T09 | Catalog reads, search and records | B2.1, B2.2 | Rahinur | ⬜ todo |
 | T10 | Home, catalog admin and scan | B2.3, B2.4, B2.5 | Rahinur (scan: Arifin) | ⬜ todo |
 | T11 | Cart, deals, wishlist and alerts | B3.1 | Farhan | ⬜ todo |
@@ -269,7 +269,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T08 — Profile and notifications
 
-**Status:** ⬜ todo · **Owner:** Rahinur · **Plan:** B1.2, B1.3, §8 · **Branch:** `feature/profile`, `feature/notifications` · **Depends on:** T07
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/11 · **Owner:** Rahinur · **Plan:** B1.2, B1.3, §8 · **Branch:** `feature/profile`, `feature/notifications` · **Depends on:** T07
 
 **Endpoints (14)**
 - profile (10): `GET /profile`, `POST /profile/save`, `GET /profile/prefs`, `POST /profile/prefs/save`, `GET /addresses`, `POST /addresses/save`, `/addresses/default`, `/addresses/delete`, `GET /geo` (public), `POST /auth/delete`
@@ -287,11 +287,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. Seed: the demo reader's notifications from `notification_seed.dart`.
 
 **Done when**
-- [ ] 14 contract tests pass; ported rules tests pass
-- [ ] App walk: edit the profile, add/default/delete addresses, mute a group, see notifications and the unread badge update live
-- [ ] Guest walk on the Profile and Notifications tabs shows no errors
+- [x] 14 contract tests pass; ported rules tests pass
+- [x] App walk: edit the profile, add/default/delete addresses, mute a group, see notifications and the unread badge update live
+- [x] Guest walk on the Profile and Notifications tabs shows no errors
 
-**Notes:** —
+**Notes:** Profile, settings, saved addresses, geography list and account deletion; notifications list, read, read-all and the live unread stream; the notifications.Sender with mute handling and one helper per Dart sender. Seeds the demo reader addresses and notifications (times count back from seeding). Notes: the profile photo is kept as the base64 the app sends (users.photo_data) because the app reads it back as base64; account deletion runs hooks that later features register; the geography list is embedded in the binary.
 
 ---
 
