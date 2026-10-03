@@ -87,13 +87,14 @@ Not chosen: Firebase (no server code on the free plan, so money and moderation r
 
 ## 3. Repositories and local layout
 
-Two repositories, checked out side by side in one parent folder:
+Two repositories, checked out side by side in one parent folder (any folder name works):
 
 ```
-StudioProjects/
+<parent folder>/
 ├── waraqah-backend/                  ← this repo (github.com/arifinrafi89/waraqah-backend)
 │   ├── AGENTS.md                     rules for coding agents (short; points here)
 │   ├── BACKEND_PLAN.md               this file
+│   ├── TASKS.md                      the 19 build tasks and their status
 │   ├── README.md                     how to run it
 │   ├── .env.example                  every key, with placeholders (committed)
 │   ├── .env                          your real values (git-ignored)
@@ -122,7 +123,7 @@ Branch and PR rules mirror the frontend: one branch per feature (`feature/<kebab
 - Base: `API_BASE_URL` = `https://<service>.onrender.com/v1` in production, `http://localhost:8080/v1` locally (Android emulator: `http://10.0.2.2:8080/v1`).
 - **Paths are exactly the fake API paths under `/v1`.** `P2pFakeApi.save = '/p2p/listings/save'` becomes `POST /v1/p2p/listings/save`. No renaming, no path parameters (`/listing?id=…`, never `/listing/{id}`).
 - **Methods:** reads are `GET` with query parameters; changes are `POST` with a JSON body. The frontend uses no `PUT`, `PATCH` or `DELETE`, so neither does the backend in v1.
-- The complete list, with auth levels and the fake API's notes on bodies and `null`, is **Appendix A** (164 endpoints).
+- The complete list, with auth levels and the fake API's notes on bodies and `null`, is **Appendix A** (174 endpoints).
 
 ### 4.2 Responses
 
@@ -780,6 +781,16 @@ Frontend reference: `../waraqah-frontend/lib/features/catalog_admin/data/sources
 | GET | `/admin/catalog/isbn-lookup` | staff:catalog | `CatalogToolsFakeApi.isbnLookup` | `?isbn=<ISBN-13>` → `{inCatalog: true, bookId}` when an Edition has it, a Book from outside (`inCatalog: false`, title, author, publisher, language, format, listPriceBdt…), or `null`. |
 | GET | `/admin/catalog/low-stock` | staff:catalog | `CatalogToolsFakeApi.lowStock` | Printed Editions (no eBooks or pre-orders) at or under `CatalogAdminRules.lowStock`, lowest first: `{bookId, title, coverSeed, editionId, format, language, stock}`. |
 | GET | `/admin/catalog/season` | staff:catalog | `CatalogAdminFakeApi.season` | `{season: <name> \| null}`: the Season Staff forced on Home, `null` = automatic (by date). Add `/save` (same body) to change it. |
+| POST | `/admin/catalog/season/save` | staff:catalog | `CatalogAdminFakeApi.season` + `/save` | Body `{season: <name> \| null}` → the same; `null` returns Home to automatic. |
+| GET | `/admin/catalog/authors` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.author)` | Every one, with `bookCount`. |
+| POST | `/admin/catalog/authors/save` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.author)` + `/save` | Body: the record (no `id` = new). |
+| POST | `/admin/catalog/authors/delete` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.author)` + `/delete` | Body `{id}`; refused while a Book uses it. |
+| GET | `/admin/catalog/categories` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.category)` | Every one, with `bookCount`. |
+| POST | `/admin/catalog/categories/save` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.category)` + `/save` | Body: the record (no `id` = new). |
+| POST | `/admin/catalog/categories/delete` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.category)` + `/delete` | Body `{id}`; refused while a Book uses it. |
+| GET | `/admin/catalog/publishers` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.publisher)` | Every one, with `bookCount`. |
+| POST | `/admin/catalog/publishers/save` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.publisher)` + `/save` | Body: the record (no `id` = new). |
+| POST | `/admin/catalog/publishers/delete` | staff:catalog | `CatalogAdminFakeApi.records(RecordKind.publisher)` + `/delete` | Body `{id}`; refused while a Book uses it. |
 
 ### `home` → `internal/feature/home` · owner **Rahinur** · phase **P2**
 

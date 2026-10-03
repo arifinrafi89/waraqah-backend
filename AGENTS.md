@@ -1,6 +1,6 @@
 # Waraqah Backend — Rules for Coding Agents
 
-Read this first, then **`BACKEND_PLAN.md`** (the full plan). If they disagree, the plan wins; fix this file in the same PR.
+Read this first, then **`BACKEND_PLAN.md`** (the full plan) and **`TASKS.md`** (the 19 tasks that build the backend, with their status). If they disagree, the plan wins; fix the other file in the same PR.
 
 ## What this repo is
 
@@ -25,12 +25,12 @@ The Go + PostgreSQL backend for the Waraqah Flutter app. The app is finished and
 
 ## Workflow for one ticket
 
-1. Read the ticket (plan §21) and the endpoints' rows in Appendix A.
+1. Read the task in `TASKS.md` (and its plan §21 tickets) and the endpoints' rows in Appendix A. Mark the task 🟡 in `TASKS.md` on your branch.
 2. Open the frontend files the ticket names (in `../waraqah-frontend/`): fake API, fake store, models, rules class and its test.
 3. Write the migration (if any) → SQL queries → `make sqlc` → store → rules (+ ported tests) → service → handlers → routes line.
 4. `make contract-export` if goldens are missing, then make the contract tests for these endpoints pass.
 5. `make check` must pass. Then walk the screens in the app against the local backend (`flutter run --dart-define=API_BASE_URL=http://localhost:8080/v1`).
-6. Update the feature's `README.md`, and this plan if anything differs.
+6. Update the feature's `README.md`, the task in `TASKS.md` (status, PR link, notes), and the plan if anything differs.
 
 ## Commands
 
