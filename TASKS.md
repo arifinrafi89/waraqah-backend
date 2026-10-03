@@ -28,7 +28,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T15 | Inbox and book requests | B4.4, B4.5 | Farhan (requests: Arifin) | ⬜ todo |
+✅ done
 | T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ⬜ todo |
 | T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ⬜ todo |
 | T18 | AI assistant and admin dashboard | B6.1, B6.2, F4 | Arifin | ⬜ todo |
@@ -464,7 +464,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T15 — Inbox and book requests
 
-**Status:** ⬜ todo · **Owner:** Farhan (book requests: Arifin) · **Plan:** B4.4, B4.5, §9, §12 · **Branch:** `feature/inbox`, `feature/book-requests` · **Depends on:** T14
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/18 · **Owner:** Farhan (book requests: Arifin) · **Plan:** B4.4, B4.5, §9, §12 · **Branch:** `feature/inbox`, `feature/book-requests` · **Depends on:** T14
 
 **Endpoints (16)**
 - inbox (11, me): `GET /inbox`, `/inbox/thread`, `/inbox/live` (SSE), `POST /inbox/open`, `/inbox/send`, `/inbox/offer`, `/inbox/offer/decide`, `/inbox/read`, `/inbox/listing/release`, `/inbox/listing/sold`, `/inbox/rate`
@@ -482,11 +482,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. Seed threads, messages and requests.
 
 **Done when**
-- [ ] 16 contract tests pass; offer, rating and request rules tests pass
-- [ ] App walk with two signed-in devices (or one plus the demo bot): open a thread, chat, offer, accept, mark sold, rate; the other side updates live
-- [ ] Blocking a reader stops new messages in both directions
+- [x] 16 contract tests pass; offer, rating and request rules tests pass
+- [x] App walk with two signed-in devices (or one plus the demo bot): open a thread, chat, offer, accept, mark sold, rate; the other side updates live
+- [x] Blocking a reader stops new messages in both directions
 
-**Notes:** —
+**Notes:** Threads, messages, offers, accept/decline, release, sold and ratings with the role and unread count taken from the token, blocks enforced both ways, live updates on inbox:<user> after each commit, and the demo bot for seeded demo readers (DEMO_MODE, DEMO_BOT_DELAY). Book requests with create, close, mine, wanted and staff demand, matched against listings with RequestRules ported with tests. OfferRules and RatingRules ported with tests. Migration 0009, hand-written seeds for the four demo threads and the demo requests, a moderation subject so reported messages can be removed. Notes: the fake API and the app have no notification for an approved listing, so the approve hook of the task is not built; the contract tests run the bot at once (DemoBotDelay 0).
 
 ---
 
