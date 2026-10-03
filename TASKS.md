@@ -17,7 +17,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T04 | Auth platform: tokens, OTP, roles, middleware | B0.4 | Arifin | ⬜ todo |
+✅ done
 | T05 | Shared services: SSE, clock, ids, images, email, AI, jobs, limits | B0.5 | Arifin | ⬜ todo |
 | T06 | Contract export, contract tests and the seed loader | B0.6, F5 | Arifin | ⬜ todo |
 | T07 | Auth endpoints and the app's switch to the real API | B1.1, F1, F2, F3, F8 | Rahinur | ⬜ todo |
@@ -146,7 +146,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T04 — Auth platform: tokens, OTP, roles, middleware
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B0.4, §5, §17, Appendix B (roles) · **Branch:** `feature/auth-platform` · **Depends on:** T03
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/6 · **Owner:** Arifin · **Plan:** B0.4, §5, §17, Appendix B (roles) · **Branch:** `feature/auth-platform` · **Depends on:** T03
 
 **Goal:** everything identity-related that features need, without any endpoints yet (those come in T07).
 
@@ -167,11 +167,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 8. Tests for each file, including expired and tampered JWTs, refresh reuse detection, the dev OTP refused outside development, and every middleware level × token state.
 
 **Done when**
-- [ ] Roles behave exactly like `user_role.dart` (ported tests pass)
-- [ ] Middleware matrix test passes (public/me/staff/staff:perm × no token/reader/each staff role/bad token)
-- [ ] No secret or token appears in any log line (checked in tests with a captured logger)
+- [x] Roles behave exactly like `user_role.dart` (ported tests pass)
+- [x] Middleware matrix test passes (public/me/staff/staff:perm × no token/reader/each staff role/bad token)
+- [x] No secret or token appears in any log line (checked in tests with a captured logger)
 
-**Notes:** —
+**Notes:** Roles ported from user_role.dart, HS256 access tokens, rotating refresh tokens with theft detection, bcrypt, OTP with expiry, attempt limit and resend delay (dev code only in development), Google ID token verifier with a cached JWKS and a fake, and the middleware levels Public, Me, Authed (for SSE), Staff and StaffCan. Notes: the role used by middleware comes from the database, so a role change or ban applies on the next request; an expired or bad token on a Me endpoint answers 401 so the app can refresh, while a missing token on a GET answers the empty value. CI scripts are now executable.
 
 ---
 
