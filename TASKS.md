@@ -26,7 +26,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T13 | Donate and donation places admin | B3.5 | Farhan (admin: Arifin) | ⬜ todo |
+✅ done
 | T14 | Listings, reports and blocks, moderation | B4.1, B4.2, B4.3 | Arifin | ⬜ todo |
 | T15 | Inbox and book requests | B4.4, B4.5 | Farhan (requests: Arifin) | ⬜ todo |
 | T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ⬜ todo |
@@ -411,7 +411,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T13 — Donate and donation places admin
 
-**Status:** ⬜ todo · **Owner:** Farhan (admin: Arifin) · **Plan:** B3.5 · **Branch:** `feature/donate` · **Depends on:** T12
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/16 · **Owner:** Farhan (admin: Arifin) · **Plan:** B3.5 · **Branch:** `feature/donate` · **Depends on:** T12
 
 **Endpoints (5):** `GET /donate/recipients`, `/donate/recipient` (public), `POST /donate/give` (me), `POST /admin/donate/places/save`, `/admin/donate/places/remove` (staff:orders)
 
@@ -425,10 +425,10 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 5. Seed the places (`rc-aloghar`, …) and their needs.
 
 **Done when**
-- [ ] 5 contract tests pass; donate rules tests pass
-- [ ] App walk: donate a book (it shows in Orders), then as `support@` add and remove a place
+- [x] 5 contract tests pass; donate rules tests pass
+- [x] App walk: donate a book (it shows in Orders), then as `support@` add and remove a place
 
-**Notes:** —
+**Notes:** Public list of verified places and their needs, give (an order delivered free to the place, counted as received at once, cash on delivery and too many copies refused), and the staff save and remove of places with PlaceRules ported with tests. Migration 0007, seeds for the three demo places, new refusal codes in docs/error-codes.md.
 
 ---
 
