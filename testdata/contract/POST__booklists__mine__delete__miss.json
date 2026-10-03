@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/booklists/mine/delete",
+    "query": {},
+    "body": {
+      "id": "bl-staff-1"
+    },
+    "as": "reader"
+  },
+  "response": null
+}

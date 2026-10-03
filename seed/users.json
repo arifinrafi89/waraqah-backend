@@ -1,0 +1,32 @@
+[
+  {
+    "id": "u_admin",
+    "email": "admin@waraqah.test",
+    "name": "Waraqah Admin",
+    "role": "superAdmin"
+  },
+  {
+    "id": "u_moderator",
+    "email": "moderator@waraqah.test",
+    "name": "Waraqah Moderator",
+    "role": "moderator"
+  },
+  {
+    "id": "u_catalog",
+    "email": "catalog@waraqah.test",
+    "name": "Catalog Manager",
+    "role": "catalogManager"
+  },
+  {
+    "id": "u_support",
+    "email": "support@waraqah.test",
+    "name": "Waraqah Support",
+    "role": "support"
+  },
+  {
+    "id": "u_reader",
+    "email": "reader@waraqah.test",
+    "name": "Reader",
+    "role": "reader"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/catalog/isbn-lookup",
+    "query": {
+      "isbn": "9789840001491"
+    },
+    "body": null,
+    "as": "catalog"
+  },
+  "response": {
+    "inCatalog": true,
+    "bookId": "bk-calculus"
+  }
+}

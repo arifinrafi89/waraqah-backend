@@ -1,0 +1,67 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/moderation/listings/decide",
+    "query": {},
+    "body": {
+      "listingId": "p2p-mine-1",
+      "decision": "approve",
+      "by": "ignored"
+    },
+    "as": "moderator"
+  },
+  "response": [
+    {
+      "id": "p2p-review-1",
+      "title": "Artificial Intelligence",
+      "sellerId": "me",
+      "sellerName": "You",
+      "priceBdt": 400,
+      "condition": "good",
+      "flags": [],
+      "photos": [],
+      "coverSeed": 1071,
+      "sellerStrikes": 0,
+      "newPriceBdt": 600,
+      "note": null
+    },
+    {
+      "id": "p2p-review-2",
+      "title": "Organic Chemistry",
+      "sellerId": "p-sadia",
+      "sellerName": "Sadia",
+      "priceBdt": 350,
+      "condition": "good",
+      "flags": [
+        "highlighting"
+      ],
+      "photos": [
+        "front",
+        "back",
+        "spine",
+        "inside"
+      ],
+      "coverSeed": 1072,
+      "sellerStrikes": 0,
+      "newPriceBdt": 650,
+      "note": "Some highlighting in chapters 3 to 5."
+    },
+    {
+      "id": "p2p-review-3",
+      "title": "Calculus: Early Transcendentals",
+      "sellerId": "p-rafi",
+      "sellerName": "Rafi",
+      "priceBdt": 900,
+      "condition": "likeNew",
+      "flags": [],
+      "photos": [
+        "front",
+        "back"
+      ],
+      "coverSeed": 1073,
+      "sellerStrikes": 0,
+      "newPriceBdt": 2800,
+      "note": "Brand new copy, never opened."
+    }
+  ]
+}

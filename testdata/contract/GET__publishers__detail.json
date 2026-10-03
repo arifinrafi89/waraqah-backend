@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/publishers/detail",
+    "query": {
+      "id": "pub-harper"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "pub-harper",
+    "name": "Harper",
+    "nameBn": null
+  }
+}

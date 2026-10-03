@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/books/hide",
+    "query": {},
+    "body": {
+      "id": "bk-sample-staff-book",
+      "hidden": true
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "bk-sample-staff-book",
+    "title": "Sample Staff Book",
+    "author": "Yuval Noah Harari",
+    "categoryId": "cat-academic",
+    "authorId": "au-harari",
+    "publisherId": "pub-harper",
+    "section": "academic",
+    "originalLanguage": "english",
+    "editions": [
+      {
+        "id": "bk-sample-staff-book-pb-en",
+        "format": "paperback",
+        "language": "english",
+        "priceBdt": 400,
+        "stock": 10,
+        "listPriceBdt": null,
+        "isPreorder": false,
+        "isbn": null
+      }
+    ],
+    "addedAt": "2026-10-03T21:00:20.140987",
+    "rating": 0.0,
+    "tags": [],
+    "coverSeed": 3,
+    "shortTitle": null,
+    "titleBn": null,
+    "hidden": true,
+    "classes": [],
+    "exams": [],
+    "subjectId": null
+  }
+}

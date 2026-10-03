@@ -1,0 +1,53 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/p2p/listings/save",
+    "query": {},
+    "body": {
+      "submit": true,
+      "title": "Clean Code",
+      "bookId": "bk-cleancode",
+      "condition": "good",
+      "flags": [],
+      "priceBdt": 600,
+      "isNegotiable": true,
+      "handover": "meetInPerson",
+      "photos": [
+        "front",
+        "back"
+      ],
+      "photoData": {
+        "front": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+        "back": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+      }
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "p2p-mine-1",
+    "title": "Clean Code",
+    "sellerId": "me",
+    "sellerName": "You",
+    "priceBdt": 600,
+    "condition": "good",
+    "flags": [],
+    "photos": [
+      "front",
+      "back"
+    ],
+    "isNegotiable": true,
+    "handover": "meetInPerson",
+    "status": "inReview",
+    "isMine": true,
+    "isMyDeal": false,
+    "rejectionReason": null,
+    "bookId": "bk-cleancode",
+    "coverSeed": 838,
+    "district": "Dhaka",
+    "area": "Dhanmondi",
+    "categoryId": "cat-academic",
+    "section": "academic",
+    "newPriceBdt": null,
+    "note": null
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/reviews/delete",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "average": 4.5,
+    "count": 2,
+    "mine": null,
+    "reviews": [
+      {
+        "id": "rv-6",
+        "bookId": "bk-cleancode",
+        "authorId": "p-rakib",
+        "authorName": "Rakib",
+        "stars": 4,
+        "createdAt": "2026-09-15T21:00:19.664538",
+        "text": "Some of the Java-specific advice is dated. The principles are not.",
+        "editedAt": null,
+        "verified": false,
+        "isMine": false
+      },
+      {
+        "id": "rv-5",
+        "bookId": "bk-cleancode",
+        "authorId": "p-tanvir",
+        "authorName": "Tanvir",
+        "stars": 5,
+        "createdAt": "2026-09-13T21:00:19.664538",
+        "text": "Read chapters 2 and 3 before your first group project. Seriously.",
+        "editedAt": null,
+        "verified": true,
+        "isMine": false
+      }
+    ]
+  }
+}

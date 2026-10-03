@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/profile/save",
+    "query": {},
+    "body": {
+      "name": "Rafiq Ahmed",
+      "phone": "01712345678"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "name": "Rafiq Ahmed",
+    "phone": "01712345678",
+    "photo": null
+  }
+}

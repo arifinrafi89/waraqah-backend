@@ -19,7 +19,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T06 | Contract export, contract tests and the seed loader | B0.6, F5 | Arifin | ⬜ todo |
+✅ done
 | T07 | Auth endpoints and the app's switch to the real API | B1.1, F1, F2, F3, F8 | Rahinur | ⬜ todo |
 | T08 | Profile and notifications | B1.2, B1.3 | Rahinur | ⬜ todo |
 | T09 | Catalog reads, search and records | B2.1, B2.2 | Rahinur | ⬜ todo |
@@ -203,7 +203,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T06 — Contract export, contract tests and the seed loader
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B0.6, §14, §15, F5 · **Branch:** `feature/contract-harness` (plus a frontend PR for F5) · **Depends on:** T03, T04
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/9 · **Owner:** Arifin · **Plan:** B0.6, §14, §15, F5 · **Branch:** `feature/contract-harness` (plus a frontend PR for F5) · **Depends on:** T03, T04
 
 **Goal:** a machine check that every Go endpoint answers in the same shape as the fake API, and the fake API's data loaded into Postgres.
 
@@ -223,11 +223,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 8. **`scripts/smoke.sh`** (`make smoke`): curls `/healthz`, `/readyz`, `/version` and a few public GETs against `API_BASE_URL`; T19 extends it.
 
 **Done when**
-- [ ] F5 merged in the frontend; `make contract-export` fills `testdata/contract/` (174+ files) and `seed/`
-- [ ] `make test` runs the contract test: every endpoint is pending, plus `/healthz` as a sample passing check
-- [ ] `make seed` loads users and is idempotent; the route coverage test passes
+- [x] F5 merged in the frontend; `make contract-export` fills `testdata/contract/` (174+ files) and `seed/`
+- [x] `make test` runs the contract test: every endpoint is pending, plus `/healthz` as a sample passing check
+- [x] `make seed` loads users and is idempotent; the route coverage test passes
 
-**Notes:** —
+**Notes:** Contract exporter (tools/contract-export, Dart) that runs 186 sample requests against the fake API and writes goldens for all 174 endpoints plus refusal variants, a Go replay test that compares shapes, a pending list, a route coverage test that reads Appendix A, the seed loader (users first), and the admin commands set-role and prune-tokens. Notes: the exporter lives in this repo and is copied into the frontend test/tool folder only while it runs, so no frontend PR (F5) is needed; goldens carry an as field naming the account that sends the request; the seed folder grows with each feature task.
 
 ---
 

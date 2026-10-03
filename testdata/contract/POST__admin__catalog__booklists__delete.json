@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/booklists/delete",
+    "query": {},
+    "body": {
+      "id": "bl-sample-staff-list"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "bl-sample-staff-list"
+  }
+}

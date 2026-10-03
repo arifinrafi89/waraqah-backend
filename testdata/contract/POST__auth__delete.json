@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/auth/delete",
+    "query": {},
+    "body": {},
+    "as": "reader"
+  },
+  "response": {
+    "ok": true
+  }
+}

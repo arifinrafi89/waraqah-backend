@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/sell-back/mine",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "SB-203",
+      "book": {
+        "bookId": "bk-sapiens",
+        "title": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "newPriceBdt": 520,
+        "coverSeed": 0
+      },
+      "condition": "veryGood",
+      "quoteBdt": 160,
+      "status": "pickedUp",
+      "pickupAddress": "Road 7, Dhanmondi, Dhaka",
+      "createdAt": "2026-10-02T21:00:19.671538",
+      "flags": 0,
+      "gradedCondition": null,
+      "paidBdt": null,
+      "readerName": null
+    },
+    {
+      "id": "SB-201",
+      "book": {
+        "bookId": "bk-zero",
+        "title": "Zero to One",
+        "author": "Peter Thiel",
+        "newPriceBdt": 430,
+        "coverSeed": 1
+      },
+      "condition": "likeNew",
+      "quoteBdt": 150,
+      "status": "paid",
+      "pickupAddress": "Road 7, Dhanmondi, Dhaka",
+      "createdAt": "2026-09-20T21:00:19.671538",
+      "flags": 0,
+      "gradedCondition": "likeNew",
+      "paidBdt": 180,
+      "readerName": null
+    }
+  ]
+}

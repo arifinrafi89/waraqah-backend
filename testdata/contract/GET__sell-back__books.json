@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/sell-back/books",
+    "query": {
+      "q": "zero"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  "response": [
+    {
+      "bookId": "bk-zero",
+      "title": "Zero to One",
+      "author": "Peter Thiel",
+      "newPriceBdt": 430,
+      "coverSeed": 1
+    }
+  ]
+}

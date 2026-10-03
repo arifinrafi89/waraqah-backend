@@ -1,0 +1,83 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/catalog/low-stock",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  "response": [
+    {
+      "bookId": "bk-calculus",
+      "title": "Calculus: Early Transcendentals",
+      "coverSeed": 2,
+      "editionId": "bk-calculus-pb-en",
+      "format": "paperback",
+      "language": "english",
+      "stock": 0
+    },
+    {
+      "bookId": "bk-alchemist",
+      "title": "The Alchemist",
+      "coverSeed": 5,
+      "editionId": "bk-alchemist-pb-en",
+      "format": "paperback",
+      "language": "english",
+      "stock": 0
+    },
+    {
+      "bookId": "bk-atomic",
+      "title": "Atomic Habits",
+      "coverSeed": 2,
+      "editionId": "bk-atomic-hc-en",
+      "format": "hardcover",
+      "language": "english",
+      "stock": 2
+    },
+    {
+      "bookId": "bk-riyad",
+      "title": "Riyad as-Salihin",
+      "coverSeed": 3,
+      "editionId": "bk-riyad-hc-ar",
+      "format": "hardcover",
+      "language": "arabic",
+      "stock": 3
+    },
+    {
+      "bookId": "bk-hpstone",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "coverSeed": 1,
+      "editionId": "bk-hpstone-hc-en",
+      "format": "hardcover",
+      "language": "english",
+      "stock": 3
+    },
+    {
+      "bookId": "bk-bukhari",
+      "title": "Sahih al-Bukhari",
+      "coverSeed": 2,
+      "editionId": "bk-bukhari-hc-ar",
+      "format": "hardcover",
+      "language": "arabic",
+      "stock": 4
+    },
+    {
+      "bookId": "bk-calculus",
+      "title": "Calculus: Early Transcendentals",
+      "coverSeed": 2,
+      "editionId": "bk-calculus-hc-en",
+      "format": "hardcover",
+      "language": "english",
+      "stock": 5
+    },
+    {
+      "bookId": "bk-madarij",
+      "title": "Madarij as-Salikin",
+      "coverSeed": 1,
+      "editionId": "bk-madarij-hc-bn",
+      "format": "hardcover",
+      "language": "bangla",
+      "stock": 5
+    }
+  ]
+}

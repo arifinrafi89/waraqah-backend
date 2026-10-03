@@ -1,0 +1,67 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/reviews/save",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "stars": 5,
+      "text": "A must-read for programmers."
+    },
+    "as": "reader"
+  },
+  "response": {
+    "average": 4.7,
+    "count": 3,
+    "mine": {
+      "id": "rv-new-1",
+      "bookId": "bk-cleancode",
+      "authorId": "me",
+      "authorName": "You",
+      "stars": 5,
+      "createdAt": "2026-10-03T21:00:20.118390",
+      "text": "A must-read for programmers.",
+      "editedAt": null,
+      "verified": false,
+      "isMine": true
+    },
+    "reviews": [
+      {
+        "id": "rv-new-1",
+        "bookId": "bk-cleancode",
+        "authorId": "me",
+        "authorName": "You",
+        "stars": 5,
+        "createdAt": "2026-10-03T21:00:20.118390",
+        "text": "A must-read for programmers.",
+        "editedAt": null,
+        "verified": false,
+        "isMine": true
+      },
+      {
+        "id": "rv-6",
+        "bookId": "bk-cleancode",
+        "authorId": "p-rakib",
+        "authorName": "Rakib",
+        "stars": 4,
+        "createdAt": "2026-09-15T21:00:19.664538",
+        "text": "Some of the Java-specific advice is dated. The principles are not.",
+        "editedAt": null,
+        "verified": false,
+        "isMine": false
+      },
+      {
+        "id": "rv-5",
+        "bookId": "bk-cleancode",
+        "authorId": "p-tanvir",
+        "authorName": "Tanvir",
+        "stars": 5,
+        "createdAt": "2026-09-13T21:00:19.664538",
+        "text": "Read chapters 2 and 3 before your first group project. Seriously.",
+        "editedAt": null,
+        "verified": true,
+        "isMine": false
+      }
+    ]
+  }
+}

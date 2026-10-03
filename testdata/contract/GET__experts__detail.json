@@ -1,0 +1,174 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/experts/detail",
+    "query": {
+      "id": "exp-tanvir-physics"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "exp-tanvir-physics",
+    "name": "Tanvir Hasan",
+    "nameBn": "তানভীর হাসান",
+    "credentialEn": "HSC physics teacher, 12 years",
+    "credentialBn": "এইচএসসি পদার্থবিজ্ঞান শিক্ষক, ১২ বছর",
+    "kind": "teacher",
+    "verified": true,
+    "collections": [
+      {
+        "id": "col-exp-hsc-maths",
+        "titleEn": "Maths before HSC physics",
+        "titleBn": "এইচএসসি পদার্থবিজ্ঞানের আগে গণিত",
+        "noteEn": "Most of my students struggle with the maths, not the physics. Fix the basics, then calculus, and build the habit of daily practice.",
+        "noteBn": "আমার বেশিরভাগ ছাত্রছাত্রী পদার্থবিজ্ঞানে নয়, গণিতে আটকে যায়। আগে ভিত্তি ঠিক করুন, তারপর ক্যালকুলাস, আর প্রতিদিন অনুশীলনের অভ্যাস।",
+        "bookIds": [
+          "bk-general-math",
+          "bk-calculus",
+          "bk-atomic"
+        ],
+        "section": "schoolCollege",
+        "expertId": "exp-tanvir-physics",
+        "expert": {
+          "id": "exp-tanvir-physics",
+          "name": "Tanvir Hasan",
+          "nameBn": "তানভীর হাসান",
+          "credentialEn": "HSC physics teacher, 12 years",
+          "credentialBn": "এইচএসসি পদার্থবিজ্ঞান শিক্ষক, ১২ বছর",
+          "kind": "teacher",
+          "verified": true
+        },
+        "books": [
+          {
+            "id": "bk-general-math",
+            "title": "General Mathematics, Class 9–10",
+            "author": "NCTB",
+            "categoryId": "cat-textbooks",
+            "authorId": "au-nctb",
+            "publisherId": "pub-nctb",
+            "section": "schoolCollege",
+            "originalLanguage": "bangla",
+            "editions": [
+              {
+                "id": "bk-general-math-pb-bn",
+                "format": "paperback",
+                "language": "bangla",
+                "priceBdt": 460,
+                "stock": 40,
+                "listPriceBdt": null,
+                "isPreorder": false,
+                "isbn": "9789840003242"
+              }
+            ],
+            "addedAt": "2026-05-28T00:00:00.000",
+            "rating": 4.3,
+            "tags": [
+              "Textbook"
+            ],
+            "coverSeed": 2,
+            "shortTitle": "General Math",
+            "titleBn": "সাধারণ গণিত, নবম–দশম শ্রেণি",
+            "hidden": false,
+            "classes": [
+              9,
+              10
+            ],
+            "exams": [
+              "ssc"
+            ],
+            "subjectId": "sub-math"
+          },
+          {
+            "id": "bk-calculus",
+            "title": "Calculus: Early Transcendentals",
+            "author": "James Stewart",
+            "categoryId": "cat-academic",
+            "authorId": "au-stewart",
+            "publisherId": "pub-cengage",
+            "section": "academic",
+            "originalLanguage": "english",
+            "editions": [
+              {
+                "id": "bk-calculus-hc-en",
+                "format": "hardcover",
+                "language": "english",
+                "priceBdt": 1750,
+                "stock": 5,
+                "listPriceBdt": null,
+                "isPreorder": false,
+                "isbn": "9789840001491"
+              },
+              {
+                "id": "bk-calculus-pb-en",
+                "format": "paperback",
+                "language": "english",
+                "priceBdt": 1400,
+                "stock": 0,
+                "listPriceBdt": null,
+                "isPreorder": false,
+                "isbn": "9789840001569"
+              }
+            ],
+            "addedAt": "2026-01-22T00:00:00.000",
+            "rating": 4.2,
+            "tags": [
+              "Academic"
+            ],
+            "coverSeed": 2,
+            "shortTitle": "Calculus",
+            "titleBn": null,
+            "hidden": false,
+            "classes": [],
+            "exams": [],
+            "subjectId": "sub-math"
+          },
+          {
+            "id": "bk-atomic",
+            "title": "Atomic Habits",
+            "author": "James Clear",
+            "categoryId": "cat-self-help",
+            "authorId": "au-clear",
+            "publisherId": "pub-avery",
+            "section": "nonFiction",
+            "originalLanguage": "english",
+            "editions": [
+              {
+                "id": "bk-atomic-pb-en",
+                "format": "paperback",
+                "language": "english",
+                "priceBdt": 590,
+                "stock": 30,
+                "listPriceBdt": 650,
+                "isPreorder": false,
+                "isbn": "9789840001910"
+              },
+              {
+                "id": "bk-atomic-hc-en",
+                "format": "hardcover",
+                "language": "english",
+                "priceBdt": 890,
+                "stock": 2,
+                "listPriceBdt": null,
+                "isPreorder": false,
+                "isbn": "9789840001989"
+              }
+            ],
+            "addedAt": "2026-01-08T00:00:00.000",
+            "rating": 4.7,
+            "tags": [
+              "Self-Help"
+            ],
+            "coverSeed": 2,
+            "shortTitle": null,
+            "titleBn": "অ্যাটমিক হ্যাবিটস",
+            "hidden": false,
+            "classes": [],
+            "exams": [],
+            "subjectId": null
+          }
+        ]
+      }
+    ]
+  }
+}

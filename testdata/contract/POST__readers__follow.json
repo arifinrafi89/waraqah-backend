@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/readers/follow",
+    "query": {},
+    "body": {
+      "id": "p-nabila",
+      "follow": true
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "p-nabila",
+    "name": "Nabila",
+    "area": "Banani",
+    "district": "Dhaka",
+    "memberSince": "2023-11-01T00:00:00.000",
+    "followers": 1,
+    "following": 0,
+    "isFollowing": true,
+    "isMe": false,
+    "profileVisible": true,
+    "biteCount": 2,
+    "liveListingCount": 0
+  }
+}

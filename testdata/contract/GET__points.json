@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/points",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "balance": 217,
+    "entries": [
+      {
+        "points": 5,
+        "reason": "earned",
+        "at": "2026-10-02T15:00:19.634953",
+        "orderNumber": "WQ-100215"
+      },
+      {
+        "points": 12,
+        "reason": "earned",
+        "at": "2026-09-27T21:00:19.634953",
+        "orderNumber": "WQ-100201"
+      },
+      {
+        "points": 200,
+        "reason": "welcome",
+        "at": "2026-09-03T21:00:19.634953",
+        "orderNumber": null
+      }
+    ]
+  }
+}

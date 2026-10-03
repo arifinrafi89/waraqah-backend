@@ -1,0 +1,102 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/catalog/categories",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  "response": [
+    {
+      "id": "cat-islamic-studies",
+      "name": "Islamic Studies",
+      "nameBn": "ইসলামিক স্টাডিজ",
+      "section": "religious",
+      "bookCount": 12
+    },
+    {
+      "id": "cat-academic",
+      "name": "Academic",
+      "nameBn": "একাডেমিক",
+      "section": "academic",
+      "bookCount": 3
+    },
+    {
+      "id": "cat-fiction",
+      "name": "Fiction",
+      "nameBn": "ফিকশন",
+      "section": "literature",
+      "bookCount": 5
+    },
+    {
+      "id": "cat-self-help",
+      "name": "Self-Help",
+      "nameBn": "সেলফ-হেল্প",
+      "section": "nonFiction",
+      "bookCount": 1
+    },
+    {
+      "id": "cat-business",
+      "name": "Business",
+      "nameBn": "ব্যবসা",
+      "section": "nonFiction",
+      "bookCount": 1
+    },
+    {
+      "id": "cat-bcs-prep",
+      "name": "BCS Preparation",
+      "nameBn": "বিসিএস প্রস্তুতি",
+      "section": "admissionJobPrep",
+      "bookCount": 2
+    },
+    {
+      "id": "cat-admission-test",
+      "name": "University Admission",
+      "nameBn": "বিশ্ববিদ্যালয় ভর্তি",
+      "section": "admissionJobPrep",
+      "bookCount": 2
+    },
+    {
+      "id": "cat-textbooks",
+      "name": "Textbooks",
+      "nameBn": "পাঠ্যবই",
+      "section": "schoolCollege",
+      "bookCount": 10
+    },
+    {
+      "id": "cat-school-guides",
+      "name": "Guides & Grammar",
+      "nameBn": "গাইড ও ব্যাকরণ",
+      "section": "schoolCollege",
+      "bookCount": 1
+    },
+    {
+      "id": "cat-programming",
+      "name": "Programming",
+      "nameBn": "প্রোগ্রামিং",
+      "section": "skillsTech",
+      "bookCount": 1
+    },
+    {
+      "id": "cat-data-systems",
+      "name": "Data & Systems",
+      "nameBn": "ডেটা ও সিস্টেম",
+      "section": "skillsTech",
+      "bookCount": 1
+    },
+    {
+      "id": "cat-picture-books",
+      "name": "Picture Books",
+      "nameBn": "ছবির বই",
+      "section": "children",
+      "bookCount": 1
+    },
+    {
+      "id": "cat-kids-stories",
+      "name": "Story Books",
+      "nameBn": "গল্পের বই",
+      "section": "children",
+      "bookCount": 1
+    }
+  ]
+}

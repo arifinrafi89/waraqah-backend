@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/auth/google",
+    "query": {},
+    "body": {
+      "idToken": "sample-id-token"
+    },
+    "as": "guest"
+  },
+  "response": {
+    "id": "user-reader@waraqah.test",
+    "name": "Reader",
+    "email": "reader@waraqah.test",
+    "role": "reader"
+  }
+}

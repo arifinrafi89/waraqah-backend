@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/assistant/greeting",
+    "query": {
+      "lang": "en"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "ai-1",
+    "text": "Assalamu Alaikum! I know Waraqah's whole catalog. Ask for a book, a topic, an author or a budget.",
+    "bookIds": []
+  }
+}

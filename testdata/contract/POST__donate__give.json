@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/donate/give",
+    "query": {},
+    "body": {
+      "recipientId": "rc-aloghar",
+      "bookId": "bk-hobbit",
+      "quantity": 1,
+      "payment": "bkash",
+      "note": "Happy reading"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "orderNumber": "WQ-100232",
+    "totalBdt": 380
+  }
+}

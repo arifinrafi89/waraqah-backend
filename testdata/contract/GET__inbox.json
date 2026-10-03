@@ -1,0 +1,124 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/inbox",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "th-sadia",
+      "role": "seller",
+      "otherId": "p-sadia",
+      "otherName": "Sadia",
+      "listing": {
+        "id": "p2p-7",
+        "title": "Atomic Habits",
+        "priceBdt": 350,
+        "status": "live",
+        "coverSeed": 374,
+        "isNegotiable": true,
+        "handover": "meetInPerson"
+      },
+      "dealHere": false,
+      "unread": 2,
+      "messages": [
+        {
+          "id": "m-2",
+          "from": "them",
+          "at": "2026-10-03T20:10:19.659978",
+          "offer": {
+            "id": "o-sadia",
+            "amountBdt": 300,
+            "handover": "meetup",
+            "status": "pending"
+          }
+        }
+      ],
+      "myRating": null,
+      "theirRating": null
+    },
+    {
+      "id": "th-nabila",
+      "role": "buyer",
+      "otherId": "p-nabila",
+      "otherName": "Nabila",
+      "listing": {
+        "id": "p2p-4",
+        "title": "The Pragmatic Programmer",
+        "priceBdt": 440,
+        "status": "reserved",
+        "coverSeed": 371,
+        "isNegotiable": true,
+        "handover": "meetInPerson"
+      },
+      "dealHere": true,
+      "unread": 1,
+      "messages": [
+        {
+          "id": "m-8",
+          "from": "them",
+          "at": "2026-10-03T19:00:19.659978",
+          "text": "Saturday at 5 pm near Banani Road 11 works for me."
+        }
+      ],
+      "myRating": null,
+      "theirRating": null
+    },
+    {
+      "id": "th-rafi",
+      "role": "seller",
+      "otherId": "p-rafi",
+      "otherName": "Rafi",
+      "listing": {
+        "id": "p2p-7",
+        "title": "Atomic Habits",
+        "priceBdt": 350,
+        "status": "live",
+        "coverSeed": 374,
+        "isNegotiable": true,
+        "handover": "meetInPerson"
+      },
+      "dealHere": false,
+      "unread": 0,
+      "messages": [
+        {
+          "id": "m-4",
+          "from": "me",
+          "at": "2026-10-02T21:00:19.659978",
+          "text": "Thanks, Rafi! Let me check the courier charge first."
+        }
+      ],
+      "myRating": null,
+      "theirRating": null
+    },
+    {
+      "id": "th-talha",
+      "role": "buyer",
+      "otherId": "p-talha",
+      "otherName": "Talha",
+      "listing": {
+        "id": "p2p-5",
+        "title": "Operating Systems",
+        "priceBdt": 560,
+        "status": "sold",
+        "coverSeed": 372,
+        "isNegotiable": true,
+        "handover": "delivery"
+      },
+      "dealHere": true,
+      "unread": 0,
+      "messages": [
+        {
+          "id": "m-12",
+          "from": "them",
+          "at": "2026-09-28T21:00:19.659978",
+          "event": "sold"
+        }
+      ],
+      "myRating": null,
+      "theirRating": 5
+    }
+  ]
+}

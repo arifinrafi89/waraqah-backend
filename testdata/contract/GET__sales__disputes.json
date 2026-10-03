@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/sales/disputes",
+    "query": {},
+    "body": null,
+    "as": "moderator"
+  },
+  "response": [
+    {
+      "sale": {
+        "id": "HS-104",
+        "listingId": "p2p-hs-4",
+        "title": "Sapiens",
+        "role": "buyer",
+        "otherName": "Tanvir",
+        "priceBdt": 450,
+        "deliveryBdt": 80,
+        "feeBdt": 23,
+        "status": "disputed",
+        "method": "bkash",
+        "createdAt": "2026-09-29T21:00:19.669542",
+        "coverSeed": 635,
+        "disputeReason": "damaged",
+        "disputeNote": "Water damage on the back cover that the photos hid.",
+        "disputePhotos": []
+      },
+      "buyerName": "Sadia",
+      "sellerName": "Tanvir"
+    }
+  ]
+}

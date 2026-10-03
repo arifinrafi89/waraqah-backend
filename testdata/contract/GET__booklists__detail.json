@@ -1,0 +1,177 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/booklists/detail",
+    "query": {
+      "id": "bl-class-8"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "bl-class-8",
+    "titleEn": "Class 8 class list",
+    "titleBn": "অষ্টম শ্রেণির বইয়ের তালিকা",
+    "kind": "classList",
+    "bookIds": [
+      "bk-class8-math",
+      "bk-english-grammar",
+      "bk-general-math",
+      "bk-matilda"
+    ],
+    "noteEn": "What most Dhaka schools ask for at the start of the year.",
+    "noteBn": "বছরের শুরুতে ঢাকার বেশিরভাগ স্কুল যে বইগুলো চায়।",
+    "isMine": false,
+    "books": [
+      {
+        "id": "bk-class8-math",
+        "title": "Class 8 Mathematics",
+        "author": "NCTB",
+        "categoryId": "cat-textbooks",
+        "authorId": "au-nctb",
+        "publisherId": "pub-nctb",
+        "section": "schoolCollege",
+        "originalLanguage": "bangla",
+        "editions": [
+          {
+            "id": "bk-class8-math-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 580,
+            "stock": 40,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840004034"
+          }
+        ],
+        "addedAt": "2026-06-12T00:00:00.000",
+        "rating": 4.2,
+        "tags": [
+          "Textbook"
+        ],
+        "coverSeed": 2,
+        "shortTitle": null,
+        "titleBn": null,
+        "hidden": false,
+        "classes": [
+          8
+        ],
+        "exams": [],
+        "subjectId": "sub-math"
+      },
+      {
+        "id": "bk-english-grammar",
+        "title": "High School English Grammar and Composition",
+        "author": "P. C. Wren & H. Martin",
+        "categoryId": "cat-school-guides",
+        "authorId": "au-wren-martin",
+        "publisherId": "pub-s-chand",
+        "section": "schoolCollege",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-english-grammar-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 490,
+            "stock": 22,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840003310"
+          }
+        ],
+        "addedAt": "2026-06-04T00:00:00.000",
+        "rating": 4.6,
+        "tags": [
+          "Grammar"
+        ],
+        "coverSeed": 0,
+        "shortTitle": "English Grammar",
+        "titleBn": null,
+        "hidden": false,
+        "classes": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "exams": [],
+        "subjectId": "sub-english"
+      },
+      {
+        "id": "bk-general-math",
+        "title": "General Mathematics, Class 9–10",
+        "author": "NCTB",
+        "categoryId": "cat-textbooks",
+        "authorId": "au-nctb",
+        "publisherId": "pub-nctb",
+        "section": "schoolCollege",
+        "originalLanguage": "bangla",
+        "editions": [
+          {
+            "id": "bk-general-math-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 460,
+            "stock": 40,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840003242"
+          }
+        ],
+        "addedAt": "2026-05-28T00:00:00.000",
+        "rating": 4.3,
+        "tags": [
+          "Textbook"
+        ],
+        "coverSeed": 2,
+        "shortTitle": "General Math",
+        "titleBn": "সাধারণ গণিত, নবম–দশম শ্রেণি",
+        "hidden": false,
+        "classes": [
+          9,
+          10
+        ],
+        "exams": [
+          "ssc"
+        ],
+        "subjectId": "sub-math"
+      },
+      {
+        "id": "bk-matilda",
+        "title": "Matilda",
+        "author": "Roald Dahl",
+        "categoryId": "cat-kids-stories",
+        "authorId": "au-dahl",
+        "publisherId": "pub-puffin",
+        "section": "children",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-matilda-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 480,
+            "stock": 20,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840003594"
+          }
+        ],
+        "addedAt": "2026-07-02T00:00:00.000",
+        "rating": 4.8,
+        "tags": [
+          "Story"
+        ],
+        "coverSeed": 0,
+        "shortTitle": null,
+        "titleBn": "মাটিল্ডা",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      }
+    ]
+  }
+}

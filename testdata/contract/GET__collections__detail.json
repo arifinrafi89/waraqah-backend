@@ -1,0 +1,140 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/collections/detail",
+    "query": {
+      "id": "col-seerah-beginners"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "col-seerah-beginners",
+    "titleEn": "Seerah for beginners",
+    "titleBn": "নতুনদের জন্য সীরাত",
+    "noteEn": "Start with The Sealed Nectar for the whole story, then Lings' warm retelling, then the short story of the moon splitting.",
+    "noteBn": "পুরো জীবনী জানতে আর-রাহীকুল মাখতুম দিয়ে শুরু করুন, তারপর লিংসের সাবলীল বর্ণনা, তারপর চাঁদ দ্বিখণ্ডিত হওয়ার ছোট গল্পটি।",
+    "bookIds": [
+      "bk-nectar",
+      "bk-lings-muhammad",
+      "bk-moon-split"
+    ],
+    "section": "religious",
+    "expertId": null,
+    "expert": null,
+    "books": [
+      {
+        "id": "bk-nectar",
+        "title": "The Sealed Nectar",
+        "author": "Safi-ur-Rahman al-Mubarakpuri",
+        "categoryId": "cat-islamic-studies",
+        "authorId": "au-mubarakpuri",
+        "publisherId": "pub-darussalam",
+        "section": "religious",
+        "originalLanguage": "arabic",
+        "editions": [
+          {
+            "id": "bk-nectar-pb-bn",
+            "format": "paperback",
+            "language": "bangla",
+            "priceBdt": 420,
+            "stock": 22,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840002825"
+          },
+          {
+            "id": "bk-nectar-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 520,
+            "stock": 10,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840002894"
+          }
+        ],
+        "addedAt": "2026-02-12T00:00:00.000",
+        "rating": 4.9,
+        "tags": [
+          "Biography"
+        ],
+        "coverSeed": 1,
+        "shortTitle": "Sealed Nectar",
+        "titleBn": "আর-রাহীকুল মাখতূম",
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      {
+        "id": "bk-lings-muhammad",
+        "title": "Muhammad: His Life Based on the Earliest Sources",
+        "author": "Martin Lings",
+        "categoryId": "cat-islamic-studies",
+        "authorId": "au-lings",
+        "publisherId": "pub-inner-traditions",
+        "section": "religious",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-lings-muhammad-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 690,
+            "stock": 9,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840003662"
+          }
+        ],
+        "addedAt": "2026-03-18T00:00:00.000",
+        "rating": 4.8,
+        "tags": [
+          "Biography"
+        ],
+        "coverSeed": 0,
+        "shortTitle": "Muhammad",
+        "titleBn": null,
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      },
+      {
+        "id": "bk-moon-split",
+        "title": "When the Moon Split",
+        "author": "Safi-ur-Rahman al-Mubarakpuri",
+        "categoryId": "cat-islamic-studies",
+        "authorId": "au-mubarakpuri",
+        "publisherId": "pub-darussalam",
+        "section": "religious",
+        "originalLanguage": "english",
+        "editions": [
+          {
+            "id": "bk-moon-split-pb-en",
+            "format": "paperback",
+            "language": "english",
+            "priceBdt": 380,
+            "stock": 15,
+            "listPriceBdt": null,
+            "isPreorder": false,
+            "isbn": "9789840003730"
+          }
+        ],
+        "addedAt": "2026-03-02T00:00:00.000",
+        "rating": 4.7,
+        "tags": [
+          "Biography"
+        ],
+        "coverSeed": 3,
+        "shortTitle": null,
+        "titleBn": null,
+        "hidden": false,
+        "classes": [],
+        "exams": [],
+        "subjectId": null
+      }
+    ]
+  }
+}

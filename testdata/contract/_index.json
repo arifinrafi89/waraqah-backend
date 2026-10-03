@@ -1,0 +1,1967 @@
+[
+  {
+    "file": "POST__auth__login.json",
+    "method": "POST",
+    "path": "/auth/login",
+    "query": {},
+    "body": {
+      "email": "reader@waraqah.test",
+      "password": "Waraqah#Demo1"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__login__miss.json",
+    "method": "POST",
+    "path": "/auth/login",
+    "query": {},
+    "body": {
+      "email": "reader@waraqah.test",
+      "password": "wrong-password"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__google.json",
+    "method": "POST",
+    "path": "/auth/google",
+    "query": {},
+    "body": {
+      "idToken": "sample-id-token"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__signup__request-otp.json",
+    "method": "POST",
+    "path": "/auth/signup/request-otp",
+    "query": {},
+    "body": {
+      "name": "New Reader",
+      "contact": "newreader@waraqah.test",
+      "password": "Secret#123"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__signup__verify-otp.json",
+    "method": "POST",
+    "path": "/auth/signup/verify-otp",
+    "query": {},
+    "body": {
+      "contact": "newreader@waraqah.test",
+      "otp": "123456"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__signup__verify-otp__miss.json",
+    "method": "POST",
+    "path": "/auth/signup/verify-otp",
+    "query": {},
+    "body": {
+      "contact": "newreader@waraqah.test",
+      "otp": "000000"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__password__request-otp.json",
+    "method": "POST",
+    "path": "/auth/password/request-otp",
+    "query": {},
+    "body": {
+      "contact": "reader@waraqah.test"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "POST__auth__password__reset.json",
+    "method": "POST",
+    "path": "/auth/password/reset",
+    "query": {},
+    "body": {
+      "contact": "reader@waraqah.test",
+      "otp": "123456",
+      "password": "Waraqah#Demo1"
+    },
+    "as": "guest"
+  },
+  {
+    "file": "GET__books.json",
+    "method": "GET",
+    "path": "/books",
+    "query": {
+      "q": "clean"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__hidden.json",
+    "method": "GET",
+    "path": "/books",
+    "query": {
+      "includeHidden": "true"
+    },
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__books__detail.json",
+    "method": "GET",
+    "path": "/books/detail",
+    "query": {
+      "id": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__detail__miss.json",
+    "method": "GET",
+    "path": "/books/detail",
+    "query": {
+      "id": "bk-nope"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__details.json",
+    "method": "GET",
+    "path": "/books/details",
+    "query": {
+      "id": "bk-sapiens"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__look-inside.json",
+    "method": "GET",
+    "path": "/books/look-inside",
+    "query": {
+      "id": "bk-sherlock"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__price-lows.json",
+    "method": "GET",
+    "path": "/books/price-lows",
+    "query": {
+      "id": "bk-sapiens"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__series.json",
+    "method": "GET",
+    "path": "/books/series",
+    "query": {
+      "id": "bk-hpstone"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__used-options.json",
+    "method": "GET",
+    "path": "/books/used-options",
+    "query": {
+      "id": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__suggest.json",
+    "method": "GET",
+    "path": "/books/suggest",
+    "query": {
+      "q": "sap"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__did-you-mean.json",
+    "method": "GET",
+    "path": "/books/did-you-mean",
+    "query": {
+      "q": "sapeins"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__books__questions.json",
+    "method": "GET",
+    "path": "/books/questions",
+    "query": {
+      "id": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__categories.json",
+    "method": "GET",
+    "path": "/categories",
+    "query": {
+      "section": "academic"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__subjects.json",
+    "method": "GET",
+    "path": "/subjects",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__authors__detail.json",
+    "method": "GET",
+    "path": "/authors/detail",
+    "query": {
+      "id": "au-harari"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__publishers__detail.json",
+    "method": "GET",
+    "path": "/publishers/detail",
+    "query": {
+      "id": "pub-harper"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__series__detail.json",
+    "method": "GET",
+    "path": "/series/detail",
+    "query": {
+      "id": "ser-harry-potter"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__collections.json",
+    "method": "GET",
+    "path": "/collections",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__collections__detail.json",
+    "method": "GET",
+    "path": "/collections/detail",
+    "query": {
+      "id": "col-seerah-beginners"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__experts.json",
+    "method": "GET",
+    "path": "/experts",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__experts__detail.json",
+    "method": "GET",
+    "path": "/experts/detail",
+    "query": {
+      "id": "exp-tanvir-physics"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__booklists.json",
+    "method": "GET",
+    "path": "/booklists",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__booklists__detail.json",
+    "method": "GET",
+    "path": "/booklists/detail",
+    "query": {
+      "id": "bl-class-8"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__home__banners.json",
+    "method": "GET",
+    "path": "/home/banners",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__home__season.json",
+    "method": "GET",
+    "path": "/home/season",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__islamic__ayah-of-the-day.json",
+    "method": "GET",
+    "path": "/islamic/ayah-of-the-day",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__scan__lookup.json",
+    "method": "GET",
+    "path": "/scan/lookup",
+    "query": {
+      "isbn": "9789840001491"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__deals.json",
+    "method": "GET",
+    "path": "/deals",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__profile.json",
+    "method": "GET",
+    "path": "/profile",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__profile__prefs.json",
+    "method": "GET",
+    "path": "/profile/prefs",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__addresses.json",
+    "method": "GET",
+    "path": "/addresses",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__geo.json",
+    "method": "GET",
+    "path": "/geo",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__notifications.json",
+    "method": "GET",
+    "path": "/notifications",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__cart.json",
+    "method": "GET",
+    "path": "/cart",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__wishlist.json",
+    "method": "GET",
+    "path": "/wishlist",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__wishlist__shared.json",
+    "method": "GET",
+    "path": "/wishlist/shared",
+    "query": {
+      "id": "wl-nabila"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__alerts.json",
+    "method": "GET",
+    "path": "/alerts",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__orders.json",
+    "method": "GET",
+    "path": "/orders",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__orders__details.json",
+    "method": "GET",
+    "path": "/orders/details",
+    "query": {
+      "number": "WQ-100215"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__wallet.json",
+    "method": "GET",
+    "path": "/wallet",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__points.json",
+    "method": "GET",
+    "path": "/points",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__coupons__check.json",
+    "method": "GET",
+    "path": "/coupons/check",
+    "query": {
+      "code": "EID100"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__coupons__check__miss.json",
+    "method": "GET",
+    "path": "/coupons/check",
+    "query": {
+      "code": "NOPE"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__donate__recipients.json",
+    "method": "GET",
+    "path": "/donate/recipients",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__donate__recipient.json",
+    "method": "GET",
+    "path": "/donate/recipient",
+    "query": {
+      "id": "rc-aloghar"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__p2p__listings.json",
+    "method": "GET",
+    "path": "/p2p/listings",
+    "query": {},
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__p2p__listing.json",
+    "method": "GET",
+    "path": "/p2p/listing",
+    "query": {
+      "id": "p2p-1"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__p2p__listing__miss.json",
+    "method": "GET",
+    "path": "/p2p/listing",
+    "query": {
+      "id": "p2p-nope"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__p2p__listings__for-book.json",
+    "method": "GET",
+    "path": "/p2p/listings/for-book",
+    "query": {
+      "bookId": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__p2p__listings__mine.json",
+    "method": "GET",
+    "path": "/p2p/listings/mine",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__p2p__seller.json",
+    "method": "GET",
+    "path": "/p2p/seller",
+    "query": {
+      "id": "p-nabila"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__blocks.json",
+    "method": "GET",
+    "path": "/blocks",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__inbox.json",
+    "method": "GET",
+    "path": "/inbox",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__inbox__thread.json",
+    "method": "GET",
+    "path": "/inbox/thread",
+    "query": {
+      "id": "th-sadia"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__inbox__live.json",
+    "method": "GET",
+    "path": "/inbox/live",
+    "query": {},
+    "body": null,
+    "as": "reader",
+    "sse": true
+  },
+  {
+    "file": "GET__requests__mine.json",
+    "method": "GET",
+    "path": "/requests/mine",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__requests__wanted.json",
+    "method": "GET",
+    "path": "/requests/wanted",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__requests__demand.json",
+    "method": "GET",
+    "path": "/requests/demand",
+    "query": {},
+    "body": null,
+    "as": "support"
+  },
+  {
+    "file": "GET__sales__mine.json",
+    "method": "GET",
+    "path": "/sales/mine",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__sales__detail.json",
+    "method": "GET",
+    "path": "/sales/detail",
+    "query": {
+      "id": "HS-101"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__sales__earnings.json",
+    "method": "GET",
+    "path": "/sales/earnings",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__sales__live.json",
+    "method": "GET",
+    "path": "/sales/live",
+    "query": {},
+    "body": null,
+    "as": "reader",
+    "sse": true
+  },
+  {
+    "file": "GET__notifications__live.json",
+    "method": "GET",
+    "path": "/notifications/live",
+    "query": {},
+    "body": null,
+    "as": "reader",
+    "sse": true
+  },
+  {
+    "file": "GET__sell-back__books.json",
+    "method": "GET",
+    "path": "/sell-back/books",
+    "query": {
+      "q": "zero"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__sell-back__book.json",
+    "method": "GET",
+    "path": "/sell-back/book",
+    "query": {
+      "id": "bk-zero"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__sell-back__mine.json",
+    "method": "GET",
+    "path": "/sell-back/mine",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__bites.json",
+    "method": "GET",
+    "path": "/bites",
+    "query": {
+      "feed": "forYou"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__bites__detail.json",
+    "method": "GET",
+    "path": "/bites/detail",
+    "query": {
+      "id": "bt-1"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__reviews.json",
+    "method": "GET",
+    "path": "/reviews",
+    "query": {
+      "bookId": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__readers__detail.json",
+    "method": "GET",
+    "path": "/readers/detail",
+    "query": {
+      "id": "p-nabila"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__shelves.json",
+    "method": "GET",
+    "path": "/shelves",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__reading__stats.json",
+    "method": "GET",
+    "path": "/reading/stats",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "GET__assistant__greeting.json",
+    "method": "GET",
+    "path": "/assistant/greeting",
+    "query": {
+      "lang": "en"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  {
+    "file": "GET__admin__dashboard.json",
+    "method": "GET",
+    "path": "/admin/dashboard",
+    "query": {},
+    "body": null,
+    "as": "admin"
+  },
+  {
+    "file": "GET__admin__orders.json",
+    "method": "GET",
+    "path": "/admin/orders",
+    "query": {},
+    "body": null,
+    "as": "support"
+  },
+  {
+    "file": "GET__admin__coupons.json",
+    "method": "GET",
+    "path": "/admin/coupons",
+    "query": {},
+    "body": null,
+    "as": "support"
+  },
+  {
+    "file": "GET__admin__catalog__banners.json",
+    "method": "GET",
+    "path": "/admin/catalog/banners",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__admin__catalog__season.json",
+    "method": "GET",
+    "path": "/admin/catalog/season",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__admin__catalog__categories.json",
+    "method": "GET",
+    "path": "/admin/catalog/categories",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__admin__catalog__authors.json",
+    "method": "GET",
+    "path": "/admin/catalog/authors",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__admin__catalog__publishers.json",
+    "method": "GET",
+    "path": "/admin/catalog/publishers",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__admin__catalog__low-stock.json",
+    "method": "GET",
+    "path": "/admin/catalog/low-stock",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__admin__catalog__isbn-lookup.json",
+    "method": "GET",
+    "path": "/admin/catalog/isbn-lookup",
+    "query": {
+      "isbn": "9789840001491"
+    },
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "GET__moderation__listings.json",
+    "method": "GET",
+    "path": "/moderation/listings",
+    "query": {},
+    "body": null,
+    "as": "moderator"
+  },
+  {
+    "file": "GET__moderation__reports.json",
+    "method": "GET",
+    "path": "/moderation/reports",
+    "query": {},
+    "body": null,
+    "as": "moderator"
+  },
+  {
+    "file": "GET__moderation__log.json",
+    "method": "GET",
+    "path": "/moderation/log",
+    "query": {},
+    "body": null,
+    "as": "moderator"
+  },
+  {
+    "file": "GET__sales__disputes.json",
+    "method": "GET",
+    "path": "/sales/disputes",
+    "query": {},
+    "body": null,
+    "as": "moderator"
+  },
+  {
+    "file": "GET__sell-back__queue.json",
+    "method": "GET",
+    "path": "/sell-back/queue",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  {
+    "file": "POST__profile__save.json",
+    "method": "POST",
+    "path": "/profile/save",
+    "query": {},
+    "body": {
+      "name": "Rafiq Ahmed",
+      "phone": "01712345678"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__profile__prefs__save.json",
+    "method": "POST",
+    "path": "/profile/prefs/save",
+    "query": {},
+    "body": {
+      "muted": [],
+      "profileVisible": true,
+      "activityVisible": true
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__addresses__save.json",
+    "method": "POST",
+    "path": "/addresses/save",
+    "query": {},
+    "body": {
+      "label": "Office",
+      "recipient": "Rafiq",
+      "phone": "01712345678",
+      "line": "Level 4, Gulshan Avenue",
+      "upazila": "Dhaka North City",
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__addresses__default.json",
+    "method": "POST",
+    "path": "/addresses/default",
+    "query": {},
+    "body": {
+      "id": "addr-family"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__addresses__delete.json",
+    "method": "POST",
+    "path": "/addresses/delete",
+    "query": {},
+    "body": {
+      "id": "addr-family"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__addresses__delete__miss.json",
+    "method": "POST",
+    "path": "/addresses/delete",
+    "query": {},
+    "body": {
+      "id": "addr-nope"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__notifications__read.json",
+    "method": "POST",
+    "path": "/notifications/read",
+    "query": {},
+    "body": {
+      "id": "nt-seed-1"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__notifications__read-all.json",
+    "method": "POST",
+    "path": "/notifications/read-all",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "POST__books__questions__ask.json",
+    "method": "POST",
+    "path": "/books/questions/ask",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "text": "Is this the second edition?",
+      "name": "Rafiq"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__books__questions__answer.json",
+    "method": "POST",
+    "path": "/books/questions/answer",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "questionId": "q-1",
+      "text": "Yes, it is.",
+      "name": "Rafiq",
+      "isStaff": false
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__booklists__mine__save.json",
+    "method": "POST",
+    "path": "/booklists/mine/save",
+    "query": {},
+    "body": {
+      "name": "My weekend reads",
+      "bookIds": [
+        "bk-cleancode",
+        "bk-sapiens"
+      ]
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__booklists__mine__delete.json",
+    "method": "POST",
+    "path": "/booklists/mine/delete",
+    "query": {},
+    "body": {
+      "id": "bl-mine-1791039619991450"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__booklists__mine__delete__miss.json",
+    "method": "POST",
+    "path": "/booklists/mine/delete",
+    "query": {},
+    "body": {
+      "id": "bl-staff-1"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__wishlist__save.json",
+    "method": "POST",
+    "path": "/wishlist/save",
+    "query": {},
+    "body": {
+      "bookId": "bk-sapiens"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__wishlist__share.json",
+    "method": "POST",
+    "path": "/wishlist/share",
+    "query": {},
+    "body": {
+      "ownerName": "Rafiq"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__wishlist__remove.json",
+    "method": "POST",
+    "path": "/wishlist/remove",
+    "query": {},
+    "body": {
+      "bookId": "bk-sapiens"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__alerts__set.json",
+    "method": "POST",
+    "path": "/alerts/set",
+    "query": {},
+    "body": {
+      "kind": "priceDrop",
+      "bookId": "bk-atomic",
+      "editionId": "bk-atomic-pb-en",
+      "targetPriceBdt": 500
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__alerts__remove.json",
+    "method": "POST",
+    "path": "/alerts/remove",
+    "query": {},
+    "body": {
+      "id": "al-1"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__cart__add.json",
+    "method": "POST",
+    "path": "/cart/add",
+    "query": {},
+    "body": {
+      "kind": "edition",
+      "id": "bk-atomic-pb-en"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__cart__add.json",
+    "method": "POST",
+    "path": "/cart/add",
+    "query": {},
+    "body": {
+      "kind": "edition",
+      "id": "bk-sapiens-pb-en"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__cart__update.json",
+    "method": "POST",
+    "path": "/cart/update",
+    "query": {},
+    "body": {
+      "lineId": "edition-bk-atomic-pb-en",
+      "quantity": 2
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__cart__remove.json",
+    "method": "POST",
+    "path": "/cart/remove",
+    "query": {},
+    "body": {
+      "lineId": "edition-bk-sapiens-pb-en"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__orders__place.json",
+    "method": "POST",
+    "path": "/orders/place",
+    "query": {},
+    "body": {
+      "addressId": "addr-home",
+      "payment": "cashOnDelivery",
+      "couponCode": "EID100",
+      "usePoints": false,
+      "useWallet": false
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__orders__place__miss.json",
+    "method": "POST",
+    "path": "/orders/place",
+    "query": {},
+    "body": {
+      "addressId": "addr-home",
+      "payment": "cashOnDelivery",
+      "usePoints": false,
+      "useWallet": false
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__orders__cancel.json",
+    "method": "POST",
+    "path": "/orders/cancel",
+    "query": {},
+    "body": {
+      "number": "WQ-100231"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__orders__reorder.json",
+    "method": "POST",
+    "path": "/orders/reorder",
+    "query": {},
+    "body": {
+      "number": "WQ-100201"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__orders__return.json",
+    "method": "POST",
+    "path": "/orders/return",
+    "query": {},
+    "body": {
+      "number": "WQ-100201",
+      "reason": "damaged",
+      "note": "Torn cover",
+      "photos": [
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+      ]
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__admin__orders__advance.json",
+    "method": "POST",
+    "path": "/admin/orders/advance",
+    "query": {},
+    "body": {
+      "number": "WQ-100215",
+      "status": "delivered"
+    },
+    "as": "support"
+  },
+  {
+    "file": "POST__admin__orders__return.json",
+    "method": "POST",
+    "path": "/admin/orders/return",
+    "query": {},
+    "body": {
+      "number": "WQ-100201",
+      "approve": true
+    },
+    "as": "support"
+  },
+  {
+    "file": "POST__admin__coupons__create.json",
+    "method": "POST",
+    "path": "/admin/coupons/create",
+    "query": {},
+    "body": {
+      "code": "SAMPLE50",
+      "kind": "amountOff",
+      "value": 50,
+      "minOrderBdt": 300
+    },
+    "as": "support"
+  },
+  {
+    "file": "POST__donate__give.json",
+    "method": "POST",
+    "path": "/donate/give",
+    "query": {},
+    "body": {
+      "recipientId": "rc-aloghar",
+      "bookId": "bk-hobbit",
+      "quantity": 1,
+      "payment": "bkash",
+      "note": "Happy reading"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__admin__donate__places__save.json",
+    "method": "POST",
+    "path": "/admin/donate/places/save",
+    "query": {},
+    "body": {
+      "name": "Sample Reading Corner",
+      "kind": "library",
+      "district": "Dhaka",
+      "area": "Mirpur",
+      "story": "A small reading corner run by volunteers.",
+      "needs": [
+        {
+          "bookId": "bk-sapiens",
+          "wanted": 5
+        }
+      ]
+    },
+    "as": "support"
+  },
+  {
+    "file": "POST__admin__donate__places__remove.json",
+    "method": "POST",
+    "path": "/admin/donate/places/remove",
+    "query": {},
+    "body": {
+      "id": "rc-new-1"
+    },
+    "as": "support"
+  },
+  {
+    "file": "POST__p2p__listings__save.json",
+    "method": "POST",
+    "path": "/p2p/listings/save",
+    "query": {},
+    "body": {
+      "submit": true,
+      "title": "Clean Code",
+      "bookId": "bk-cleancode",
+      "condition": "good",
+      "flags": [],
+      "priceBdt": 600,
+      "isNegotiable": true,
+      "handover": "meetInPerson",
+      "photos": [
+        "front",
+        "back"
+      ],
+      "photoData": {
+        "front": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+        "back": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+      }
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__moderation__listings__decide.json",
+    "method": "POST",
+    "path": "/moderation/listings/decide",
+    "query": {},
+    "body": {
+      "listingId": "p2p-mine-1",
+      "decision": "approve",
+      "by": "ignored"
+    },
+    "as": "moderator"
+  },
+  {
+    "file": "POST__moderation__listings__decide__reject.json",
+    "method": "POST",
+    "path": "/moderation/listings/decide",
+    "query": {},
+    "body": {
+      "listingId": "p2p-review-1",
+      "decision": "reject",
+      "reason": "Photos are blurry",
+      "by": "ignored"
+    },
+    "as": "moderator"
+  },
+  {
+    "file": "POST__reports.json",
+    "method": "POST",
+    "path": "/reports",
+    "query": {},
+    "body": {
+      "kind": "listing",
+      "targetId": "p2p-1",
+      "reason": "spam",
+      "note": "Looks fake"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__moderation__reports__act.json",
+    "method": "POST",
+    "path": "/moderation/reports/act",
+    "query": {},
+    "body": {
+      "reportId": "rp-1",
+      "action": "dismiss",
+      "by": "ignored"
+    },
+    "as": "moderator"
+  },
+  {
+    "file": "POST__blocks__add.json",
+    "method": "POST",
+    "path": "/blocks/add",
+    "query": {},
+    "body": {
+      "readerId": "p-rakib"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__blocks__remove.json",
+    "method": "POST",
+    "path": "/blocks/remove",
+    "query": {},
+    "body": {
+      "readerId": "p-rakib"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__open.json",
+    "method": "POST",
+    "path": "/inbox/open",
+    "query": {},
+    "body": {
+      "listingId": "p2p-1"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__send.json",
+    "method": "POST",
+    "path": "/inbox/send",
+    "query": {},
+    "body": {
+      "threadId": "th-13",
+      "text": "Is it still available?"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__offer.json",
+    "method": "POST",
+    "path": "/inbox/offer",
+    "query": {},
+    "body": {
+      "listingId": "p2p-1",
+      "amountBdt": 320,
+      "handover": "meetup"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__offer__decide.json",
+    "method": "POST",
+    "path": "/inbox/offer/decide",
+    "query": {},
+    "body": {
+      "threadId": "th-sadia",
+      "offerId": "o-sadia",
+      "accept": true
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__read.json",
+    "method": "POST",
+    "path": "/inbox/read",
+    "query": {},
+    "body": {
+      "threadId": "th-13"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__listing__sold.json",
+    "method": "POST",
+    "path": "/inbox/listing/sold",
+    "query": {},
+    "body": {
+      "threadId": "th-sadia"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__rate.json",
+    "method": "POST",
+    "path": "/inbox/rate",
+    "query": {},
+    "body": {
+      "threadId": "th-sadia",
+      "stars": 5,
+      "comment": "Smooth deal"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__inbox__listing__release.json",
+    "method": "POST",
+    "path": "/inbox/listing/release",
+    "query": {},
+    "body": {
+      "threadId": "th-sadia"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__requests.json",
+    "method": "POST",
+    "path": "/requests",
+    "query": {},
+    "body": {
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt",
+      "maxPriceBdt": 700,
+      "note": "Any edition"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__requests__close.json",
+    "method": "POST",
+    "path": "/requests/close",
+    "query": {},
+    "body": {
+      "id": "rq-4"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__sales__buy.json",
+    "method": "POST",
+    "path": "/sales/buy",
+    "query": {},
+    "body": {
+      "listingId": "p2p-1",
+      "method": "bkash"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__sales__step.json",
+    "method": "POST",
+    "path": "/sales/step",
+    "query": {},
+    "body": {
+      "id": "HS-103",
+      "step": "send"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__sales__step__cancel.json",
+    "method": "POST",
+    "path": "/sales/step",
+    "query": {},
+    "body": {
+      "id": "HS-201",
+      "step": "cancel"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__sales__dispute.json",
+    "method": "POST",
+    "path": "/sales/dispute",
+    "query": {},
+    "body": {
+      "id": "HS-101",
+      "reason": "notAsDescribed",
+      "note": "Water damage",
+      "photos": [
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+      ]
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__sales__disputes__settle.json",
+    "method": "POST",
+    "path": "/sales/disputes/settle",
+    "query": {},
+    "body": {
+      "id": "HS-101",
+      "refund": true,
+      "by": "ignored"
+    },
+    "as": "moderator"
+  },
+  {
+    "file": "POST__sales__payout.json",
+    "method": "POST",
+    "path": "/sales/payout",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  {
+    "file": "POST__sell-back.json",
+    "method": "POST",
+    "path": "/sell-back",
+    "query": {},
+    "body": {
+      "bookId": "bk-zero",
+      "condition": "good",
+      "flags": 0,
+      "pickupAddress": "House 12, Road 5, Dhanmondi, Dhaka"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__sell-back__grade.json",
+    "method": "POST",
+    "path": "/sell-back/grade",
+    "query": {},
+    "body": {
+      "id": "SB-304",
+      "condition": "good",
+      "accept": true,
+      "by": "ignored"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__bites__post.json",
+    "method": "POST",
+    "path": "/bites/post",
+    "query": {},
+    "body": {
+      "text": "Finished Clean Code today, worth it.",
+      "bookId": "bk-cleancode",
+      "spoiler": false
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__bites__edit.json",
+    "method": "POST",
+    "path": "/bites/edit",
+    "query": {},
+    "body": {
+      "id": "bt-new-1",
+      "text": "Finished Clean Code today.",
+      "spoiler": false
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__bites__like.json",
+    "method": "POST",
+    "path": "/bites/like",
+    "query": {},
+    "body": {
+      "id": "bt-new-1",
+      "liked": true
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__bites__comments__post.json",
+    "method": "POST",
+    "path": "/bites/comments/post",
+    "query": {},
+    "body": {
+      "biteId": "bt-new-1",
+      "text": "Nice one"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__bites__comments__delete.json",
+    "method": "POST",
+    "path": "/bites/comments/delete",
+    "query": {},
+    "body": {
+      "id": "cm-new-2"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__bites__delete.json",
+    "method": "POST",
+    "path": "/bites/delete",
+    "query": {},
+    "body": {
+      "id": "bt-new-1"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__reviews__save.json",
+    "method": "POST",
+    "path": "/reviews/save",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "stars": 5,
+      "text": "A must-read for programmers."
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__reviews__delete.json",
+    "method": "POST",
+    "path": "/reviews/delete",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__readers__follow.json",
+    "method": "POST",
+    "path": "/readers/follow",
+    "query": {},
+    "body": {
+      "id": "p-nabila",
+      "follow": true
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__shelves__move.json",
+    "method": "POST",
+    "path": "/shelves/move",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "shelf": "reading"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__shelves__progress.json",
+    "method": "POST",
+    "path": "/shelves/progress",
+    "query": {},
+    "body": {
+      "bookId": "bk-cleancode",
+      "percent": 40,
+      "pagesRead": 180,
+      "totalPages": 450
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__reading__goal.json",
+    "method": "POST",
+    "path": "/reading/goal",
+    "query": {},
+    "body": {
+      "goal": 24
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__assistant__ask.json",
+    "method": "POST",
+    "path": "/assistant/ask",
+    "query": {},
+    "body": {
+      "prompt": "Suggest a book about habits",
+      "history": [],
+      "lang": "en"
+    },
+    "as": "reader"
+  },
+  {
+    "file": "POST__admin__catalog__books__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/books/save",
+    "query": {},
+    "body": {
+      "title": "Sample Staff Book",
+      "titleBn": "",
+      "authorId": "au-harari",
+      "publisherId": "pub-harper",
+      "section": "academic",
+      "categoryId": "cat-academic",
+      "originalLanguage": "english",
+      "coverSeed": 3,
+      "editions": [
+        {
+          "id": "",
+          "format": "paperback",
+          "language": "english",
+          "priceBdt": 400,
+          "stock": 10
+        }
+      ],
+      "classes": [],
+      "exams": [],
+      "subjectId": ""
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__books__hide.json",
+    "method": "POST",
+    "path": "/admin/catalog/books/hide",
+    "query": {},
+    "body": {
+      "id": "bk-sample-staff-book",
+      "hidden": true
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__categories__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/categories/save",
+    "query": {},
+    "body": {
+      "name": "Sample Category",
+      "nameBn": "নমুনা",
+      "section": "academic"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__categories__delete.json",
+    "method": "POST",
+    "path": "/admin/catalog/categories/delete",
+    "query": {},
+    "body": {
+      "id": "cat-sample-category"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__authors__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/authors/save",
+    "query": {},
+    "body": {
+      "name": "Sample Author",
+      "nameBn": ""
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__authors__delete.json",
+    "method": "POST",
+    "path": "/admin/catalog/authors/delete",
+    "query": {},
+    "body": {
+      "id": "au-sample-author"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__publishers__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/publishers/save",
+    "query": {},
+    "body": {
+      "name": "Sample Publisher",
+      "nameBn": ""
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__publishers__delete.json",
+    "method": "POST",
+    "path": "/admin/catalog/publishers/delete",
+    "query": {},
+    "body": {
+      "id": "pub-sample-publisher"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__banners__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/banners/save",
+    "query": {},
+    "body": {
+      "id": "",
+      "titleEn": "Sample banner",
+      "titleBn": "নমুনা ব্যানার",
+      "subtitleEn": "Sample subtitle",
+      "subtitleBn": "",
+      "seed": 2,
+      "target": {
+        "kind": "book",
+        "value": "bk-cleancode"
+      },
+      "season": null
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__banners__move.json",
+    "method": "POST",
+    "path": "/admin/catalog/banners/move",
+    "query": {},
+    "body": {
+      "id": "ban-sample-banner",
+      "by": -1
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__banners__delete.json",
+    "method": "POST",
+    "path": "/admin/catalog/banners/delete",
+    "query": {},
+    "body": {
+      "id": "ban-sample-banner"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__season__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/season/save",
+    "query": {},
+    "body": {
+      "season": "ramadan"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__collections__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/collections/save",
+    "query": {},
+    "body": {
+      "titleEn": "Sample collection",
+      "titleBn": "নমুনা সংগ্রহ",
+      "noteEn": "Sample",
+      "noteBn": "",
+      "section": "academic",
+      "bookIds": [
+        "bk-cleancode"
+      ]
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__collections__delete.json",
+    "method": "POST",
+    "path": "/admin/catalog/collections/delete",
+    "query": {},
+    "body": {
+      "id": "col-sample-collection"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__booklists__save.json",
+    "method": "POST",
+    "path": "/admin/catalog/booklists/save",
+    "query": {},
+    "body": {
+      "titleEn": "Sample staff list",
+      "titleBn": "নমুনা তালিকা",
+      "noteEn": "Sample",
+      "noteBn": "",
+      "kind": "classList",
+      "bookIds": [
+        "bk-cleancode"
+      ]
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__booklists__delete.json",
+    "method": "POST",
+    "path": "/admin/catalog/booklists/delete",
+    "query": {},
+    "body": {
+      "id": "bl-sample-staff-list"
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__editions__stock.json",
+    "method": "POST",
+    "path": "/admin/catalog/editions/stock",
+    "query": {},
+    "body": {
+      "editionId": "bk-atomic-pb-en",
+      "stock": 3
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__admin__catalog__import.json",
+    "method": "POST",
+    "path": "/admin/catalog/import",
+    "query": {},
+    "body": {
+      "books": [
+        {
+          "row": 2,
+          "author": "Sample Author",
+          "publisher": "Sample Publisher",
+          "title": "Imported Sample",
+          "titleBn": "",
+          "authorId": "",
+          "publisherId": "",
+          "section": "academic",
+          "categoryId": "cat-academic",
+          "originalLanguage": "english",
+          "coverSeed": 1,
+          "editions": [
+            {
+              "id": "",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 300,
+              "stock": 5
+            }
+          ],
+          "classes": [],
+          "exams": [],
+          "subjectId": ""
+        }
+      ]
+    },
+    "as": "catalog"
+  },
+  {
+    "file": "POST__auth__delete.json",
+    "method": "POST",
+    "path": "/auth/delete",
+    "query": {},
+    "body": {},
+    "as": "reader"
+  }
+]

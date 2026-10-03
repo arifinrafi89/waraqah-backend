@@ -1,0 +1,142 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/catalog/authors",
+    "query": {},
+    "body": null,
+    "as": "catalog"
+  },
+  "response": [
+    {
+      "id": "au-tolkien",
+      "name": "J. R. R. Tolkien",
+      "bookCount": 1
+    },
+    {
+      "id": "au-rowling",
+      "name": "J. K. Rowling",
+      "bookCount": 1
+    },
+    {
+      "id": "au-brown",
+      "name": "Dan Brown",
+      "bookCount": 1
+    },
+    {
+      "id": "au-stewart",
+      "name": "James Stewart",
+      "bookCount": 1
+    },
+    {
+      "id": "au-thiel",
+      "name": "Peter Thiel",
+      "bookCount": 1
+    },
+    {
+      "id": "au-doyle",
+      "name": "Arthur Conan Doyle",
+      "bookCount": 1
+    },
+    {
+      "id": "au-harari",
+      "name": "Yuval Noah Harari",
+      "nameBn": "ইউভাল নোয়া হারারি",
+      "bookCount": 1
+    },
+    {
+      "id": "au-clear",
+      "name": "James Clear",
+      "bookCount": 1
+    },
+    {
+      "id": "au-martin",
+      "name": "Robert C. Martin",
+      "bookCount": 1
+    },
+    {
+      "id": "au-bukhari",
+      "name": "Imam al-Bukhari",
+      "bookCount": 2
+    },
+    {
+      "id": "au-ghazali",
+      "name": "Imam al-Ghazali",
+      "bookCount": 1
+    },
+    {
+      "id": "au-ibn-qayyim",
+      "name": "Ibn Qayyim al-Jawziyya",
+      "bookCount": 1
+    },
+    {
+      "id": "au-ibn-khaldun",
+      "name": "Ibn Khaldun",
+      "bookCount": 1
+    },
+    {
+      "id": "au-lings",
+      "name": "Martin Lings",
+      "bookCount": 1
+    },
+    {
+      "id": "au-sayyid-sabiq",
+      "name": "Sayyid Sabiq",
+      "bookCount": 1
+    },
+    {
+      "id": "au-mubarakpuri",
+      "name": "Safi-ur-Rahman al-Mubarakpuri",
+      "bookCount": 2
+    },
+    {
+      "id": "au-nawawi",
+      "name": "Imam an-Nawawi",
+      "bookCount": 1
+    },
+    {
+      "id": "au-ibn-kathir",
+      "name": "Ibn Kathir",
+      "bookCount": 2
+    },
+    {
+      "id": "au-editorial",
+      "name": "Waraqah Editorial Board",
+      "bookCount": 4
+    },
+    {
+      "id": "au-nctb",
+      "name": "NCTB",
+      "bookCount": 10
+    },
+    {
+      "id": "au-wren-martin",
+      "name": "P. C. Wren & H. Martin",
+      "bookCount": 1
+    },
+    {
+      "id": "au-hunt-thomas",
+      "name": "Andrew Hunt & David Thomas",
+      "bookCount": 1
+    },
+    {
+      "id": "au-kleppmann",
+      "name": "Martin Kleppmann",
+      "bookCount": 1
+    },
+    {
+      "id": "au-carle",
+      "name": "Eric Carle",
+      "bookCount": 1
+    },
+    {
+      "id": "au-dahl",
+      "name": "Roald Dahl",
+      "bookCount": 1
+    },
+    {
+      "id": "au-coelho",
+      "name": "Paulo Coelho",
+      "bookCount": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/price-lows",
+    "query": {
+      "id": "bk-sapiens"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "bk-sapiens-pb-en": 620,
+    "bk-sapiens-pb-bn": 520,
+    "bk-sapiens-eb-en": 399
+  }
+}

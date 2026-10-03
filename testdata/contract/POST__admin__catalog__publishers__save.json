@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/publishers/save",
+    "query": {},
+    "body": {
+      "name": "Sample Publisher",
+      "nameBn": ""
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "pub-sample-publisher",
+    "name": "Sample Publisher",
+    "bookCount": 0
+  }
+}

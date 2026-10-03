@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/sales/dispute",
+    "query": {},
+    "body": {
+      "id": "HS-101",
+      "reason": "notAsDescribed",
+      "note": "Water damage",
+      "photos": [
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+      ]
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "HS-101",
+    "listingId": "p2p-hs-1",
+    "title": "Thinking, Fast and Slow",
+    "role": "buyer",
+    "otherName": "Arif",
+    "priceBdt": 380,
+    "deliveryBdt": 80,
+    "feeBdt": 19,
+    "status": "disputed",
+    "method": "bkash",
+    "createdAt": "2026-10-01T21:00:19.669542",
+    "coverSeed": 632,
+    "disputeReason": "notAsDescribed",
+    "disputeNote": "Water damage",
+    "disputePhotos": [
+      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=="
+    ]
+  }
+}

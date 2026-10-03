@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/addresses/delete",
+    "query": {},
+    "body": {
+      "id": "addr-nope"
+    },
+    "as": "reader"
+  },
+  "response": null
+}

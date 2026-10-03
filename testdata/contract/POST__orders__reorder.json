@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/orders/reorder",
+    "query": {},
+    "body": {
+      "number": "WQ-100201"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "added": 2,
+    "skipped": 0
+  }
+}

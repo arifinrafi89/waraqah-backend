@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/sales/detail",
+    "query": {
+      "id": "HS-101"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "id": "HS-101",
+    "listingId": "p2p-hs-1",
+    "title": "Thinking, Fast and Slow",
+    "role": "buyer",
+    "otherName": "Arif",
+    "priceBdt": 380,
+    "deliveryBdt": 80,
+    "feeBdt": 19,
+    "status": "sent",
+    "method": "bkash",
+    "createdAt": "2026-10-01T21:00:19.669542",
+    "coverSeed": 632,
+    "disputeReason": null,
+    "disputeNote": null,
+    "disputePhotos": []
+  }
+}

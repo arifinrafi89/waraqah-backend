@@ -1,0 +1,59 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/series",
+    "query": {
+      "id": "bk-hpstone"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "ser-harry-potter",
+    "name": "Harry Potter",
+    "entries": [
+      {
+        "position": 1,
+        "title": "Harry Potter and the Philosopher's Stone",
+        "bookId": "bk-hpstone",
+        "coverSeed": 1
+      },
+      {
+        "position": 2,
+        "title": "The Chamber of Secrets",
+        "bookId": null,
+        "coverSeed": 2
+      },
+      {
+        "position": 3,
+        "title": "The Prisoner of Azkaban",
+        "bookId": null,
+        "coverSeed": 3
+      },
+      {
+        "position": 4,
+        "title": "The Goblet of Fire",
+        "bookId": null,
+        "coverSeed": 4
+      },
+      {
+        "position": 5,
+        "title": "The Order of the Phoenix",
+        "bookId": null,
+        "coverSeed": 5
+      },
+      {
+        "position": 6,
+        "title": "The Half-Blood Prince",
+        "bookId": null,
+        "coverSeed": 6
+      },
+      {
+        "position": 7,
+        "title": "The Deathly Hallows",
+        "bookId": null,
+        "coverSeed": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/bites/like",
+    "query": {},
+    "body": {
+      "id": "bt-new-1",
+      "liked": true
+    },
+    "as": "reader"
+  },
+  "response": {
+    "id": "bt-new-1",
+    "authorId": "me",
+    "authorName": "You",
+    "authorArea": "Dhanmondi",
+    "text": "Finished Clean Code today.",
+    "createdAt": "2026-10-03T21:00:20.108875",
+    "editedAt": "2026-10-03T21:00:20.110876",
+    "bookId": null,
+    "bookTitle": null,
+    "spoiler": false,
+    "likes": 1,
+    "liked": true,
+    "comments": 0,
+    "isMine": true
+  }
+}

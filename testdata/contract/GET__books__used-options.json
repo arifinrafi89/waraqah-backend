@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/used-options",
+    "query": {
+      "id": "bk-cleancode"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "certifiedUsed": null,
+    "resaleValueBdt": 520
+  }
+}

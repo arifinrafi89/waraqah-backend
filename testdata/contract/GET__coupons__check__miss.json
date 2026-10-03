@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/coupons/check",
+    "query": {
+      "code": "NOPE"
+    },
+    "body": null,
+    "as": "reader"
+  },
+  "response": null
+}

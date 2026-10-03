@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/orders/place",
+    "query": {},
+    "body": {
+      "addressId": "addr-home",
+      "payment": "cashOnDelivery",
+      "usePoints": false,
+      "useWallet": false
+    },
+    "as": "reader"
+  },
+  "response": null
+}

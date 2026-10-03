@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/sales/step",
+    "query": {},
+    "body": {
+      "id": "HS-201",
+      "step": "cancel"
+    },
+    "as": "reader"
+  },
+  "response": null
+}

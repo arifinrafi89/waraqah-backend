@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/editions/stock",
+    "query": {},
+    "body": {
+      "editionId": "bk-atomic-pb-en",
+      "stock": 3
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "editionId": "bk-atomic-pb-en",
+    "stock": 3
+  }
+}

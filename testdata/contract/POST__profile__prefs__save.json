@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/profile/prefs/save",
+    "query": {},
+    "body": {
+      "muted": [],
+      "profileVisible": true,
+      "activityVisible": true
+    },
+    "as": "reader"
+  },
+  "response": {
+    "muted": [],
+    "profileVisible": true,
+    "activityVisible": true
+  }
+}

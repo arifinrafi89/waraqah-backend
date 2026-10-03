@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/season/save",
+    "query": {},
+    "body": {
+      "season": "ramadan"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "season": "ramadan"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/reading/stats",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "year": 2026,
+    "goal": 12,
+    "finishedThisYear": 4,
+    "streakDays": 3,
+    "readToday": false,
+    "perMonth": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "topCategories": [
+      {
+        "nameEn": "Fiction",
+        "nameBn": "ফিকশন",
+        "count": 2
+      },
+      {
+        "nameEn": "Business",
+        "nameBn": "ব্যবসা",
+        "count": 1
+      },
+      {
+        "nameEn": "Programming",
+        "nameBn": "প্রোগ্রামিং",
+        "count": 1
+      }
+    ]
+  }
+}

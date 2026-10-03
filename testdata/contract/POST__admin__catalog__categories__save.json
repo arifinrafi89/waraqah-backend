@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/admin/catalog/categories/save",
+    "query": {},
+    "body": {
+      "name": "Sample Category",
+      "nameBn": "নমুনা",
+      "section": "academic"
+    },
+    "as": "catalog"
+  },
+  "response": {
+    "id": "cat-sample-category",
+    "name": "Sample Category",
+    "nameBn": "নমুনা",
+    "section": "academic",
+    "bookCount": 0
+  }
+}

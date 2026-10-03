@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books/did-you-mean",
+    "query": {
+      "q": "sapeins"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": "Sapiens: A Brief History of Humankind"
+}

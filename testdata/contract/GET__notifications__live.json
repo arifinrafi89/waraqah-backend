@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/notifications/live",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": null,
+  "sse": true
+}

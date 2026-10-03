@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/cart/remove",
+    "query": {},
+    "body": {
+      "lineId": "edition-bk-sapiens-pb-en"
+    },
+    "as": "reader"
+  },
+  "response": {
+    "lines": [
+      {
+        "id": "edition-bk-atomic-pb-en",
+        "kind": "edition",
+        "itemId": "bk-atomic-pb-en",
+        "bookId": "bk-atomic",
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "unitPriceBdt": 590,
+        "quantity": 2,
+        "maxQuantity": 10,
+        "listPriceBdt": 650,
+        "format": "paperback",
+        "language": "english",
+        "isPreorder": false,
+        "condition": null,
+        "coverSeed": 2
+      }
+    ]
+  }
+}

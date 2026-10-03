@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/profile",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": {
+    "name": "",
+    "phone": "",
+    "photo": null
+  }
+}

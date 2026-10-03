@@ -1,0 +1,58 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/books",
+    "query": {
+      "q": "clean"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": [
+    {
+      "id": "bk-cleancode",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "categoryId": "cat-academic",
+      "authorId": "au-martin",
+      "publisherId": "pub-prentice-hall",
+      "section": "academic",
+      "originalLanguage": "english",
+      "editions": [
+        {
+          "id": "bk-cleancode-pb-en",
+          "format": "paperback",
+          "language": "english",
+          "priceBdt": 1150,
+          "stock": 8,
+          "listPriceBdt": 1320,
+          "isPreorder": false,
+          "isbn": "9789840002054"
+        },
+        {
+          "id": "bk-cleancode-eb-en",
+          "format": "ebook",
+          "language": "english",
+          "priceBdt": 700,
+          "stock": 999,
+          "listPriceBdt": null,
+          "isPreorder": false,
+          "isbn": null
+        }
+      ],
+      "addedAt": "2026-01-15T00:00:00.000",
+      "rating": 4.6,
+      "tags": [
+        "Academic",
+        "Software"
+      ],
+      "coverSeed": 0,
+      "shortTitle": null,
+      "titleBn": null,
+      "hidden": false,
+      "classes": [],
+      "exams": [],
+      "subjectId": "sub-ict"
+    }
+  ]
+}

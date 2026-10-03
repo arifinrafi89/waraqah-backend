@@ -1,0 +1,631 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/booklists",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "bl-class-8",
+      "titleEn": "Class 8 class list",
+      "titleBn": "অষ্টম শ্রেণির বইয়ের তালিকা",
+      "kind": "classList",
+      "bookIds": [
+        "bk-class8-math",
+        "bk-english-grammar",
+        "bk-general-math",
+        "bk-matilda"
+      ],
+      "noteEn": "What most Dhaka schools ask for at the start of the year.",
+      "noteBn": "বছরের শুরুতে ঢাকার বেশিরভাগ স্কুল যে বইগুলো চায়।",
+      "isMine": false,
+      "books": [
+        {
+          "id": "bk-class8-math",
+          "title": "Class 8 Mathematics",
+          "author": "NCTB",
+          "categoryId": "cat-textbooks",
+          "authorId": "au-nctb",
+          "publisherId": "pub-nctb",
+          "section": "schoolCollege",
+          "originalLanguage": "bangla",
+          "editions": [
+            {
+              "id": "bk-class8-math-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 580,
+              "stock": 40,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840004034"
+            }
+          ],
+          "addedAt": "2026-06-12T00:00:00.000",
+          "rating": 4.2,
+          "tags": [
+            "Textbook"
+          ],
+          "coverSeed": 2,
+          "shortTitle": null,
+          "titleBn": null,
+          "hidden": false,
+          "classes": [
+            8
+          ],
+          "exams": [],
+          "subjectId": "sub-math"
+        },
+        {
+          "id": "bk-english-grammar",
+          "title": "High School English Grammar and Composition",
+          "author": "P. C. Wren & H. Martin",
+          "categoryId": "cat-school-guides",
+          "authorId": "au-wren-martin",
+          "publisherId": "pub-s-chand",
+          "section": "schoolCollege",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-english-grammar-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 490,
+              "stock": 22,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840003310"
+            }
+          ],
+          "addedAt": "2026-06-04T00:00:00.000",
+          "rating": 4.6,
+          "tags": [
+            "Grammar"
+          ],
+          "coverSeed": 0,
+          "shortTitle": "English Grammar",
+          "titleBn": null,
+          "hidden": false,
+          "classes": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "exams": [],
+          "subjectId": "sub-english"
+        },
+        {
+          "id": "bk-general-math",
+          "title": "General Mathematics, Class 9–10",
+          "author": "NCTB",
+          "categoryId": "cat-textbooks",
+          "authorId": "au-nctb",
+          "publisherId": "pub-nctb",
+          "section": "schoolCollege",
+          "originalLanguage": "bangla",
+          "editions": [
+            {
+              "id": "bk-general-math-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 460,
+              "stock": 40,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840003242"
+            }
+          ],
+          "addedAt": "2026-05-28T00:00:00.000",
+          "rating": 4.3,
+          "tags": [
+            "Textbook"
+          ],
+          "coverSeed": 2,
+          "shortTitle": "General Math",
+          "titleBn": "সাধারণ গণিত, নবম–দশম শ্রেণি",
+          "hidden": false,
+          "classes": [
+            9,
+            10
+          ],
+          "exams": [
+            "ssc"
+          ],
+          "subjectId": "sub-math"
+        },
+        {
+          "id": "bk-matilda",
+          "title": "Matilda",
+          "author": "Roald Dahl",
+          "categoryId": "cat-kids-stories",
+          "authorId": "au-dahl",
+          "publisherId": "pub-puffin",
+          "section": "children",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-matilda-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 480,
+              "stock": 20,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840003594"
+            }
+          ],
+          "addedAt": "2026-07-02T00:00:00.000",
+          "rating": 4.8,
+          "tags": [
+            "Story"
+          ],
+          "coverSeed": 0,
+          "shortTitle": null,
+          "titleBn": "মাটিল্ডা",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        }
+      ]
+    },
+    {
+      "id": "bl-hsc-physics",
+      "titleEn": "HSC Physics prep",
+      "titleBn": "এইচএসসি পদার্থবিজ্ঞান প্রস্তুতি",
+      "kind": "examPrep",
+      "bookIds": [
+        "bk-hsc-physics-1",
+        "bk-hsc-higher-math",
+        "bk-general-math",
+        "bk-calculus"
+      ],
+      "noteEn": "The maths HSC physics leans on, from basics to calculus.",
+      "noteBn": "এইচএসসি পদার্থবিজ্ঞানে যে গণিত লাগে, ভিত্তি থেকে ক্যালকুলাস।",
+      "isMine": false,
+      "books": [
+        {
+          "id": "bk-hsc-physics-1",
+          "title": "HSC Physics 1st Paper",
+          "author": "NCTB",
+          "categoryId": "cat-textbooks",
+          "authorId": "au-nctb",
+          "publisherId": "pub-nctb",
+          "section": "schoolCollege",
+          "originalLanguage": "bangla",
+          "editions": [
+            {
+              "id": "bk-hsc-physics-1-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 640,
+              "stock": 40,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840004072"
+            }
+          ],
+          "addedAt": "2026-06-12T00:00:00.000",
+          "rating": 4.2,
+          "tags": [
+            "Textbook"
+          ],
+          "coverSeed": 4,
+          "shortTitle": null,
+          "titleBn": null,
+          "hidden": false,
+          "classes": [
+            11,
+            12
+          ],
+          "exams": [
+            "hsc"
+          ],
+          "subjectId": "sub-physics"
+        },
+        {
+          "id": "bk-hsc-higher-math",
+          "title": "HSC Higher Mathematics",
+          "author": "NCTB",
+          "categoryId": "cat-textbooks",
+          "authorId": "au-nctb",
+          "publisherId": "pub-nctb",
+          "section": "schoolCollege",
+          "originalLanguage": "bangla",
+          "editions": [
+            {
+              "id": "bk-hsc-higher-math-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 640,
+              "stock": 40,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840004089"
+            }
+          ],
+          "addedAt": "2026-06-12T00:00:00.000",
+          "rating": 4.2,
+          "tags": [
+            "Textbook"
+          ],
+          "coverSeed": 0,
+          "shortTitle": null,
+          "titleBn": null,
+          "hidden": false,
+          "classes": [
+            11,
+            12
+          ],
+          "exams": [
+            "hsc"
+          ],
+          "subjectId": "sub-higher-math"
+        },
+        {
+          "id": "bk-general-math",
+          "title": "General Mathematics, Class 9–10",
+          "author": "NCTB",
+          "categoryId": "cat-textbooks",
+          "authorId": "au-nctb",
+          "publisherId": "pub-nctb",
+          "section": "schoolCollege",
+          "originalLanguage": "bangla",
+          "editions": [
+            {
+              "id": "bk-general-math-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 460,
+              "stock": 40,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840003242"
+            }
+          ],
+          "addedAt": "2026-05-28T00:00:00.000",
+          "rating": 4.3,
+          "tags": [
+            "Textbook"
+          ],
+          "coverSeed": 2,
+          "shortTitle": "General Math",
+          "titleBn": "সাধারণ গণিত, নবম–দশম শ্রেণি",
+          "hidden": false,
+          "classes": [
+            9,
+            10
+          ],
+          "exams": [
+            "ssc"
+          ],
+          "subjectId": "sub-math"
+        },
+        {
+          "id": "bk-calculus",
+          "title": "Calculus: Early Transcendentals",
+          "author": "James Stewart",
+          "categoryId": "cat-academic",
+          "authorId": "au-stewart",
+          "publisherId": "pub-cengage",
+          "section": "academic",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-calculus-hc-en",
+              "format": "hardcover",
+              "language": "english",
+              "priceBdt": 1750,
+              "stock": 5,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001491"
+            },
+            {
+              "id": "bk-calculus-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 1400,
+              "stock": 0,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001569"
+            }
+          ],
+          "addedAt": "2026-01-22T00:00:00.000",
+          "rating": 4.2,
+          "tags": [
+            "Academic"
+          ],
+          "coverSeed": 2,
+          "shortTitle": "Calculus",
+          "titleBn": null,
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": "sub-math"
+        }
+      ]
+    },
+    {
+      "id": "bl-book-club-alchemist",
+      "titleEn": "Book club: The Alchemist month",
+      "titleBn": "বুক ক্লাব: দ্য অ্যালকেমিস্ট মাস",
+      "kind": "bookClub",
+      "bookIds": [
+        "bk-alchemist",
+        "bk-hobbit",
+        "bk-atomic"
+      ],
+      "noteEn": "This month's pick, and two more about following a journey.",
+      "noteBn": "এই মাসের বই, আর যাত্রার পথে চলা নিয়ে আরও দুটি।",
+      "isMine": false,
+      "books": [
+        {
+          "id": "bk-alchemist",
+          "title": "The Alchemist",
+          "author": "Paulo Coelho",
+          "categoryId": "cat-fiction",
+          "authorId": "au-coelho",
+          "publisherId": "pub-harpercollins",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-alchemist-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 420,
+              "stock": 0,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001996"
+            }
+          ],
+          "addedAt": "2026-05-20T00:00:00.000",
+          "rating": 4.4,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 5,
+          "shortTitle": null,
+          "titleBn": "দ্য অ্যালকেমিস্ট",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        {
+          "id": "bk-hobbit",
+          "title": "The Hobbit",
+          "author": "J. R. R. Tolkien",
+          "categoryId": "cat-fiction",
+          "authorId": "au-tolkien",
+          "publisherId": "pub-harpercollins",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-hobbit-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 550,
+              "stock": 20,
+              "listPriceBdt": 650,
+              "isPreorder": false,
+              "isbn": "9789840001149"
+            },
+            {
+              "id": "bk-hobbit-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 380,
+              "stock": 9,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001217"
+            }
+          ],
+          "addedAt": "2026-04-16T00:00:00.000",
+          "rating": 4.8,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 0,
+          "shortTitle": "Hobbit",
+          "titleBn": "দ্য হবিট",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        {
+          "id": "bk-atomic",
+          "title": "Atomic Habits",
+          "author": "James Clear",
+          "categoryId": "cat-self-help",
+          "authorId": "au-clear",
+          "publisherId": "pub-avery",
+          "section": "nonFiction",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-atomic-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 590,
+              "stock": 30,
+              "listPriceBdt": 650,
+              "isPreorder": false,
+              "isbn": "9789840001910"
+            },
+            {
+              "id": "bk-atomic-hc-en",
+              "format": "hardcover",
+              "language": "english",
+              "priceBdt": 890,
+              "stock": 2,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001989"
+            }
+          ],
+          "addedAt": "2026-01-08T00:00:00.000",
+          "rating": 4.7,
+          "tags": [
+            "Self-Help"
+          ],
+          "coverSeed": 2,
+          "shortTitle": null,
+          "titleBn": "অ্যাটমিক হ্যাবিটস",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        }
+      ]
+    },
+    {
+      "id": "bl-summer-reads",
+      "titleEn": "Summer reads",
+      "titleBn": "Summer reads",
+      "kind": "personal",
+      "bookIds": [
+        "bk-hpstone",
+        "bk-sherlock",
+        "bk-davinci"
+      ],
+      "noteEn": null,
+      "noteBn": null,
+      "isMine": true,
+      "books": [
+        {
+          "id": "bk-hpstone",
+          "title": "Harry Potter and the Philosopher's Stone",
+          "author": "J. K. Rowling",
+          "categoryId": "cat-fiction",
+          "authorId": "au-rowling",
+          "publisherId": "pub-bloomsbury",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-hpstone-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 620,
+              "stock": 25,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001286"
+            },
+            {
+              "id": "bk-hpstone-hc-en",
+              "format": "hardcover",
+              "language": "english",
+              "priceBdt": 1100,
+              "stock": 3,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001354"
+            }
+          ],
+          "addedAt": "2026-04-23T00:00:00.000",
+          "rating": 4.9,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 1,
+          "shortTitle": "Harry Potter",
+          "titleBn": "হ্যারি পটার অ্যান্ড দ্য ফিলোসফার্স স্টোন",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        {
+          "id": "bk-sherlock",
+          "title": "Sherlock Holmes: A Study in Scarlet",
+          "author": "Arthur Conan Doyle",
+          "categoryId": "cat-fiction",
+          "authorId": "au-doyle",
+          "publisherId": "pub-penguin",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-sherlock-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 380,
+              "stock": 30,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001071"
+            },
+            {
+              "id": "bk-sherlock-eb-en",
+              "format": "ebook",
+              "language": "english",
+              "priceBdt": 150,
+              "stock": 999,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": null
+            }
+          ],
+          "addedAt": "2026-05-07T00:00:00.000",
+          "rating": 4.6,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 3,
+          "shortTitle": "Sherlock Holmes",
+          "titleBn": "শার্লক হোমস: আ স্টাডি ইন স্কারলেট",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        {
+          "id": "bk-davinci",
+          "title": "The Da Vinci Code",
+          "author": "Dan Brown",
+          "categoryId": "cat-fiction",
+          "authorId": "au-brown",
+          "publisherId": "pub-doubleday",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-davinci-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 450,
+              "stock": 14,
+              "listPriceBdt": 520,
+              "isPreorder": false,
+              "isbn": "9789840001422"
+            }
+          ],
+          "addedAt": "2026-04-30T00:00:00.000",
+          "rating": 4.3,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 2,
+          "shortTitle": "Da Vinci Code",
+          "titleBn": "দ্য দা ভিঞ্চি কোড",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        }
+      ]
+    }
+  ]
+}

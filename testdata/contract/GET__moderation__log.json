@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/moderation/log",
+    "query": {},
+    "body": null,
+    "as": "moderator"
+  },
+  "response": []
+}

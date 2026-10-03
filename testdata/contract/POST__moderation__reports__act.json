@@ -1,0 +1,57 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/moderation/reports/act",
+    "query": {},
+    "body": {
+      "reportId": "rp-1",
+      "action": "dismiss",
+      "by": "ignored"
+    },
+    "as": "moderator"
+  },
+  "response": [
+    {
+      "id": "rp-s3",
+      "kind": "user",
+      "targetId": "p-rafi",
+      "reason": "harassment",
+      "createdAt": "2026-10-02T21:00:19.665541",
+      "preview": "Rafi · Mirpur, Dhaka",
+      "ownerId": "p-rafi",
+      "ownerName": "Rafi",
+      "reportCount": 1,
+      "ownerStrikes": 0,
+      "ownerBanned": false,
+      "note": "Kept messaging after I said no."
+    },
+    {
+      "id": "rp-s4",
+      "kind": "bite",
+      "targetId": "bt-3",
+      "reason": "spam",
+      "createdAt": "2026-10-03T16:00:19.665541",
+      "preview": "Selling all my notes cheap!!! Message me now!!!",
+      "ownerId": "p-rafi",
+      "ownerName": "Rafi",
+      "reportCount": 1,
+      "ownerStrikes": 0,
+      "ownerBanned": false,
+      "note": null
+    },
+    {
+      "id": "rp-s1",
+      "kind": "listing",
+      "targetId": "p2p-6",
+      "reason": "photocopy",
+      "createdAt": "2026-10-03T18:00:19.665541",
+      "preview": "Digital Logic Design",
+      "ownerId": "p-mahi",
+      "ownerName": "Mahi",
+      "reportCount": 2,
+      "ownerStrikes": 0,
+      "ownerBanned": false,
+      "note": "The pages look photocopied in the photos."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/admin/dashboard",
+    "query": {},
+    "body": null,
+    "as": "admin"
+  },
+  "response": {
+    "ordersToday": 0,
+    "salesTodayBdt": 0,
+    "ordersToShip": 0,
+    "listingsWaiting": 3,
+    "openReports": 3,
+    "openDisputes": 1,
+    "topSearches": [
+      {
+        "term": "sapiens",
+        "count": 14
+      },
+      {
+        "term": "ssc physics",
+        "count": 11
+      },
+      {
+        "term": "humayun ahmed",
+        "count": 9
+      },
+      {
+        "term": "atomic habits",
+        "count": 7
+      },
+      {
+        "term": "tafsir",
+        "count": 5
+      }
+    ],
+    "topRequested": [
+      {
+        "title": "Calculus: Early Transcendentals",
+        "requests": 2
+      },
+      {
+        "title": "Atomic Habits",
+        "requests": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/addresses/delete",
+    "query": {},
+    "body": {
+      "id": "addr-family"
+    },
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "addr-home",
+      "label": "Home",
+      "recipient": "Rahim Uddin",
+      "phone": "01711000000",
+      "line": "House 12, Road 5, Dhanmondi",
+      "upazila": "Dhaka South City",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "isDefault": true
+    },
+    {
+      "id": "addr-1",
+      "label": "Office",
+      "recipient": "Rafiq",
+      "phone": "01712345678",
+      "line": "Level 4, Gulshan Avenue",
+      "upazila": "Dhaka North City",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "isDefault": false
+    }
+  ]
+}

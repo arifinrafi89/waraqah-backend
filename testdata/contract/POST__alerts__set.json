@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/alerts/set",
+    "query": {},
+    "body": {
+      "kind": "priceDrop",
+      "bookId": "bk-atomic",
+      "editionId": "bk-atomic-pb-en",
+      "targetPriceBdt": 500
+    },
+    "as": "reader"
+  },
+  "response": [
+    {
+      "id": "al-1",
+      "kind": "priceDrop",
+      "bookId": "bk-atomic",
+      "editionId": "bk-atomic-pb-en",
+      "bookTitle": "Atomic Habits",
+      "currentPriceBdt": 590,
+      "isTriggered": false,
+      "targetPriceBdt": 500
+    }
+  ]
+}

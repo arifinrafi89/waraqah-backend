@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/sales/payout",
+    "query": {},
+    "body": null,
+    "as": "reader"
+  },
+  "response": null
+}

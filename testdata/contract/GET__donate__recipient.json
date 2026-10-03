@@ -1,0 +1,171 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/donate/recipient",
+    "query": {
+      "id": "rc-aloghar"
+    },
+    "body": null,
+    "as": "guest"
+  },
+  "response": {
+    "id": "rc-aloghar",
+    "name": "Aloghar Children's Library",
+    "kind": "library",
+    "district": "Rangpur",
+    "area": "Pirgachha",
+    "story": "A reading room for about 300 village children, open every afternoon after school.",
+    "needs": [
+      {
+        "book": {
+          "id": "bk-hpstone",
+          "title": "Harry Potter and the Philosopher's Stone",
+          "author": "J. K. Rowling",
+          "categoryId": "cat-fiction",
+          "authorId": "au-rowling",
+          "publisherId": "pub-bloomsbury",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-hpstone-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 620,
+              "stock": 25,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001286"
+            },
+            {
+              "id": "bk-hpstone-hc-en",
+              "format": "hardcover",
+              "language": "english",
+              "priceBdt": 1100,
+              "stock": 3,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001354"
+            }
+          ],
+          "addedAt": "2026-04-23T00:00:00.000",
+          "rating": 4.9,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 1,
+          "shortTitle": "Harry Potter",
+          "titleBn": "হ্যারি পটার অ্যান্ড দ্য ফিলোসফার্স স্টোন",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        "editionId": "bk-hpstone-pb-en",
+        "priceBdt": 620,
+        "wanted": 10,
+        "received": 4
+      },
+      {
+        "book": {
+          "id": "bk-hobbit",
+          "title": "The Hobbit",
+          "author": "J. R. R. Tolkien",
+          "categoryId": "cat-fiction",
+          "authorId": "au-tolkien",
+          "publisherId": "pub-harpercollins",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-hobbit-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 550,
+              "stock": 20,
+              "listPriceBdt": 650,
+              "isPreorder": false,
+              "isbn": "9789840001149"
+            },
+            {
+              "id": "bk-hobbit-pb-bn",
+              "format": "paperback",
+              "language": "bangla",
+              "priceBdt": 380,
+              "stock": 9,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001217"
+            }
+          ],
+          "addedAt": "2026-04-16T00:00:00.000",
+          "rating": 4.8,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 0,
+          "shortTitle": "Hobbit",
+          "titleBn": "দ্য হবিট",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        "editionId": "bk-hobbit-pb-bn",
+        "priceBdt": 380,
+        "wanted": 6,
+        "received": 1
+      },
+      {
+        "book": {
+          "id": "bk-sherlock",
+          "title": "Sherlock Holmes: A Study in Scarlet",
+          "author": "Arthur Conan Doyle",
+          "categoryId": "cat-fiction",
+          "authorId": "au-doyle",
+          "publisherId": "pub-penguin",
+          "section": "literature",
+          "originalLanguage": "english",
+          "editions": [
+            {
+              "id": "bk-sherlock-pb-en",
+              "format": "paperback",
+              "language": "english",
+              "priceBdt": 380,
+              "stock": 30,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": "9789840001071"
+            },
+            {
+              "id": "bk-sherlock-eb-en",
+              "format": "ebook",
+              "language": "english",
+              "priceBdt": 150,
+              "stock": 999,
+              "listPriceBdt": null,
+              "isPreorder": false,
+              "isbn": null
+            }
+          ],
+          "addedAt": "2026-05-07T00:00:00.000",
+          "rating": 4.6,
+          "tags": [
+            "Fiction"
+          ],
+          "coverSeed": 3,
+          "shortTitle": "Sherlock Holmes",
+          "titleBn": "শার্লক হোমস: আ স্টাডি ইন স্কারলেট",
+          "hidden": false,
+          "classes": [],
+          "exams": [],
+          "subjectId": null
+        },
+        "editionId": "bk-sherlock-pb-en",
+        "priceBdt": 380,
+        "wanted": 5,
+        "received": 5
+      }
+    ]
+  }
+}
