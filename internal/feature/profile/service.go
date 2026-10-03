@@ -273,3 +273,15 @@ func (s *Service) DeleteAccount(ctx context.Context, userID string) error {
 	}
 	return nil
 }
+
+// AddressIn finds one address of a reader inside a transaction (checkout delivers to one of them).
+func (s *Service) AddressIn(ctx context.Context, q *sqlc.Queries, userID, id string) (Address, bool, error) {
+	row, err := q.GetAddress(ctx, sqlc.GetAddressParams{UserID: userID, ID: id})
+	if errors.Is(err, pgx.ErrNoRows) {
+		return Address{}, false, nil
+	}
+	if err != nil {
+		return Address{}, false, err
+	}
+	return toAddress(sqlc.ListAddressesRow(row)), true, nil
+}

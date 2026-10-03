@@ -1,13 +1,8 @@
 # Endpoints not built yet, one "METHOD /path" per line (BACKEND_PLAN.md Appendix A).
 # Each feature task removes its lines. T19 requires this file to be empty.
-GET /admin/coupons
-POST /admin/coupons/create
 GET /admin/dashboard
 POST /admin/donate/places/remove
 POST /admin/donate/places/save
-GET /admin/orders
-POST /admin/orders/advance
-POST /admin/orders/return
 POST /assistant/ask
 GET /assistant/greeting
 GET /bites
@@ -21,7 +16,6 @@ POST /bites/post
 GET /blocks
 POST /blocks/add
 POST /blocks/remove
-GET /coupons/check
 POST /donate/give
 GET /donate/recipient
 GET /donate/recipients
@@ -41,19 +35,12 @@ POST /moderation/listings/decide
 GET /moderation/log
 GET /moderation/reports
 POST /moderation/reports/act
-GET /orders
-POST /orders/cancel
-GET /orders/details
-POST /orders/place
-POST /orders/reorder
-POST /orders/return
 GET /p2p/listing
 GET /p2p/listings
 GET /p2p/listings/for-book
 GET /p2p/listings/mine
 POST /p2p/listings/save
 GET /p2p/seller
-GET /points
 GET /readers/detail
 POST /readers/follow
 POST /reading/goal
@@ -86,4 +73,3 @@ GET /sell-back/queue
 GET /shelves
 POST /shelves/move
 POST /shelves/progress
-GET /wallet

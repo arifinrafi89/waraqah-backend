@@ -221,3 +221,21 @@ func (s *Service) UsedOptionsOf(ctx context.Context, b Book) (UsedOptions, error
 	}
 	return UsedOptions{CertifiedUsed: copy, ResaleValueBdt: ResaleValue(b)}, nil
 }
+
+// Inventory is how orders change the stock and the sales of the catalog, inside their own
+// transaction (BACKEND_PLAN.md section 8: catalog.Books covers price and stock changes).
+// The cache is dropped by the caller after the commit (Invalidate).
+
+// Take removes copies of a printed Edition (never below zero) and counts them as sold this month.
+func (st *Store) Take(ctx context.Context, q *sqlc.Queries, editionID string, quantity int, at time.Time) error {
+	if err := q.TakeStock(ctx, sqlc.TakeStockParams{ID: editionID, Stock: int32(quantity)}); err != nil {
+		return err
+	}
+	month := time.Date(at.In(st.Loc).Year(), at.In(st.Loc).Month(), 1, 0, 0, 0, 0, st.Loc)
+	return q.AddSale(ctx, sqlc.AddSaleParams{EditionID: editionID, Month: month, Copies: int32(quantity)})
+}
+
+// Restock gives copies of a printed Edition back (a cancelled order).
+func (st *Store) Restock(ctx context.Context, q *sqlc.Queries, editionID string, quantity int) error {
+	return q.RestockEdition(ctx, sqlc.RestockEditionParams{ID: editionID, Stock: int32(quantity)})
+}
