@@ -76,6 +76,10 @@ func seedDir() string {
 	return "seed"
 }
 
+// Rebuild builds the handler again from the (possibly changed) Deps, for tests that swap a
+// service (a fake alerts sweeper) before sending requests.
+func (e *Env) Rebuild() http.Handler { return app.Routes(e.Deps) }
+
 // Token signs an access token for a demo account.
 func (e *Env) Token(as string) string {
 	a, ok := Accounts[as]

@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 )
 
 // Request is the request a golden was recorded with.
@@ -71,6 +72,29 @@ func LoadGoldens(dir string) ([]Golden, error) {
 		out = append(out, g)
 	}
 	return out, nil
+}
+
+// Meta says when the goldens were made. Answers that depend on the day (Home Season, the
+// Ayah of the day) are only comparable on that day, so the replay pins the clock to it.
+type Meta struct {
+	ExportedAt time.Time
+}
+
+// LoadMeta reads _meta.json; the exporter writes the time as a naive local DateTime, read here
+// in loc (the app timezone).
+func LoadMeta(dir string, loc *time.Location) (Meta, error) {
+	raw, err := os.ReadFile(filepath.Join(dir, "_meta.json"))
+	if err != nil {
+		return Meta{}, err
+	}
+	var m struct {
+		ExportedAt string `json:"exportedAt"`
+	}
+	if err := json.Unmarshal(raw, &m); err != nil {
+		return Meta{}, err
+	}
+	t, err := time.ParseInLocation("2006-01-02T15:04:05.999999", m.ExportedAt, loc)
+	return Meta{ExportedAt: t}, err
 }
 
 // LoadPending reads pending.txt: endpoints not built yet, one "METHOD /path" per line.

@@ -204,7 +204,7 @@ func (q *Queries) ListAnswersForBook(ctx context.Context, bookID string) ([]Book
 }
 
 const listAuthors = `-- name: ListAuthors :many
-SELECT id, name, name_bn, bio FROM authors ORDER BY id
+SELECT id, name, name_bn, bio, position FROM authors ORDER BY position
 `
 
 func (q *Queries) ListAuthors(ctx context.Context) ([]Author, error) {
@@ -221,6 +221,7 @@ func (q *Queries) ListAuthors(ctx context.Context) ([]Author, error) {
 			&i.Name,
 			&i.NameBn,
 			&i.Bio,
+			&i.Position,
 		); err != nil {
 			return nil, err
 		}
@@ -314,7 +315,7 @@ func (q *Queries) ListBooks(ctx context.Context) ([]Book, error) {
 }
 
 const listCategories = `-- name: ListCategories :many
-SELECT id, section, name_en, name_bn FROM categories ORDER BY id
+SELECT id, section, name_en, name_bn, position FROM categories ORDER BY position
 `
 
 func (q *Queries) ListCategories(ctx context.Context) ([]Category, error) {
@@ -331,6 +332,7 @@ func (q *Queries) ListCategories(ctx context.Context) ([]Category, error) {
 			&i.Section,
 			&i.NameEn,
 			&i.NameBn,
+			&i.Position,
 		); err != nil {
 			return nil, err
 		}
@@ -469,7 +471,7 @@ func (q *Queries) ListPriceLows(ctx context.Context) ([]PriceLow, error) {
 }
 
 const listPublishers = `-- name: ListPublishers :many
-SELECT id, name, name_bn FROM publishers ORDER BY id
+SELECT id, name, name_bn, position FROM publishers ORDER BY position
 `
 
 func (q *Queries) ListPublishers(ctx context.Context) ([]Publisher, error) {
@@ -481,7 +483,12 @@ func (q *Queries) ListPublishers(ctx context.Context) ([]Publisher, error) {
 	items := []Publisher{}
 	for rows.Next() {
 		var i Publisher
-		if err := rows.Scan(&i.ID, &i.Name, &i.NameBn); err != nil {
+		if err := rows.Scan(
+			&i.ID,
+			&i.Name,
+			&i.NameBn,
+			&i.Position,
+		); err != nil {
 			return nil, err
 		}
 		items = append(items, i)
@@ -584,7 +591,7 @@ func (q *Queries) ListSeries(ctx context.Context) ([]Series, error) {
 }
 
 const listSubjects = `-- name: ListSubjects :many
-SELECT id, name_en, name_bn FROM subjects ORDER BY id
+SELECT id, name_en, name_bn, position FROM subjects ORDER BY position
 `
 
 func (q *Queries) ListSubjects(ctx context.Context) ([]Subject, error) {
@@ -596,7 +603,12 @@ func (q *Queries) ListSubjects(ctx context.Context) ([]Subject, error) {
 	items := []Subject{}
 	for rows.Next() {
 		var i Subject
-		if err := rows.Scan(&i.ID, &i.NameEn, &i.NameBn); err != nil {
+		if err := rows.Scan(
+			&i.ID,
+			&i.NameEn,
+			&i.NameBn,
+			&i.Position,
+		); err != nil {
 			return nil, err
 		}
 		items = append(items, i)

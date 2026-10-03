@@ -1,30 +1,5 @@
 # Endpoints not built yet, one "METHOD /path" per line (BACKEND_PLAN.md Appendix A).
 # Each feature task removes its lines. T19 requires this file to be empty.
-GET /admin/catalog/authors
-POST /admin/catalog/authors/delete
-POST /admin/catalog/authors/save
-GET /admin/catalog/banners
-POST /admin/catalog/banners/delete
-POST /admin/catalog/banners/move
-POST /admin/catalog/banners/save
-POST /admin/catalog/booklists/delete
-POST /admin/catalog/booklists/save
-POST /admin/catalog/books/hide
-POST /admin/catalog/books/save
-GET /admin/catalog/categories
-POST /admin/catalog/categories/delete
-POST /admin/catalog/categories/save
-POST /admin/catalog/collections/delete
-POST /admin/catalog/collections/save
-POST /admin/catalog/editions/stock
-POST /admin/catalog/import
-GET /admin/catalog/isbn-lookup
-GET /admin/catalog/low-stock
-GET /admin/catalog/publishers
-POST /admin/catalog/publishers/delete
-POST /admin/catalog/publishers/save
-GET /admin/catalog/season
-POST /admin/catalog/season/save
 GET /admin/coupons
 POST /admin/coupons/create
 GET /admin/dashboard
@@ -58,8 +33,6 @@ GET /deals
 POST /donate/give
 GET /donate/recipient
 GET /donate/recipients
-GET /home/banners
-GET /home/season
 GET /inbox
 POST /inbox/listing/release
 POST /inbox/listing/sold
@@ -71,7 +44,6 @@ POST /inbox/rate
 POST /inbox/read
 POST /inbox/send
 GET /inbox/thread
-GET /islamic/ayah-of-the-day
 GET /moderation/listings
 POST /moderation/listings/decide
 GET /moderation/log
@@ -113,7 +85,6 @@ GET /sales/live
 GET /sales/mine
 POST /sales/payout
 POST /sales/step
-GET /scan/lookup
 POST /sell-back
 GET /sell-back/book
 GET /sell-back/books

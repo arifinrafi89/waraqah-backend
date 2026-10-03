@@ -24,11 +24,40 @@ type Address struct {
 	IsDefault bool
 }
 
+type AppConfig struct {
+	Key   string
+	Value []byte
+}
+
 type Author struct {
-	ID     string
-	Name   string
-	NameBn pgtype.Text
-	Bio    pgtype.Text
+	ID       string
+	Name     string
+	NameBn   pgtype.Text
+	Bio      pgtype.Text
+	Position pgtype.Int8
+}
+
+type Ayah struct {
+	Position    int32
+	Arabic      string
+	Translation string
+	SurahEn     string
+	SurahBn     string
+	SurahNumber int32
+	VerseNumber int32
+}
+
+type Banner struct {
+	ID          string
+	Position    int32
+	TitleEn     string
+	TitleBn     string
+	SubtitleEn  string
+	SubtitleBn  string
+	Seed        int32
+	TargetKind  string
+	TargetValue string
+	Season      pgtype.Text
 }
 
 type Book struct {
@@ -94,10 +123,11 @@ type Booklist struct {
 }
 
 type Category struct {
-	ID      string
-	Section string
-	NameEn  string
-	NameBn  string
+	ID       string
+	Section  string
+	NameEn   string
+	NameBn   string
+	Position pgtype.Int8
 }
 
 type Collection struct {
@@ -134,6 +164,17 @@ type Expert struct {
 	CredentialBn string
 	Kind         string
 	Verified     bool
+}
+
+type IsbnLookup struct {
+	Isbn         string
+	Title        string
+	TitleBn      pgtype.Text
+	Author       string
+	Publisher    string
+	Language     string
+	Format       string
+	ListPriceBdt int32
 }
 
 type LookInside struct {
@@ -182,9 +223,10 @@ type ProfilePref struct {
 }
 
 type Publisher struct {
-	ID     string
-	Name   string
-	NameBn pgtype.Text
+	ID       string
+	Name     string
+	NameBn   pgtype.Text
+	Position pgtype.Int8
 }
 
 type RefreshToken struct {
@@ -210,9 +252,10 @@ type Series struct {
 }
 
 type Subject struct {
-	ID     string
-	NameEn string
-	NameBn string
+	ID       string
+	NameEn   string
+	NameBn   string
+	Position pgtype.Int8
 }
 
 type User struct {
