@@ -179,9 +179,13 @@ func TestSmallReads(t *testing.T) {
 	if r := e.Call("", "GET", "/books/price-lows?id=bk-nope", nil); len(r.Obj(t)) != 0 {
 		t.Error("unknown book lows must be an empty object")
 	}
+	// Sapiens has a Certified Used copy on sale (Sell Back seed); Clean Code has none.
 	used := e.Call("", "GET", "/books/used-options?id=bk-sapiens", nil).Obj(t)
-	if used["certifiedUsed"] != nil || used["resaleValueBdt"] == nil {
+	if cu, _ := used["certifiedUsed"].(map[string]any); cu["id"] != "cu-sapiens-1" || used["resaleValueBdt"] == nil {
 		t.Errorf("used options: %v", used)
+	}
+	if used := e.Call("", "GET", "/books/used-options?id=bk-cleancode", nil).Obj(t); used["certifiedUsed"] != nil {
+		t.Errorf("no copy of Clean Code: %v", used)
 	}
 	if r := e.Call("", "GET", "/books/used-options?id=bk-nope", nil); r.Body != nil {
 		t.Error("used options of an unknown book")

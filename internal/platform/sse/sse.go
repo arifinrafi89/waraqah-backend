@@ -82,8 +82,17 @@ func (b *Broker) Serve(w http.ResponseWriter, r *http.Request, topic string) {
 	b.ServeEvery(w, r, topic, PingInterval)
 }
 
+// ServeTopics is Serve for several topics on one stream (a moderator's own sales and the disputes).
+func (b *Broker) ServeTopics(w http.ResponseWriter, r *http.Request, topics ...string) {
+	b.serve(w, r, topics, PingInterval)
+}
+
 // ServeEvery is Serve with a custom ping interval (tests use a short one).
 func (b *Broker) ServeEvery(w http.ResponseWriter, r *http.Request, topic string, ping time.Duration) {
+	b.serve(w, r, []string{topic}, ping)
+}
+
+func (b *Broker) serve(w http.ResponseWriter, r *http.Request, topics []string, ping time.Duration) {
 	rc := http.NewResponseController(w)
 	h := w.Header()
 	h.Set("Content-Type", "text/event-stream")
@@ -94,8 +103,7 @@ func (b *Broker) ServeEvery(w http.ResponseWriter, r *http.Request, topic string
 	if err := rc.Flush(); err != nil {
 		return
 	}
-	events, cancel := b.Subscribe(topic)
-	defer cancel()
+	events := b.merge(r.Context().Done(), topics)
 	ticker := time.NewTicker(ping)
 	defer ticker.Stop()
 	for {
@@ -115,4 +123,32 @@ func (b *Broker) ServeEvery(w http.ResponseWriter, r *http.Request, topic string
 			return
 		}
 	}
+}
+
+// merge subscribes to every topic and fans their events into one channel until done closes.
+func (b *Broker) merge(done <-chan struct{}, topics []string) <-chan []byte {
+	if len(topics) == 1 {
+		ch, cancel := b.Subscribe(topics[0])
+		go func() { <-done; cancel() }()
+		return ch
+	}
+	out := make(chan []byte, 16)
+	for _, t := range topics {
+		ch, cancel := b.Subscribe(t)
+		go func() {
+			defer cancel()
+			for {
+				select {
+				case <-done:
+					return
+				case data := <-ch:
+					select {
+					case out <- data:
+					default:
+					}
+				}
+			}
+		}()
+	}
+	return out
 }

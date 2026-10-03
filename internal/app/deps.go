@@ -15,6 +15,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/handledsale"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/inbox"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/moderation"
@@ -23,6 +24,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/p2p"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/report"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/sellback"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wallet"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/auth"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/clock"
@@ -86,6 +88,8 @@ type Deps struct {
 	Moderation    *moderation.Service // also moderation.Bans
 	Inbox         *inbox.Service
 	BookRequests  *bookrequest.Service
+	Sales         *handledsale.Service
+	SellBack      *sellback.Service // also the Certified Used stock of the cart and the catalog
 
 	// Ready reports whether the database answers (/readyz). Nil means always ready.
 	Ready func(ctx context.Context) error
@@ -149,9 +153,16 @@ func NewDeps(cfg *config.Config, log *slog.Logger, database *db.DB) (*Deps, erro
 	d.Moderation.Register("message", inbox.Messages{S: d.Inbox})
 	d.BookRequests = &bookrequest.Service{DB: database, Shop: d.P2P, Notify: d.Notifications, Clock: clk, Loc: loc, Log: log}
 	d.Profile.Hooks = append(d.Profile.Hooks, d.P2P.OnAccountDeleted)
+	d.Sales = &handledsale.Service{DB: database, Market: d.P2P, Wallet: d.Wallet, Notify: d.Notifications, Audit: d.Moderation, SSE: d.SSE,
+		Clock: clk, Loc: loc, Log: log, MaxImageBytes: cfg.MaxImageMB << 20, DemoMode: cfg.DemoMode, BotDelay: cfg.DemoBotDelay}
+	d.SellBack = &sellback.Service{DB: database, Books: d.Catalog, Wallet: d.Wallet, Notify: d.Notifications, Clock: clk, Loc: loc, Log: log,
+		PickupDelay: cfg.CourierPickupDelay}
+	d.Cart.Used = d.SellBack
+	d.Jobs.Register("demo sellers send", d.Sales.SendDemoSales)
+	d.Jobs.Register("courier pickups", d.SellBack.PickUp)
 	d.Donate = &donate.Service{DB: database, Books: d.Catalog, Clock: clk, Log: log}
 	d.Checkout = &checkout.Service{DB: database, Cart: d.Cart, Addresses: d.Profile, Wallet: d.Wallet, Points: d.Points, Stock: d.Catalog,
-		Clock: clk, Loc: loc, Log: log}
+		Used: d.SellBack, Clock: clk, Loc: loc, Log: log}
 	if database != nil {
 		d.Ready = database.Ping
 	}

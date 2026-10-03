@@ -93,6 +93,19 @@ const (
 	ErrRequestInvalid       = "request_invalid"
 	ErrRequestUnknown       = "request_unknown"
 
+	// handled sales
+	ErrSalePrepaidOnly = "sale_prepaid_only"
+	ErrSaleUnknown     = "sale_unknown"
+	ErrSaleStepRefused = "sale_step_refused"
+	ErrDisputeInvalid  = "dispute_invalid"
+	ErrSaleNotDisputed = "sale_not_disputed"
+	ErrPayoutNothing   = "payout_nothing"
+
+	// sell back
+	ErrSellBackBookUnknown = "sell_back_book_unknown"
+	ErrSellBackInvalid     = "sell_back_invalid"
+	ErrSellBackNotWaiting  = "sell_back_not_waiting"
+
 	// notifications
 	ErrNotificationUnknown = "notification_unknown"
 )

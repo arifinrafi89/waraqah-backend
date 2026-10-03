@@ -13,6 +13,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/checkout"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/deals"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/donate"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/handledsale"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/home"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/inbox"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/loyalty"
@@ -23,6 +24,7 @@ import (
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/profile"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/report"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/scan"
+	"github.com/arifinrafi89/waraqah-backend/internal/feature/sellback"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wallet"
 	"github.com/arifinrafi89/waraqah-backend/internal/feature/wishlist"
 	"github.com/arifinrafi89/waraqah-backend/internal/platform/httpx"
@@ -80,8 +82,10 @@ func mountFeatures(api httpx.Router, d *Deps) {
 	moderation.NewHandler(d.Moderation).Routes(api, d.Auth)
 	inbox.NewHandler(d.Inbox).Routes(api, d.Auth)
 	bookrequest.NewHandler(d.BookRequests).Routes(api, d.Auth)
+	handledsale.NewHandler(d.Sales).Routes(api, d.Auth)
+	sellback.NewHandler(d.SellBack).Routes(api, d.Auth)
 	orders.NewHandler(d.Orders).Routes(api, d.Auth)
 	wallet.Handler{S: d.Wallet}.Routes(api, d.Auth)
 	loyalty.Handler{S: d.Points}.Routes(api, d.Auth)
-	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: catalog.NoUsedStock{}, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
+	catalog.NewHandler(&catalog.Service{Store: d.Catalog, Used: d.SellBack, Clock: d.Clock, Loc: d.Location, Log: d.Log}).Routes(api, d.Auth)
 }

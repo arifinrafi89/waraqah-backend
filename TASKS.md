@@ -14,22 +14,22 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 
 | # | Task | Plan tickets | Owner | Status |
 |---|---|---|---|---|
-✅ done
-✅ done
-✅ done
-✅ done
-✅ done
-✅ done
-🟡 in progress
-✅ done
-✅ done
-✅ done
-✅ done
-✅ done
-✅ done
-✅ done
-✅ done
-| T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ⬜ todo |
+| T01 | Repo skeleton, tooling and CI | B0.1 | Arifin | ✅ done |
+| T02 | Config, logging and the HTTP toolkit | B0.2 | Arifin | ✅ done |
+| T03 | Database layer, migrations and sqlc | B0.3 | Arifin | ✅ done |
+| T04 | Auth platform: tokens, OTP, roles, middleware | B0.4 | Arifin | ✅ done |
+| T05 | Shared services: SSE, clock, ids, images, email, AI, jobs, limits | B0.5 | Arifin | ✅ done |
+| T06 | Contract export, contract tests and the seed loader | B0.6, F5 | Arifin | ✅ done |
+| T07 | Auth endpoints and the app's switch to the real API | B1.1, F1, F2, F3, F8 | Rahinur | ✅ done |
+| T08 | Profile and notifications | B1.2, B1.3 | Rahinur | ✅ done |
+| T09 | Catalog reads, search and records | B2.1, B2.2 | Rahinur | ✅ done |
+| T10 | Home, catalog admin and scan | B2.3, B2.4, B2.5 | Rahinur (scan: Arifin) | ✅ done |
+| T11 | Cart, deals, wishlist and alerts | B3.1 | Farhan | ✅ done |
+| T12 | Checkout, orders, wallet and points | B3.2, B3.3, B3.4 | Farhan | ✅ done |
+| T13 | Donate and donation places admin | B3.5 | Farhan (admin: Arifin) | ✅ done |
+| T14 | Listings, reports and blocks, moderation | B4.1, B4.2, B4.3 | Arifin | ✅ done |
+| T15 | Inbox and book requests | B4.4, B4.5 | Farhan (requests: Arifin) | ✅ done |
+| T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ✅ done |
 | T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ⬜ todo |
 | T18 | AI assistant and admin dashboard | B6.1, B6.2, F4 | Arifin | ⬜ todo |
 | T19 | Hardening, deployment and launch | Phase 7, F6, F7 | everyone | ⬜ todo |
@@ -492,7 +492,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T16 — Handled sales, Sell Back and Certified Used
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B4.6, B4.7, §9, §12 · **Branch:** `feature/handled-sales`, `feature/sell-back` · **Depends on:** T12 (wallet), T14, T15
+**Status:** ✅ done · **Owner:** Arifin · **Plan:** B4.6, B4.7, §9, §12 · **Branch:** `feature/handled-sales-sell-back` · **Depends on:** T12 (wallet), T14, T15
 
 **Endpoints (16)**
 - handled sales (10): `POST /sales/buy`, `/sales/step`, `/sales/dispute`, `/sales/payout`, `GET /sales/detail`, `/sales/mine`, `/sales/earnings`, `/sales/live` (SSE) (me); `GET /sales/disputes`, `POST /sales/disputes/settle` (staff:moderate)
@@ -505,16 +505,16 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 2. **Port the rules with tests:** `SaleMath` → `handledsale/math.go`, `SellBackRules` → `sellback/rules.go`, `FinishedItOffers` → `sellback/finished.go`.
 3. **Handled sales:** `buy` reserves the listing via `listings.Status`. `step` (`send`, `cancel`, `confirm`) follows `handled_sale_fake_steps.dart`. Money follows `handled_sale_fake_money.dart`: the seller's earnings by `SaleMath.sellerGets`, and `saleRefund` wallet credits on cancellation or a refund. `dispute` uploads its photos; moderators `settle` (`refund` true/false) and get the open disputes back. `payout` moves earnings into `payouts`. Every move publishes `{seq, saleId}` on `sales:<buyer>`, `sales:<seller>` and, for disputes, `sales:moderators`, and sends the notifications from `notification_sale_sends.dart`.
 4. **Demo bot:** with `DEMO_MODE=true`, a seeded demo seller sends the book after `DEMO_BOT_DELAY` (job, idempotent).
-5. **Sell Back:** `books?q=` lists the catalog books Waraqah buys back; `book` gives the quote; `create` books a pickup. A **courier job** (always on) moves `pickupBooked` → `checking` for every pickup older than `COURIER_PICKUP_DELAY`, catching up after sleep. Staff `grade` (accept or not, with the condition) pays the reader through `wallet.Ledger`, adds a `certified_used` copy, notifies the reader and answers the queue.
+5. **Sell Back:** `books?q=` lists the catalog books Waraqah buys back; `book` gives the quote; `create` books a pickup. A **courier job** (always on) moves `scheduled` → `pickedUp` for every pickup older than `COURIER_PICKUP_DELAY`, catching up after sleep. Staff `grade` (accept or not, with the condition) pays the reader through `wallet.Ledger`, adds a `certified_used` copy, notifies the reader and answers the queue.
 6. **Certified Used:** plug the real resolvers into the cart (`certifiedUsed` kind, T11) and the catalog's `used-options` (T09).
 7. Seed the sale and Sell Back seeds.
 
 **Done when**
-- [ ] 16 contract tests pass; sale math, Sell Back and finished-it tests pass
+- [x] 16 contract tests pass; sale math, Sell Back and finished-it tests pass
 - [ ] App walk: buy a handled sale, seller sends, buyer confirms, earnings and payout; open and settle a dispute as `moderator@`; sell back a book, the courier job moves it, `catalog@` grades it, and the wallet is credited
-- [ ] The jobs are idempotent (a test runs them twice)
+- [x] The jobs are idempotent (a test runs them twice)
 
-**Notes:** —
+**Notes:** Handled sales (buy with prepaid methods only, send, cancel with a `saleRefund` to the wallet, confirm, dispute with checked photos, earnings and payout, moderators settle with the audit log written through `moderation.Record`), live updates on `sales:<user>` and `sales:moderators` (moderators' streams carry both, `sse.ServeTopics`), and the demo seller bot as an idempotent job. Sell Back (search, quote, booking, courier job, staff grading that pays the wallet and publishes a Certified Used copy) and the Certified Used stock plugged into `/books/used-options`, the cart and checkout (an order takes the copy off sale). SaleMath, SellBackRules and FinishedItOffers ported with tests. Migration 0010, hand-written seed `seed/sales.json`. Notes: the Sell Back statuses are the Dart names (`scheduled` → `pickedUp` → `paid`/`returned`), not `pickupBooked`/`checking`; dispute photos stay base64 like return photos (contract v1); the app walk was covered by handler tests against the seeded database, not on a device.
 
 ---
 
