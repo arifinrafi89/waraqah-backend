@@ -20,7 +20,11 @@ func newDeps(t *testing.T) *app.Deps {
 	if err != nil {
 		t.Fatal(err)
 	}
-	return &app.Deps{Cfg: cfg, Log: slog.New(slog.NewTextHandler(io.Discard, nil))}
+	d, err := app.NewDeps(cfg, slog.New(slog.NewTextHandler(io.Discard, nil)), nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return d
 }
 
 func get(h http.Handler, path string) *httptest.ResponseRecorder {

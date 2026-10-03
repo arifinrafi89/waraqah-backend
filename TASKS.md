@@ -18,7 +18,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 ✅ done
 ✅ done
 ✅ done
-| T05 | Shared services: SSE, clock, ids, images, email, AI, jobs, limits | B0.5 | Arifin | ⬜ todo |
+✅ done
 | T06 | Contract export, contract tests and the seed loader | B0.6, F5 | Arifin | ⬜ todo |
 | T07 | Auth endpoints and the app's switch to the real API | B1.1, F1, F2, F3, F8 | Rahinur | ⬜ todo |
 | T08 | Profile and notifications | B1.2, B1.3 | Rahinur | ⬜ todo |
@@ -177,7 +177,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T05 — Shared services: SSE, clock, ids, images, email, AI, jobs, limits
 
-**Status:** ⬜ todo · **Owner:** Arifin · **Plan:** B0.5, §4.5, §9, §11, §12, §13, §17 · **Branch:** `feature/shared-services` · **Depends on:** T02 (T03 for ids)
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/7 · **Owner:** Arifin · **Plan:** B0.5, §4.5, §9, §11, §12, §13, §17 · **Branch:** `feature/shared-services` · **Depends on:** T02 (T03 for ids)
 
 **Goal:** every platform service a feature might need, each behind an interface with a fake, so feature tasks never touch an outside service directly.
 
@@ -193,11 +193,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 9. Wire all of them in `internal/app/deps.go` from config.
 
 **Done when**
-- [ ] Each service has a fake and unit tests; nothing under `internal/platform` imports `internal/feature`
-- [ ] The SSE test receives an event and a ping, and the handler exits on disconnect
-- [ ] An image test rejects a renamed non-image and an oversize image
+- [x] Each service has a fake and unit tests; nothing under `internal/platform` imports `internal/feature`
+- [x] The SSE test receives an event and a ping, and the handler exits on disconnect
+- [x] An image test rejects a renamed non-image and an oversize image
 
-**Notes:** —
+**Notes:** Clock with Dhaka days, ids for every prefix with the two sequences, the SSE broker with pings and per-process seq, Cloudinary uploader (real signed upload, fake) with strict image checks and Thumb, email senders (Resend, Brevo, log), Gemini REST client, a jobs ticker, an in-memory rate limiter with 429 middleware, and everything wired in deps.go. Notes: Cloudinary Upload takes a checked Image from DecodeImage instead of raw base64 so handlers can refuse bad images first; Gemini uses REST with the key in a header (ADR 0008).
 
 ---
 
