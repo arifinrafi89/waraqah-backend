@@ -10,6 +10,30 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+type Address struct {
+	ID        string
+	UserID    string
+	Position  int64
+	Label     string
+	Recipient string
+	Phone     string
+	Line      string
+	Upazila   string
+	District  string
+	Division  string
+	IsDefault bool
+}
+
+type Notification struct {
+	ID        string
+	UserID    string
+	Kind      string
+	Params    []byte
+	Target    []byte
+	ReadAt    pgtype.Timestamptz
+	CreatedAt time.Time
+}
+
 type OtpCode struct {
 	Contact   string
 	Purpose   string
@@ -24,6 +48,13 @@ type PendingSignup struct {
 	Name         string
 	PasswordHash string
 	CreatedAt    time.Time
+}
+
+type ProfilePref struct {
+	UserID          string
+	Muted           []string
+	ProfileVisible  bool
+	ActivityVisible bool
 }
 
 type RefreshToken struct {
@@ -50,4 +81,5 @@ type User struct {
 	Banned       bool
 	DeletedAt    pgtype.Timestamptz
 	CreatedAt    time.Time
+	PhotoData    pgtype.Text
 }

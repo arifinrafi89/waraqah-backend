@@ -994,7 +994,7 @@
     "path": "/booklists/mine/delete",
     "query": {},
     "body": {
-      "id": "bl-mine-1791039619991450"
+      "id": "bl-mine-1791040843247429"
     },
     "as": "reader"
   },
@@ -1736,7 +1736,7 @@
     "query": {},
     "body": {
       "name": "Sample Category",
-      "nameBn": "\u09a8\u09ae\u09c1\u09a8\u09be",
+      "nameBn": "নমুনা",
       "section": "academic"
     },
     "as": "catalog"
@@ -1801,7 +1801,7 @@
     "body": {
       "id": "",
       "titleEn": "Sample banner",
-      "titleBn": "\u09a8\u09ae\u09c1\u09a8\u09be \u09ac\u09cd\u09af\u09be\u09a8\u09be\u09b0",
+      "titleBn": "নমুনা ব্যানার",
       "subtitleEn": "Sample subtitle",
       "subtitleBn": "",
       "seed": 2,
@@ -1851,7 +1851,7 @@
     "query": {},
     "body": {
       "titleEn": "Sample collection",
-      "titleBn": "\u09a8\u09ae\u09c1\u09a8\u09be \u09b8\u0982\u0997\u09cd\u09b0\u09b9",
+      "titleBn": "নমুনা সংগ্রহ",
       "noteEn": "Sample",
       "noteBn": "",
       "section": "academic",
@@ -1878,7 +1878,7 @@
     "query": {},
     "body": {
       "titleEn": "Sample staff list",
-      "titleBn": "\u09a8\u09ae\u09c1\u09a8\u09be \u09a4\u09be\u09b2\u09bf\u0995\u09be",
+      "titleBn": "নমুনা তালিকা",
       "noteEn": "Sample",
       "noteBn": "",
       "kind": "classList",

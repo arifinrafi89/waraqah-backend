@@ -14,3 +14,8 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `password_invalid` | Password is empty or longer than 72 bytes (bcrypt limit). | `SignIn` (`missingPassword`) | `POST /auth/signup/request-otp`, `POST /auth/password/reset` |
 | `google_token_missing` | The request carries no Google ID token (today's app sends no body until F3). | `AuthFakeApi.google` | `POST /auth/google` |
 | `google_token_invalid` | The Google ID token failed the signature, issuer, audience, expiry or verified-email check. | none (new in the backend) | `POST /auth/google` |
+| `profile_invalid` | The name is not 2 to 60 characters, or the phone is not a Bangladesh mobile number. | `ProfileRules.check` | `POST /profile/save` |
+| `photo_invalid` | The profile photo is not a JPEG, PNG or WebP, or is over `MAX_IMAGE_MB`. | none (new in the backend) | `POST /profile/save` |
+| `address_invalid` | The address breaks `AddressRules` (a blank label, recipient or line, a bad mobile, or no division, district and upazila). | `AddressRules.check` | `POST /addresses/save` |
+| `address_unknown` | The address id is not one of the reader's. | `AddressFakeStore` (`save`, `delete`, `makeDefault`) | `POST /addresses/save`, `/addresses/default`, `/addresses/delete` |
+| `notification_unknown` | The notification id is not one of the reader's. | `NotificationFakeStore.markRead` | `POST /notifications/read` |

@@ -41,6 +41,8 @@ type step struct {
 // steps run in this order. Each feature adds its loader here, after the tables it needs.
 var steps = []step{
 	{"users", loadUsers},
+	{"addresses", loadAddresses},
+	{"notifications", loadNotifications},
 }
 
 // All runs every step.
