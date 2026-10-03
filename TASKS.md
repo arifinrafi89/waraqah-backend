@@ -23,7 +23,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 🟡 in progress
 ✅ done
 ✅ done
-| T10 | Home, catalog admin and scan | B2.3, B2.4, B2.5 | Rahinur (scan: Arifin) | ⬜ todo |
+✅ done
 | T11 | Cart, deals, wishlist and alerts | B3.1 | Farhan | ⬜ todo |
 | T12 | Checkout, orders, wallet and points | B3.2, B3.3, B3.4 | Farhan | ⬜ todo |
 | T13 | Donate and donation places admin | B3.5 | Farhan (admin: Arifin) | ⬜ todo |
@@ -325,7 +325,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T10 — Home, catalog admin and scan
 
-**Status:** ⬜ todo · **Owner:** Rahinur (scan: Arifin) · **Plan:** B2.3, B2.4, B2.5 · **Branch:** `feature/home`, `feature/catalog-admin`, `feature/scan` · **Depends on:** T09
+**Status:** ✅ done · PR https://github.com/arifinrafi89/waraqah-backend/pull/13 · **Owner:** Rahinur (scan: Arifin) · **Plan:** B2.3, B2.4, B2.5 · **Branch:** `feature/home`, `feature/catalog-admin`, `feature/scan` · **Depends on:** T09
 
 **Endpoints (29)**
 - home (3, public): `GET /home/banners`, `/home/season`, `/islamic/ayah-of-the-day`
@@ -344,11 +344,11 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 7. Body `by` fields are ignored; the audit uses the token (§4.4).
 
 **Done when**
-- [ ] 29 contract tests pass; season and catalog admin rules tests pass
-- [ ] App walk as `catalog@waraqah.test`: add and edit a book, hide it, edit records, banners, force a Season, import, low stock; Home changes accordingly
-- [ ] A reader token on any `/admin/catalog/*` → 403; no token → 401
+- [x] 29 contract tests pass; season and catalog admin rules tests pass
+- [x] App walk as `catalog@waraqah.test`: add and edit a book, hide it, edit records, banners, force a Season, import, low stock; Home changes accordingly
+- [x] A reader token on any `/admin/catalog/*` → 403; no token → 401
 
-**Notes:** —
+**Notes:** Home (banners, Season hero card, Ayah of the day), all 25 Admin → Catalog endpoints behind the catalog permission, and the scan lookup. Ports of SeasonPicker, CatalogAdminRules, ListRules and Isbn with their tests; each admin change drops the catalog cache and calls the alerts sweeper hook; a price change keeps the 30-day low. Migration 0004, seeds for banners, ayahs and the ISBN lookup, and the contract replay now pins the clock to the day of the export. Notes: hidden books are not offered to the scanner; the sweeper is a no-op until T11; extra refusal codes are listed in docs/error-codes.md.
 
 ---
 
