@@ -619,6 +619,20 @@ func (q *Queries) ListSubjects(ctx context.Context) ([]Subject, error) {
 	return items, nil
 }
 
+const setBookRating = `-- name: SetBookRating :exec
+UPDATE books SET rating = $2 WHERE id = $1
+`
+
+type SetBookRatingParams struct {
+	ID     string
+	Rating float64
+}
+
+func (q *Queries) SetBookRating(ctx context.Context, arg SetBookRatingParams) error {
+	_, err := q.db.Exec(ctx, setBookRating, arg.ID, arg.Rating)
+	return err
+}
+
 const updateBooklist = `-- name: UpdateBooklist :one
 UPDATE booklists SET title_en = $2, title_bn = $3, book_ids = $4, updated_at = $5
 WHERE id = $1

@@ -239,3 +239,9 @@ func (st *Store) Take(ctx context.Context, q *sqlc.Queries, editionID string, qu
 func (st *Store) Restock(ctx context.Context, q *sqlc.Queries, editionID string, quantity int) error {
 	return q.RestockEdition(ctx, sqlc.RestockEditionParams{ID: editionID, Stock: int32(quantity)})
 }
+
+// SetRating saves a book's average review rating inside the caller's transaction (reviews). Call
+// Invalidate after the commit so the next read sees it.
+func (st *Store) SetRating(ctx context.Context, q *sqlc.Queries, bookID string, rating float64) error {
+	return q.SetBookRating(ctx, sqlc.SetBookRatingParams{ID: bookID, Rating: rating})
+}

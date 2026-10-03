@@ -60,6 +60,7 @@ var steps = []step{
 	{"marketplace", loadMarketplace},
 	{"inbox", loadInbox},
 	{"sales", loadSales},
+	{"community", loadCommunity},
 }
 
 // All runs every step.

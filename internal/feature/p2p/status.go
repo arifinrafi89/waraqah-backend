@@ -144,3 +144,9 @@ func (s *Service) OnAccountDeleted(ctx context.Context, userID string) error {
 	s.destroy(ctx, ids)
 	return nil
 }
+
+// LiveListingCount counts the listings a reader has on sale now (the reader page).
+func (s *Service) LiveListingCount(ctx context.Context, sellerID string) (int, error) {
+	n, err := s.DB.Q().CountLiveListingsOf(ctx, sellerID)
+	return int(n), err
+}

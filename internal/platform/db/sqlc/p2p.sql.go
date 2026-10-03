@@ -12,6 +12,17 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+const countLiveListingsOf = `-- name: CountLiveListingsOf :one
+SELECT count(*)::integer FROM listings WHERE seller_id = $1 AND status = 'live'
+`
+
+func (q *Queries) CountLiveListingsOf(ctx context.Context, sellerID string) (int32, error) {
+	row := q.db.QueryRow(ctx, countLiveListingsOf, sellerID)
+	var column_1 int32
+	err := row.Scan(&column_1)
+	return column_1, err
+}
+
 const countSoldBy = `-- name: CountSoldBy :one
 SELECT count(*)::int FROM listings WHERE seller_id = $1 AND status = 'sold'
 `

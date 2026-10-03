@@ -75,3 +75,6 @@ SELECT * FROM price_lows;
 -- name: ListSalesSince :many
 SELECT edition_id, sum(copies)::int AS copies FROM sales_by_month
 WHERE month >= $1 GROUP BY edition_id;
+
+-- name: SetBookRating :exec
+UPDATE books SET rating = $2 WHERE id = $1;

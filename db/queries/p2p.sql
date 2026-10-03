@@ -122,3 +122,6 @@ SELECT l.id, l.title, l.book_id, l.seller_id, l.status, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE l.seller_id = $1 AND l.status <> 'sold'
 ORDER BY l.position DESC;
+
+-- name: CountLiveListingsOf :one
+SELECT count(*)::integer FROM listings WHERE seller_id = $1 AND status = 'live';

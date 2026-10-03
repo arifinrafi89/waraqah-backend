@@ -189,6 +189,15 @@ func (s *Service) IsBlocked(ctx context.Context, viewer, other string) (bool, er
 	return s.DB.Q().IsBlockedEither(ctx, sqlc.IsBlockedEitherParams{UserID: viewer, BlockedID: other})
 }
 
+// BlockedEither lists everyone the reader blocked or who blocked the reader (blocks.Checker for
+// feeds, which hide them all at once).
+func (s *Service) BlockedEither(ctx context.Context, viewer string) ([]string, error) {
+	if viewer == "" {
+		return []string{}, nil
+	}
+	return s.DB.Q().ListBlockedEither(ctx, viewer)
+}
+
 func contains(list []string, v string) bool {
 	for _, x := range list {
 		if x == v {

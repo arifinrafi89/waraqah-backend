@@ -86,7 +86,7 @@ INSERT INTO sales_by_month (edition_id, month, copies) VALUES ($1, $2, $3)
 ON CONFLICT (edition_id, month) DO UPDATE SET copies = sales_by_month.copies + EXCLUDED.copies;
 
 -- name: DeliveredLinesOf :many
-SELECT l.book_id, l.edition_id, o.number, h.at AS delivered_at
+SELECT l.book_id, l.edition_id, o.number, h.at AS delivered_at, o.is_donation, (o.gift IS NOT NULL)::boolean AS is_gift
 FROM orders o
 JOIN order_lines l ON l.order_number = o.number
 JOIN order_history h ON h.order_number = o.number AND h.status = 'delivered'

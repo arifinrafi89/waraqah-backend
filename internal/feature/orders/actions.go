@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"slices"
+	"time"
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgtype"
@@ -240,6 +241,10 @@ type DeliveredLine struct {
 	BookID      string
 	EditionID   string
 	OrderNumber string
+	DeliveredAt time.Time
+	// IsDonation and IsGift: the book went to someone else (a donation place, a gift's recipient).
+	IsDonation bool
+	IsGift     bool
 }
 
 // DeliveredBooks is orders.Delivered (BACKEND_PLAN.md section 8): the delivered lines of a reader.
@@ -255,7 +260,8 @@ func (s *Service) DeliveredLines(ctx context.Context, userID string) ([]Delivere
 	}
 	out := make([]DeliveredLine, 0, len(rows))
 	for _, r := range rows {
-		out = append(out, DeliveredLine{BookID: r.BookID, EditionID: r.EditionID.String, OrderNumber: r.Number})
+		out = append(out, DeliveredLine{BookID: r.BookID, EditionID: r.EditionID.String, OrderNumber: r.Number, DeliveredAt: r.DeliveredAt,
+			IsDonation: r.IsDonation, IsGift: r.IsGift})
 	}
 	return out, nil
 }

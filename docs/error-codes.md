@@ -21,7 +21,7 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `notification_unknown` | The notification id is not one of the reader's. | `NotificationFakeStore.markRead` | `POST /notifications/read` |
 | `booklist_not_yours` | The booklist id is not one of the reader own lists (unknown, or a staff list). | `BooklistFakeApi.saveMine`, `deleteMine` | `POST /booklists/mine/save`, `/booklists/mine/delete` |
 | `booklist_invalid` | The booklist has no name or a blank one, repeats a book, or names a book the catalog does not have. | `BooklistFakeApi._saveMine` | `POST /booklists/mine/save` |
-| `book_unknown` | The book id is not in the catalog. | none (new in the backend) | `POST /books/questions/ask`, `/books/questions/answer` |
+| `book_unknown` | The book id is not in the catalog. | none (new in the backend) | `POST /books/questions/ask`, `/books/questions/answer`, `POST /bites/post`, `POST /bites/edit`, `POST /reviews/save`, `POST /shelves/move` |
 | `question_invalid` | The question or answer is empty or longer than 500 characters. | none (new in the backend) | `POST /books/questions/ask`, `/books/questions/answer` |
 | `book_invalid` | The Book draft breaks `CatalogAdminRules` (blank title, no editions, bad price, ISBN, class or exam), names an unknown Author, Category or Publisher, or uses an unknown enum name. | `CatalogAdminFakeStore.saveBook` | `POST /admin/catalog/books/save` |
 | `record_invalid` | A Category, Author or Publisher breaks `CatalogAdminRules.record`, a Category has no Section, or its Section changes while Books use it. | `CatalogAdminFakeRecords.save` | `POST /admin/catalog/{categories,authors,publishers}/save` |
@@ -58,7 +58,7 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `listing_not_editable` | Only a draft, a listing sent back or a rejected one can be changed. | `ListingRules.canEdit` | `POST /p2p/listings/save` |
 | `listing_invalid` | The listing breaks `ListingRules`: a title of up to 120 characters, a note of up to 500, a price of up to 50,000 and, to send it for review, a price and front and back photos (and a damage photo when the damage flag is ticked). | `ListingRules.check` | `POST /p2p/listings/save` |
 | `listing_photo_invalid` | A photo is not a JPEG, PNG or WebP image, or is too large. | `cloudinary.DecodeImage` | `POST /p2p/listings/save` |
-| `reader_banned` | A banned reader cannot use the marketplace. | `ModerationFakeStore.isBanned` | `POST /p2p/listings/save` |
+| `reader_banned` | A banned reader cannot use the marketplace. | `ModerationFakeStore.isBanned` | `POST /p2p/listings/save`, `POST /bites/post`, `POST /bites/comments/post`, `POST /reviews/save` |
 | `report_invalid` | The reason or note breaks `ReportRules`: "something else" needs a note, and a note is at most 500 characters. | `ReportRules.check` | `POST /reports` |
 | `report_target_unknown` | The thing reported does not exist, or is the reader own. | `ReportFakeStore.report` | `POST /reports` |
 | `block_invalid` | The reader to block is unknown or the reader themselves. | `ReportFakeStore.block` | `POST /blocks/add` |
@@ -69,7 +69,7 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `report_no_owner` | There is nobody to warn or ban for that report. | `ModerationFakeStore.act` | `POST /moderation/reports/act` |
 | `action_invalid` | The action is not remove, dismiss, warn or ban. | `ReportAction` | `POST /moderation/reports/act` |
 | `thread_unknown` | The thread does not exist or the reader is not in it. | `InboxFakeStore.threads` | `GET /inbox/thread` (null), `POST /inbox/send`, `/inbox/offer/decide`, `/inbox/read`, `/inbox/listing/release`, `/inbox/listing/sold`, `/inbox/rate` |
-| `blocked_reader` | One of the two readers blocked the other: no messages, offers or new deals either way. | `InboxFakeStore.isBlocked` | `POST /inbox/open`, `/inbox/send`, `/inbox/offer`, `/inbox/offer/decide` |
+| `blocked_reader` | One of the two readers blocked the other: no messages, offers or new deals either way. | `InboxFakeStore.isBlocked` | `POST /inbox/open`, `/inbox/send`, `/inbox/offer`, `/inbox/offer/decide`, `POST /bites/like`, `POST /bites/comments/post` |
 | `message_invalid` | A message is empty or over 1,000 characters. | `OfferRules.maxMessageLength` | `POST /inbox/send` |
 | `offer_invalid` | The amount breaks `OfferRules` (at least 1 taka, at most the asking price, exactly the asking price when it is not negotiable) or the handover is not meetup or courier. | `OfferRules.check` | `POST /inbox/offer` |
 | `offer_pending` | The thread already has an offer waiting for the seller. | `FakeThread.pendingOffer` | `POST /inbox/offer` |
@@ -91,3 +91,16 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `sell_back_book_unknown` | The book is not in the catalog or has no printed Edition, so Waraqah does not buy it back. | `SellBackBooks.find` | `POST /sell-back` |
 | `sell_back_invalid` | The condition is not a `BookCondition`, the flags are negative or the pickup address is under 5 characters. | `SellBackRules.minAddress` | `POST /sell-back`, `POST /sell-back/grade` |
 | `sell_back_not_waiting` | The Sell Back is unknown or not picked up and waiting to be graded. | `SellBackFakeStore.grade` | `POST /sell-back/grade` |
+| `bite_invalid` | The Bite breaks `BiteRules`: empty, over 500 characters (graphemes), or a spoiler without a Book. | `BiteRules.check` | `POST /bites/post`, `POST /bites/edit` |
+| `bite_unknown` | The Bite does not exist. | `BiteFakeStore.find` | `POST /bites/edit`, `/bites/delete`, `/bites/like`, `/bites/comments/post` |
+| `bite_not_yours` | Only the author edits or deletes a Bite. | `BiteFakeStore._mine` | `POST /bites/edit`, `POST /bites/delete` |
+| `comment_invalid` | A comment or reply is empty or over 300 characters. | `BiteRules.checkComment` | `POST /bites/comments/post` |
+| `comment_unknown` | The comment does not exist, or the reply's parent is on another Bite. | `BiteComments.comment` | `POST /bites/comments/post`, `POST /bites/comments/delete` |
+| `comment_not_yours` | Only the author deletes a comment. | `BiteComments.deleteComment` | `POST /bites/comments/delete` |
+| `review_invalid` | The review breaks `ReviewRules`: stars outside 1 to 5 or a text over 1,000 characters. | `ReviewRules.check` | `POST /reviews/save` |
+| `review_unknown` | The reader has no review of that Book to delete. | `ReviewFakeStore.delete` | `POST /reviews/delete` |
+| `reader_unknown` | Nobody has that id. | `FollowFakeStore.follow` | `POST /readers/follow` |
+| `follow_refused` | Readers do not follow themselves, or someone blocked either way. | `FollowFakeStore.follow` | `POST /readers/follow` |
+| `progress_invalid` | The update breaks `ProgressRules`: a percentage outside 0 to 100, or pages that do not fit (both needed, 1 to 5,000 in all, not more read than in all). | `ProgressRules.check` | `POST /shelves/progress` |
+| `not_on_shelf` | Progress is saved only for a Book on one of the reader's shelves. | `ShelfFakeStore.progress` | `POST /shelves/progress` |
+| `goal_invalid` | The yearly goal is outside 1 to 365 books. | `ProgressRules.goalIsValid` | `POST /reading/goal` |
