@@ -49,3 +49,8 @@ Each code lives in `internal/platform/httpx/errors.go`. Add a row here in the sa
 | `payment_invalid` | The payment method is not bkash, nagad, cashOnDelivery or card. | `PaymentMethod` | `POST /orders/place`, `POST /donate/give` |
 | `coupon_code_taken` | A coupon with that code already exists. | `CouponFakeStore.add` | `POST /admin/coupons/create` |
 | `coupon_invalid` | The coupon breaks `CreateCoupon`: a code of 3 to 20 letters or digits, a percent from 1 to 90 or an amount of at least 1 taka, no negative minimum or cap, an end date in the future. | `CreateCoupon` | `POST /admin/coupons/create` |
+| `donate_cod_not_allowed` | A donation is paid in advance; cash on delivery is not allowed. | `DonateFakeApi.give` | `POST /donate/give` |
+| `donate_too_many` | The quantity is under 1 or more than the place still needs of that book. | `DonateFakeApi.give` | `POST /donate/give` |
+| `donate_recipient_unknown` | The place, or the book it asked for, does not exist. | `DonateFakeApi.give` | `POST /donate/give` |
+| `place_invalid` | The place breaks `PlaceRules` (name 3 to 80, a district, an area, a story of 10 to 300, at least one need of 1 to 100 copies) or names a book the catalog does not have. | `PlaceRules.check` | `POST /admin/donate/places/save` |
+| `place_unknown` | The place id is not a verified place. | `DonatePlacesStore` | `POST /admin/donate/places/save`, `POST /admin/donate/places/remove` |

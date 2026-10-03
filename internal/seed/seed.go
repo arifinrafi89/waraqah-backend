@@ -56,6 +56,7 @@ var steps = []step{
 	{"people", loadPeople},
 	{"buying", loadBuying},
 	{"orders", loadOrders},
+	{"donate", loadDonate},
 }
 
 // All runs every step.
