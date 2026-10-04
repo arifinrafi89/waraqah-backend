@@ -49,7 +49,11 @@ func subjectAndText(code, purpose string) (subject, text string) {
 func parseFrom(from string) (name, addr string) {
 	a, err := mail.ParseAddress(from)
 	if err != nil {
-		return "", from
+		return "Waraqah", from
+	}
+	// Brevo refuses a sender without a name, so a bare address is sent as "Waraqah".
+	if a.Name == "" {
+		return "Waraqah", a.Address
 	}
 	return a.Name, a.Address
 }
