@@ -12,12 +12,13 @@ import (
 
 // ScannedBook is ScannedBookModel.
 type ScannedBook struct {
-	BookID      string `json:"bookId"`
-	Title       string `json:"title"`
-	Author      string `json:"author"`
-	ISBN        string `json:"isbn"`
-	CoverSeed   int    `json:"coverSeed"`
-	NewPriceBdt int    `json:"newPriceBdt"`
+	BookID      string  `json:"bookId"`
+	Title       string  `json:"title"`
+	Author      string  `json:"author"`
+	ISBN        string  `json:"isbn"`
+	CoverSeed   int     `json:"coverSeed"`
+	CoverURL    *string `json:"coverUrl"`
+	NewPriceBdt int     `json:"newPriceBdt"`
 }
 
 // Handler is the HTTP side of the scan endpoint.
@@ -33,7 +34,7 @@ func (h *Handler) Find(ctx context.Context, isbn string) (*ScannedBook, error) {
 		for _, e := range b.Editions {
 			if e.ISBN != nil && *e.ISBN == isbn {
 				return &ScannedBook{BookID: b.ID, Title: b.Title, Author: b.Author, ISBN: isbn,
-					CoverSeed: b.CoverSeed, NewPriceBdt: b.FromPriceBdt()}, nil
+					CoverSeed: b.CoverSeed, CoverURL: b.CoverURL, NewPriceBdt: b.FromPriceBdt()}, nil
 			}
 		}
 	}
