@@ -5,7 +5,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
+	"strings"
 )
 
 func postJSON(ctx context.Context, c *http.Client, url string, headers map[string]string, body any) error {
@@ -27,7 +29,8 @@ func postJSON(ctx context.Context, c *http.Client, url string, headers map[strin
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode/100 != 2 {
-		return fmt.Errorf("send email: provider answered %d", resp.StatusCode)
+		msg, _ := io.ReadAll(io.LimitReader(resp.Body, 300))
+		return fmt.Errorf("send email: provider answered %d: %s", resp.StatusCode, strings.TrimSpace(string(msg)))
 	}
 	return nil
 }
