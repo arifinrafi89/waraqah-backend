@@ -69,6 +69,7 @@ type Listing struct {
 	Section         *string           `json:"section"`
 	NewPriceBdt     *int              `json:"newPriceBdt"`
 	Note            *string           `json:"note"`
+	CoverURL        *string           `json:"coverUrl"`
 
 	// BuyerID is who it is reserved for or was sold to; never sent.
 	BuyerID string `json:"-"`
@@ -142,10 +143,15 @@ func (s *Service) build(ctx context.Context, q *sqlc.Queries, viewer string, row
 			Flags: orEmpty(l.Flags), Photos: orEmpty(photos[l.ID]), PhotoURLs: orEmptyMap(urls[l.ID]), IsNegotiable: l.IsNegotiable, Handover: l.Handover, Status: l.Status,
 			IsMine: viewer != "" && l.SellerID == viewer, IsMyDeal: viewer != "" && l.BuyerID.String == viewer,
 			RejectionReason: text(l.RejectionReason), BookID: text(l.BookID), CoverSeed: int(l.CoverSeed), District: text(l.District),
-			Area: text(l.Area), CategoryID: text(l.CategoryID), Note: text(l.Note), BuyerID: l.BuyerID.String}
+			Area: text(l.Area), CategoryID: text(l.CategoryID), Note: text(l.Note), CoverURL: text(l.CoverUrl), BuyerID: l.BuyerID.String}
 		if l.NewPriceBdt.Valid {
 			v := int(l.NewPriceBdt.Int32)
 			item.NewPriceBdt = &v
+		}
+		if item.CoverURL == nil && item.BookID != nil {
+			if b, ok := snap.Book(*item.BookID); ok {
+				item.CoverURL = b.CoverURL
+			}
 		}
 		if item.CategoryID == nil && item.BookID != nil {
 			if b, ok := snap.Book(*item.BookID); ok && b.CategoryID != "" {

@@ -271,7 +271,7 @@ func (q *Queries) ListBooklists(ctx context.Context, viewer string) ([]Booklist,
 }
 
 const listBooks = `-- name: ListBooks :many
-SELECT id, position, title, title_bn, short_title, author, author_id, publisher_id, category_id, section, original_language, added_at, rating, tags, cover_seed, hidden, classes, exams, subject_id FROM books ORDER BY position
+SELECT id, position, title, title_bn, short_title, author, author_id, publisher_id, category_id, section, original_language, added_at, rating, tags, cover_seed, hidden, classes, exams, subject_id, cover_url FROM books ORDER BY position
 `
 
 func (q *Queries) ListBooks(ctx context.Context) ([]Book, error) {
@@ -303,6 +303,7 @@ func (q *Queries) ListBooks(ctx context.Context) ([]Book, error) {
 			&i.Classes,
 			&i.Exams,
 			&i.SubjectID,
+			&i.CoverUrl,
 		); err != nil {
 			return nil, err
 		}

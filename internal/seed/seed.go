@@ -58,6 +58,7 @@ var steps = []step{
 	{"orders", loadOrders},
 	{"donate", loadDonate},
 	{"marketplace", loadMarketplace},
+	{"covers", loadCovers},
 	{"inbox", loadInbox},
 	{"sales", loadSales},
 	{"community", loadCommunity},
