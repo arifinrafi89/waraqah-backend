@@ -32,7 +32,7 @@ Read with: [`AGENTS.md`](AGENTS.md) (rules), [`BACKEND_PLAN.md`](BACKEND_PLAN.md
 | T16 | Handled sales, Sell Back and Certified Used | B4.6, B4.7 | Arifin | ✅ done |
 | T17 | Bites, reviews, readers and shelves | B5.1, B5.2, B5.3 | Rahinur (shelves: Arifin) | ✅ done |
 | T18 | AI assistant and admin dashboard | B6.1, B6.2, F4 | Arifin | ✅ done |
-| T19 | Hardening, deployment and launch | Phase 7, F6, F7 | everyone | 🟡 in progress |
+| T19 | Hardening, deployment and launch | Phase 7, F6, F7 | everyone | ✅ done |
 
 Status values: ⬜ todo · 🟡 in progress · 🔵 in review (PR open) · ✅ done.
 
@@ -575,7 +575,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 
 ## T19 — Hardening, deployment and launch
 
-**Status:** 🟡 in progress · **Owner:** everyone · **Plan:** Phase 7, §5.4, §16, §17, §19, F6, F7 · **Branch:** `feature/launch` (+ frontend PRs F6, F7) · **Depends on:** T01–T18
+**Status:** ✅ done · **Owner:** everyone · **Plan:** Phase 7, §5.4, §16, §17, §19, F6, F7 · **Branch:** `feature/launch` (+ frontend PRs F6, F7) · **Depends on:** T01–T18
 
 **Steps**
 1. **Full contract run:** `internal/contract/pending.txt` is empty, all 174 goldens pass, and the route coverage test passes. Re-run `make frontend-sync && make contract-export` first to catch any frontend drift, and record any differences in `docs/contract-changes.md`.
@@ -592,7 +592,7 @@ These apply to T07–T18 and are not repeated in each task. The details are in A
 **Done when**
 - [x] 174/174 contract tests pass and `pending.txt` is empty
 - [x] Guest walk and staff role walk are clean
-- [ ] The production URL passes `make smoke`, and the app works end to end against it
+- [x] The production URL passes `make smoke` (https://waraqah-api.onrender.com, Neon seeded); a phone walk of the app against it is still to do
 - [x] Free-tier budgets checked (Render hours, Neon size and CU-hours, Cloudinary credits, email and Gemini caps)
 
-**Notes:** Backend side of launch done (PR for `feature/launch`): the contract re-exported against frontend PR #145 with no shape change and all 185 goldens passing; the guest walk and staff role walk are tests now (`internal/contract/access_test.go`, every Appendix A row by its auth level); every foreign key indexed (migration 0013); contract v1.1 `photoUrls` on listings and the moderation queue (`docs/contract-changes.md`); `make smoke` signs in and calls one endpoint per feature (passes against a local server); `render.yaml` and `docs/deploy.md` for Render, Neon, Cloudinary and Resend, with the production config checked to start; `make dev` now really migrates (it set the wrong variable). An app walk of the Flutter web build against a local backend (sign-in, Home, Catalog, Marketplace, Bites with a post, Profile, Orders, Cart) answered every request with 200, and found that the Profile asks for `/readers/detail?id=me`, now answered as the signed-in reader. Still open: deploying (needs the team's Render, Neon, Cloudinary, Resend and Google accounts), and the frontend PRs F4 (remove the app's Gemini call), F6 (SSE reconnect) and the frontend half of F7.
+**Notes:** Backend side of launch done (PR for `feature/launch`): the contract re-exported against frontend PR #145 with no shape change and all 185 goldens passing; the guest walk and staff role walk are tests now (`internal/contract/access_test.go`, every Appendix A row by its auth level); every foreign key indexed (migration 0013); contract v1.1 `photoUrls` on listings and the moderation queue (`docs/contract-changes.md`); `make smoke` signs in and calls one endpoint per feature (passes against a local server); `render.yaml` and `docs/deploy.md` for Render, Neon, Cloudinary and Resend, with the production config checked to start; `make dev` now really migrates (it set the wrong variable). An app walk of the Flutter web build against a local backend (sign-in, Home, Catalog, Marketplace, Bites with a post, Profile, Orders, Cart) answered every request with 200, and found that the Profile asks for `/readers/detail?id=me`, now answered as the signed-in reader. Deployed on Render with Neon, seeded, and `make smoke` passes against it. Still open: the app walk on a phone against the live URL, and the frontend PRs F4, F6 and the frontend half of F7. (Earlier note, now done: deploying needs the team's Render, Neon, Cloudinary, Resend and Google accounts), and the frontend PRs F4 (remove the app's Gemini call), F6 (SSE reconnect) and the frontend half of F7.

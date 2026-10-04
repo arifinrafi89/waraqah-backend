@@ -9,7 +9,7 @@ Go + PostgreSQL API for the [Waraqah](https://github.com/arifinrafi89/waraqah-fr
 
 ## Status
 
-All 174 endpoints of the app's fake API are built (tasks T01–T18), and every contract golden replays against them (`make test`). The deployment setup is ready (`render.yaml`, [`docs/deploy.md`](docs/deploy.md)); deploying needs the team's Neon, Render, Cloudinary, Resend and Google accounts.
+All 174 endpoints of the app's fake API are built (tasks T01–T18), and every contract golden replays against them (`make test`). It is deployed on Render with a Neon database (`render.yaml`, [`docs/deploy.md`](docs/deploy.md)), seeded, and `make smoke` passes against it. Still to do on the frontend side: F4, F6 and the frontend half of F7.
 
 ## Getting started
 
