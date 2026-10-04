@@ -20,3 +20,6 @@ coverage.*
 # Local data
 /tmp/
 *.log
+
+# Private notes (passwords)
+*.private.md
