@@ -123,6 +123,7 @@ type Book struct {
 	Classes          []int32
 	Exams            []string
 	SubjectID        pgtype.Text
+	CoverUrl         pgtype.Text
 }
 
 type BookAnswer struct {
@@ -340,6 +341,7 @@ type Listing struct {
 	Note            pgtype.Text
 	BuyerID         pgtype.Text
 	CreatedAt       time.Time
+	CoverUrl        pgtype.Text
 }
 
 type ListingPhoto struct {

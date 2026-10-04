@@ -217,3 +217,20 @@ func TestDeletedAccountsLeaveTheMarketplace(t *testing.T) {
 		t.Error("their photos are deleted")
 	}
 }
+
+func TestCoversOfBooksAndListings(t *testing.T) {
+	e := testenv.New(t)
+	book := e.Call("", "GET", "/books/detail?id=bk-sapiens", nil).Obj(t)
+	if u, _ := book["coverUrl"].(string); u == "" || u[:8] != "https://" {
+		t.Errorf("a book with a cover: %v", book["coverUrl"])
+	}
+	if nctb := e.Call("", "GET", "/books/detail?id=bk-ssc-physics", nil).Obj(t); nctb["coverUrl"] != nil {
+		t.Errorf("a book without one keeps the generated cover: %v", nctb["coverUrl"])
+	}
+	for id, wantCover := range map[string]bool{"p2p-1": true, "p2p-3": true, "p2p-6": true, "p2p-hs-4": true} {
+		l := e.Call("", "GET", "/p2p/listing?id="+id, nil).Obj(t)
+		if got := l["coverUrl"] != nil; got != wantCover {
+			t.Errorf("%s coverUrl present=%v want %v", id, got, wantCover)
+		}
+	}
+}

@@ -129,3 +129,6 @@ SELECT e.id AS edition_id, e.format, e.language, e.stock, b.id AS book_id, b.tit
 FROM editions e JOIN books b ON b.id = e.book_id
 WHERE e.format <> 'ebook' AND NOT e.is_preorder AND e.stock <= $1
 ORDER BY e.stock, b.position, e.position;
+
+-- name: SetBookCover :exec
+UPDATE books SET cover_url = $2 WHERE id = $1;

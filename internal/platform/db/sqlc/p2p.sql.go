@@ -123,7 +123,7 @@ func (q *Queries) DeletePhotosOfListing(ctx context.Context, listingID string) (
 }
 
 const getListing = `-- name: GetListing :one
-SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name
+SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, l.cover_url, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE l.id = $1
 `
@@ -157,6 +157,7 @@ func (q *Queries) GetListing(ctx context.Context, id string) (GetListingRow, err
 		&i.Listing.Note,
 		&i.Listing.BuyerID,
 		&i.Listing.CreatedAt,
+		&i.Listing.CoverUrl,
 		&i.SellerName,
 	)
 	return i, err
@@ -264,7 +265,7 @@ func (q *Queries) InsertRating(ctx context.Context, arg InsertRatingParams) erro
 }
 
 const listListingsForBook = `-- name: ListListingsForBook :many
-SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name
+SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, l.cover_url, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE l.book_id = $1::text AND l.status = 'live' AND l.seller_id <> $2::text AND u.deleted_at IS NULL
   AND NOT EXISTS (SELECT 1 FROM blocks b WHERE (b.user_id = $2::text AND b.blocked_id = l.seller_id)
@@ -312,6 +313,7 @@ func (q *Queries) ListListingsForBook(ctx context.Context, arg ListListingsForBo
 			&i.Listing.Note,
 			&i.Listing.BuyerID,
 			&i.Listing.CreatedAt,
+			&i.Listing.CoverUrl,
 			&i.SellerName,
 		); err != nil {
 			return nil, err
@@ -325,7 +327,7 @@ func (q *Queries) ListListingsForBook(ctx context.Context, arg ListListingsForBo
 }
 
 const listMineListings = `-- name: ListMineListings :many
-SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name
+SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, l.cover_url, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE l.seller_id = $1
 ORDER BY l.position DESC
@@ -366,6 +368,7 @@ func (q *Queries) ListMineListings(ctx context.Context, sellerID string) ([]List
 			&i.Listing.Note,
 			&i.Listing.BuyerID,
 			&i.Listing.CreatedAt,
+			&i.Listing.CoverUrl,
 			&i.SellerName,
 		); err != nil {
 			return nil, err
@@ -379,7 +382,7 @@ func (q *Queries) ListMineListings(ctx context.Context, sellerID string) ([]List
 }
 
 const listOpenListings = `-- name: ListOpenListings :many
-SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name
+SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, l.cover_url, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE u.deleted_at IS NULL
   AND CASE WHEN $1::boolean THEN l.status = 'live' AND l.seller_id <> $2::text
@@ -433,6 +436,7 @@ func (q *Queries) ListOpenListings(ctx context.Context, arg ListOpenListingsPara
 			&i.Listing.Note,
 			&i.Listing.BuyerID,
 			&i.Listing.CreatedAt,
+			&i.Listing.CoverUrl,
 			&i.SellerName,
 		); err != nil {
 			return nil, err
@@ -594,7 +598,7 @@ func (q *Queries) ListingCandidates(ctx context.Context, arg ListingCandidatesPa
 }
 
 const listingQueue = `-- name: ListingQueue :many
-SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name, u.strikes AS seller_strikes
+SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, l.cover_url, u.name AS seller_name, u.strikes AS seller_strikes
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE l.status = 'inReview' AND u.deleted_at IS NULL
 ORDER BY l.position DESC
@@ -636,6 +640,7 @@ func (q *Queries) ListingQueue(ctx context.Context) ([]ListingQueueRow, error) {
 			&i.Listing.Note,
 			&i.Listing.BuyerID,
 			&i.Listing.CreatedAt,
+			&i.Listing.CoverUrl,
 			&i.SellerName,
 			&i.SellerStrikes,
 		); err != nil {
@@ -693,7 +698,7 @@ func (q *Queries) ListingsOfSeller(ctx context.Context, sellerID string) ([]List
 }
 
 const liveListingsOf = `-- name: LiveListingsOf :many
-SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, u.name AS seller_name
+SELECT l.id, l.position, l.seller_id, l.title, l.price_bdt, l.condition, l.flags, l.is_negotiable, l.handover, l.status, l.rejection_reason, l.book_id, l.cover_seed, l.district, l.area, l.category_id, l.new_price_bdt, l.note, l.buyer_id, l.created_at, l.cover_url, u.name AS seller_name
 FROM listings l JOIN users u ON u.id = l.seller_id
 WHERE l.seller_id = $1 AND l.status = 'live'
 ORDER BY l.position DESC
@@ -734,6 +739,7 @@ func (q *Queries) LiveListingsOf(ctx context.Context, sellerID string) ([]LiveLi
 			&i.Listing.Note,
 			&i.Listing.BuyerID,
 			&i.Listing.CreatedAt,
+			&i.Listing.CoverUrl,
 			&i.SellerName,
 		); err != nil {
 			return nil, err
@@ -747,7 +753,7 @@ func (q *Queries) LiveListingsOf(ctx context.Context, sellerID string) ([]LiveLi
 }
 
 const lockListing = `-- name: LockListing :one
-SELECT id, position, seller_id, title, price_bdt, condition, flags, is_negotiable, handover, status, rejection_reason, book_id, cover_seed, district, area, category_id, new_price_bdt, note, buyer_id, created_at FROM listings WHERE id = $1 FOR UPDATE
+SELECT id, position, seller_id, title, price_bdt, condition, flags, is_negotiable, handover, status, rejection_reason, book_id, cover_seed, district, area, category_id, new_price_bdt, note, buyer_id, created_at, cover_url FROM listings WHERE id = $1 FOR UPDATE
 `
 
 func (q *Queries) LockListing(ctx context.Context, id string) (Listing, error) {
@@ -774,6 +780,7 @@ func (q *Queries) LockListing(ctx context.Context, id string) (Listing, error) {
 		&i.Note,
 		&i.BuyerID,
 		&i.CreatedAt,
+		&i.CoverUrl,
 	)
 	return i, err
 }
@@ -886,6 +893,20 @@ type SeedSoldBeforeParams struct {
 
 func (q *Queries) SeedSoldBefore(ctx context.Context, arg SeedSoldBeforeParams) error {
 	_, err := q.db.Exec(ctx, seedSoldBefore, arg.ID, arg.SoldBefore)
+	return err
+}
+
+const setListingCoverByTitle = `-- name: SetListingCoverByTitle :exec
+UPDATE listings SET cover_url = $2 WHERE title = $1 AND cover_url IS NULL
+`
+
+type SetListingCoverByTitleParams struct {
+	Title    string
+	CoverUrl pgtype.Text
+}
+
+func (q *Queries) SetListingCoverByTitle(ctx context.Context, arg SetListingCoverByTitleParams) error {
+	_, err := q.db.Exec(ctx, setListingCoverByTitle, arg.Title, arg.CoverUrl)
 	return err
 }
 

@@ -128,3 +128,6 @@ SELECT count(*)::integer FROM listings WHERE seller_id = $1 AND status = 'live';
 
 -- name: CountListingsInReview :one
 SELECT count(*)::integer FROM listings l JOIN users u ON u.id = l.seller_id WHERE l.status = 'inReview' AND u.deleted_at IS NULL;
+
+-- name: SetListingCoverByTitle :exec
+UPDATE listings SET cover_url = $2 WHERE title = $1 AND cover_url IS NULL;

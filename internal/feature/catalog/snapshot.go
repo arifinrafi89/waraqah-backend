@@ -261,7 +261,7 @@ func toBook(b sqlc.Book, editions []Edition, loc *time.Location) Book {
 		ID: b.ID, Title: b.Title, Author: b.Author, CategoryID: b.CategoryID, AuthorID: b.AuthorID,
 		PublisherID: b.PublisherID, Section: b.Section, OriginalLanguage: b.OriginalLanguage,
 		Editions: editions, AddedAt: b.AddedAt.In(loc).Truncate(time.Second), Rating: b.Rating,
-		Tags: nonNilStrings(b.Tags), CoverSeed: int(b.CoverSeed), ShortTitle: textPtr(b.ShortTitle.String, b.ShortTitle.Valid),
+		Tags: nonNilStrings(b.Tags), CoverSeed: int(b.CoverSeed), CoverURL: textPtr(b.CoverUrl.String, b.CoverUrl.Valid), ShortTitle: textPtr(b.ShortTitle.String, b.ShortTitle.Valid),
 		TitleBn: textPtr(b.TitleBn.String, b.TitleBn.Valid), Hidden: b.Hidden, Classes: classes,
 		Exams: nonNilStrings(b.Exams), SubjectID: textPtr(b.SubjectID.String, b.SubjectID.Valid),
 	}

@@ -35,6 +35,7 @@ type Book struct {
 	Rating           float64   `json:"rating"`
 	Tags             []string  `json:"tags"`
 	CoverSeed        int       `json:"coverSeed"`
+	CoverURL         *string   `json:"coverUrl"`
 	ShortTitle       *string   `json:"shortTitle"`
 	TitleBn          *string   `json:"titleBn"`
 	Hidden           bool      `json:"hidden"`

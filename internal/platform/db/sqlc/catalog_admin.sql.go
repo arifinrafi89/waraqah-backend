@@ -158,7 +158,7 @@ func (q *Queries) GetAuthor(ctx context.Context, id string) (Author, error) {
 }
 
 const getBookForUpdate = `-- name: GetBookForUpdate :one
-SELECT id, position, title, title_bn, short_title, author, author_id, publisher_id, category_id, section, original_language, added_at, rating, tags, cover_seed, hidden, classes, exams, subject_id FROM books WHERE id = $1 FOR UPDATE
+SELECT id, position, title, title_bn, short_title, author, author_id, publisher_id, category_id, section, original_language, added_at, rating, tags, cover_seed, hidden, classes, exams, subject_id, cover_url FROM books WHERE id = $1 FOR UPDATE
 `
 
 func (q *Queries) GetBookForUpdate(ctx context.Context, id string) (Book, error) {
@@ -184,6 +184,7 @@ func (q *Queries) GetBookForUpdate(ctx context.Context, id string) (Book, error)
 		&i.Classes,
 		&i.Exams,
 		&i.SubjectID,
+		&i.CoverUrl,
 	)
 	return i, err
 }
@@ -495,6 +496,20 @@ type RenameBooksAuthorParams struct {
 
 func (q *Queries) RenameBooksAuthor(ctx context.Context, arg RenameBooksAuthorParams) error {
 	_, err := q.db.Exec(ctx, renameBooksAuthor, arg.AuthorID, arg.Author)
+	return err
+}
+
+const setBookCover = `-- name: SetBookCover :exec
+UPDATE books SET cover_url = $2 WHERE id = $1
+`
+
+type SetBookCoverParams struct {
+	ID       string
+	CoverUrl pgtype.Text
+}
+
+func (q *Queries) SetBookCover(ctx context.Context, arg SetBookCoverParams) error {
+	_, err := q.db.Exec(ctx, setBookCover, arg.ID, arg.CoverUrl)
 	return err
 }
 
